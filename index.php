@@ -87,14 +87,48 @@
                 <div class="frame-titlebar">
                     <span class="frame-title">Login</span>
                 </div>
-
+				
+				<?php
+					
+				include 'php/valid.php';
+				
+				$security = new Security("localhost");
+				$usermail = $password = "";
+				$loginErr = $nameErr = $passErr = "";
+				
+				if($_SERVER['REQUEST_METHOD']=='POST'){
+					
+					
+					if($security->inputCheck($_POST['usermail'])){
+						$usermail = $_POST['usermail'];
+					}
+					else{
+						$nameErr = "Enter usermail";
+					}
+					if($security->inputCheck($_POST['password'])){
+						$password = md5($_POST['password']);
+					}
+					else{
+						$passErr = "Enter password";
+					}
+						
+					if($security->checkUser($usermail, $password) == false){
+						$loginErr = "Invalid Login!";
+					}
+					else {
+						$loginErr = "Login succesfull!";
+					}
+				}
+					
+				?>
+				
                 <div class="frame-content login-form">
                     <form action="" method="POST">
-                        <ul class="login-container">
-                            <li class="login-item"><label for="username">Username:</label></li>
-                            <li class="login-item"><input type="text" name="username" placeholder="Username..."></li>
-                            <li class="login-item"><label for="username">Password:</label></li>
-                            <li class="login-item"><input type="password" name="password" placeholder="Pasword..."></li>
+                        <ul class="login-container"> <!-- enter here login error -->
+                            <li class="login-item"><label for="usermail">E-mail:</label><span><?php echo $loginErr?></span></li>
+                            <li class="login-item"><input type="text" name="usermail" placeholder="Email..."><span class="error"><?php echo $nameErr?></span></li>
+                            <li class="login-item"><label for="usermail">Password:</label></li>
+                            <li class="login-item"><input type="password" name="password" placeholder="Pasword..."><span class="error"><?php echo $passErr?></span></li>
                             <li class="login-item">Do you want to stay logged in ? <input type="checkbox" name="stayLoggedin" value="true"></li>
                             <li class="login-item"><a href="#">Not registered yet ?</a></li>
                             <li class="login-item"><input type="submit" value="Log in"></li>
