@@ -208,6 +208,12 @@ main {
     border: 1px solid #cccccc;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-top-left-radius: 10px;
+    -moz-border-top-right-radius: 10px;
+    -o-border-top-left-radius: 10px;
+    -o-border-top-right-radius: 10px;
 }
 
 .frame-titlebar {
@@ -217,6 +223,12 @@ main {
     margin-left: -1px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-top-left-radius: 10px;
+    -moz-border-top-right-radius: 10px;
+    -o-border-top-left-radius: 10px;
+    -o-border-top-right-radius: 10px;
     text-align: center;
 }
 
@@ -252,6 +264,22 @@ main {
 .login-item input{
     width: 200px;
     height: 20px;
+    border: 1px solid #cccccc;
+    padding-left: 10px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;
+}
+
+.login-item input[type="submit"] {
+    height: 25px;
+    color: #fff;
+    border: 1px solid #484848;
+    background: #484848;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -o-border-radius: 10px;
 }
 
 .embeded-video {
@@ -441,4 +469,8 @@ p.link a:hover {
     height: 20px;
     width: 200px;
     float: right;
+    padding-left: 10px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;
 }
