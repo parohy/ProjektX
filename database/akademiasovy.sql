@@ -2,10 +2,10 @@
 -- version 4.1.14
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 06, 2015 at 10:56 PM
--- Server version: 5.6.17
--- PHP Version: 5.5.12
+-- Hostiteľ: 127.0.0.1
+-- Čas generovania: So 07.Nov 2015, 13:12
+-- Verzia serveru: 5.6.17
+-- Verzia PHP: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `akademiasovy`
+-- Databáza: `akademiasovy`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders`
+-- Štruktúra tabuľky pre tabuľku `orders`
 --
 
 CREATE TABLE IF NOT EXISTS `orders` (
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Štruktúra tabuľky pre tabuľku `products`
 --
 
 CREATE TABLE IF NOT EXISTS `products` (
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `products` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `products`
+-- Sťahujem dáta pre tabuľku `products`
 --
 
 INSERT INTO `products` (`Product ID`, `Subcategory`, `Items Left`, `Name`, `Price`, `Brand`, `Description`) VALUES
@@ -78,7 +78,7 @@ INSERT INTO `products` (`Product ID`, `Subcategory`, `Items Left`, `Name`, `Pric
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Štruktúra tabuľky pre tabuľku `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `E-mail` varchar(40) NOT NULL,
   `Name` varchar(20) NOT NULL,
   `Surname` varchar(20) NOT NULL,
-  `Password` varchar(30) NOT NULL,
+  `Password` varchar(100) NOT NULL,
   `Address` varchar(30) NOT NULL,
   `City` varchar(20) NOT NULL,
   `Postcode` varchar(5) NOT NULL,
@@ -97,22 +97,22 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `users`
+-- Sťahujem dáta pre tabuľku `users`
 --
 
 INSERT INTO `users` (`User ID`, `E-mail`, `Name`, `Surname`, `Password`, `Address`, `City`, `Postcode`) VALUES
-(1, 'jozo19898@gmail.com', 'Jozef', 'Samuraj', 'jablko', 'Šafárikova 11', 'Košice', '04011'),
-(2, 'serusky44@azet.sk', 'Martha', 'Big', 'yesyes22', 'Hlavná 55', 'Košice', '04001'),
-(3, 'marek.sss@gmail.com', 'Marek', 'Velký', 'iamlegend', 'Bernolákova 1', 'Košice', '04001'),
-(4, 'david99@gmail.com', 'David', 'Kostra', 'transformers55', 'Trieda SNP 50', 'Košice', '04001'),
-(5, 'ottoman787@azet.sk', 'Otto', 'Markus', '55ottis', 'Kuzmányho', 'Košice', '04001');
+(1, 'jozo19898@gmail.com', 'Jozef', 'Samuraj', '7f51fa935071c1f7bc4dd1bf28ba13f3 ', 'Šafárikova 11', 'Košice', '04011'),
+(2, 'serusky44@azet.sk', 'Martha', 'Big', '10bab60f32043f5c6d9c61d5efcfac5a ', 'Hlavná 55', 'Košice', '04001'),
+(3, 'marek.sss@gmail.com', 'Marek', 'Velký', '53d9e33e7724c067f73577c6c6e19c4e ', 'Bernolákova 1', 'Košice', '04001'),
+(4, 'david99@gmail.com', 'David', 'Kostra', '9e68830935aa1a47de049e8ad69c50b7 ', 'Trieda SNP 50', 'Košice', '04001'),
+(5, 'ottoman787@azet.sk', 'Otto', 'Markus', '91e50355df2f3d7dea23fb30e80b3bfd ', 'Kuzmányho', 'Košice', '04001');
 
 --
--- Constraints for dumped tables
+-- Obmedzenie pre exportované tabuľky
 --
 
 --
--- Constraints for table `orders`
+-- Obmedzenie pre tabuľku `orders`
 --
 ALTER TABLE `orders`
   ADD CONSTRAINT `productID_fk` FOREIGN KEY (`Products ID`) REFERENCES `products` (`Product ID`) ON DELETE NO ACTION ON UPDATE CASCADE,
