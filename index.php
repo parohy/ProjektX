@@ -96,7 +96,7 @@
                             <li class="login-item"><label for="username">Password:</label></li>
                             <li class="login-item"><input type="password" name="password" placeholder="Pasword..."></li>
                             <li class="login-item">Do you want to stay logged in ? <input type="checkbox" name="stayLoggedin" value="true"></li>
-                            <li class="login-item"><a href="#">Not registered yet ?</a></li>
+                            <li class="login-item"><a href="?page=registration">Not registered yet ?</a></li>
                             <li class="login-item"><input type="submit" value="Log in"></li>
                         </ul>
                     </form>
@@ -125,14 +125,24 @@
         <!-- BEGGINING OF MAIN CONTENT -->
         <main>
 
-            <div class="slider-container">
-                <?php
-                    include "pages/slider.php";
-                ?>
-            </div>
+            <?php
+                if(isset($_GET['page']))
+                {
+                    $page = $_GET['page'];
+                }
+                else {
+                    $page = "";
+                }
 
-            <div class="product-tabs">
-            </div>
+                if($page == "" || $page == "main-page")
+                {
+                    include ("pages/main-page.php");
+                }
+                else if($page == "registration")
+                {
+                    include ("pages/registration.php");
+                }
+            ?>
 
         </main>
         <!-- ENDING OF MAIN CONTENT -->

@@ -11,7 +11,7 @@
 
 <ul class="nav-container">
     <li class="nav-item">
-        <a href="#" class="nav-button">Hlavná stránka</a>
+        <a href="?page=main-page" class="nav-button">Hlavná stránka</a>
     </li>
     <li class="nav-item">
         <a href="#" class="nav-button">Elektronika</a>
