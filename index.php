@@ -147,7 +147,7 @@
                 </div>
 
                 <div class="frame-content">
-                    <p>Sem môžeš hodiť embeded video YEAH!</p>
+                    <iframe width="220" height="220" src="https://www.youtube.com/embed/DvOldr9Cjc8" frameborder="0" allowfullscreen></iframe>
                 </div>
 
             </div>
@@ -159,8 +159,10 @@
         <!-- BEGGINING OF MAIN CONTENT -->
         <main>
 
-            <div class="carousel-container">
-                <span class="carousel-content">Fancy Carousel is going to be here</span>
+            <div class="slider-container">
+                <?php
+                    include "pages/slider.php";
+                ?>
             </div>
 
             <div class="product-tabs">
