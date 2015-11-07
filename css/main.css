@@ -233,8 +233,28 @@ main {
 
 /* FRAME STYLE END OF DEFINITION*/
 
+.login-form {
+    padding: 0;
+}
+
+.login-container {
+    list-style-type: none;
+}
+
+.login-item {
+    font-size: 14px;
+    text-align: left;
+    margin: 5px 0 5px 30px;
+}
+
+.login-item input{
+    width: 200px;
+    height: 20px;
+}
+
 .embeded-video {
     margin-top: 20px;
+    text-align: center;
 }
 
 .carousel-container {

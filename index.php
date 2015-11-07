@@ -90,8 +90,18 @@
                     <span class="frame-title">Login</span>
                 </div>
 
-                <div class="frame-content">
-                    <p>Sem môžeš hodiť login form</p>
+                <div class="frame-content login-form">
+                    <form action="" method="POST">
+                        <ul class="login-container">
+                            <li class="login-item"><label for="username">Username:</label></li>
+                            <li class="login-item"><input type="text" name="username" placeholder="Username..."></li>
+                            <li class="login-item"><label for="username">Password:</label></li>
+                            <li class="login-item"><input type="password" name="password" placeholder="Pasword..."></li>
+                            <li class="login-item">Do you want to stay logged in ? <input type="checkbox" name="stayLoggedin" value="true"></li>
+                            <li class="login-item"><a href="#">Not registered yet ?</a></li>
+                            <li class="login-item"><input type="submit" value="Log in"></li>
+                        </ul>
+                    </form>
                 </div>
 
             </div>
