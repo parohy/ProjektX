@@ -186,6 +186,15 @@
 
     <!-- BEGGINING OF THE PAGE FOOOTER-->
     <footer id="main-footer">
+        <div id="footer-nav">
+            <a href="#" class="faq-help-button">FAQ</a>
+            <span>/</span>
+            <a href="#" class="faq-help-button">Help</a>
+            <a href="#" id="fb"></a>
+        </div>
+        <div id="copyright">
+            <span>Copyright &#169; 2015 Project X Inc. All Rights Reserved. User Agreement, Privacy and Cookies.</span>
+        </div>
     </footer>
     <!-- ENDING OF THE PAGE FOOTER-->
 
