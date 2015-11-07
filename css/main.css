@@ -104,7 +104,6 @@ main {
 }
 
 .subnav-container {
-    postion: absolute;
     top: 45px;
     left: 0;
     width: 190px;
@@ -147,7 +146,7 @@ main {
     height: 100%;
     float: left;
     line-height: 140px;
-    vertical-height: middle;
+    vertical-align: middle;
     text-align: left;
 }
 
@@ -313,7 +312,6 @@ main {
 h1 {
     font-weight: normal;
     font-size: 40px;
-    font-weight: normal;
     text-transform: uppercase;
     float: left;
     margin: 20px 0 100px 10px;
