@@ -126,9 +126,9 @@
                     <form action="" method="POST">
                         <ul class="login-container"> <!-- enter here login error -->
                             <li class="login-item"><label for="usermail">E-mail:</label><span><?php echo $loginErr?></span></li>
-                            <li class="login-item"><input type="text" name="usermail" placeholder="Email..."><span class="error"><?php echo $nameErr?></span></li>
+                            <li class="login-item"><input type="text" name="usermail" placeholder="Email..." maxlength="40"><span class="error"><?php echo $nameErr?></span></li>
                             <li class="login-item"><label for="usermail">Password:</label></li>
-                            <li class="login-item"><input type="password" name="password" placeholder="Pasword..."><span class="error"><?php echo $passErr?></span></li>
+                            <li class="login-item"><input type="password" name="password" placeholder="Pasword..." maxlength="30"><span class="error"><?php echo $passErr?></span></li>
                             <li class="login-item">Do you want to stay logged in ? <input type="checkbox" name="stayLoggedin" value="true"></li>
                             <li class="login-item"><a href="?page=registration">Not registered yet ?</a></li>
                             <li class="login-item"><input type="submit" value="Log in"></li>
