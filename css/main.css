@@ -256,19 +256,40 @@ main {
 }
 
 .login-item {
-    font-size: 14px;
+    color: #484848;
+    font-size: 12px;
     text-align: left;
-    margin: 5px 0 5px 30px;
+    margin: 7px 0 0 30px;
 }
 
 .login-item input{
     width: 200px;
-    height: 20px;
+    height: 25px;
     border: 1px solid #cccccc;
     padding-left: 10px;
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;
+}
+
+.login-dialogue {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.login-item input[type="checkbox"] {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+}
+
+.login-item a {
+    color: #484848;
+    text-decoration: none;
+}
+
+.login-item a:active {
+    color: #484848;
 }
 
 .login-item input[type="submit"] {
