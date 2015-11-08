@@ -2,10 +2,10 @@
 -- version 4.1.14
 -- http://www.phpmyadmin.net
 --
--- Hostiteľ: 127.0.0.1
--- Čas generovania: Ne 08.Nov 2015, 10:28
--- Verzia serveru: 5.6.17
--- Verzia PHP: 5.5.12
+-- Host: 127.0.0.1
+-- Generation Time: Nov 08, 2015 at 09:01 PM
+-- Server version: 5.6.17
+-- PHP Version: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,58 +17,58 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Databáza: `akademiasovy`
+-- Database: `akademiasovy`
 --
 
 -- --------------------------------------------------------
 
 --
--- Štruktúra tabuľky pre tabuľku `orders`
+-- Table structure for table `orders`
 --
 
 CREATE TABLE IF NOT EXISTS `orders` (
-  `Order ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Products ID` int(11) NOT NULL,
-  `Total Cost` int(11) NOT NULL,
-  `E-mail` varchar(40) NOT NULL,
-  `Name` varchar(20) NOT NULL,
-  `Surname` varchar(20) NOT NULL,
-  `Address` varchar(30) NOT NULL,
-  `City` varchar(20) NOT NULL,
-  `Postcode` varchar(5) NOT NULL,
-  `Telephone number` varchar(13) NOT NULL,
-  PRIMARY KEY (`Order ID`),
-  UNIQUE KEY `E-mail_5` (`E-mail`),
-  KEY `E-mail` (`E-mail`),
-  KEY `E-mail_2` (`E-mail`),
-  KEY `E-mail_3` (`E-mail`),
-  KEY `E-mail_4` (`E-mail`),
-  KEY `Name` (`Name`),
-  KEY `Products ID` (`Products ID`)
+  `orderid` int(11) NOT NULL AUTO_INCREMENT,
+  `productsid` int(11) NOT NULL,
+  `totalcost` int(11) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `surname` varchar(20) NOT NULL,
+  `address` varchar(30) NOT NULL,
+  `city` varchar(20) NOT NULL,
+  `postcode` varchar(5) NOT NULL,
+  `telephonenumber` varchar(13) NOT NULL,
+  PRIMARY KEY (`orderid`),
+  UNIQUE KEY `E-mail_5` (`email`),
+  KEY `E-mail` (`email`),
+  KEY `E-mail_2` (`email`),
+  KEY `E-mail_3` (`email`),
+  KEY `E-mail_4` (`email`),
+  KEY `Name` (`name`),
+  KEY `Products ID` (`productsid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Štruktúra tabuľky pre tabuľku `products`
+-- Table structure for table `products`
 --
 
 CREATE TABLE IF NOT EXISTS `products` (
-  `Product ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Subcategory` varchar(30) NOT NULL,
-  `Items Left` int(11) NOT NULL,
-  `Name` varchar(30) NOT NULL,
-  `Price` float NOT NULL,
-  `Brand` varchar(20) NOT NULL,
-  `Description` varchar(800) NOT NULL,
-  PRIMARY KEY (`Product ID`)
+  `productid` int(11) NOT NULL AUTO_INCREMENT,
+  `subcategory` varchar(30) NOT NULL,
+  `itemsleft` int(11) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `price` float NOT NULL,
+  `brand` varchar(20) NOT NULL,
+  `description` varchar(800) NOT NULL,
+  PRIMARY KEY (`productid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
--- Sťahujem dáta pre tabuľku `products`
+-- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`Product ID`, `Subcategory`, `Items Left`, `Name`, `Price`, `Brand`, `Description`) VALUES
+INSERT INTO `products` (`productid`, `subcategory`, `itemsleft`, `name`, `price`, `brand`, `description`) VALUES
 (1, 'Mobilné telefóny', 5, 'iPhone 5S', 499.99, 'Apple', 'Šupa mobil.'),
 (2, 'Televízory', 3, 'UE32J5100', 429.99, 'Samsung', 'Je to šupa TV.'),
 (3, 'Slúchadla', 50, 'Porta Pro', 29.99, 'Koss', 'Superis.'),
@@ -78,46 +78,45 @@ INSERT INTO `products` (`Product ID`, `Subcategory`, `Items Left`, `Name`, `Pric
 -- --------------------------------------------------------
 
 --
--- Štruktúra tabuľky pre tabuľku `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `UserID` int(11) NOT NULL AUTO_INCREMENT,
-  `Email` varchar(40) NOT NULL,
-  `Name` varchar(20) NOT NULL,
-  `Surname` varchar(20) NOT NULL,
-  `Password` varchar(100) NOT NULL,
-  `Address` varchar(30) NOT NULL,
-  `City` varchar(20) NOT NULL,
-  `Postcode` varchar(5) NOT NULL,
-  PRIMARY KEY (`UserID`),
-  UNIQUE KEY `E-mail_3` (`Email`),
-  KEY `E-mail` (`Email`),
-  KEY `E-mail_2` (`Email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+  `userid` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(40) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `surname` varchar(20) NOT NULL,
+  `password` varchar(30) NOT NULL,
+  `address` varchar(30) NOT NULL,
+  `city` varchar(20) NOT NULL,
+  `postcode` varchar(5) NOT NULL,
+  PRIMARY KEY (`userid`),
+  UNIQUE KEY `E-mail_3` (`email`),
+  KEY `E-mail` (`email`),
+  KEY `E-mail_2` (`email`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
--- Sťahujem dáta pre tabuľku `users`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`UserID`, `Email`, `Name`, `Surname`, `Password`, `Address`, `City`, `Postcode`) VALUES
-(1, 'jozo19898@gmail.com', 'Jozef', 'Samuraj', '111pin', 'Šafárikova 11', 'Košice', '04011'),
-(2, 'serusky44@azet.sk', 'Martha', 'Big', 'dominika', 'Hlavná 55', 'Košice', '04001'),
-(3, 'marek.sss@gmail.com', 'Marek', 'Velký', 'attila15', 'Bernolákova 1', 'Košice', '04001'),
-(4, 'david99@gmail.com', 'David', 'Kostra', 'iamlegend', 'Trieda SNP 50', 'Košice', '04001'),
-(5, 'ottoman787@azet.sk', 'Otto', 'Markus', 'ottis55', 'Kuzmányho', 'Košice', '04001'),
-(6, 'zeman.milos@csr.cz', 'Milos', 'Zeman', 'blanka', 'Hradna 1', 'Praha', '25000');
+INSERT INTO `users` (`userid`, `email`, `name`, `surname`, `password`, `address`, `city`, `postcode`) VALUES
+(1, 'jozo19898@gmail.com', 'Jozef', 'Samuraj', 'jablko', 'Šafárikova 11', 'Košice', '04011'),
+(2, 'serusky44@azet.sk', 'Martha', 'Big', 'yesyes22', 'Hlavná 55', 'Košice', '04001'),
+(3, 'marek.sss@gmail.com', 'Marek', 'Velký', 'iamlegend', 'Bernolákova 1', 'Košice', '04001'),
+(4, 'david99@gmail.com', 'David', 'Kostra', 'transformers55', 'Trieda SNP 50', 'Košice', '04001'),
+(5, 'ottoman787@azet.sk', 'Otto', 'Markus', '55ottis', 'Kuzmányho', 'Košice', '04001');
 
 --
--- Obmedzenie pre exportované tabuľky
+-- Constraints for dumped tables
 --
 
 --
--- Obmedzenie pre tabuľku `orders`
+-- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `orderuser_email_fk` FOREIGN KEY (`E-mail`) REFERENCES `users` (`Email`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `productID_fk` FOREIGN KEY (`Products ID`) REFERENCES `products` (`Product ID`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `orderuser_email_fk` FOREIGN KEY (`email`) REFERENCES `users` (`email`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `productID_fk` FOREIGN KEY (`productsid`) REFERENCES `products` (`productid`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
