@@ -12,6 +12,8 @@ body {
     font-family: sans-serif;
 }
 
+/* PAGE LAYOUT */
+
 #page-wrapper {
     width: 980px;
     height: 100%;
@@ -24,19 +26,14 @@ body {
     min-height: 200px;
 }
 
-#content-wrapper {
-    width: 100%;
-    height: 70%;
-}
-
-#main-footer {
-    width: 100%;
-    height: 10%;
-}
-
 #title-content {
     width: 100%;
     height: 140px;
+}
+
+#content-wrapper {
+    width: 100%;
+    height: 70%;
 }
 
 #side-panel {
@@ -50,6 +47,13 @@ main {
     height: 100%;
     float: right;
 }
+
+#main-footer {
+    width: 100%;
+    height: 10%;
+}
+
+/* NAVIGATION STYLE DEFINITION */
 
 #main-nav {
     width: 100%;
@@ -69,7 +73,6 @@ main {
     -o-box-shadow: 0 2px 2px rgba(0,0,0,0.3);
 }
 
-/* NAVIGATION STYLE DEFINITION */
 .nav-container {
     position: relative;
     width: 100%;
@@ -138,8 +141,7 @@ main {
     content: "➤ ";
 }
 
-/* NAVIGATION STYLE END OF DEFINITION */
-
+/* TITLE OF THE PAGE */
 
 #title {
     width: 60%;
@@ -157,6 +159,8 @@ main {
     margin: 20px;
 }
 
+/* SEARCH AND FAQ/HELP BUTTONS CONTAINER*/
+
 #search {
     width: 40%;
     height: 100%;
@@ -166,9 +170,13 @@ main {
     vertical-align: middle;
 }
 
+/* FAQ/HELP BUTTONS */
+
 .faq-help-button {
     display:inline-block;
 }
+
+/* SEARCH BAR */
 
 .search-container {
     display:inline-block;
@@ -201,6 +209,7 @@ main {
 }
 
 /* FRAME STYLE DEFINITION*/
+
 .frame-container {
     width: 260px;
     height: 260px;
@@ -245,7 +254,7 @@ main {
     height: 235px;
 }
 
-/* FRAME STYLE END OF DEFINITION*/
+/* LOGIN FORM STYLING */
 
 .login-form {
     padding: 0;
@@ -303,6 +312,8 @@ main {
     -o-border-radius: 10px;
 }
 
+/* FRAME WITH EMBEDED VIDEO */
+
 .embeded-video {
     margin-top: 20px;
     text-align: center;
@@ -311,6 +322,8 @@ main {
 .embeded-video .frame-content {
     padding-top: 7px;
 }
+
+/* MAIN PAGE SLIDER */
 
 .slider-container {
     width: 100%;
@@ -350,13 +363,13 @@ main {
     display: inline-block;
 }
 
+/* TABS ON MAIN PAGE */
+
 .product-tabs {
     width: 100%;
     height: 260px;
     margin-top: 20px;
 }
-
-/* TABS */
 
 h1 {
     font-weight: normal;
@@ -468,6 +481,7 @@ p.link a:hover {
     text-align: center;
 }
 
+/* REGISTRATION FORM STYLING */
 .registration {
     width: 100%;
     height: 80%;
