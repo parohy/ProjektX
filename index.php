@@ -57,27 +57,6 @@
                             <input type="text" name="search" class="search">
                             <button class="search-button" name="search-button" value="Search"></button>
                         </form>
-                        <?php
-                            $search=$_POST['search'];
-                            if(isset($_POST['search-button'])){ 
-                                $conn = new mysqli('localhost', 'root', '', 'akademiasovy');
-                                if ($conn->connect_error) {
-                                    die("Connection failed: " . $conn->connect_error);
-                                }
-                                $sql = "SELECT * FROM products WHERE subcategory LIKE '%$search%' OR name LIKE '%$search%' OR brand LIKE '%$search%'" ;
-                                $result = $conn->query($sql);
-                                if ($result->num_rows > 0) {
-                                // output data of each row
-                                    while($row = $result->fetch_assoc()) {
-                                        echo $row["Subcategory"].', '.$row["Name"]. "<br>";
-                                    }
-                                }
-                                else {
-                                    echo "0 results";
-                                }
-                                $conn->close();
-                            }               
-                         ?>
                 </div>
                 <!-- ENDING OF THE SAERCH BAR--->
 
