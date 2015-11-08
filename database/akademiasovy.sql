@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Hostiteľ: 127.0.0.1
--- Čas generovania: So 07.Nov 2015, 13:12
+-- Čas generovania: Ne 08.Nov 2015, 10:28
 -- Verzia serveru: 5.6.17
 -- Verzia PHP: 5.5.12
 
@@ -82,30 +82,31 @@ INSERT INTO `products` (`Product ID`, `Subcategory`, `Items Left`, `Name`, `Pric
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `User ID` int(11) NOT NULL AUTO_INCREMENT,
-  `E-mail` varchar(40) NOT NULL,
+  `UserID` int(11) NOT NULL AUTO_INCREMENT,
+  `Email` varchar(40) NOT NULL,
   `Name` varchar(20) NOT NULL,
   `Surname` varchar(20) NOT NULL,
   `Password` varchar(100) NOT NULL,
   `Address` varchar(30) NOT NULL,
   `City` varchar(20) NOT NULL,
   `Postcode` varchar(5) NOT NULL,
-  PRIMARY KEY (`User ID`),
-  UNIQUE KEY `E-mail_3` (`E-mail`),
-  KEY `E-mail` (`E-mail`),
-  KEY `E-mail_2` (`E-mail`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+  PRIMARY KEY (`UserID`),
+  UNIQUE KEY `E-mail_3` (`Email`),
+  KEY `E-mail` (`Email`),
+  KEY `E-mail_2` (`Email`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Sťahujem dáta pre tabuľku `users`
 --
 
-INSERT INTO `users` (`User ID`, `E-mail`, `Name`, `Surname`, `Password`, `Address`, `City`, `Postcode`) VALUES
-(1, 'jozo19898@gmail.com', 'Jozef', 'Samuraj', '7f51fa935071c1f7bc4dd1bf28ba13f3 ', 'Šafárikova 11', 'Košice', '04011'),
-(2, 'serusky44@azet.sk', 'Martha', 'Big', '10bab60f32043f5c6d9c61d5efcfac5a ', 'Hlavná 55', 'Košice', '04001'),
-(3, 'marek.sss@gmail.com', 'Marek', 'Velký', '53d9e33e7724c067f73577c6c6e19c4e ', 'Bernolákova 1', 'Košice', '04001'),
-(4, 'david99@gmail.com', 'David', 'Kostra', '9e68830935aa1a47de049e8ad69c50b7 ', 'Trieda SNP 50', 'Košice', '04001'),
-(5, 'ottoman787@azet.sk', 'Otto', 'Markus', '91e50355df2f3d7dea23fb30e80b3bfd ', 'Kuzmányho', 'Košice', '04001');
+INSERT INTO `users` (`UserID`, `Email`, `Name`, `Surname`, `Password`, `Address`, `City`, `Postcode`) VALUES
+(1, 'jozo19898@gmail.com', 'Jozef', 'Samuraj', '111pin', 'Šafárikova 11', 'Košice', '04011'),
+(2, 'serusky44@azet.sk', 'Martha', 'Big', 'dominika', 'Hlavná 55', 'Košice', '04001'),
+(3, 'marek.sss@gmail.com', 'Marek', 'Velký', 'attila15', 'Bernolákova 1', 'Košice', '04001'),
+(4, 'david99@gmail.com', 'David', 'Kostra', 'iamlegend', 'Trieda SNP 50', 'Košice', '04001'),
+(5, 'ottoman787@azet.sk', 'Otto', 'Markus', 'ottis55', 'Kuzmányho', 'Košice', '04001'),
+(6, 'zeman.milos@csr.cz', 'Milos', 'Zeman', 'blanka', 'Hradna 1', 'Praha', '25000');
 
 --
 -- Obmedzenie pre exportované tabuľky
@@ -115,8 +116,8 @@ INSERT INTO `users` (`User ID`, `E-mail`, `Name`, `Surname`, `Password`, `Addres
 -- Obmedzenie pre tabuľku `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `productID_fk` FOREIGN KEY (`Products ID`) REFERENCES `products` (`Product ID`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `orderuser_email_fk` FOREIGN KEY (`E-mail`) REFERENCES `users` (`E-mail`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `orderuser_email_fk` FOREIGN KEY (`E-mail`) REFERENCES `users` (`Email`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `productID_fk` FOREIGN KEY (`Products ID`) REFERENCES `products` (`Product ID`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
