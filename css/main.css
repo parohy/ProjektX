@@ -481,6 +481,10 @@ p.link a:hover {
    
 }
 
+#footer-butt{
+margin-top: -65px;
+}
+
 
 /* REGISTRATION FORM STYLING */
 .registration {
