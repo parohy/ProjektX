@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="">
 <head>
@@ -53,9 +56,9 @@
 
                 <!-- BEGGINING OF THE SAERCH BAR-->
                 <div class="search-container">
-                        <form  method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>"  id="searchform">
+                        <form action="php/searchHandler.php?pages=search.php" method="POST" id="searchform">
                             <input type="text" name="search" class="search">
-                            <button class="search-button" name="search-button" value="Search"></button>
+                            <input type="submit" class="search-button" value="">
                         </form>
                 </div>
                 <!-- ENDING OF THE SAERCH BAR--->
@@ -175,9 +178,11 @@
                 {
                     include ("pages/main-page.php");
                 }
-                else if($page == "registration")
-                {
-                    include ("pages/registration.php");
+                else if($page == "registration") {
+                    include("pages/registration.php");
+                }
+                else if($page == "searchResults") {
+                    include("pages/searchResults.php");
                 }
             ?>
 

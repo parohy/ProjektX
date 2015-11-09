@@ -1,16 +1,13 @@
 <div class="slider">
-
-        <div class="slider-image">
+        <div class="slider-content">
+            slide 1
         </div>
 
-        <div class="slider-description">
+        <div class="slider-content">
+            slide 2
         </div>
 
-        <!--
-        <div class="slider-controls">
-            <input type="radio" class="slider-button">
-            <input type="radio" class="slider-button">
-            <input type="radio" class="slider-button">
+        <div class="slider-content">
+            slide 3
         </div>
-        -->
 </div>
