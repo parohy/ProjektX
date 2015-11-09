@@ -7,12 +7,12 @@
                 echo "No results";
             else {
                 $result = $_SESSION['result'];
-                echo "<h4>". $result["Name"] . "</h4>";
-                echo "<p>". $result["Subcategory"] ."</p>";
+                echo "<h4>". $result["name"] . "</h4>";
+                echo "<p>". $result["subcategory"] ."</p>";
                 echo "Description";
-                echo "<p>". $result["Description"] ."</p>";
-                echo "<p>Brand:". $result["Brand"] ."</p>";
-                echo "<p>Price:". $result["Price"] ."</p>";
+                echo "<p>". $result["description"] ."</p>";
+                echo "<p>Brand:". $result["brand"] ."</p>";
+                echo "<p>Price:". $result["price"] ."</p>";
             }
         }
     ?>

@@ -14,7 +14,7 @@ if(isset($_POST['search'])) {
 }
 
 $database = new DBHandler();
-$database->query('SELECT * FROM products WHERE Name = :fname');
+$database->query('SELECT * FROM products WHERE name = :fname');
 $database->bind(':fname',$search);
 $result = $database->singleRecord();
 
