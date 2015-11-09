@@ -210,7 +210,13 @@
 
     <!-- BEGGINING OF THE PAGE FOOOTER-->
     <footer id="main-footer">
+	
         <div id="footer-nav">
+		
+		<div id="picture">
+		<p>GlobalLogic</p>
+		</div>
+		
             <a href="#" class="faq-help-button">FAQ</a>
             <span>/</span>
             <a href="#" class="faq-help-button">Help</a>
