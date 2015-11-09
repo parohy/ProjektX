@@ -1,4 +1,5 @@
 <div class="slider">
+        <a href="#" class="left-arrow"><</a>
         <div class="slider-content">
             slide 1
         </div>
