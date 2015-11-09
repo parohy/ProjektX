@@ -20,7 +20,7 @@
                 step++;
             else
                 step=1;
-            setTimeout("slideit()",2500);
+            setTimeout("slideit()",4000);
         }
         slideit();
         //-->
