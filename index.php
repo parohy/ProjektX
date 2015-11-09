@@ -200,11 +200,12 @@ session_start();
 		<div id="picture">
 		<p>GlobalLogic</p>
 		</div>
-		
+		<div id="footer-butt">
             <a href="#" class="faq-help-button">FAQ</a>
             <span>/</span>
             <a href="#" class="faq-help-button">Help</a>
             <a href="https://www.facebook.com/GYMBOSAK/?fref=ts" id="fb"></a>
+        </div>
         </div>
         <div id="copyright">
             <span>Copyright &#169; 2015 Project X Inc. All Rights Reserved. User Agreement, Privacy and Cookies.</span>
