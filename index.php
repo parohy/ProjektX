@@ -41,7 +41,16 @@ session_start();
             <!-- BEGGINING OF THE TITLE-->
             <div id="title">
                 <img src="img/default-user.png" class="user-image">
-                <h1>Welcome <?php echo "TO DO"; ?></h1>
+                <h1>Welcome
+
+                    <?php
+                    if(isset($_SESSION['loggedin'])) {
+                        //echo $_SESSION['username'];
+                    } else {
+                    }
+                    ?>
+                    
+                </h1>
             </div>
             <!-- ENDING OF THE TITLE-->
 
