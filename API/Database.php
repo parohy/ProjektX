@@ -10,27 +10,24 @@
 class DBHandler
 {
     private $dbHost = "localhost";
-    private $dbName;
+    private $dbName = "akademiasovy";
     private $dbUser = "root";
     private $dbPassword = "";
     private $dbHandler;
     private $error;
     private $statement;
 
-    public function __construct($dbName) {
-        $this->dbName = $dbName;
-
-        $dbSourceName = 'mysql:host' . $this->dbHost . ';dbname=' . $this->dbName;
+    public function __construct() {
 
         $options = array(
             PDO::ATTR_PERSISTENT => true,
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+            //PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
         );
 
         try {
 
-            $this->dbHandler = new PDO($dbSourceName,$this->dbUser, $this->dbPassword, $options);
+            $this->dbHandler = new PDO('mysql:host=localhost;dbname=akademiasovy',$this->dbUser, $this->dbPassword, $options);
 
         } catch(PDOException $e) {
 
