@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="">
 <head>
@@ -53,31 +56,10 @@
 
                 <!-- BEGGINING OF THE SAERCH BAR-->
                 <div class="search-container">
-                        <form  method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>"  id="searchform">
+                        <form action="php/searchHandler.php?pages=search.php" method="POST" id="searchform">
                             <input type="text" name="search" class="search">
-                            <button class="search-button" name="search-button" value="Search"></button>
+                            <input type="submit" class="search-button" value="">
                         </form>
-                        <?php
-                            $search=$_POST['search'];
-                            if(isset($_POST['search-button'])){ 
-                                $conn = new mysqli('localhost', 'root', '', 'akademiasovy');
-                                if ($conn->connect_error) {
-                                    die("Connection failed: " . $conn->connect_error);
-                                }
-                                $sql = "SELECT * FROM products WHERE subcategory LIKE '%$search%' OR name LIKE '%$search%' OR brand LIKE '%$search%'" ;
-                                $result = $conn->query($sql);
-                                if ($result->num_rows > 0) {
-                                // output data of each row
-                                    while($row = $result->fetch_assoc()) {
-                                        echo $row["Subcategory"].', '.$row["Name"]. "<br>";
-                                    }
-                                }
-                                else {
-                                    echo "0 results";
-                                }
-                                $conn->close();
-                            }               
-                         ?>
                 </div>
                 <!-- ENDING OF THE SAERCH BAR--->
 
@@ -196,9 +178,11 @@
                 {
                     include ("pages/main-page.php");
                 }
-                else if($page == "registration")
-                {
-                    include ("pages/registration.php");
+                else if($page == "registration") {
+                    include("pages/registration.php");
+                }
+                else if($page == "searchResults") {
+                    include("pages/searchResults.php");
                 }
             ?>
 
