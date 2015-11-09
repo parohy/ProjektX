@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 08, 2015 at 09:01 PM
+-- Generation Time: Nov 09, 2015 at 12:20 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -30,13 +30,13 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `orderid` int(11) NOT NULL AUTO_INCREMENT,
   `productsid` int(11) NOT NULL,
   `totalcost` int(11) NOT NULL,
-  `email` varchar(40) NOT NULL,
-  `name` varchar(20) NOT NULL,
-  `surname` varchar(20) NOT NULL,
-  `address` varchar(30) NOT NULL,
-  `city` varchar(20) NOT NULL,
-  `postcode` varchar(5) NOT NULL,
-  `telephonenumber` varchar(13) NOT NULL,
+  `email` varchar(40) COLLATE utf8_slovak_ci NOT NULL,
+  `name` varchar(20) COLLATE utf8_slovak_ci NOT NULL,
+  `surname` varchar(20) COLLATE utf8_slovak_ci NOT NULL,
+  `address` varchar(30) COLLATE utf8_slovak_ci NOT NULL,
+  `city` varchar(20) COLLATE utf8_slovak_ci NOT NULL,
+  `postcode` varchar(5) COLLATE utf8_slovak_ci NOT NULL,
+  `telephonenumber` varchar(13) COLLATE utf8_slovak_ci NOT NULL,
   PRIMARY KEY (`orderid`),
   UNIQUE KEY `E-mail_5` (`email`),
   KEY `E-mail` (`email`),
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   KEY `E-mail_4` (`email`),
   KEY `Name` (`name`),
   KEY `Products ID` (`productsid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -55,14 +55,14 @@ CREATE TABLE IF NOT EXISTS `orders` (
 
 CREATE TABLE IF NOT EXISTS `products` (
   `productid` int(11) NOT NULL AUTO_INCREMENT,
-  `subcategory` varchar(30) NOT NULL,
+  `subcategory` varchar(30) COLLATE utf8_slovak_ci NOT NULL,
   `itemsleft` int(11) NOT NULL,
-  `name` varchar(30) NOT NULL,
+  `name` varchar(30) COLLATE utf8_slovak_ci NOT NULL,
   `price` float NOT NULL,
-  `brand` varchar(20) NOT NULL,
-  `description` varchar(800) NOT NULL,
+  `brand` varchar(20) COLLATE utf8_slovak_ci NOT NULL,
+  `description` varchar(800) COLLATE utf8_slovak_ci NOT NULL,
   PRIMARY KEY (`productid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `products`
@@ -83,18 +83,18 @@ INSERT INTO `products` (`productid`, `subcategory`, `itemsleft`, `name`, `price`
 
 CREATE TABLE IF NOT EXISTS `users` (
   `userid` int(11) NOT NULL AUTO_INCREMENT,
-  `email` varchar(40) NOT NULL,
-  `name` varchar(20) NOT NULL,
-  `surname` varchar(20) NOT NULL,
-  `password` varchar(30) NOT NULL,
-  `address` varchar(30) NOT NULL,
-  `city` varchar(20) NOT NULL,
-  `postcode` varchar(5) NOT NULL,
+  `email` varchar(40) COLLATE utf8_slovak_ci NOT NULL,
+  `name` varchar(20) COLLATE utf8_slovak_ci NOT NULL,
+  `surname` varchar(20) COLLATE utf8_slovak_ci NOT NULL,
+  `password` varchar(30) COLLATE utf8_slovak_ci NOT NULL,
+  `address` varchar(30) COLLATE utf8_slovak_ci NOT NULL,
+  `city` varchar(20) COLLATE utf8_slovak_ci NOT NULL,
+  `postcode` varchar(5) COLLATE utf8_slovak_ci NOT NULL,
   PRIMARY KEY (`userid`),
   UNIQUE KEY `E-mail_3` (`email`),
   KEY `E-mail` (`email`),
   KEY `E-mail_2` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `users`
@@ -115,8 +115,8 @@ INSERT INTO `users` (`userid`, `email`, `name`, `surname`, `password`, `address`
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `orderuser_email_fk` FOREIGN KEY (`email`) REFERENCES `users` (`email`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `productID_fk` FOREIGN KEY (`productsid`) REFERENCES `products` (`productid`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `useremail_fk` FOREIGN KEY (`email`) REFERENCES `users` (`email`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `productid_fk` FOREIGN KEY (`productsid`) REFERENCES `products` (`productid`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
