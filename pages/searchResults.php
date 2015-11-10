@@ -24,7 +24,6 @@
                 echo "<div class='description-content'>";
                 echo "<header>";
                 echo "<h4><a href='#'>". $result["name"] . "</a></h4>";
-                echo "<h6>". $result["subcategory"] ."</h6>";
                 echo "<h5>Brand:". $result["brand"] ."</h5>";
                 echo "</header>";
                 echo "<p class='description'>";

@@ -58,7 +58,7 @@ session_start();
 
                 <div class="search-container">
                         <form action="php/searchHandler.php?pages=search.php" method="POST" id="searchform">
-                            <input type="text" name="search" class="search">
+                            <input type="text" name="search" class="search" required>
                             <input type="submit" class="search-button" value="">
                         </form>
                 </div>
@@ -86,7 +86,6 @@ session_start();
                 <div class="frame-titlebar">
                     <span class="frame-title">Login</span>
                 </div>
-				
 				<?php
 				if($_SERVER['REQUEST_METHOD']=="POST"){
 					$_SESSION['register'] = false;
@@ -96,8 +95,8 @@ session_start();
 				
                 <div class="frame-content login-form">
                     <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="POST">
-                        <ul class="login-container"> <!-- enter here login error -->
-                            <li class="login-item"><label for="usermail">E-mail:</label><span></span></li>
+                        <ul class="login-container">
+                        <li class="login-item"><label for="usermail">E-mail:</label><span></span></li>
                             <li class="login-item"><input type="text" name="usermail" placeholder="Email..." maxlength="40"><span class="error"></span></li>
                             <li class="login-item"><label for="usermail">Password:</label></li>
                             <li class="login-item"><input type="password" name="password" placeholder="Pasword..." maxlength="30"><span class="error"></span></li>

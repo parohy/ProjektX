@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="css/main-page-style.css">
+
 <div class="slider-container">
     <?php
     include "slider.php";
