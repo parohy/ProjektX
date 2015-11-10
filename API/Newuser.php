@@ -7,14 +7,14 @@
  * Time: 17:00
  */
 
-include 'Database.php';
+include ('../API/Database.php');
 
 class User{
 	
 	private $id;	
 	private $handlerDB;
 	
-	function __construct($name, $surname, $email, $password, $address, $city, $postcose){
+	function __construct($name, $surname, $email, $password, $address, $city, $postcode){
 		$this->handlerDB = new DBHandler();
 		
 		$this->id = getValidId();	
@@ -48,8 +48,8 @@ class User{
 
 	private function getValidId(){
 		$this->handlerDB->query('SELECT userid FROM users');
-		
-		$users = array();
+
+        $users = array();
 		$users = $this->handlerDB->resultSet();
 		$count = count($users);
 		
@@ -63,6 +63,3 @@ class User{
 		$this->handlerDB->execute();
 	}
 }
-
-
-?>

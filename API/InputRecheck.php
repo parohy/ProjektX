@@ -9,7 +9,7 @@
  * Time: 17:00
  */
 
-include 'Database.php';
+include_once ('../API/Database.php');
 
 class Recheck{
 	private $handlerDB;
@@ -28,9 +28,9 @@ class Recheck{
 			return 2;
 		}
 		
-		$this->$handlerDB->query('SELECT email FROM users');
-		
-		$users = array();
+		$this->handlerDB->query('SELECT email FROM users');
+
+        $users = array();
 		$users = $this->handlerDB->resultSet();
 		$count = count($users);
 		
@@ -61,6 +61,3 @@ class Recheck{
 		return $input;
 	}
 }
-
-
-?>

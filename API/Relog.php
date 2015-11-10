@@ -6,9 +6,12 @@
  * Date: 10. 11. 2015
  * Time: 17:00
  */
+session_start();
+error_reporting(E_ALL);
 
-include 'InputRecheck.php';
-include 'Newuser.php';
+include_once ('../API/InputRecheck.php');
+include_once ('../API/Newuser.php');
+include_once ('../API/Login.php');
 
 $check = new Recheck();
 
@@ -23,7 +26,7 @@ if($_SERVER['REQUEST_METHOD']=='POST' && $_SESSION['register'] == true){
 	
 		
 	if(errorControl($name, $surname, $email, $password, $address, $city, $postcode)){
-		$user = new User($name, $surname, $email, $password, $address, $city, $postcose);
+		$user = new User($name, $surname, $email, $password, $address, $city, $postcode);
 		//return to main page and set $_SESSION['register'] to null
 	}
 }
@@ -40,7 +43,7 @@ else if($_SERVER['REQUEST_METHOD']=='POST' && $_SESSION['register'] == false){
 }
 
 function errorControl($name, $surname, $email, $password, $address, $city, $postcode){
-	$error = $check->checkEmail($name, 40);
+	$error = $check->checkEmail($email, 40);
 	//email
 	if($error != true){
 		return $error;
@@ -83,5 +86,3 @@ function errorControl($name, $surname, $email, $password, $address, $city, $post
 
 	return true;
 }
-
-?>
