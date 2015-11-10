@@ -29,16 +29,13 @@ session_start();
     <p>Do your self a favour <strong>UPDATE YOUR BROWSER!</strong></p>
 <![endif]-->
 
-<!-- BEGGINING OF THE PAGE-->
 <div id="page-wrapper">
 
     <!-- BEGGINING OF THE PAGE HEADER-->
     <header id="main-header">
 
-        <!-- BEGGINING OF THE TITLE CONTENT-->
         <div id="title-content">
 
-            <!-- BEGGINING OF THE TITLE-->
             <div id="title">
                 <img src="img/default-user.png" class="user-image">
                 <h1>Welcome
@@ -49,42 +46,32 @@ session_start();
                     } else {
                     }
                     ?>
-                    
+
                 </h1>
             </div>
-            <!-- ENDING OF THE TITLE-->
 
-            <!-- BEGGINING OF THE SAERCH CONTAINER-->
             <div id="search">
 
-                <!-- BEGGINING OF THE FAQ/HELP BUTTONS-->
                 <a href="#" class="faq-help-button">FAQ</a>
                 <span>/</span>
                 <a href="#" class="faq-help-button">Help</a>
-                <!-- ENDING OF THE FAQ/HELP BUTTONS-->
 
-                <!-- BEGGINING OF THE SAERCH BAR-->
                 <div class="search-container">
                         <form action="php/searchHandler.php?pages=search.php" method="POST" id="searchform">
                             <input type="text" name="search" class="search">
                             <input type="submit" class="search-button" value="">
                         </form>
                 </div>
-                <!-- ENDING OF THE SAERCH BAR--->
 
             </div>
-            <!-- ENDING OF THE SAERCH CONTAINER-->
 
         </div>
-        <!-- ENDING OF THE TITLE CONTENT-->
 
-        <!-- BEGGINING OF THE MAIN NAVIGATION-->
         <nav id="main-nav">
             <?php
                 include "pages/main-nav.php";
             ?>
         </nav>
-        <!-- ENDING OF THE MAIN NAVIGATION-->
 
     </header>
     <!-- ENDING OF THE PAGE HEADER-->
@@ -92,10 +79,8 @@ session_start();
     <!-- BEGGINING OF THE PAGE CONTENT-->
     <div id="content-wrapper">
 
-        <!-- BEGGINING OF SIDE PANEL -->
         <aside id="side-panel">
 
-            <!-- BEGGINING OF LOGIN OF FORM -->
             <div class="frame-container">
 
                 <div class="frame-titlebar">
@@ -152,9 +137,7 @@ session_start();
                 </div>
 
             </div>
-            <!-- ENDING OF LOGIN FORM -->
 
-            <!-- BEGGINING OF EMBEDED VIDEO -->
             <div class="frame-container embeded-video">
 
                 <div class="frame-titlebar">
@@ -166,12 +149,9 @@ session_start();
                 </div>
 
             </div>
-            <!-- ENDING OF EMBEDED VIDEO -->
 
         </aside>
-        <!-- ENDING OF SIDE PANEL -->
 
-        <!-- BEGGINING OF MAIN CONTENT -->
         <main>
 
             <?php
@@ -196,7 +176,6 @@ session_start();
             ?>
 
         </main>
-        <!-- ENDING OF MAIN CONTENT -->
 
     </div>
     <!-- ENDING OF THE PAGE CONTENT-->
@@ -207,7 +186,7 @@ session_start();
         <div id="footer-nav">
 		
 		<div id="picture">
-		<p>GlobalLogic</p>
+		    <p>GlobalLogic</p>
 		</div>
 		<div id="footer-butt">
             <a href="#" class="faq-help-button">FAQ</a>
@@ -223,7 +202,6 @@ session_start();
     <!-- ENDING OF THE PAGE FOOTER-->
 
 </div>
-<!-- ENDING OF THE PAGE-->
 
 </body>
 </html>
