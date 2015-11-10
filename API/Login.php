@@ -7,7 +7,7 @@
  * Time: 17:00
  */
 
-include 'Database.php';
+include_once 'Database.php';
 
 class Login{
 	

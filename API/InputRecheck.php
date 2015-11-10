@@ -34,7 +34,7 @@ class Recheck{
 		$users = $this->handlerDB->resultSet();
 		$count = count($users);
 		
-		for($i=0;i<$count;$i++){
+		for($i=0;$i<$count;$i++){
 			if($users[$i]['email'] == $email){
 				return 1;
 			}

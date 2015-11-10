@@ -12,25 +12,38 @@ error_reporting(E_ALL);
 include_once ('../API/InputRecheck.php');
 include_once ('../API/Newuser.php');
 include_once ('../API/Login.php');
+include_once ('../API/Database.php');
+
+$tempDB = new DBHandler();
+$tempDB->query('SELECT * FROM users');
+
+$users = array();
+$users = $tempDB->resultSet();
+$count = count($users);
+echo count($users),'<br/>';
+//echo $users[$count-1]['userid'],$users[$count-1]['email'],$users[$count-1]['name'],$users[$count-1]['surname'],'<br/>';
+echo $users[$count-1]['userid']+1,'<br/>';
+
+
 
 $check = new Recheck();
+echo 'outside','<br/>';
 
-if($_SERVER['REQUEST_METHOD']=='POST' && $_SESSION['register'] == true){
+if($_SERVER['REQUEST_METHOD']=='POST'){
+	echo 'reg','<br/>';
 	$name = $check->dumpSpecialChars($_POST['name']);
-	$surname = $check->dumpSpecialChars($_POST['surname']);
-	$email = $check->dumpSpecialChars($_POST['email']);
+	$surname = $check->dumpSpecialChars($_POST['last-name']);
+	$email = $check->dumpSpecialChars($_POST['mail']);
 	$password = $check->dumpSpecialChars($_POST['password']);
-	$address = $check->dumpSpecialChars($_POST['address']);
-	$city = $check->dumpSpecialChars($_POST['city']);
-	$postcode = $check->dumpSpecialChars($_POST['postcode']);
 	
 		
-	if(errorControl($name, $surname, $email, $password, $address, $city, $postcode)){
-		$user = new User($name, $surname, $email, $password, $address, $city, $postcode);
+	if(errorControl($name, $surname, $email, $password)){
+		$user = new User($name, $surname, $email, $password);
 		//return to main page and set $_SESSION['register'] to null
 	}
 }
-else if($_SERVER['REQUEST_METHOD']=='POST' && $_SESSION['register'] == false){
+/*else if($_SERVER['REQUEST_METHOD']=='POST'){
+	echo 'log','<br/>';
 	$loginEmail = $check->dumpSpecialChars($_POST['name']);
 	$loginPassword = $check->dumpSpecialChars($_POST['name']);
 	
@@ -40,46 +53,28 @@ else if($_SERVER['REQUEST_METHOD']=='POST' && $_SESSION['register'] == false){
 			//return to main page LOGGED IN and set $_SESSION['register'] to null
 		}
 	}
-}
+}*/
 
-function errorControl($name, $surname, $email, $password, $address, $city, $postcode){
-	$error = $check->checkEmail($email, 40);
+function errorControl($name, $surname, $email, $password){
+	$error = $GLOBALS['check']->checkEmail($email, 40);
 	//email
 	if($error != true){
 		return $error;
 	}
 	//name
-	$error = $check->checkInput($name, 20);
+	$error = $GLOBALS['check']->checkInput($name, 20);
 	if($error != true){
 		return $error;
 	}
 
 	//surname
-	$error = $check->checkInput($surname, 20);
+	$error = $GLOBALS['check']->checkInput($surname, 20);
 	if($error != true){
 		return $error;
 	}
 
 	//password
-	$error = $check->checkInput($password, 30);
-	if($error != true){
-		return $error;
-	}
-
-	//address
-	$error = $check->checkInput($address, 30);
-	if($error != true){
-		return $error;
-	}
-
-	//city
-	$error = $check->checkInput($city, 20);
-	if($error != true){
-		return $error;
-	}
-
-	//postcode
-	$error = $check->checkInput($postcode, 5);
+	$error = $GLOBALS['check']->checkInput($password, 30);
 	if($error != true){
 		return $error;
 	}

@@ -11,7 +11,8 @@
     }
     
     ?>
-    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="POST" class="registration">
+    <!--   <form action="<?php/* echo htmlspecialchars($_SERVER['PHP_SELF']);*/?>" method="POST"> --> 
+                    <form action="API/relog.php" method="POST">
 <ul class="registration-container">
             <li>
                 <h4 class="headline">Registration</h4>

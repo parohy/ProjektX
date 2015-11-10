@@ -7,27 +7,25 @@
  * Time: 17:00
  */
 
-include ('../API/Database.php');
+include_once ('../API/Database.php');
 
 class User{
 	
 	private $id;	
 	private $handlerDB;
 	
-	function __construct($name, $surname, $email, $password, $address, $city, $postcode){
+	function __construct($name, $surname, $email, $password){
 		$this->handlerDB = new DBHandler();
 		
-		$this->id = getValidId();	
+		$this->id = $this->getValidId();	
+		echo $name,$surname,$email,$password,'<br/>';
 		if($this->id != null && $this->id != 0){
 			$this->saveData('name', $name, $this->id);
 			$this->saveData('surname', $surname, $this->id);
 			$this->saveData('email', $email, $this->id);
 			$this->saveData('password', $password, $this->id);
 		}
-		
-		$this->saveAddress($address, $city, $postcode);
-		
-		//redirect to mainpage
+				
 	}
 	
 	private function saveAddress($address, $city, $postcode){
@@ -46,8 +44,8 @@ class User{
 		
 	}
 
-	private function getValidId(){
-		$this->handlerDB->query('SELECT userid FROM users');
+	public function getValidId(){
+		$this->handlerDB->query('SELECT * FROM users');
 
         $users = array();
 		$users = $this->handlerDB->resultSet();
@@ -57,9 +55,10 @@ class User{
 	}
 	
 	private function saveData($parameter, $value, $id){
-		$this->handlerDB->query('INSERT INTO users '%$parameter%' VALUE :value WHERE userid=:userid');
+		echo $parameter,$value,$id,'<br/>';
+		$this->handlerDB->query('INSERT INTO users '%$parameter%' VALUE :'%$value%' WHERE userid=:userid');
 		$this->handlerDB->bind(':value',''%$value%'');
 		$this->handlerDB->bind(':userid',''%$id%'');
-		$this->handlerDB->execute();
+		$this->handlerDB->execute();					
 	}
 }

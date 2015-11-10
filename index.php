@@ -94,7 +94,8 @@ session_start();
 				?>
 				
                 <div class="frame-content login-form">
-                    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="POST">
+                  <!--   <form action="<?php/* echo htmlspecialchars($_SERVER['PHP_SELF']);*/?>" method="POST"> --> 
+                    <form action="API/relog.php" method="POST">
                         <ul class="login-container">
                         <li class="login-item"><label for="usermail">E-mail:</label><span></span></li>
                             <li class="login-item"><input type="text" name="usermail" placeholder="Email..." maxlength="40"><span class="error"></span></li>
