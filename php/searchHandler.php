@@ -43,3 +43,4 @@ function foundRecord($record) {
 }
 
 header('Location: ../?page=searchResults','Content-Type: text/html; charset=UTF-8');
+exit();

@@ -10,7 +10,7 @@
         //-->
     </script>
 
-    <img src="slide1.jpg" name="slide" width="50%" height="100%">
+    <img src="img/slider/slide1.jpg" name="slide" width="50%" height="100%">
     <script type="text/javascript">
         <!--
         var step=1

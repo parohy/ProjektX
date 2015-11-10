@@ -1,0 +1,75 @@
+.registration {
+    width: 100%;
+    height: 80%;
+    color: #484848;
+}
+
+.registration-container {
+    width: 100%;
+    list-style-type: none;
+    text-align: left;
+}
+
+.registration-container ul {
+    margin: 10px 0 10px 0;
+    list-style-type: none;
+}
+
+.registration-item {
+    width: 400px;
+    height: 25px;
+    margin: 10px 0 0 30px;
+}
+
+.headline {
+    width: 100%;
+    height: 25px;
+    padding-left: 20px;
+    color: #fff;
+    background: #484848;
+    font-weight: normal;
+    line-height: 25px;
+    vertical-align: middle;
+    padding-left: 10px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-top-left-radius: 10px;
+    -moz-border-top-right-radius: 10px;
+}
+
+.scalable {
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+
+.registration-item input {
+    height: 20px;
+    width: 200px;
+    float: right;
+    padding-left: 10px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;
+}
+
+.hideShow-button {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #484848;
+    font-weight: bold;
+    line-height: 20px;
+    vertical-align: middle;
+    margin-right: 10px;
+    margin-top: -2px;
+}
