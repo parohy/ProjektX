@@ -88,46 +88,19 @@ session_start();
                 </div>
 				
 				<?php
-					
-				include 'php/valid.php';
-				
-				$security = new Security("localhost");
-				$usermail = $password = "";
-				$loginErr = $nameErr = $passErr = "";
-				
-				if($_SERVER['REQUEST_METHOD']=='POST'){
-					
-					
-					if($security->inputCheck($_POST['usermail'])){
-						$usermail = $_POST['usermail'];
-					}
-					else{
-						$nameErr = "Enter usermail";
-					}
-					if($security->inputCheck($_POST['password'])){
-						$password = md5($_POST['password']);
-					}
-					else{
-						$passErr = "Enter password";
-					}
-						
-					if($security->checkUser($usermail, $password) == false){
-						$loginErr = "Invalid Login!";
-					}
-					else {
-						$loginErr = "Login succesfull!";
-					}
-				}
-					
+				if($_SERVER['REQUEST_METHOD']=="POST"){
+					$_SESSION['register'] = false;
+					header('Location: API/Relog.php');
+				}					
 				?>
 				
                 <div class="frame-content login-form">
-                    <form action="" method="POST">
+                    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="POST">
                         <ul class="login-container"> <!-- enter here login error -->
-                            <li class="login-item"><label for="usermail">E-mail:</label><span><?php echo $loginErr?></span></li>
-                            <li class="login-item"><input type="text" name="usermail" placeholder="Email..." maxlength="40"><span class="error"><?php echo $nameErr?></span></li>
+                            <li class="login-item"><label for="usermail">E-mail:</label><span></span></li>
+                            <li class="login-item"><input type="text" name="usermail" placeholder="Email..." maxlength="40"><span class="error"></span></li>
                             <li class="login-item"><label for="usermail">Password:</label></li>
-                            <li class="login-item"><input type="password" name="password" placeholder="Pasword..." maxlength="30"><span class="error"><?php echo $passErr?></span></li>
+                            <li class="login-item"><input type="password" name="password" placeholder="Pasword..." maxlength="30"><span class="error"></span></li>
                             <li class="login-item"><span class="login-dialogue">Do you want to stay logged in ?</span><input type="checkbox" name="stayLoggedin" value="true"></li>
                             <li class="login-item"><a href="?page=forgottenPass">Forgot your password ?</a></li>
                             <li class="login-item"><a href="?page=registration">Not registered yet ?</a></li>
