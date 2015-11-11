@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2015 at 12:10 PM
+-- Generation Time: Nov 11, 2015 at 12:57 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -60,21 +60,14 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `orderid` int(11) NOT NULL AUTO_INCREMENT,
   `productsid` int(11) NOT NULL,
   `totalcost` int(11) NOT NULL,
-  `email` varchar(40) COLLATE utf8_slovak_ci NOT NULL,
-  `name` varchar(20) COLLATE utf8_slovak_ci NOT NULL,
-  `surname` varchar(20) COLLATE utf8_slovak_ci NOT NULL,
+  `name` varchar(30) COLLATE utf8_slovak_ci NOT NULL,
+  `surname` varchar(30) COLLATE utf8_slovak_ci NOT NULL,
+  `email` varchar(30) COLLATE utf8_slovak_ci NOT NULL,
   `address` varchar(30) COLLATE utf8_slovak_ci NOT NULL,
-  `city` varchar(20) COLLATE utf8_slovak_ci NOT NULL,
-  `postcode` varchar(5) COLLATE utf8_slovak_ci NOT NULL,
-  `telephonenumber` varchar(13) COLLATE utf8_slovak_ci NOT NULL,
-  PRIMARY KEY (`orderid`),
-  UNIQUE KEY `E-mail_5` (`email`),
-  KEY `E-mail` (`email`),
-  KEY `E-mail_2` (`email`),
-  KEY `E-mail_3` (`email`),
-  KEY `E-mail_4` (`email`),
-  KEY `Name` (`name`),
-  KEY `Products ID` (`productsid`)
+  `city` varchar(30) COLLATE utf8_slovak_ci NOT NULL,
+  `postcode` varchar(30) COLLATE utf8_slovak_ci NOT NULL,
+  `telephone` varchar(30) COLLATE utf8_slovak_ci NOT NULL,
+  PRIMARY KEY (`orderid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -87,12 +80,12 @@ CREATE TABLE IF NOT EXISTS `products` (
   `productid` int(11) NOT NULL AUTO_INCREMENT,
   `categoryid` int(11) NOT NULL,
   `amount` int(11) NOT NULL,
-  `name` text COLLATE utf8_slovak_ci NOT NULL,
+  `name` varchar(200) COLLATE utf8_slovak_ci NOT NULL,
   `price` float NOT NULL,
-  `brand` text COLLATE utf8_slovak_ci NOT NULL,
+  `brand` varchar(100) COLLATE utf8_slovak_ci NOT NULL,
   `description` mediumtext COLLATE utf8_slovak_ci NOT NULL,
-  `viewamount` int(11) DEFAULT NULL,
-  `imagepath` text COLLATE utf8_slovak_ci NOT NULL,
+  `viewamount` int(11) NOT NULL,
+  `imagepath` varchar(100) COLLATE utf8_slovak_ci NOT NULL,
   PRIMARY KEY (`productid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=9 ;
 
@@ -118,17 +111,14 @@ INSERT INTO `products` (`productid`, `categoryid`, `amount`, `name`, `price`, `b
 
 CREATE TABLE IF NOT EXISTS `users` (
   `userid` int(11) NOT NULL AUTO_INCREMENT,
-  `email` varchar(40) COLLATE utf8_slovak_ci NOT NULL,
-  `name` varchar(20) COLLATE utf8_slovak_ci NOT NULL,
-  `surname` varchar(20) COLLATE utf8_slovak_ci NOT NULL,
-  `password` varchar(30) COLLATE utf8_slovak_ci NOT NULL,
-  `address` varchar(30) COLLATE utf8_slovak_ci NOT NULL,
-  `city` varchar(20) COLLATE utf8_slovak_ci NOT NULL,
-  `postcode` varchar(5) COLLATE utf8_slovak_ci NOT NULL,
-  PRIMARY KEY (`userid`),
-  UNIQUE KEY `E-mail_3` (`email`),
-  KEY `E-mail` (`email`),
-  KEY `E-mail_2` (`email`)
+  `email` varchar(50) COLLATE utf8_slovak_ci NOT NULL,
+  `name` varchar(50) COLLATE utf8_slovak_ci NOT NULL,
+  `surname` varchar(50) COLLATE utf8_slovak_ci NOT NULL,
+  `password` varchar(50) COLLATE utf8_slovak_ci NOT NULL,
+  `address` varchar(50) COLLATE utf8_slovak_ci NOT NULL,
+  `city` varchar(50) COLLATE utf8_slovak_ci NOT NULL,
+  `postcode` varchar(50) COLLATE utf8_slovak_ci NOT NULL,
+  PRIMARY KEY (`userid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=6 ;
 
 --
@@ -136,21 +126,11 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`userid`, `email`, `name`, `surname`, `password`, `address`, `city`, `postcode`) VALUES
-(1, 'jozo19898@gmail.com', 'Jozef', 'Samuraj', 'jablko', 'Šafárikova 11', 'Košice', '04011'),
-(2, 'serusky44@azet.sk', 'Martha', 'Big', 'yesyes22', 'Hlavná 55', 'Košice', '04001'),
-(3, 'marek.sss@gmail.com', 'Marek', 'Velký', 'iamlegend', 'Bernolákova 1', 'Košice', '04001'),
-(4, 'david99@gmail.com', 'David', 'Kostra', 'transformers55', 'Trieda SNP 50', 'Košice', '04001'),
-(5, 'ottoman787@azet.sk', 'Otto', 'Markus', '55ottis', 'Kuzmányho', 'Košice', '04001');
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `orders`
---
-ALTER TABLE `orders`
-  ADD CONSTRAINT `useremail_fk` FOREIGN KEY (`email`) REFERENCES `users` (`email`) ON DELETE NO ACTION ON UPDATE CASCADE;
+(1, '', 'Jozef', 'Samuraj', 'jablko', 'Šafárikova 11', 'Košice', '04011'),
+(2, '', 'Martha', 'Big', 'yesyes22', 'Hlavná 55', 'Košice', '04001'),
+(3, '', 'Marek', 'Velký', 'iamlegend', 'Bernolákova 1', 'Košice', '04001'),
+(4, '', 'David', 'Kostra', 'transformers55', 'Trieda SNP 50', 'Košice', '04001'),
+(5, '', 'Otto', 'Markus', '55ottis', 'Kuzmányho', 'Košice', '04001');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
