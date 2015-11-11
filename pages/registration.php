@@ -1,8 +1,19 @@
 <link rel="stylesheet" type="text/css" href="css/registration-style.css">
 
 <div class="frame-container registration">
-    <form action="" method="POST" class="registration">
-        <ul class="registration-container">
+    <?php
+    if (session_status() == PHP_SESSION_NONE) {
+    	session_start();
+    }
+    if($_SERVER['REQUEST_METHOD']=="POST"){
+    	$_SESSION['register'] = true;
+    	header('Location: ../API/Relog.php');
+    }
+    
+    ?>
+    <!--   <form action="<?php/* echo htmlspecialchars($_SERVER['PHP_SELF']);*/?>" method="POST"> --> 
+                    <form action="API/relog.php" method="POST">
+<ul class="registration-container">
             <li>
                 <h4 class="headline">Registration</h4>
                 <ul>

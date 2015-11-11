@@ -86,14 +86,21 @@ session_start();
                 <div class="frame-titlebar">
                     <span class="frame-title">Login</span>
                 </div>
+				<?php
+				if($_SERVER['REQUEST_METHOD']=="POST"){
+					$_SESSION['register'] = false;
+					header('Location: API/Relog.php');
+				}					
+				?>
 				
                 <div class="frame-content login-form">
-                    <form name="loginForm" action="index.php" method="POST">
-                        <ul class="login-container"> <!-- enter here login error -->
-                            <li class="login-item"><label for="usermail">E-mail:</label><span class="mail-error"></span></li>
-                            <li class="login-item"><input type="text" name="usermail" placeholder="Email..." maxlength="40" id="usermail" required></li>
-                            <li class="login-item"><label for="password">Password:</label></li>
-                            <li class="login-item"><input type="password" name="password" placeholder="Pasword..." maxlength="30" id="password" required><span class="error"></li>
+                  <!--   <form action="<?php/* echo htmlspecialchars($_SERVER['PHP_SELF']);*/?>" method="POST"> --> 
+                    <form action="API/relog.php" method="POST">
+                        <ul class="login-container">
+                        <li class="login-item"><label for="usermail">E-mail:</label><span></span></li>
+                            <li class="login-item"><input type="text" name="usermail" placeholder="Email..." maxlength="40"><span class="error"></span></li>
+                            <li class="login-item"><label for="usermail">Password:</label></li>
+                            <li class="login-item"><input type="password" name="password" placeholder="Pasword..." maxlength="30"><span class="error"></span></li>
                             <li class="login-item"><span class="login-dialogue">Do you want to stay logged in ?</span><input type="checkbox" name="stayLoggedin" value="true"></li>
                             <li class="login-item"><a href="?page=forgottenPass">Forgot your password ?</a></li>
                             <li class="login-item"><a href="?page=registration">Not registered yet ?</a></li>
