@@ -28,14 +28,14 @@ class Recheck{
 			return 2;
 		}
 		
-		$this->handlerDB->query('SELECT email FROM users');
+		$this->handlerDB->query('SELECT useremail FROM users');
 
         $users = array();
 		$users = $this->handlerDB->resultSet();
 		$count = count($users);
 		
 		for($i=0;$i<$count;$i++){
-			if($users[$i]['email'] == $email){
+			if($users[$i]['useremail'] == $email){
 				return 1;
 			}
 		}

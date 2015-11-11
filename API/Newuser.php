@@ -17,13 +17,16 @@ class User{
 	function __construct($name, $surname, $email, $password){
 		$this->handlerDB = new DBHandler();
 		
-		$this->id = $this->getValidId();	
+		
 		echo $name,$surname,$email,$password,'<br/>';
+		
+			$this->saveFirstData('username', $name);
+			$this->id = $this->getValidId();
+			
 		if($this->id != null && $this->id != 0){
-			$this->saveData('name', $name, $this->id);
-			$this->saveData('surname', $surname, $this->id);
-			$this->saveData('email', $email, $this->id);
-			$this->saveData('password', $password, $this->id);
+			$this->saveData('usersurname', $surname, $this->id);
+			$this->saveData('useremail', $email, $this->id);
+			$this->saveData('userpassword', $password, $this->id);
 		}
 				
 	}
@@ -32,13 +35,13 @@ class User{
 		
 		if($this->id != null){
 			if($address!=null){
-				$this->saveData('address', $address, $this->id);
+				$this->saveData('useraddress', $address, $this->id);
 			}
 			if($city!=null){
-				$this->saveData('city', $city, $this->id);
+				$this->saveData('usercity', $city, $this->id);
 			}
 			if($postcode!=null){
-				$this->saveData('postcode', $postcode, $this->id);
+				$this->saveData('userpostcode', $postcode, $this->id);
 			}
 		}
 		
@@ -51,14 +54,29 @@ class User{
 		$users = $this->handlerDB->resultSet();
 		$count = count($users);
 		
-		return $users[$count-1]['userid']+1;
+		return $users[$count-1]['userid'];
+	}
+	private function saveFirstData($parameter, $value){
+		echo $parameter,$value,'<br/>';
+		$this->handlerDB->query('INSERT INTO users `'.$parameter.'` VALUES :value');
+		$this->handlerDB->bind(':value',''.$value.'');
+		try{
+			$this->handlerDB->execute();
+		}catch(PDOException $e){
+			echo $e;
+		}
 	}
 	
 	private function saveData($parameter, $value, $id){
 		echo $parameter,$value,$id,'<br/>';
-		$this->handlerDB->query('INSERT INTO users '%$parameter%' VALUE :'%$value%' WHERE userid=:userid');
-		$this->handlerDB->bind(':value',''%$value%'');
-		$this->handlerDB->bind(':userid',''%$id%'');
-		$this->handlerDB->execute();					
+		$this->handlerDB->query('INSERT INTO users `'.$parameter.'` VALUES :value WHERE `userid`=:userid');
+		$this->handlerDB->bind(':value',''.$value.'');
+		$this->handlerDB->bind(':userid',''.$id.'');
+		try{
+			$this->handlerDB->execute();
+		}catch(PDOException $e){
+			echo $e;
+		}
+							
 	}
 }
