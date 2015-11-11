@@ -1,5 +1,13 @@
 <?php
 session_start();
+$_SESSION['register'] = "login"; //in case when login form is posted
+// $_SESSION['register'] = "register"; // in case when registration form posted
+
+$_SESSION['loggedin'] = false; //true if logged in, false if not
+
+$_SESSION['loginErr'] = null; //contains loggin error or login message if successful
+$_SESSION['registerErr'] = null; //contains registration error or registration message if successful
+
 ?>
 <!doctype html>
 <html lang="">
@@ -88,7 +96,6 @@ session_start();
                 </div>
 				<?php
 				if($_SERVER['REQUEST_METHOD']=="POST"){
-					$_SESSION['register'] = false;
 					header('Location: API/Relog.php');
 				}					
 				?>

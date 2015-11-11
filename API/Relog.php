@@ -1,12 +1,12 @@
 <?php
-
+session_start();
 /**
  * Created by Eclipse
  * User: Tomas Paronai
  * Date: 10. 11. 2015
  * Time: 17:00
  */
-session_start();
+
 error_reporting(E_ALL);
 
 include_once ('../API/InputRecheck.php');
@@ -20,61 +20,71 @@ $tempDB->query('SELECT * FROM users');
 $users = array();
 $users = $tempDB->resultSet();
 $count = count($users);
-echo count($users),'<br/>';
-//echo $users[$count-1]['userid'],$users[$count-1]['email'],$users[$count-1]['name'],$users[$count-1]['surname'],'<br/>';
-echo $users[$count-1]['userid']+1,'<br/>';
-
-
 
 $check = new Recheck();
-echo 'outside','<br/>';
-
-	echo 'reg','<br/>';
+	
+if($_SESSION['register'] == "register"){
 	$name = $check->dumpSpecialChars($_POST['name']);
 	$surname = $check->dumpSpecialChars($_POST['last-name']);
 	$email = $check->dumpSpecialChars($_POST['mail']);
 	$password = $check->dumpSpecialChars($_POST['password']);
 	
-		
+	
 	if(errorControl($name, $surname, $email, $password)){
 		$user = new User($name, $surname, $email, $password);
-		//return to main page and set $_SESSION['register'] to null
+		$_SESSION['registerErr'] = $user->isSaved();
+		header('Location:  ../index.php');
 	}
-	
-	/*echo 'log','<br/>';
+}
+else if($_SESSION['register'] == "login"){
 	$loginEmail = $check->dumpSpecialChars($_POST['usermail']);
 	$loginPassword = $check->dumpSpecialChars($_POST['password']);
 	
 	if(strlen($loginEmail) <= 40 && strlen($loginPassword) <= 30){
 		$login = new Login();
 		if($login->checkLogin($loginEmail, $loginPassword)){
-			echo "login OK";
-			//return to main page LOGGED IN and set $_SESSION['register'] to null
+			echo "login OK"; //LOGIN PASSED
+			$_SESSION['loggedin'] = true;
+			$_SESSION['loginErr'] = "Login successful";
+			header('Location:  ../index.php');
 		}
-	}*/
+		else{
+			echo "login bad"; //LOGIN NOT PASSED
+			$_SESSION['loggedin'] = false;
+			$_SESSION['loginErr'] = "Wrong email and password.";
+			header('Location: ../index.php');
+		}
+	}
+}
+
+	
 
 function errorControl($name, $surname, $email, $password){
 	$error = $GLOBALS['check']->checkEmail($email, 40);
 	//email
 	if($error != true){
-		return $error;
+		$_SESSION['registerErr'] = $error;
+		return false;
 	}
 	//name
 	$error = $GLOBALS['check']->checkInput($name, 20);
 	if($error != true){
-		return $error;
+		$_SESSION['registerErr'] = $error;
+		return false;
 	}
 
 	//surname
 	$error = $GLOBALS['check']->checkInput($surname, 20);
 	if($error != true){
-		return $error;
+		$_SESSION['registerErr'] = $error;
+		return false;
 	}
 
 	//password
 	$error = $GLOBALS['check']->checkInput($password, 30);
 	if($error != true){
-		return $error;
+		$_SESSION['registerErr'] = $error;
+		return false;
 	}
 
 	return true;
