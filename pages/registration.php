@@ -5,6 +5,7 @@
     if (session_status() == PHP_SESSION_NONE) {
     	session_start();
     }
+    $_SESSION['register'] = "register";
     if($_SERVER['REQUEST_METHOD']=="POST"){
     	$_SESSION['register'] = true;
     	header('Location: ../API/Relog.php');

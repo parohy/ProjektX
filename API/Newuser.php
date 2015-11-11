@@ -13,13 +13,11 @@ class User{
 	
 	private $id;	
 	private $handlerDB;
+	private $success = false;
 	
 	function __construct($name, $surname, $email, $password){
 		$this->handlerDB = new DBHandler();
-		
-		
-		echo $name,$surname,$email,$password,'<br/>';
-		
+				
 			$this->saveFirstData('name', $name);
 			$this->id = $this->getValidId();
 			
@@ -57,7 +55,7 @@ class User{
 		return $users[$count-1]['userid'];
 	}
 	private function saveFirstData($parameter, $value){
-		echo '<br/>',$parameter,$value,'<br/>';
+		//echo '<br/>',$parameter,$value,'<br/>';
 		$this->handlerDB->query("INSERT INTO users (`".$parameter."`) VALUES (:input)");
 		$this->handlerDB->bind(":input",$value);
 		try{
@@ -68,7 +66,7 @@ class User{
 	}
 	
 	private function saveData($parameter, $value, $id){
-		echo '<br/>',$parameter,$value,$id,'<br/>';
+		//echo '<br/>',$parameter,$value,$id,'<br/>';
 		$this->handlerDB->query("UPDATE users SET `".$parameter."`=:input WHERE `userid`=(:userid)");
 		$this->handlerDB->bind(":input",$value);
 		$this->handlerDB->bind(":userid",$id);
@@ -77,6 +75,13 @@ class User{
 		}catch(PDOException $e){
 			echo $e;
 		}
-							
+		$this->success = true;
+	}
+	
+	public function isSaved(){
+		if($this->success){
+			return "User registered.";
+		}
+		return "Registration failed.";
 	}
 }

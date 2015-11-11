@@ -25,7 +25,7 @@ class Recheck{
 	*/
 	public function checkEmail($email,$size){
 		if(strlen($email) > $size){
-			return 2;
+			return "Input out of bounds.";
 		}
 		
 		$this->handlerDB->query('SELECT email FROM users');
@@ -36,7 +36,7 @@ class Recheck{
 		
 		for($i=0;$i<$count;$i++){
 			if($users[$i]['email'] == $email){
-				return 1;
+				return "Email already used.";
 			}
 		}
 		return true;
@@ -48,7 +48,7 @@ class Recheck{
 	 */
 	public function checkInput($input, $size){
 		if(strlen($input) > $size){
-			return 2;
+			return "Input out of bounds.";
 		}
 		return true;
 	}
