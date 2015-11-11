@@ -18,14 +18,14 @@ class Login{
 	}
 	
 	public function checkLogin($email, $password){
-		$this->handlerDB->query('SELECT useremail,userpassword FROM users');
+		$this->handlerDB->query('SELECT email,password FROM users');
 		
 		$users = array();
 		$users = $this->handlerDB->resultSet();
 		$count = count($users);
 		
 		for($i=0;$i<$count;$i++){
-			if($users[$i]['useremail'] == $email && $users[$i]['userpassword'] == $password){
+			if($users[$i]['email'] == $email && $users[$i]['password'] == $password){
 				return true;
 			}
 		}

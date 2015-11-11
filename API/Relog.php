@@ -29,7 +29,8 @@ echo $users[$count-1]['userid']+1,'<br/>';
 $check = new Recheck();
 echo 'outside','<br/>';
 
-	/*$name = $check->dumpSpecialChars($_POST['name']);
+	echo 'reg','<br/>';
+	$name = $check->dumpSpecialChars($_POST['name']);
 	$surname = $check->dumpSpecialChars($_POST['last-name']);
 	$email = $check->dumpSpecialChars($_POST['mail']);
 	$password = $check->dumpSpecialChars($_POST['password']);
@@ -38,9 +39,9 @@ echo 'outside','<br/>';
 	if(errorControl($name, $surname, $email, $password)){
 		$user = new User($name, $surname, $email, $password);
 		//return to main page and set $_SESSION['register'] to null
-	}*/
+	}
 	
-	echo 'log','<br/>';
+	/*echo 'log','<br/>';
 	$loginEmail = $check->dumpSpecialChars($_POST['usermail']);
 	$loginPassword = $check->dumpSpecialChars($_POST['password']);
 	
@@ -50,7 +51,7 @@ echo 'outside','<br/>';
 			echo "login OK";
 			//return to main page LOGGED IN and set $_SESSION['register'] to null
 		}
-	}
+	}*/
 
 function errorControl($name, $surname, $email, $password){
 	$error = $GLOBALS['check']->checkEmail($email, 40);
