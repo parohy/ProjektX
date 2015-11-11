@@ -57,7 +57,7 @@ class User{
 		return $users[$count-1]['userid'];
 	}
 	private function saveFirstData($parameter, $value){
-		echo $parameter,$value,'<br/>';
+		echo '<br/>',$parameter,$value,'<br/>';
 		$this->handlerDB->query('INSERT INTO users `'.$parameter.'` VALUES :value');
 		$this->handlerDB->bind(':value',''.$value.'');
 		try{
@@ -68,7 +68,7 @@ class User{
 	}
 	
 	private function saveData($parameter, $value, $id){
-		echo $parameter,$value,$id,'<br/>';
+		echo '<br/>',$parameter,$value,$id,'<br/>';
 		$this->handlerDB->query('INSERT INTO users `'.$parameter.'` VALUES :value WHERE `userid`=:userid');
 		$this->handlerDB->bind(':value',''.$value.'');
 		$this->handlerDB->bind(':userid',''.$id.'');
