@@ -7,7 +7,7 @@
  */
 ?>
 
-<script src="../ProjektX/js/menuScript.js"></script>
+
 
 <ul class="nav-container">
     <li class="nav-item">

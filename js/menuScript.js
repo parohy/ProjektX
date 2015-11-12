@@ -11,7 +11,7 @@ $(function(){
     $(".subnav-container").hide(0);
 
     $(".nav-button").mouseover(function(){
-        $(this).siblings(".subnav-container").toggle("fast").delay(1);
+        $(this).siblings(".subnav-container").slideDown("slow").delay(1);
 
 
     });
@@ -22,9 +22,19 @@ $(function(){
 });
 
 $(function(){
-    $(".subnav-container").mouseleave(function(){
+    $(".subnav-container").mouseout(function(){
 
-        $(".subnav-container").hide(0);
+        $(".subnav-container").slideUp("slow");
+
+
+    });
+
+});
+
+$(function(){
+    $("#main-header").mouseout(function(){
+
+        $(".subnav-container").slideUp("slow");
 
 
     });
