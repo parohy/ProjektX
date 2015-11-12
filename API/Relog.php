@@ -46,6 +46,8 @@ else if($_SESSION['register'] == "login"){
 			echo "login OK"; //LOGIN PASSED
 			$_SESSION['loggedin'] = true;
 			$_SESSION['loginErr'] = "Login successful";
+			$_SESSION['username'] = $login->getName();
+			echo $_SESSION['username'];
 			header('Location:  ../index.php');
 		}
 		else{
