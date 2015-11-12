@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2015 at 12:57 PM
+-- Generation Time: Nov 12, 2015 at 08:43 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -62,10 +62,10 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `totalcost` int(11) NOT NULL,
   `name` varchar(30) COLLATE utf8_slovak_ci NOT NULL,
   `surname` varchar(30) COLLATE utf8_slovak_ci NOT NULL,
-  `email` varchar(30) COLLATE utf8_slovak_ci NOT NULL,
-  `address` varchar(30) COLLATE utf8_slovak_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8_slovak_ci NOT NULL,
+  `address` varchar(50) COLLATE utf8_slovak_ci NOT NULL,
   `city` varchar(30) COLLATE utf8_slovak_ci NOT NULL,
-  `postcode` varchar(30) COLLATE utf8_slovak_ci NOT NULL,
+  `postcode` varchar(5) COLLATE utf8_slovak_ci NOT NULL,
   `telephone` varchar(30) COLLATE utf8_slovak_ci NOT NULL,
   PRIMARY KEY (`orderid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=1 ;
@@ -117,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(50) COLLATE utf8_slovak_ci NOT NULL,
   `address` varchar(50) COLLATE utf8_slovak_ci NOT NULL,
   `city` varchar(50) COLLATE utf8_slovak_ci NOT NULL,
-  `postcode` varchar(50) COLLATE utf8_slovak_ci NOT NULL,
+  `postcode` varchar(5) COLLATE utf8_slovak_ci NOT NULL,
   PRIMARY KEY (`userid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=6 ;
 
