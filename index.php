@@ -3,11 +3,10 @@ session_start();
 $_SESSION['register'] = "login"; //in case when login form is posted
 // $_SESSION['register'] = "register"; // in case when registration form posted
 
-$_SESSION['loggedin'] = false; //true if logged in, false if not
+//$_SESSION['loggedin'] = false; //true if logged in, false if not
 
-$_SESSION['loginErr'] = null; //contains loggin error or login message if successful
-$_SESSION['registerErr'] = null; //contains registration error or registration message if successful
-
+//$_SESSION['loginErr'] = null; //contains loggin error or login message if successful
+//$_SESSION['registerErr'] = null; //contains registration error or registration message if successful
 ?>
 <!doctype html>
 <html lang="">
@@ -50,9 +49,11 @@ $_SESSION['registerErr'] = null; //contains registration error or registration m
                 <h1>Welcome
 
                     <?php
-                    if(isset($_SESSION['loggedin'])) {
-                        //echo $_SESSION['username'];
+                    if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                    	if(isset($_SESSION['username']))
+                        	echo $_SESSION['username'];
                     } else {
+                    	echo "guest";
                     }
                     ?>
 
