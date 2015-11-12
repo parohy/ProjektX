@@ -8,27 +8,12 @@
 
 
 $(function(){
-    $(".subnav-container").hide(0);
+    $(".subnav-container").hide();
+    var navButton = $(".nav-button");
 
-    $(".nav-button").mouseover(function(){
-        $(this).siblings(".subnav-container").slideDown("fast").delay(3);
+    navButton.click(function(){
+        $(this).siblings(".subnav-container").toggle();
 
-
+        return false;
     });
-
-
-
-
-});
-
-
-
-$(function(){
-    $("#main-header").mouseout(function(){
-
-        $(".subnav-container").slideUp("fast");
-
-
-    });
-
 });
