@@ -18,7 +18,6 @@ $_SESSION['register'] = "login"; //in case when login form is posted
     <title></title>
     <link rel="stylesheet" type="text/css" href="css/main.css"> <!-- LOADING MAIN CSS FILE -->
     <script src="js/jquery-1.11.3.min.js"></script>
-    <script src="../ProjektX/js/menuScript.js"></script>
     <!--[if lt IE 9]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -49,6 +48,9 @@ $_SESSION['register'] = "login"; //in case when login form is posted
                 <h1>Welcome
 
                     <?php
+                    /* Je to provizorne riesienie. Po jednom prihlaseni sa meno ulozi uz do prehliadaca cize to meno sa uz zobrazuje po kazdej navsteve stranky.
+                     * Mozte to upravit, i dont care.
+                     * @author Tomas Paronai */
                     if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                     	if(isset($_SESSION['username']))
                         	echo $_SESSION['username'];

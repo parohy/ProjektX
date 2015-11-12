@@ -9,6 +9,11 @@
 
 include_once 'Database.php';
 
+/**
+ * Handle for checking user login information with the database.
+ * @author Tomas Paronai
+ *
+ */
 class Login{
 	
 	private $handlerDB;
@@ -18,6 +23,13 @@ class Login{
 		$this->handlerDB = new DBHandler();
 	}
 	
+	/**
+	 * Compares the email and password if they match the data in database.
+	 * @param $email - login email
+	 * @param $password - login password
+	 * @return false - email or password not matching
+	 * @return true - login correct
+	 */
 	public function checkLogin($email, $password){
 		$this->handlerDB->query('SELECT email,password,name FROM users');
 		
@@ -34,6 +46,9 @@ class Login{
 		return false;
 	}
 	
+	/**
+	 * @return $this->name - the name of the logged in user.
+	 */
 	public function getName(){
 		return $this->name;
 	}
