@@ -11,7 +11,7 @@ $(function(){
     $(".subnav-container").hide(0);
 
     $(".nav-button").mouseover(function(){
-        $(this).siblings(".subnav-container").slideDown("fast").delay(1);
+        $(this).siblings(".subnav-container").slideDown("fast").delay(2);
 
 
     });
