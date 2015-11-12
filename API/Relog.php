@@ -23,6 +23,7 @@ $count = count($users);
 
 $check = new Recheck();
 	
+/*Executes registration algorithm*/
 if($_SESSION['register'] == "register"){
 	$name = $check->dumpSpecialChars($_POST['name']);
 	$surname = $check->dumpSpecialChars($_POST['last-name']);
@@ -31,21 +32,29 @@ if($_SESSION['register'] == "register"){
 	
 	
 	if(errorControl($name, $surname, $email, $password)){
-		$user = new User($name, $surname, $email, $password);
+		/*handle for saving user information into the database*/
+		$user = new User($name, $surname, $email, $password); 
+		
 		$_SESSION['registerErr'] = $user->isSaved();
 		header('Location:  ../index.php');
 	}
 }
+/*###############################*/
+/*Executes login algorithm*/
 else if($_SESSION['register'] == "login"){
 	$loginEmail = $check->dumpSpecialChars($_POST['usermail']);
 	$loginPassword = $check->dumpSpecialChars($_POST['password']);
 	
 	if(strlen($loginEmail) <= 40 && strlen($loginPassword) <= 30){
-		$login = new Login();
+		/*handle for checking user login information with the database*/
+		$login = new Login(); 
+		
 		if($login->checkLogin($loginEmail, $loginPassword)){
 			echo "login OK"; //LOGIN PASSED
 			$_SESSION['loggedin'] = true;
 			$_SESSION['loginErr'] = "Login successful";
+			$_SESSION['username'] = $login->getName();
+			echo $_SESSION['username'];
 			header('Location:  ../index.php');
 		}
 		else{

@@ -9,6 +9,11 @@
 
 include_once ('../API/Database.php');
 
+/**
+ * Handle for saving user information into the database.
+ * @author Tomas Paronai
+ *
+ */
 class User{
 	
 	private $id;	
@@ -29,6 +34,13 @@ class User{
 				
 	}
 	
+	/**
+	 * Saves the user address information in the database.
+	 * @author Tomas Paronai
+	 * @param $address
+	 * @param $city
+	 * @param $postcode
+	 */
 	private function saveAddress($address, $city, $postcode){
 		
 		if($this->id != null){
@@ -45,6 +57,10 @@ class User{
 		
 	}
 
+	/**
+	 * @author Tomas Paronai
+	 * @return - id of the user which is being handled
+	 */
 	public function getValidId(){
 		$this->handlerDB->query('SELECT * FROM users');
 
@@ -54,6 +70,13 @@ class User{
 		
 		return $users[$count-1]['userid'];
 	}
+	
+	/**
+	 * Saves the first data in the table.
+	 * @author Tomas Paronai
+	 * @param $parameter - name of the colum
+	 * @param $value
+	 */
 	private function saveFirstData($parameter, $value){
 		//echo '<br/>',$parameter,$value,'<br/>';
 		$this->handlerDB->query("INSERT INTO users (`".$parameter."`) VALUES (:input)");
@@ -65,6 +88,13 @@ class User{
 		}
 	}
 	
+	/**
+	 * Edits user info by the given id | saves the user input in the database.
+	 * @author Tomas Paronai
+	 * @param $parameter - name of the colum
+	 * @param $value
+	 * @param $id - given id
+	 */
 	private function saveData($parameter, $value, $id){
 		//echo '<br/>',$parameter,$value,$id,'<br/>';
 		$this->handlerDB->query("UPDATE users SET `".$parameter."`=:input WHERE `userid`=(:userid)");
@@ -78,6 +108,11 @@ class User{
 		$this->success = true;
 	}
 	
+	/**
+	 * @author Tomas Paronai
+	 * @return "User registered." - user was successfuly saved in the database
+	 * @return "Registration failed." - saving failed. Probably database error.
+	 */
 	public function isSaved(){
 		if($this->success){
 			return "User registered.";

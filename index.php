@@ -3,11 +3,10 @@ session_start();
 $_SESSION['register'] = "login"; //in case when login form is posted
 // $_SESSION['register'] = "register"; // in case when registration form posted
 
-$_SESSION['loggedin'] = false; //true if logged in, false if not
+//$_SESSION['loggedin'] = false; //true if logged in, false if not
 
-$_SESSION['loginErr'] = null; //contains loggin error or login message if successful
-$_SESSION['registerErr'] = null; //contains registration error or registration message if successful
-
+//$_SESSION['loginErr'] = null; //contains loggin error or login message if successful
+//$_SESSION['registerErr'] = null; //contains registration error or registration message if successful
 ?>
 <!doctype html>
 <html lang="">
@@ -19,7 +18,6 @@ $_SESSION['registerErr'] = null; //contains registration error or registration m
     <title></title>
     <link rel="stylesheet" type="text/css" href="css/main.css"> <!-- LOADING MAIN CSS FILE -->
     <script src="js/jquery-1.11.3.min.js"></script>
-    <script src="../ProjektX/js/menuScript.js"></script>
     <!--[if lt IE 9]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -50,9 +48,14 @@ $_SESSION['registerErr'] = null; //contains registration error or registration m
                 <h1>Welcome
 
                     <?php
-                    if(isset($_SESSION['loggedin'])) {
-                        //echo $_SESSION['username'];
+                    /* Je to provizorne riesienie. Po jednom prihlaseni sa meno ulozi uz do prehliadaca cize to meno sa uz zobrazuje po kazdej navsteve stranky.
+                     * Mozte to upravit, i dont care.
+                     * @author Tomas Paronai */
+                    if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                    	if(isset($_SESSION['username']))
+                        	echo $_SESSION['username'];
                     } else {
+                    	echo "guest";
                     }
                     ?>
 

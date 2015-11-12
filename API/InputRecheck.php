@@ -11,18 +11,27 @@
 
 include_once ('../API/Database.php');
 
+/**
+ * Creates an instance of checking object which validates and rechecks the user inputs.
+ * @author Tomas Paronai
+ *
+ */
 class Recheck{
 	private $handlerDB;
 	
 	function __construct(){
 		$this->handlerDB = new DBHandler();
 	}
-	
-	/*
-	return 2 - long email
-	return 1 - email used
-	return true - all OK
-	*/
+
+	/**
+	 * Checks the email if its out of bounds and if the email is already in the database.
+	 * @author Tomas Paronai
+	 * @param $email - email we want to check
+	 * @param $size - the max number of chars the string can have
+	 * @return "Input out of bounds." - long input
+	 * @return "Email already used." - same email found in the database
+	 * @return true - all OK
+	 */
 	public function checkEmail($email,$size){
 		if(strlen($email) > $size){
 			return "Input out of bounds.";
@@ -42,9 +51,13 @@ class Recheck{
 		return true;
 	}
 	
-	/*
-	 return 2 - long input
-	 return true - all OK
+	/**
+	 * Checks if the input string isnt out fo bounds.
+	 * @author Tomas Paronai
+	 * @param $input - the string we want to check
+	 * @param $size - the max number of chars the string can have
+	 * @return "Input out of bounds." - long input
+	 * @return true - all OK
 	 */
 	public function checkInput($input, $size){
 		if(strlen($input) > $size){
@@ -53,6 +66,12 @@ class Recheck{
 		return true;
 	}
 	
+	/**
+	 * Deletes all special characters from the string.
+	 * @author Matus Kacmar
+	 * @param $input - the string we want to clean
+	 * @return $input - clean string  
+	 */
 	public function dumpSpecialChars($input) {
 		$input = trim($input);
 		$input = stripslashes($input);
