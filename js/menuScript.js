@@ -11,7 +11,7 @@ $(function(){
     $(".subnav-container").hide(0);
 
     $(".nav-button").mouseover(function(){
-        $(this).siblings(".subnav-container").toggle("fast").delay(1000);
+        $(this).siblings(".subnav-container").toggle("fast").delay(1);
 
 
     });
@@ -24,7 +24,7 @@ $(function(){
 $(function(){
     $(".subnav-container").mouseleave(function(){
 
-        $(".subnav-container").hide(0);
+        $(".subnav-container").hide(1);
 
 
     });
