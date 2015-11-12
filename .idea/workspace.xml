@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c43782df-b268-4498-a952-ea602ec187d5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/main-nav.php" afterPath="$PROJECT_DIR$/pages/main-nav.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/menuScript.js" afterPath="$PROJECT_DIR$/js/menuScript.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -32,7 +30,7 @@
           <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/index.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-107.88461">
+                <state vertical-scroll-proportion="0.0">
                   <caret line="165" column="4" selection-start-line="165" selection-start-column="4" selection-end-line="165" selection-end-column="4" />
                   <folding>
                     <marker date="1447318762084" expanded="true" signature="1009:1094" placeholder="..." />
@@ -45,7 +43,7 @@
           <file leaf-file-name="main-nav.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/pages/main-nav.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-2.6153846">
+                <state vertical-scroll-proportion="0.0">
                   <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
                   <folding />
                 </state>
@@ -55,8 +53,8 @@
           <file leaf-file-name="menuScript.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/menuScript.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.7009472">
-                  <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
+                <state vertical-scroll-proportion="0.5290934">
+                  <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -69,7 +67,7 @@
           <file leaf-file-name="main.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/css/main.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-1.4722598">
+                <state vertical-scroll-proportion="0.0">
                   <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
                   <folding />
                 </state>
@@ -180,6 +178,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -270,7 +269,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -756,7 +754,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/main-nav.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6153846">
+        <state vertical-scroll-proportion="0.0">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
@@ -764,7 +762,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-107.88461">
+        <state vertical-scroll-proportion="0.0">
           <caret line="165" column="4" selection-start-line="165" selection-start-column="4" selection-end-line="165" selection-end-column="4" />
           <folding>
             <marker date="1447318762084" expanded="true" signature="1009:1094" placeholder="..." />
@@ -775,7 +773,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.4722598">
+        <state vertical-scroll-proportion="0.0">
           <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
           <folding />
         </state>
@@ -783,8 +781,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/menuScript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7009472">
-          <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.5290934">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>
