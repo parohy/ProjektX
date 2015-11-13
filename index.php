@@ -1,5 +1,9 @@
 <?php
 session_start();
+//$_SESSION['loggedin'] = false; //true if logged in, false if not
+
+//$_SESSION['loginErr'] = null; //contains loggin error or login message if successful
+//$_SESSION['registerErr'] = null; //contains registration error or registration message if successful
 ?>
 <!doctype html>
 <html lang="">
@@ -11,6 +15,7 @@ session_start();
     <title></title>
     <link rel="stylesheet" type="text/css" href="css/main.css"> <!-- LOADING MAIN CSS FILE -->
     <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/menuScript.js"></script>
     <!--[if lt IE 9]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -29,62 +34,54 @@ session_start();
     <p>Do your self a favour <strong>UPDATE YOUR BROWSER!</strong></p>
 <![endif]-->
 
-<!-- BEGGINING OF THE PAGE-->
 <div id="page-wrapper">
 
     <!-- BEGGINING OF THE PAGE HEADER-->
     <header id="main-header">
 
-        <!-- BEGGINING OF THE TITLE CONTENT-->
         <div id="title-content">
 
-            <!-- BEGGINING OF THE TITLE-->
             <div id="title">
                 <img src="img/default-user.png" class="user-image">
                 <h1>Welcome
 
                     <?php
-                    if(isset($_SESSION['loggedin'])) {
-                        //echo $_SESSION['username'];
+                    /* Je to provizorne riesienie. Po jednom prihlaseni sa meno ulozi uz do prehliadaca cize to meno sa uz zobrazuje po kazdej navsteve stranky.
+                     * Mozte to upravit, i dont care.
+                     * @author Tomas Paronai */
+                    if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                    	if(isset($_SESSION['username']))
+                        	echo $_SESSION['username'];
                     } else {
+                    	echo "guest";
                     }
                     ?>
-                    
+
                 </h1>
             </div>
-            <!-- ENDING OF THE TITLE-->
 
-            <!-- BEGGINING OF THE SAERCH CONTAINER-->
             <div id="search">
 
-                <!-- BEGGINING OF THE FAQ/HELP BUTTONS-->
                 <a href="#" class="faq-help-button">FAQ</a>
                 <span>/</span>
                 <a href="#" class="faq-help-button">Help</a>
-                <!-- ENDING OF THE FAQ/HELP BUTTONS-->
 
-                <!-- BEGGINING OF THE SAERCH BAR-->
                 <div class="search-container">
-                        <form action="php/searchHandler.php?pages=search.php" method="POST" id="searchform">
-                            <input type="text" name="search" class="search">
+                        <form action="php/searchHandler.php" method="GET" id="searchform">
+                            <input type="text" name="search" class="search" required>
                             <input type="submit" class="search-button" value="">
                         </form>
                 </div>
-                <!-- ENDING OF THE SAERCH BAR--->
 
             </div>
-            <!-- ENDING OF THE SAERCH CONTAINER-->
 
         </div>
-        <!-- ENDING OF THE TITLE CONTENT-->
 
-        <!-- BEGGINING OF THE MAIN NAVIGATION-->
         <nav id="main-nav">
             <?php
                 include "pages/main-nav.php";
             ?>
         </nav>
-        <!-- ENDING OF THE MAIN NAVIGATION-->
 
     </header>
     <!-- ENDING OF THE PAGE HEADER-->
@@ -92,69 +89,32 @@ session_start();
     <!-- BEGGINING OF THE PAGE CONTENT-->
     <div id="content-wrapper">
 
-        <!-- BEGGINING OF SIDE PANEL -->
         <aside id="side-panel">
 
-            <!-- BEGGINING OF LOGIN OF FORM -->
             <div class="frame-container">
 
                 <div class="frame-titlebar">
                     <span class="frame-title">Login</span>
                 </div>
-				
-				<?php
-					
-				include 'php/valid.php';
-				
-				$security = new Security("localhost");
-				$usermail = $password = "";
-				$loginErr = $nameErr = $passErr = "";
-				
-				if($_SERVER['REQUEST_METHOD']=='POST'){
-					
-					
-					if($security->inputCheck($_POST['usermail'])){
-						$usermail = $_POST['usermail'];
-					}
-					else{
-						$nameErr = "Enter usermail";
-					}
-					if($security->inputCheck($_POST['password'])){
-						$password = md5($_POST['password']);
-					}
-					else{
-						$passErr = "Enter password";
-					}
-						
-					if($security->checkUser($usermail, $password) == false){
-						$loginErr = "Invalid Login!";
-					}
-					else {
-						$loginErr = "Login succesfull!";
-					}
-				}
-					
-				?>
-				
+                
                 <div class="frame-content login-form">
-                    <form action="" method="POST">
-                        <ul class="login-container"> <!-- enter here login error -->
-                            <li class="login-item"><label for="usermail">E-mail:</label><span><?php echo $loginErr?></span></li>
-                            <li class="login-item"><input type="text" name="usermail" placeholder="Email..." maxlength="40"><span class="error"><?php echo $nameErr?></span></li>
+                    <form action="API/relog.php?register=false" method="POST">
+
+                        <ul class="login-container">
+                            <li class="login-item"><label for="usermail">E-mail:</label><span></span></li>
+                            <li class="login-item"><input type="text" name="usermail" placeholder="Email..." maxlength="40"><span class="error"></span></li>
                             <li class="login-item"><label for="usermail">Password:</label></li>
-                            <li class="login-item"><input type="password" name="password" placeholder="Pasword..." maxlength="30"><span class="error"><?php echo $passErr?></span></li>
+                            <li class="login-item"><input type="password" name="password" placeholder="Pasword..." maxlength="30"><span class="error"></span></li>
                             <li class="login-item"><span class="login-dialogue">Do you want to stay logged in ?</span><input type="checkbox" name="stayLoggedin" value="true"></li>
                             <li class="login-item"><a href="?page=forgottenPass">Forgot your password ?</a></li>
-                            <li class="login-item"><a href="?page=registration">Not registered yet ?</a></li>
+                            <li class="login-item"><a href="?page=registration" target="_blank">Not registered yet ?</a></li>
                             <li class="login-item"><input type="submit" value="Log in"></li>
                         </ul>
                     </form>
                 </div>
 
             </div>
-            <!-- ENDING OF LOGIN FORM -->
 
-            <!-- BEGGINING OF EMBEDED VIDEO -->
             <div class="frame-container embeded-video">
 
                 <div class="frame-titlebar">
@@ -166,12 +126,9 @@ session_start();
                 </div>
 
             </div>
-            <!-- ENDING OF EMBEDED VIDEO -->
 
         </aside>
-        <!-- ENDING OF SIDE PANEL -->
 
-        <!-- BEGGINING OF MAIN CONTENT -->
         <main>
 
             <?php
@@ -185,18 +142,20 @@ session_start();
 
                 if($page == "" || $page == "main-page")
                 {
-                    include ("pages/main-page.php");
+                    include "pages/main-page.php";
                 }
                 else if($page == "registration") {
-                    include("pages/registration.php");
+                    include "pages/registration.php";
                 }
                 else if($page == "searchResults") {
-                    include("pages/searchResults.php");
+                    include "pages/searchResults.php";
+                }
+                else if($page == "productPreview") {
+                    include "pages/productPreview.php";
                 }
             ?>
 
         </main>
-        <!-- ENDING OF MAIN CONTENT -->
 
     </div>
     <!-- ENDING OF THE PAGE CONTENT-->
@@ -207,7 +166,7 @@ session_start();
         <div id="footer-nav">
 		
 		<div id="picture">
-		<p>GlobalLogic</p>
+		    <p>GlobalLogic</p>
 		</div>
 		<div id="footer-butt">
             <a href="#" class="faq-help-button">FAQ</a>
@@ -223,7 +182,6 @@ session_start();
     <!-- ENDING OF THE PAGE FOOTER-->
 
 </div>
-<!-- ENDING OF THE PAGE-->
 
 </body>
 </html>

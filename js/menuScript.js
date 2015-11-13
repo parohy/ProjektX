@@ -2,10 +2,18 @@
  * Created by Matúš on 3. 11. 2015.
  */
 
+
+
+
+
+
 $(function(){
     $(".subnav-container").hide();
+    var navButton = $(".nav-button");
 
-    $(".nav-button").click(function(){
-        $(this).siblings(".subnav-container").toggle("fast");
+    navButton.click(function(){
+        $(this).siblings(".subnav-container").toggle();
+
+        return false;
     });
 });
