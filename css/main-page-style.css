@@ -23,7 +23,7 @@
 
 .product-tabs {
     width: 100%;
-    height: 260px;
+    height: 340px;
     margin-top: 20px;
 }
 
@@ -84,15 +84,17 @@ h1 span {
     z-index: 2;
     display: none;
     overflow: hidden;
-    width: 100%;
+    width: 680px;
     height: 260px;
     font-size: 17px;
     line-height: 25px;
-    padding: 25px;
+    padding: 10px;
     position: absolute;
     top: 53px;
     left: 0;
     background: #cccccc;
+    font-size: 13px;
+    overflow: hidden;
 }
 #tabs [id^="tab"]:checked + label {
     top: 0;
@@ -110,4 +112,77 @@ p.link {
 
 p.link a:hover {
     background-color: #484848;
+}
+
+.product-item {
+    width: 160px;
+    height: 250px;
+    float: left;
+    margin-left: 12px;
+    overflow: hidden;
+}
+.product-item:first-child {
+    margin: 0;
+}
+
+.product-item article {
+    width: 100%;
+    height: 100%;
+    line-height: 12px;
+    text-align: center;
+}
+
+.product-header {
+    width: 100%;
+    height: 40px;
+}
+
+.product-name {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.product-name a {
+    color: #484848;
+    text-decoration: none;
+}
+
+.product-image {
+    width: 160px;
+    height: 120px;
+    margin-top: 10px;
+    background: #024378;
+}
+
+.product-description {
+    width: 100%;
+    height: 44px;
+    text-align: left;
+    line-height: 13px;
+    padding-top: 5px;
+    color: rgba(0,0,0,0.8);
+}
+
+.product-footer {
+    width: 100%;
+    height: 25px;
+    font-size: 15px;
+    padding-top: 10px;
+}
+
+.price {
+    float: left;
+    color: #000;
+}
+
+.product-more {
+    display: block;
+    width: 50px;
+    height: 25px;
+    line-height: 25px;
+    vertical-align: middle;
+    background: #484848;
+    color: #fff;
+    float: right;
+    text-decoration: none;
 }
