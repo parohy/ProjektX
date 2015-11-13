@@ -22,9 +22,16 @@ $users = $tempDB->resultSet();
 $count = count($users);
 
 $check = new Recheck();
+
+if($_GET['register']=='true'){
+	$_GET['register']=true;
+}
+else if($_GET['register']=='false'){
+	$_GET['register']=false;
+}
 	
 /*Executes registration algorithm*/
-if($_SESSION['register'] == "register"){
+if($_GET['register'] == true){
 	$name = $check->dumpSpecialChars($_POST['name']);
 	$surname = $check->dumpSpecialChars($_POST['last-name']);
 	$email = $check->dumpSpecialChars($_POST['mail']);
@@ -41,7 +48,7 @@ if($_SESSION['register'] == "register"){
 }
 /*###############################*/
 /*Executes login algorithm*/
-else if($_SESSION['register'] == "login"){
+else if($_GET['register'] == false){
 	$loginEmail = $check->dumpSpecialChars($_POST['usermail']);
 	$loginPassword = $check->dumpSpecialChars($_POST['password']);
 	

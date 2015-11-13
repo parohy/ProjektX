@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2015 at 12:57 PM
+-- Generation Time: Nov 13, 2015 at 11:53 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -62,10 +62,10 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `totalcost` int(11) NOT NULL,
   `name` varchar(30) COLLATE utf8_slovak_ci NOT NULL,
   `surname` varchar(30) COLLATE utf8_slovak_ci NOT NULL,
-  `email` varchar(30) COLLATE utf8_slovak_ci NOT NULL,
-  `address` varchar(30) COLLATE utf8_slovak_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8_slovak_ci NOT NULL,
+  `address` varchar(50) COLLATE utf8_slovak_ci NOT NULL,
   `city` varchar(30) COLLATE utf8_slovak_ci NOT NULL,
-  `postcode` varchar(30) COLLATE utf8_slovak_ci NOT NULL,
+  `postcode` varchar(5) COLLATE utf8_slovak_ci NOT NULL,
   `telephone` varchar(30) COLLATE utf8_slovak_ci NOT NULL,
   PRIMARY KEY (`orderid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=1 ;
@@ -117,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(50) COLLATE utf8_slovak_ci NOT NULL,
   `address` varchar(50) COLLATE utf8_slovak_ci NOT NULL,
   `city` varchar(50) COLLATE utf8_slovak_ci NOT NULL,
-  `postcode` varchar(50) COLLATE utf8_slovak_ci NOT NULL,
+  `postcode` varchar(5) COLLATE utf8_slovak_ci NOT NULL,
   PRIMARY KEY (`userid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=6 ;
 
@@ -126,11 +126,11 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`userid`, `email`, `name`, `surname`, `password`, `address`, `city`, `postcode`) VALUES
-(1, '', 'Jozef', 'Samuraj', 'jablko', 'Šafárikova 11', 'Košice', '04011'),
-(2, '', 'Martha', 'Big', 'yesyes22', 'Hlavná 55', 'Košice', '04001'),
-(3, '', 'Marek', 'Velký', 'iamlegend', 'Bernolákova 1', 'Košice', '04001'),
-(4, '', 'David', 'Kostra', 'transformers55', 'Trieda SNP 50', 'Košice', '04001'),
-(5, '', 'Otto', 'Markus', '55ottis', 'Kuzmányho', 'Košice', '04001');
+(1, 'samurajko22@gmail.com', 'Jozef', 'Samuraj', 'jablko', 'Šafárikova 11', 'Košice', '04011'),
+(2, 'bigmarika@azet.sk', 'Martha', 'Big', 'yesyes22', 'Hlavná 55', 'Košice', '04001'),
+(3, 'legendary66@gmail.com', 'Marek', 'Velký', 'iamlegend', 'Bernolákova 1', 'Košice', '04001'),
+(4, 'kostradavidko@gmail.com', 'David', 'Kostra', 'transformers55', 'Trieda SNP 50', 'Košice', '04001'),
+(5, 'markus978@azet.sk', 'Otto', 'Markus', '55ottis', 'Kuzmányho', 'Košice', '04001');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

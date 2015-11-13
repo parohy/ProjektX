@@ -1,8 +1,5 @@
 <?php
 session_start();
-$_SESSION['register'] = "login"; //in case when login form is posted
-// $_SESSION['register'] = "register"; // in case when registration form posted
-
 //$_SESSION['loggedin'] = false; //true if logged in, false if not
 
 //$_SESSION['loginErr'] = null; //contains loggin error or login message if successful
@@ -99,6 +96,7 @@ $_SESSION['register'] = "login"; //in case when login form is posted
                 <div class="frame-titlebar">
                     <span class="frame-title">Login</span>
                 </div>
+<<<<<<< HEAD
 				<?php
 				if($_SERVER['REQUEST_METHOD']=="POST"){
 					header('Location: API/Relog.php');
@@ -107,6 +105,11 @@ $_SESSION['register'] = "login"; //in case when login form is posted
 
                 <div class="frame-content login-form">
                     <form action="API/relog.php" method="POST">
+=======
+				
+                <div class="frame-content login-form">
+                    <form action="API/relog.php?register=false" method="POST">
+>>>>>>> origin/Sprint-2
                         <ul class="login-container">
                         <li class="login-item"><label for="usermail">E-mail:</label><span></span></li>
                             <li class="login-item"><input type="text" name="usermail" placeholder="Email..." maxlength="40"><span class="error"></span></li>

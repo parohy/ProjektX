@@ -25,29 +25,24 @@
 
               <tr>
 
-                <td> <span class="input-name">Elektronics</td> <td><input class="input" type="checkbox" name="categoryname" id="categoryname" ></td>
+                <td> <span class="input-name">Category</td>
+                    <td> <select name="category" id="categoryid">
+                          <option type="text" name="electronic" id="1">Electronics</option>
+                          <option type="text" name="mobile" id="2">Mobiles</option>
+                          <option type="text" name="small device" id="3">Small device</option>
+                          <option type="text" name="PC" id="4">Nootebok & PC</option>
+
+                      </select>
+                    </td>
 
               </tr>
 
-              <tr>
-
-                 <td><span class="input-name"> Nootebooks and PC</td>  <td><input class="input" type="checkbox" name="categoryname" id="categoryname" ></td>
-               </tr>
-
-              <tr>
-                <td><span class="input-name">Mobile </td> <td> <input class="input" type="checkbox" name="categoryname" id="categoryname" > </td>
-              <tr>
-
-                  <td><span class="input-name">Small device</td>  <td><input class="input" type="checkbox" name="categoryname" id="categoryname" > </td>
-                     </tr>
-
-              <tr>
 
                   <td><span class="input-name">Amount </td> <td><input class="input" type="text" name="amount" id="amount" size="20"> </td>
                       </tr>
 
               <tr>
-                  <td><span class="input-name">Description </td> <td> <textarea class="input" type="text" name="name" id="name" size="200"></textarea></td>
+                  <td><span class="input-name">Name </td> <td> <textarea class="input" type="text" name="name" id="name" size="200"></textarea></td>
                     </tr>
 
               <tr>
@@ -63,9 +58,7 @@
                     </textarea></td>
                     </tr>
 
-              <tr>
-                  <td><span class="input-name">Viewamount </td> <td><input class="input" type="text" name="viewamount" id="viewamount" size="20"></td>
-                    </tr>
+
 
               <tr>
                   <td><span class="input-name">Picture </td> <td><input class="input" type="file" name="imagepath" id="imagepath"></td>

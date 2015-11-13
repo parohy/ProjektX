@@ -5,16 +5,9 @@
     if (session_status() == PHP_SESSION_NONE) {
     	session_start();
     }
-    $_SESSION['register'] = "register";
-    if($_SERVER['REQUEST_METHOD']=="POST"){
-    	$_SESSION['register'] = true;
-    	header('Location: ../API/Relog.php');
-    }
-    
     ?>
-    <!--   <form action="<?php/* echo htmlspecialchars($_SERVER['PHP_SELF']);*/?>" method="POST"> --> 
-                    <form action="API/relog.php" method="POST">
-<ul class="registration-container">
+	<form action="API/relog.php?register=true" method="POST">
+		<ul class="registration-container">
             <li>
                 <h4 class="headline">Registration</h4>
                 <ul>
