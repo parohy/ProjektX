@@ -7,8 +7,8 @@
 
 
 
-$(function(){
-    $(".subnav-container").hide();
+
+$(function()(".subnav-container").hide(){;
     var navButton = $(".nav-button");
 
     navButton.click(function(){
