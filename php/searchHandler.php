@@ -7,15 +7,15 @@
 session_start();
 
 include ("../API/Database.php");
-include ("../API/PrepareInput.php");
+include ("../API/InputRecheck.php");
 
 $search = "";
 $result = 0;
 $database = new DBHandler();
-$prepare = new PrepareInput();
+$prepare = new Recheck();
 
-if(isset($_POST['search'])) {
-    $search = $_POST['search'];
+if(isset($_GET['search'])) {
+    $search = $_GET['search'];
     $search = $prepare->dumpSpecialChars($search);
     $_SESSION['search'] = $search;
 }

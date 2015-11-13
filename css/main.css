@@ -46,6 +46,7 @@ main {
     width: 700px;
     height: 100%;
     float: right;
+    min-height: 685px;
 }
 
 #main-footer {
@@ -87,6 +88,10 @@ main {
     height: 100%;
     float: left;
     border-right: 1px solid grey;
+}
+
+.nav-item:last-child {
+    border:none;
 }
 
 .nav-button {

@@ -18,7 +18,7 @@ $_SESSION['register'] = "login"; //in case when login form is posted
     <title></title>
     <link rel="stylesheet" type="text/css" href="css/main.css"> <!-- LOADING MAIN CSS FILE -->
     <script src="js/jquery-1.11.3.min.js"></script>
-    <script src="../ProjektX/js/menuScript.js"></script>
+    <script src="js/menuScript.js"></script>
     <!--[if lt IE 9]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -70,7 +70,7 @@ $_SESSION['register'] = "login"; //in case when login form is posted
                 <a href="#" class="faq-help-button">Help</a>
 
                 <div class="search-container">
-                        <form action="php/searchHandler.php?pages=search.php" method="POST" id="searchform">
+                        <form action="php/searchHandler.php" method="GET" id="searchform">
                             <input type="text" name="search" class="search" required>
                             <input type="submit" class="search-button" value="">
                         </form>
@@ -102,11 +102,10 @@ $_SESSION['register'] = "login"; //in case when login form is posted
 				<?php
 				if($_SERVER['REQUEST_METHOD']=="POST"){
 					header('Location: API/Relog.php');
-				}					
+				}
 				?>
-				
+
                 <div class="frame-content login-form">
-                  <!--   <form action="<?php/* echo htmlspecialchars($_SERVER['PHP_SELF']);*/?>" method="POST"> --> 
                     <form action="API/relog.php" method="POST">
                         <ul class="login-container">
                         <li class="login-item"><label for="usermail">E-mail:</label><span></span></li>
@@ -115,7 +114,7 @@ $_SESSION['register'] = "login"; //in case when login form is posted
                             <li class="login-item"><input type="password" name="password" placeholder="Pasword..." maxlength="30"><span class="error"></span></li>
                             <li class="login-item"><span class="login-dialogue">Do you want to stay logged in ?</span><input type="checkbox" name="stayLoggedin" value="true"></li>
                             <li class="login-item"><a href="?page=forgottenPass">Forgot your password ?</a></li>
-                            <li class="login-item"><a href="?page=registration">Not registered yet ?</a></li>
+                            <li class="login-item"><a href="?page=registration" target="_blank">Not registered yet ?</a></li>
                             <li class="login-item"><input type="submit" value="Log in"></li>
                         </ul>
                     </form>
@@ -150,13 +149,16 @@ $_SESSION['register'] = "login"; //in case when login form is posted
 
                 if($page == "" || $page == "main-page")
                 {
-                    include ("pages/main-page.php");
+                    include "pages/main-page.php";
                 }
                 else if($page == "registration") {
-                    include("pages/registration.php");
+                    include "pages/registration.php";
                 }
                 else if($page == "searchResults") {
-                    include("pages/searchResults.php");
+                    include "pages/searchResults.php";
+                }
+                else if($page == "productPreview") {
+                    include "pages/productPreview.php";
                 }
             ?>
 
