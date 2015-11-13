@@ -96,22 +96,12 @@ session_start();
                 <div class="frame-titlebar">
                     <span class="frame-title">Login</span>
                 </div>
-<<<<<<< HEAD
-				<?php
-				if($_SERVER['REQUEST_METHOD']=="POST"){
-					header('Location: API/Relog.php');
-				}
-				?>
-
-                <div class="frame-content login-form">
-                    <form action="API/relog.php" method="POST">
-=======
-				
+                
                 <div class="frame-content login-form">
                     <form action="API/relog.php?register=false" method="POST">
->>>>>>> origin/Sprint-2
+
                         <ul class="login-container">
-                        <li class="login-item"><label for="usermail">E-mail:</label><span></span></li>
+                            <li class="login-item"><label for="usermail">E-mail:</label><span></span></li>
                             <li class="login-item"><input type="text" name="usermail" placeholder="Email..." maxlength="40"><span class="error"></span></li>
                             <li class="login-item"><label for="usermail">Password:</label></li>
                             <li class="login-item"><input type="password" name="password" placeholder="Pasword..." maxlength="30"><span class="error"></span></li>
