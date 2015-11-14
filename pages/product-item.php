@@ -5,9 +5,23 @@
 
 <head>
 <meta charset="UTF-8">
-
-    <link rel="stylesheet" type="text/css" href="css/form-product-item.css">
     <title>product-item</title>
+    <style>
+        #product-item{
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+
+        #table{
+            background-color: rgba(94, 99, 97, 0.23);
+        }
+       .input-name{
+        font-weight: bold;
+        }
+        
+
+
+    </style>
 </head>
 
 <body>
