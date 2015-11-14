@@ -13,7 +13,7 @@
     <ul id="tabs">
         <li>
             <input type="radio" name="tabs" id="tab1" checked />
-            <label for="tab1">Najpredávanejšie</label>
+            <label for="tab1">Best selling</label>
             <div id="tab-content1" class="tab-content">
                 <?php
                     $handler->query("SELECT * FROM products");
@@ -22,7 +22,7 @@
                         echo "<section class='product-item'>";
                         echo "<article>";
                         echo "<header class='product-header'>";
-                        echo "<span class='product-name'><a href='?page=productPreview'>" . $result[$i]['name'] . "</a><span class='product-name'>";
+                        echo "<span class='product-name'><a href=\"?page=productPreview&product=" . $result[$i]['productid'] . "\">" . $result[$i]['name'] . "</a><span class='product-name'>";
                         echo "</header>";
                         echo "<div class='product-image'>";
                         echo "<img src='../ProjektX/" . $result[$i]["imagepath"] . "'>";
@@ -32,7 +32,7 @@
                         echo "</div>";
                         echo "<footer class='product-footer'>";
                         echo "<div class='price'>" . $result[$i]['price'] . " EUR</div>";
-                        echo "<a href='?page=productPreview' class='product-more'>Viac</a>";
+                        echo "<a href=\"?page=productPreview&product=" . $result[$i]['productid'] . "\" class='product-more'>Viac</a>";
                         echo "</footer>";
                         echo "</article>";
                         echo "</section>";
@@ -43,7 +43,7 @@
 
         <li>
             <input type="radio" name="tabs" id="tab2"  />
-            <label for="tab2">Computers</label>
+            <label for="tab2">Top rated</label>
             <div id="tab-content2" class="tab-content">
                 <?php
                 $handler->query("SELECT * FROM products");
@@ -74,7 +74,7 @@
 
         <li>
             <input type="radio" name="tabs" id="tab3" />
-            <label for="tab3">	White technics</label>
+            <label for="tab3">	New products</label>
             <div id="tab-content3" class="tab-content">
                 <p>cccccccccccccccc</p>
             </div>
