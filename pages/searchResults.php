@@ -27,7 +27,7 @@
     function printQuery($result) {
         echo "<section>";
         echo "<article>";
-        echo "<div class='description-image'></div>";
+        echo "<div class='description-image'><img src='". $result['imagepath'] ."'></div>";
         echo "<div class='description-content'>";
         echo "<header>";
         echo "<h4><a href='?page=productPreview'>". $result["name"] . "</a></h4>";

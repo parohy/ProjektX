@@ -14,10 +14,15 @@ section {
 }
 
 .description-image {
-     width: 20%;
+     width: 100px;
      height: 100px;
      background: red;
      float: left;
+}
+
+.description-image img {
+    width: 100%;
+    height: 100px;
 }
 
 .description-content {

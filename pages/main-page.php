@@ -25,6 +25,7 @@
                         echo "<span class='product-name'><a href='?page=productPreview'>" . $result[$i]['name'] . "</a><span class='product-name'>";
                         echo "</header>";
                         echo "<div class='product-image'>";
+                        echo "<img src='../ProjektX/" . $result[$i]["imagepath"] . "'>";
                         echo "</div>";
                         echo "<div class='product-description'>";
                         echo substr($result[$i]['description'],0,40) . "...";
@@ -44,7 +45,29 @@
             <input type="radio" name="tabs" id="tab2"  />
             <label for="tab2">Computers</label>
             <div id="tab-content2" class="tab-content">
-                <p>bbbbbbbbbbbbbbb</p>
+                <?php
+                $handler->query("SELECT * FROM products");
+                $result = $handler->resultSet();
+                for($i = 4; $i < 8; $i++) {
+                    echo "<section class='product-item'>";
+                    echo "<article>";
+                    echo "<header class='product-header'>";
+                    echo "<span class='product-name'><a href='?page=productPreview'>" . $result[$i]['name'] . "</a><span class='product-name'>";
+                    echo "</header>";
+                    echo "<div class='product-image'>";
+                    echo "<img src='../ProjektX/" . $result[$i]["imagepath"] . "'>";
+                    echo "</div>";
+                    echo "<div class='product-description'>";
+                    echo substr($result[$i]['description'],0,40) . "...";
+                    echo "</div>";
+                    echo "<footer class='product-footer'>";
+                    echo "<div class='price'>" . $result[$i]['price'] . " EUR</div>";
+                    echo "<a href='?page=productPreview' class='product-more'>Viac</a>";
+                    echo "</footer>";
+                    echo "</article>";
+                    echo "</section>";
+                }
+                ?>
             </div>
         </li>
 
