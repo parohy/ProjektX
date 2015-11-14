@@ -30,7 +30,7 @@
         echo "<div class='description-image'><img src='". $result['imagepath'] ."'></div>";
         echo "<div class='description-content'>";
         echo "<header>";
-        echo "<h4><a href='?page=productPreview'>". $result["name"] . "</a></h4>";
+        echo "<h4><a href=\"?page=productPreview&product=" . $result['productid'] . "\">". $result["name"] . "</a></h4>";
         echo "<h5>Brand:". $result["brand"] ."</h5>";
         echo "</header>";
         echo "<p class='description'>";

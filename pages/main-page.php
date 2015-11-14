@@ -62,7 +62,7 @@
                     echo "</div>";
                     echo "<footer class='product-footer'>";
                     echo "<div class='price'>" . $result[$i]['price'] . " EUR</div>";
-                    echo "<a href='?page=productPreview' class='product-more'>Viac</a>";
+                    echo "<a href=\"?page=productPreview&product=" . $result[$i]['productid'] . "\" class='product-more'>Viac</a>";
                     echo "</footer>";
                     echo "</article>";
                     echo "</section>";
