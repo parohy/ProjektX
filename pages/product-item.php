@@ -26,25 +26,23 @@
 
 <body>
 
+    <?php
+    include "../API/database.php";
+    ?>
     <div id="product-item">
         <table id="table">
-            <form name="pruduct-item-formular" action="" method="get">
-
-
-             <tr>
-
-                 <td> <span class="input-name">Product Id:</span> </td> <td><input class="input" type="text" name="productid" id="productid" size="20"></td>
-
-             </tr>
+            <form name="pruduct-item-formular" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
 
               <tr>
 
                 <td> <span class="input-name">Category</td>
-                    <td> <select name="category" id="categoryid">
-                          <option type="text" name="electronic" id="1">Electronics</option>
-                          <option type="text" name="mobile" id="2">Mobiles</option>
-                          <option type="text" name="small device" id="3">Small device</option>
-                          <option type="text" name="PC" id="4">Nootebok & PC</option>
+                    <td> <select name="categoryID" id="categoryID">
+                          <?php
+                         $db=new DBHandler();
+                         // $db->query("SELECT * FROM products  ");
+                      
+                          ?>  
+                          <option type="text" name="1" id="4">Nooteboky</option>
 
                       </select>
                     </td>
@@ -68,7 +66,7 @@
                     </tr>
 
               <tr>
-                  <td><span class="input-name"> Description</td> <td> <textarea class="input" rows="5" cols="20" name="descriptoin" id="description" size="20">
+                  <td><span class="input-name"> Description</td> <td> <textarea class="input" rows="5" cols="20" name="description" id="description" size="20">
                     </textarea></td>
                     </tr>
 
@@ -81,6 +79,28 @@
                   <td><input type="submit" name="sent" id="sent"><td>
                 </tr>
 
+                <?php
+    /*            if(isset($_POST['sent']))
+                {
+                
+
+                $db->query("INSERT INTO products (`categoryid`, `amount`, `name`, `price`, `brand`, `description`, `viewamount`, `numofratings`, `sumofratings`) ".
+                       "VALUES (:categoryID, :amount, :name, :price, :brand, :desc, :viewamount, :numofratings, sumofratings)");
+                $db->bind(':categoryID', $_POST["categoryID"]);
+                $db->bind(':amount', $_POST["amount"]);
+                $db->bind(':name', $_POST["name"]);
+                $db->bind(':price', $_POST["price"]);
+                $db->bind(':brand', $_POST["brand"]);
+                $db->bind(':desc', $_POST["description"]);
+                $db->bind(':viewamount', 0);
+                $db->bind(':numofratings', 0);
+                $db->bind(':sumofratings', 0);
+
+                $db->execute();
+                }
+     */           ?>
+                
+                
              </form>
 
         </table>
