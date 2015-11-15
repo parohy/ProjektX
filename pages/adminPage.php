@@ -27,7 +27,7 @@
         display: block;
         padding: 10px 20px;
         border-radius: 2px 2px 0 0;
-        color: #08C;
+        color: black;
         font-size: 18px;
         font-weight: normal;
         font-family: 'Lily Script One', helveti;
@@ -46,8 +46,9 @@
     }
 
     [id^=tab]:checked + label {
-        background: #08C;
-        color: white;
+        background: #8A8686;
+        color: black
+    ;
         top: 0;
     }
 
@@ -63,9 +64,10 @@
         font-size: 20px;
         line-height: 140%;
         padding-top: 10px;
-        background: #08C;
+        background: #8A8686;
+        margin-top: 20PX;
         padding: 15px;
-        color: white;
+        color: black;
         position: absolute;
         top: 53px;
         left: 0;
