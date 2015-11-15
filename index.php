@@ -29,8 +29,6 @@ if(isset($_GET['product'])) {
 
             header('/?page=productPreview&product=' . $_GET['product']);
         }
-    } else {
-        echo "tru";
     }
 }
 
