@@ -1,5 +1,39 @@
 <?php
 session_start();
+
+include "API/Database.php";
+
+if(isset($_GET['product'])) {
+    if(!isset($_COOKIE[$_GET['product']])) setcookie($_GET['product'],"false", 60 * 60 * 24 * 60 + time(),"/");
+
+    if(isset($_COOKIE[$_GET['product']]) == "false") {
+        if(isset($_GET['rating'])) {
+            setcookie($_GET['product'],"true", 60 * 60 * 24 * 60 + time(),"/");
+            print_r($_COOKIE['rating']);
+
+            $handler = new DBHandler();
+            $handler->beginTransaction();
+            $handler->query('SELECT numofratings,sumofratings FROM products WHERE productid=:id');
+            $handler->bind(":id",$_GET['product']);
+            $ratingResult = $handler->singleRecord();
+
+            $ratingResult['numofratings'] += 1;
+            $ratingResult['sumofratings'] += $_GET['rating'];
+
+            $handler->query('UPDATE products SET numofratings=:numofratings,sumofratings=:sumofratings WHERE productid=:id');
+            $handler->bind(":numofratings", $ratingResult['numofratings']);
+            $handler->bind(":sumofratings", $ratingResult['sumofratings']);
+            $handler->bind(":id", $_GET['product']);
+            $handler->execute();
+            $handler->endTransaction();
+
+            header('/?page=productPreview&product=' . $_GET['product']);
+        }
+    } else {
+        echo "tru";
+    }
+}
+
 //$_SESSION['loggedin'] = false; //true if logged in, false if not
 
 //$_SESSION['loginErr'] = null; //contains loggin error or login message if successful

@@ -1,6 +1,5 @@
 <link rel="stylesheet" type="text/css" href="css/main-page-style.css">
 <?php
-    include_once "../ProjektX/API/Database.php";
     $handler = new DBHandler();
 ?>
 <div class="slider-container">
