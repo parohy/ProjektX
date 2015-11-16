@@ -1,7 +1,8 @@
+<script src="../ProjektX/js/validate.js"></script>
 <form action="API/relog.php?register=login" method="POST">
     <ul class="login-container">
         <li class="login-item"><label for="usermail">E-mail:</label><span></span></li>
-        <li class="login-item"><input type="text" name="usermail" placeholder="Email..." maxlength="40" id="mail-input" required><span class="error"></span></li>
+        <li class="login-item"><input type="email" name="usermail" placeholder="Email..." maxlength="40" id="mail-input" required><span id="error"></span></li>
         <li class="login-item"><label for="usermail">Password:</label></li>
         <li class="login-item"><input type="password" name="password" placeholder="Pasword..." maxlength="30" id="password-input" required><span class="error"></span></li>
         <li class="login-item"><span class="login-dialogue">Do you want to stay logged in ?</span><input type="checkbox" name="stayLoggedin" value="true"></li>
