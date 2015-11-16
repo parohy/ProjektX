@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Hostiteľ: 127.0.0.1
--- Čas generovania: Po 16.Nov 2015, 08:01
+-- Čas generovania: Po 16.Nov 2015, 08:16
 -- Verzia serveru: 5.6.17
 -- Verzia PHP: 5.5.12
 
@@ -129,11 +129,11 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`userid`, `email`, `name`, `surname`, `password`, `address`, `city`, `postcode`) VALUES
-(1, '', 'Jozef', 'Samuraj', 'jablko', 'Šafárikova 11', 'Košice', '04011'),
-(2, '', 'Martha', 'Big', 'yesyes22', 'Hlavná 55', 'Košice', '04001'),
-(3, '', 'Marek', 'Velký', 'iamlegend', 'Bernolákova 1', 'Košice', '04001'),
-(4, '', 'David', 'Kostra', 'transformers55', 'Trieda SNP 50', 'Košice', '04001'),
-(5, '', 'Otto', 'Markus', '55ottis', 'Kuzmányho', 'Košice', '04001');
+(1, 'jozo19898@gmail.com', 'Jozef', 'Samuraj', 'jablko', 'Šafárikova 11', 'Košice', '04011'),
+(2, 'serusky44@azet.sk', 'Martha', 'Big', 'yesyes22', 'Hlavná 55', 'Košice', '04001'),
+(3, 'marek.sss@gmail.com', 'Marek', 'Velký', 'iamlegend', 'Bernolákova 1', 'Košice', '04001'),
+(4, 'david99@gmail.com', 'David', 'Kostra', 'transformers55', 'Trieda SNP 50', 'Košice', '04001'),
+(5, 'ottoman787@azet.sk', 'Otto', 'Markus', '55ottis', 'Kuzmányho', 'Košice', '04001');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
