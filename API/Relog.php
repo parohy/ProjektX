@@ -10,7 +10,7 @@ session_start();
 error_reporting(E_ALL);
 
 include_once ('../API/InputRecheck.php');
-include_once ('../API/Newuser.php');
+include_once ('../API/UserHandler.php');
 include_once ('../API/Login.php');
 include_once ('../API/Database.php');
 
@@ -23,15 +23,15 @@ $count = count($users);
 
 $check = new Recheck();
 
-if($_GET['register']=='true'){
+/*if($_GET['register']=='true'){
 	$_GET['register']=true;
 }
 else if($_GET['register']=='false'){
 	$_GET['register']=false;
-}
+}*/
 	
 /*Executes registration algorithm*/
-if($_GET['register'] == true){
+if($_GET['register'] == 'registration'){
 	$name = $check->dumpSpecialChars($_POST['name']);
 	$surname = $check->dumpSpecialChars($_POST['last-name']);
 	$email = $check->dumpSpecialChars($_POST['mail']);
@@ -40,7 +40,8 @@ if($_GET['register'] == true){
 	
 	if(errorControl($name, $surname, $email, $password)){
 		/*handle for saving user information into the database*/
-		$user = new User($name, $surname, $email, $password); 
+		//$user = new User($name, $surname, $email, $password);
+		$user = User::newUser($name, $surname, $email, $password);
 		
 		$_SESSION['registerErr'] = $user->isSaved();
 		header('Location:  ../index.php');
@@ -48,7 +49,7 @@ if($_GET['register'] == true){
 }
 /*###############################*/
 /*Executes login algorithm*/
-else if($_GET['register'] == false){
+else if($_GET['register'] == 'login'){
 	$loginEmail = $check->dumpSpecialChars($_POST['usermail']);
 	$loginPassword = $check->dumpSpecialChars($_POST['password']);
 	
@@ -71,6 +72,42 @@ else if($_GET['register'] == false){
 			header('Location: ../index.php');
 		}
 	}
+}
+
+else if($_GET['register'] == 'edit'){
+	$editUser = User::editUser($_GET['id']);
+	if(isset($_POST['name'])){
+		$value = $check->dumpSpecialChars($_POST['name']);
+		$editUser->saveData('name', $value);
+	}
+	if(isset($_POST['surname'])){
+		$value = $check->dumpSpecialChars($_POST['surname']);
+		$editUser->saveData('surname', $value);
+	}
+	if(isset($_POST['mail'])){
+		$value = $check->dumpSpecialChars($_POST['mail']);
+		if(!$GLOBALS['check']->checkEmail($value,40)){
+			//todo error
+		}
+		else{
+			$editUser->saveData('email', $value);
+		}
+		
+	}
+	if(isset($_POST['address'])){
+		$value = $check->dumpSpecialChars($_POST['address']);
+		$editUser->saveData('address', $value);
+	}
+	if(isset($_POST['city'])){
+		$value = $check->dumpSpecialChars($_POST['city']);
+		$editUser->saveData('city', $value);
+	}
+	if(isset($_POST['postcode'])){
+		$value = $check->dumpSpecialChars($_POST['postcode']);
+		$editUser->saveData('postcode', $value);
+	}
+	
+	header('Location: ../index.php');
 }
 
 	

@@ -30,11 +30,16 @@ class Recheck{
 	 * @param $size - the max number of chars the string can have
 	 * @return "Input out of bounds." - long input
 	 * @return "Email already used." - same email found in the database
+	 * @return "Invalid email." - invalid email format
 	 * @return true - all OK
 	 */
 	public function checkEmail($email,$size){
 		if(strlen($email) > $size){
 			return "Input out of bounds.";
+		}
+		
+		if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+			return "Invalid email.";
 		}
 		
 		$this->handlerDB->query('SELECT email FROM users');
