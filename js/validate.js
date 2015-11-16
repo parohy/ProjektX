@@ -1,21 +1,33 @@
 window.onload=function() {
   var email = document.getElementById("mail-input");
   var password = document.getElementById("password-input");
-  var error = document.getElementById("error");
+  var mailError = document.getElementById("mail-error");
+  var passwordError = document.getElementById("pass-error");
 
   email.onblur = function() {
       if(email.validity.typeMismatch) {
-          error.innerHTML = "Wrong type of email";
+          mailError.innerHTML = "Wrong type of email";
       }
       else if(email.validity.rangeOverflow) {
-          error.innerHTML = "Input is too long";
+          mailError.innerHTML = "Input is too long";
       }
       else if(email.validity.valueMissing) {
-          error.innerHTML = "You must enter the email";
+          mailError.innerHTML = "You must enter the email";
+      }
+      else if(email.validity.valid){
+          mailError.innerHTML = "";
+      }
+  };
+
+  password.onblur = function() {
+      if(email.validity.rangeOverflow) {
+          passwordError.innerHTML = "password is too long";
+      }
+      else if(email.validity.valueMissing) {
+          passwordError.innerHTML = "You must enter the password";
       }
       else {
-          error.innerHTML = "";
-          console.log("hello");
+          passwordError.innerHTML = "";
       }
   };
 }
