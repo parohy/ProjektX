@@ -17,6 +17,10 @@ window.onload=function() {
       else if(email.validity.valid){
           mailError.innerHTML = "";
       }
+
+      setTimeout(function(){
+          mailError.innerHTML = "";
+      },2000);
   };
 
   password.onblur = function() {
@@ -29,5 +33,15 @@ window.onload=function() {
       else {
           passwordError.innerHTML = "";
       }
+
+      setTimeout(function(){
+          passwordError.innerHTML = "";
+      },2000);
   };
+
+  if(document.getElementById("login-error") != null) {
+      setTimeout(function(){
+          document.getElementById("login-error").remove();
+      },2500);
+  }
 }
