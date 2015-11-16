@@ -32,6 +32,12 @@ if(isset($_GET['product'])) {
     }
 }
 
+if(isset($_GET['login']) && $_GET['login'] == 'false') {
+    session_destroy();
+    header('Location: ?page=main-page','Content-Type: text/html; charset=UTF-8');
+    exit();
+}
+
 //$_SESSION['loggedin'] = false; //true if logged in, false if not
 
 //$_SESSION['loginErr'] = null; //contains loggin error or login message if successful
@@ -126,22 +132,25 @@ if(isset($_GET['product'])) {
             <div class="frame-container">
 
                 <div class="frame-titlebar">
-                    <span class="frame-title">Login</span>
+                    <span class="frame-title">
+                    <?php
+                    if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == 'true') {
+                        echo "Profil";
+                    } else {
+                        echo "Login";
+                    }
+                    ?>
+                   </span>
                 </div>
 
                 <div class="frame-content login-form">
-                    <form action="API/relog.php?register=false" method="POST">
-                        <ul class="login-container">
-                            <li class="login-item"><label for="usermail">E-mail:</label><span></span></li>
-                            <li class="login-item"><input type="text" name="usermail" placeholder="Email..." maxlength="40" id="mail-input"><span class="error"></span></li>
-                            <li class="login-item"><label for="usermail">Password:</label></li>
-                            <li class="login-item"><input type="password" name="password" placeholder="Pasword..." maxlength="30" id="password-input"><span class="error"></span></li>
-                            <li class="login-item"><span class="login-dialogue">Do you want to stay logged in ?</span><input type="checkbox" name="stayLoggedin" value="true"></li>
-                            <li class="login-item"><a href="?page=forgottenPass">Forgot your password ?</a></li>
-                            <li class="login-item"><a href="?page=registration" target="_blank">Not registered yet ?</a></li>
-                            <li class="login-item"><input type="submit" value="Log in" id="loginSubmit"></li>
-                        </ul>
-                    </form>
+                    <?php
+                      if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == 'true') {
+                          include "pages/profile.php";
+                      } else {
+                          include "pages/loginForm.php";
+                      }
+                    ?>
                 </div>
 
             </div>
@@ -193,9 +202,9 @@ if(isset($_GET['product'])) {
 
     <!-- BEGGINING OF THE PAGE FOOOTER-->
     <footer id="main-footer">
-	
+
         <div id="footer-nav">
-		
+
 		<div id="picture">
 		    <p>GlobalLogic</p>
 		</div>
