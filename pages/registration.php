@@ -6,7 +6,7 @@
     	session_start();
     }
     ?>
-	<form action="API/relog.php?register=registration&id=1" method="POST">
+	<form action="API/Relog.php?register=registration&id=1" method="POST">
 		<ul class="registration-container">
             <li>
                 <h4 class="headline">Registration</h4>

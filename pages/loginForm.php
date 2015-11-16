@@ -1,4 +1,4 @@
-<form action="API/relog.php?register=login" method="POST">
+<form action="API/Relog.php?register=login" method="POST">
     <ul class="login-container">
         <li class="login-item"><label for="usermail">E-mail:</label><span></span></li>
         <li class="login-item"><input type="text" name="usermail" placeholder="Email..." maxlength="40" id="mail-input" required><span class="error"></span></li>
