@@ -15,6 +15,7 @@ window.onload=function() {
       }
       else {
           error.innerHTML = "";
+          console.log("hello");
       }
   };
 }
