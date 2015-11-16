@@ -3,6 +3,12 @@
 if(session_status() == PHP_SESSION_NONE) {
     	session_start();
     }
+include_once ('../API/UserHandler.php');
+$user;
+if(isset($_SESSION['userID'])){
+	//$user = User::editUser($_SESSION['userID']);
+}
+$user = User::editUser('6');
 ?>
 <html lang="">
 <head>
@@ -75,23 +81,23 @@ if(session_status() == PHP_SESSION_NONE) {
 <body id="body">
 
 
-<form id="profile" action="../API/relog.php?register=edit&id=1" method="POST">
+<form id="profile" action="../API/relog.php?register=edit&id=6" method="POST">
     <fieldset id="edit-profile">
         <legend>Edit profile</legend>
         <ul>
             <li>
                 <label for="name">Name</label>
-                <input id="name" type="text" name="name" value="<?php ?>">
+                <input id="name" type="text" name="name" value="<?php echo $user->getData('name');?>">
             </li>
 
             <li>
                 <label for="surename">Surename</label>
-                <input id="surename" type="text" name="surename" value="<?php ?>">
+                <input id="surename" type="text" name="surename" value="<?php echo $user->getData('surname');?>">
             </li>
 
             <li>
                 <label for="name">E-mail</label>
-                <input id="e-mail" type="email" name="mail" value="<?php ?>">
+                <input id="e-mail" type="email" name="mail" value="<?php echo $user->getData('email');?>">
             </li>
 
             <li>
@@ -111,17 +117,17 @@ if(session_status() == PHP_SESSION_NONE) {
 
             <li>
                 <label for="name">Address</label>
-                <input id="address" type="text" name="address" value="<?php ?>">
+                <input id="address" type="text" name="address" value="<?php echo $user->getData('address');?>">
             </li>
 
             <li>
                 <label for="name">City</label>
-                <input id="city" type="text" name="city" value="<?php ?>">
+                <input id="city" type="text" name="city" value="<?php echo $user->getData('city');?>">
             </li>
 
             <li>
                 <label for="name">Post code</label>
-                <input id="postcode" type="text" name="postcode" value="<?php ?>">
+                <input id="postcode" type="text" name="postcode" value="<?php echo $user->getData('postcode');?>">
             </li>
 
             <li>

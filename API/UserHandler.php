@@ -20,28 +20,51 @@ class User{
 	private $handlerDB;
 	private $success = false;
 	
-	function __construct($name, $surname, $email, $password){
-		$this->handlerDB = new DBHandler();
-				
-			$this->saveFirstData('name', $name);
-			$this->id = $this->getValidId();
-			
-		if($this->id != null && $this->id != 0){
-			$this->saveData('surname', $surname, $this->id);
-			$this->saveData('email', $email, $this->id);
-			$this->saveData('password', $password, $this->id);
-		}
-				
+	private function __construct(){
+		$this->handlerDB = new DBHandler();								
 	}
 	
 	/**
-	 * Saves the user address information in the database.
+	 * Creates an UserHandler instance with only the given params
+	 * @author Tomas Paronai
+	 * @param $name
+	 * @param $surname
+	 * @param $email
+	 * @param $password
+	 */
+	public static function newUser($name, $surname, $email, $password){
+		 $instance = new self();	
+		 $instance->saveFirstData('name', $name);
+		 $instance->id = $instance->getValidId();
+		 	
+		 if($instance->id != null && $instance->id != 0){
+		 $instance->saveData('surname', $surname);
+		 $instance->saveData('email', $email);
+		 $instance->saveData('password', $password);
+		 }
+		 
+		 return $instance;
+	}
+	
+	/**
+	 * Creates an UserHandler instance with only the given ID
+	 * @author Tomas Paronai
+	 * @param $id
+	 */
+	public static function editUser($id){
+		$instance = new self();
+		$instance->id = $id;
+		return $instance;
+	}
+	
+	/**
+	 * 
 	 * @author Tomas Paronai
 	 * @param $address
 	 * @param $city
 	 * @param $postcode
 	 */
-	private function saveAddress($address, $city, $postcode){
+	public function saveAddress($address, $city, $postcode){
 		
 		if($this->id != null){
 			if($address!=null){
@@ -56,7 +79,18 @@ class User{
 		}
 		
 	}
-
+	
+	/**
+	 * @author Tomas Paronai
+	 * @param $id
+	 */
+	public function setId($id){
+		$this->id = $id;
+	}
+	
+	public function getId(){
+		return $this->id;
+	}
 	/**
 	 * @author Tomas Paronai
 	 * @return - id of the user which is being handled
@@ -77,7 +111,7 @@ class User{
 	 * @param $parameter - name of the colum
 	 * @param $value
 	 */
-	private function saveFirstData($parameter, $value){
+	public function saveFirstData($parameter, $value){
 		//echo '<br/>',$parameter,$value,'<br/>';
 		$this->handlerDB->query("INSERT INTO users (`".$parameter."`) VALUES (:input)");
 		$this->handlerDB->bind(":input",$value);
@@ -95,11 +129,11 @@ class User{
 	 * @param $value
 	 * @param $id - given id
 	 */
-	private function saveData($parameter, $value, $id){
+	public function saveData($parameter, $value){
 		//echo '<br/>',$parameter,$value,$id,'<br/>';
 		$this->handlerDB->query("UPDATE users SET `".$parameter."`=:input WHERE `userid`=(:userid)");
 		$this->handlerDB->bind(":input",$value);
-		$this->handlerDB->bind(":userid",$id);
+		$this->handlerDB->bind(":userid",$this->id);
 		try{
 			$this->handlerDB->execute();
 		}catch(PDOException $e){
@@ -118,5 +152,20 @@ class User{
 			return "User registered.";
 		}
 		return "Registration failed.";
+	}
+	
+	public function getData($parameter){
+		if($this->id != null){
+			$this->handlerDB->query("SELECT `".$parameter."`,`userid` FROM users");
+			$users = $this->handlerDB->resultSet();
+			
+			for($i=0;$i<count($users);$i++){
+				if($users[$i]['userid']==$this->id){
+					return $users[$i][$parameter];
+				}
+			}
+			return "Parameter not found.";
+		}
+		return "Id not set.";
 	}
 }
