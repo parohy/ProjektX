@@ -26,6 +26,7 @@
         <div class="frame-container web-control-login">
             <div class="frame-titlebar"><span class="frame-title">Login</span></div>
             <div class="frame-content">
+              <form action="API/Relog.php?register=admin" method="POST">
                 <ul class="login-container">
                     <li class="login-item"><label for="usermail">E-mail:</label></li>
                     <li class="login-item"><input type="text" name="usermail" placeholder="Email..." maxlength="40"></li>
@@ -33,6 +34,7 @@
                     <li class="login-item"><input type="password" name="password" placeholder="Pasword..." maxlength="30"></li>
                     <li class="login-item"><input type="submit" value="Log in"></li>
                 </ul>
+              </form>
             </div>
         </div>
     </div>

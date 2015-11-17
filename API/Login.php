@@ -18,6 +18,7 @@ class Login{
 	
 	private $handlerDB;
 	private $name;
+	private $password = "admin2015";
 	
 	function __construct(){
 		$this->handlerDB = new DBHandler();
@@ -31,19 +32,32 @@ class Login{
 	 * @return true - login correct
 	 */
 	public function checkLogin($email, $password){
-		$this->handlerDB->query('SELECT email,password,name FROM users');
-		
-		$users = array();
-		$users = $this->handlerDB->resultSet();
-		$count = count($users);
-		
-		for($i=0;$i<$count;$i++){
-			if($users[$i]['email'] == $email && $users[$i]['password'] == $password){
-				$this->name = $users[$i]['name'];
-				return true;
+		if($this->name != "admin"){
+			$this->handlerDB->query('SELECT email,password,name FROM users');
+			
+			$users = array();
+			$users = $this->handlerDB->resultSet();
+			$count = count($users);
+			
+			for($i=0;$i<$count;$i++){
+				if($users[$i]['email'] == $email && $users[$i]['password'] == $password){
+					$this->name = $users[$i]['name'];
+					return true;
+				}
 			}
 		}
+		else if($this->name == "admin"){
+			if($this->name == $email && $this->password == $password){
+				return true;
+			}
+		}		
 		return false;
+	}
+	
+	public static function adminLogin(){
+		$instance = new self();
+		$instance->name = "admin";
+		return $instance;
 	}
 	
 	/**

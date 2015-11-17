@@ -73,26 +73,40 @@ else if($_GET['register'] == 'login'){
 		}
 	}
 }
-
+/*###############################*/
+/*Executes admin login algorithm*/
+else if($_GET['register'] == 'admin'){
+	$login = Login::adminLogin();
+	$email = $check->dumpSpecialChars($_POST['usermail']);
+	$password = $check->dumpSpecialChars($_POST['password']);
+	if($check->checkInput($email, 20) && $check->checkInput($password, 20) && $login->checkLogin($email, $password)){
+		header('Location: ../pages/adminPage.php');	
+	}
+	else{
+		header('Location: ../web-control.php');
+	}
+}
+/*###############################*/
+/*Executes edit algorithm*/
 else if($_GET['register'] == 'edit'){
 	$editUser = User::editUser($_GET['id']);
 	if(isset($_POST['passwordorg']) && $_POST['passwordorg'] == $editUser->getData('password')){	
 	
 		if(isset($_POST['name'])){
 			$value = $check->dumpSpecialChars($_POST['name']);
-			if($GLOBALS['check']->checkInput($_POST['name'],50)){
+			if($check->checkInput($_POST['name'],50)){
 				$editUser->saveData('name', $value);
 			}		
 		}
 		if(isset($_POST['surname'])){
 			$value = $check->dumpSpecialChars($_POST['surname']);
-			if($GLOBALS['check']->checkInput($_POST['surname'],50)){
+			if($check->checkInput($_POST['surname'],50)){
 				$editUser->saveData('surname', $value);
 			}
 		}
 		if(isset($_POST['mail'])){
 			$value = $check->dumpSpecialChars($_POST['mail']);
-			if(!$GLOBALS['check']->checkEmail($value,50)){
+			if(!$check->checkEmail($value,50)){
 				//todo error
 			}
 			else{
@@ -102,19 +116,19 @@ else if($_GET['register'] == 'edit'){
 		}
 		if(isset($_POST['address'])){
 			$value = $check->dumpSpecialChars($_POST['address']);
-			if($GLOBALS['check']->checkInput($_POST['address'],50)){
+			if($check->checkInput($_POST['address'],50)){
 				$editUser->saveData('address', $value);
 			}
 		}
 		if(isset($_POST['city'])){
 			$value = $check->dumpSpecialChars($_POST['city']);
-			if($GLOBALS['check']->checkInput($_POST['city'],50)){
+			if($check->checkInput($_POST['city'],50)){
 				$editUser->saveData('city', $value);
 			}
 		}
 		if(isset($_POST['postcode'])){
 			$value = $check->dumpSpecialChars($_POST['postcode']);
-			if($GLOBALS['check']->checkInput($_POST['postcode'],50)){
+			if($check->checkInput($_POST['postcode'],50)){
 				$editUser->saveData('postcode', $value);
 			}
 		}
