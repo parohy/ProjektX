@@ -38,12 +38,13 @@
                 <td> <span class="input-name">Category</td>
                     <td> <select name="categoryID" id="categoryID">
                           <?php
-                         $db=new DBHandler();
-                         // $db->query("SELECT * FROM products  ");
-                      
+                            $db=new DBHandler();
+                            $db->query("SELECT * FROM categories");
+                            $result=$db->resultSet();
+                            foreach($result as $row) {
+                                echo "<option type=\"text\" name=\"1\" id=\"".$row['categoryid']."\" value=\"4\">".$row['name']."</option>";
+                            }                     
                           ?>  
-                          <option type="text" name="1" id="4">Nooteboky</option>
-
                       </select>
                     </td>
 
@@ -80,12 +81,12 @@
                 </tr>
 
                 <?php
-    /*            if(isset($_POST['sent']))
+                if(isset($_POST['sent']))
                 {
                 
 
-                $db->query("INSERT INTO products (`categoryid`, `amount`, `name`, `price`, `brand`, `description`, `viewamount`, `numofratings`, `sumofratings`) ".
-                       "VALUES (:categoryID, :amount, :name, :price, :brand, :desc, :viewamount, :numofratings, sumofratings)");
+                $db->query("INSERT INTO products (categoryid, amount, name, price, brand, description, viewamount, imagepath, numofratings, sumofratings) ".
+                       "VALUES (:categoryID, :amount, :name, :price, :brand, :desc, :viewamount, :imagepath, :numofratings, :sumofratings)");
                 $db->bind(':categoryID', $_POST["categoryID"]);
                 $db->bind(':amount', $_POST["amount"]);
                 $db->bind(':name', $_POST["name"]);
@@ -93,12 +94,12 @@
                 $db->bind(':brand', $_POST["brand"]);
                 $db->bind(':desc', $_POST["description"]);
                 $db->bind(':viewamount', 0);
+                $db->bind(':imagepath', 0);
                 $db->bind(':numofratings', 0);
                 $db->bind(':sumofratings', 0);
-
                 $db->execute();
                 }
-     */           ?>
+                ?>
                 
                 
              </form>
