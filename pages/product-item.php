@@ -1,36 +1,9 @@
 
-
-<!doctype html>
-<html>
-
-<head>
-<meta charset="UTF-8">
-    <title>product-item</title>
-    <style>
-        #product-item{
-            margin-top: 20px;
-            margin-left: 20px;
-        }
-
-        #table{
-            background-color: rgba(94, 99, 97, 0.23);
-        }
-       .input-name{
-        font-weight: bold;
-        }
-        
-
-
-    </style>
-</head>
-
-<body>
-
     <?php
     include "../API/database.php";
     ?>
-    <div id="product-item">
         <table id="table">
+            
             <form name="pruduct-item-formular" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
 
               <tr>
@@ -42,7 +15,7 @@
                             $db->query("SELECT * FROM categories");
                             $result=$db->resultSet();
                             foreach($result as $row) {
-                                echo "<option type=\"text\" name=\"1\" id=\"".$row['categoryid']."\" value=\"4\">".$row['name']."</option>";
+                                echo "<option type=\"text\" name=\"".$row['name']."\" id=\"".$row['categoryid']."\" value=\"".$row['categoryid']."\">".$row['categoryid'].". ".$row['name']."</option>";
                             }                     
                           ?>  
                       </select>
@@ -105,18 +78,5 @@
              </form>
 
         </table>
-
-
-    </div>
-
-
-
-
-
-
-
-</body>
-
-</html>
 
 

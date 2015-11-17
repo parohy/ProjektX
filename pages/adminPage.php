@@ -97,58 +97,9 @@
         <input type="radio" checked name="tabs" id="tab1">
         <label for="tab1">Insert item</label>
         <div id="tab-content1" class="tab-content animated fadeIn">
-            <form name="insert-item" action="" method="get">
-                <table>
-
-                        <tr>
-
-                            <td> <span class="input-name">Product Id:</span> </td> <td><input class="input" type="text" name="productid" id="productid" size="20"></td>
-
-                        </tr>
-
-                        <tr>
-
-                            <td> <span class="input-name">Category</td>
-                            <td> <select name="category" id="categoryid">
-                                    <option type="text" name="electronic" id="1">Electronics</option>
-                                    <option type="text" name="mobile" id="2">Mobiles</option>
-                                    <option type="text" name="small device" id="3">Small device</option>
-                                    <option type="text" name="PC" id="4">Nootebok & PC</option>
-
-                                </select>
-                            </td>
-
-                        </tr>
-
-
-                        <td><span class="input-name">Amount </td> <td><input class="input" type="text" name="amount" id="amount" size="20"> </td>
-                        </tr>
-
-                        <tr>
-                            <td><span class="input-name">Name </td> <td> <textarea class="input" type="text" name="name" id="name" size="200"></textarea></td>
-                        </tr>
-
-                        <tr>
-                            <td><span class="input-name">Price </td>  <td><input class="input" type="text" name="price" id="price" size="20"></td>
-                        </tr>
-
-                        <tr>
-                            <td><span class="input-name">Brand </td>  <td><input class="input" type="text" name="brand" id="brand" size="20"></td>
-                        </tr>
-
-                        <tr>
-                            <td><span class="input-name"> Description</td> <td> <textarea class="input" rows="5" cols="20" name="descriptoin" id="description" size="20">
-                    </textarea></td>
-                        </tr>
-
-                        <tr>
-                            <td><span class="input-name">Picture </td> <td><input class="input" type="file" name="imagepath" id="imagepath"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="submit" name="sent" id="sent" value="insert"><td>
-                        </tr>
-                </table>
-            </form>
+            <?php
+                include "product-item.php"
+            ?>
         </div>
 
     </li>
@@ -157,30 +108,47 @@
         <label for="tab2">Delete item</label>
         <div id="tab-content2" class="tab-content animated fadeIn">
 
-               <form id="delete-product" action="/edit" method="get">
+               <form id="delete-product" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
                     <table>
                         <tr>
 
-                            <td> <span class="input-name">Category</td>
-                            <td> <select name="category" id="categoryid">
-                                    <option type="text" name="electronic" id="1">Electronics</option>
-                                    <option type="text" name="mobile" id="2">Mobiles</option>
-                                    <option type="text" name="small device" id="3">Small device</option>
-                                    <option type="text" name="PC" id="4">Nootebok & PC</option>
+                            <td> <span class="input-name">Product</td>
+                            <td> <select name="productID" id="productID" size="1" >
+                                    <?php
+                                        function productOption($catID ,$catName)
+                                        {
+                                            $db=new DBHandler();
+                                            $db->query("SELECT * FROM products WHERE categoryid LIKE '%".$catID."%'");
+                                            $result=$db->resultSet();
+                                            foreach($result as $row) {
+                                                echo "<option type=\"text\" name=\"".$row['name']."\" id=\"".$row['productid']."\" value=\"".$row['productid']."\">-".$catName."-".$row['productid']."-".$row['name']."-</option>";
+                                            } 
+                                            
+                                        }                                 
+                                        $db=new DBHandler();
+                                        $db->query("SELECT * FROM categories");
+                                        $result=$db->resultSet();
+                                        foreach($result as $row) {
+                                            productOption($row['categoryid'],$row['name']);
+                                        }                     
+                                        ?>  
 
                                 </select>
                             </td>
 
                         </tr>
-
                         <tr>
-                            <td>Product-id</td><td><input class="input" type="text" name="productid" id="productid" size="20"></td>
-                        </tr>
-
-                        <tr>
-                            <td><input type="submit" name="sent" id="sent" value="delete"><td>
+                            <td><input type="submit" name="delete" id="delete" value="delete"><td>
                         </tr>
                     </table>
+                        <?php
+                            if(isset($_POST['delete']))
+                            {
+                                $prodID=$_POST["productID"];
+                                $db->query("DELETE FROM products WHERE productid LIKE '%".$prodID."%'");
+                                $db->execute();                   
+                            }                
+                        ?>
                </form>
         </div>
     </li>
