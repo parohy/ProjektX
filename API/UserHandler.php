@@ -34,11 +34,11 @@ class User{
 	 */
 	public static function newUser($name, $surname, $email, $password){
 		 $instance = new self();	
-		 $instance->saveFirstData('name', $name);
+		 $instance->saveFirstData('name', ucfirst($name));
 		 $instance->id = $instance->getValidId();
 		 	
 		 if($instance->id != null && $instance->id != 0){
-		 $instance->saveData('surname', $surname);
+		 $instance->saveData('surname', ucfirst($surname));
 		 $instance->saveData('email', $email);
 		 $instance->saveData('password', $password);
 		 }

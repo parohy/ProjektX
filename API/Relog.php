@@ -45,7 +45,7 @@ if($_GET['register'] == 'registration'){
 		
 		$_SESSION['registerErr'] = $user->isSaved();
 	}
-	header('Location:  ../index.php');
+	//header('Location:  ../index.php');
 }
 /*###############################*/
 /*Executes login algorithm*/
@@ -95,13 +95,13 @@ else if($_GET['register'] == 'edit'){
 		if(isset($_POST['name'])){
 			$value = $check->dumpSpecialChars($_POST['name']);
 			if($check->checkInput($_POST['name'],50)){
-				$editUser->saveData('name', $value);
+				$editUser->saveData('name', ucfirst($value));
 			}		
 		}
 		if(isset($_POST['surname'])){
 			$value = $check->dumpSpecialChars($_POST['surname']);
 			if($check->checkInput($_POST['surname'],50)){
-				$editUser->saveData('surname', $value);
+				$editUser->saveData('surname', ucfirst($value));
 			}
 		}
 		if(isset($_POST['mail'])){
@@ -117,13 +117,13 @@ else if($_GET['register'] == 'edit'){
 		if(isset($_POST['address'])){
 			$value = $check->dumpSpecialChars($_POST['address']);
 			if($check->checkInput($_POST['address'],50)){
-				$editUser->saveData('address', $value);
+				$editUser->saveData('address', ucfirst($value));
 			}
 		}
 		if(isset($_POST['city'])){
 			$value = $check->dumpSpecialChars($_POST['city']);
 			if($check->checkInput($_POST['city'],50)){
-				$editUser->saveData('city', $value);
+				$editUser->saveData('city', ucfirst($value));
 			}
 		}
 		if(isset($_POST['postcode'])){
@@ -146,6 +146,7 @@ else if($_GET['register'] == 'edit'){
 function errorControl($name, $surname, $email, $password){
 	$error = $GLOBALS['check']->checkEmail($email, 50);
 	//email
+	echo $error;
 	if(!is_bool($error) || $error == false){
 		$_SESSION['registerErr'] = $error;
 		return false;
