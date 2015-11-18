@@ -18,28 +18,24 @@
                 echo "<h3 class='no-result'>"."No results"."</h3>";
             else {
                 $result = $_SESSION['result'];
-                printQuery($result);
-
-
+                foreach($result as $res) {
+                  echo "<section>";
+                  echo "<article>";
+                  echo "<div class='description-image'><img src='". $res['imagepath'] ."'></div>";
+                  echo "<div class='description-content'>";
+                  echo "<header>";
+                  echo "<h4><a href=\"?page=productPreview&product=" . $res['productid'] . "\">". $res["name"] . "</a></h4>";
+                  echo "<h5>Brand:". $res["brand"] ."</h5>";
+                  echo "</header>";
+                  echo "<p class='description'>";
+                  echo substr($res["description"],0,100) . "...";
+                  echo "</p>";
+                  echo "<p class='price'>". $res["price"] ." EUR</p>";
+                  echo "</div>";
+                  echo "</article>";
+                  echo "</section>";
+                }
             }
         }
-
-    function printQuery($result) {
-        echo "<section>";
-        echo "<article>";
-        echo "<div class='description-image'><img src='". $result['imagepath'] ."'></div>";
-        echo "<div class='description-content'>";
-        echo "<header>";
-        echo "<h4><a href=\"?page=productPreview&product=" . $result['productid'] . "\">". $result["name"] . "</a></h4>";
-        echo "<h5>Brand:". $result["brand"] ."</h5>";
-        echo "</header>";
-        echo "<p class='description'>";
-        echo substr($result["description"],0,100) . "...";
-        echo "</p>";
-        echo "<p class='price'>". $result["price"] ." EUR</p>";
-        echo "</div>";
-        echo "</article>";
-        echo "</section>";
-    }
     ?>
 </div>
