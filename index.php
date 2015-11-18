@@ -9,7 +9,6 @@ if(isset($_GET['product'])) {
     if(isset($_COOKIE[$_GET['product']]) == "false") {
         if(isset($_GET['rating'])) {
             setcookie($_GET['product'],"true", 60 * 60 * 24 * 60 + time(),"/");
-            print_r($_COOKIE['rating']);
 
             $handler = new DBHandler();
             $handler->beginTransaction();
@@ -26,8 +25,7 @@ if(isset($_GET['product'])) {
             $handler->bind(":id", $_GET['product']);
             $handler->execute();
             $handler->endTransaction();
-
-            header('/?page=productPreview&product=' . $_GET['product']);
+            header("Location: ?page=productPreview&product=" . $_GET['product'],"Content-Type: text/html; charset=UTF-8");
         }
     }
 }

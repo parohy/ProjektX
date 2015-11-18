@@ -38,9 +38,12 @@
                                 if(isset($_COOKIE[$id])) {
                                     if($_COOKIE[$id] == "true") {
                                         echo "<a href=\"#\"><img src=\"../ProjektX/img/star.svg.png\"></a>";
-                                    } else {
+                                    } else if($_COOKIE[$id] == "false"){
                                         echo "<a href=\"?page=productPreview&product=" . $id . "&rating=" . $i ." \"><img src=\"../ProjektX/img/star.svg.png\"></a>";
                                     }
+                                }
+                                else {
+                                    echo "<a href=\"?page=productPreview&product=" . $id . "&rating=" . $i ." \"><img src=\"../ProjektX/img/star.svg.png\"></a>";
                                 }
                             }
                         ?>

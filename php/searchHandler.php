@@ -1,6 +1,6 @@
 <?php
 /**
- * Created by Matúš Kaèmár.
+ * Created by Matï¿½ï¿½ Kaï¿½mï¿½r.
  * Date: 8. 11. 2015
  * Time: 22:43
  */
@@ -21,9 +21,11 @@ if(isset($_GET['search'])) {
 }
 
 if(!foundRecord($result)) {
-    $database->query('SELECT * FROM products WHERE name = :fname OR brand = :fname');
-    $database->bind(':fname',$search);
-    $result = $database->singleRecord();
+    $database->query("SELECT * FROM products WHERE name LIKE :name OR brand LIKE :brand");
+    $search = '%'.$search.'%';
+    $database->bind(':name',$search);
+    $database->bind(':brand',$search);
+    $result = $database->resultSet();
 }
 
 if(foundRecord($result)) {
