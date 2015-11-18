@@ -1,0 +1,243 @@
+.slider-container {
+    width: 99.5%;
+    height: 260px;
+    background: #eeeeee;
+    line-height: 260px;
+    vertical-align: middle;
+    text-align: center;
+    border: 1px solid grey;
+}
+
+.slider {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+}
+
+.slider-image, .slider-description {
+    width: 40%;
+    height: 100%;
+    float: left;
+}
+
+.slider-description {
+    width: 60%;
+}
+
+.slider-image img {
+    width: 100%;
+    height: 100%;
+}
+
+.slider-description article {
+    width: 100%;
+    height: 100%;
+}
+
+.slider-description article header {
+    width: 100%;
+    height: 36px;
+    font-size: 17px;
+    line-height: 18px;
+    vertical-align: middle;
+    margin-top: 5px;
+}
+
+.slider-product-description {
+    width: 100%;
+    height: 19%;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: justify;
+}
+
+.slider-product-description p {
+    width: 90%;
+    height: 90%;
+    margin: 20px 0 0 20px;
+}
+
+.slider-footer {
+    text-align: right;
+}
+
+.slider-footer h3 {
+    padding-right: 20px;
+}
+/* TABS ON MAIN PAGE */
+
+.product-tabs {
+    width: 100%;
+    height: 340px;
+    margin-top: 20px;
+}
+
+h1 {
+    font-weight: normal;
+    font-size: 40px;
+    text-transform: uppercase;
+    float: left;
+    margin: 20px 0 100px 10px;
+}
+h1 span {
+    font-size: 13px;
+    display: block;
+    padding-left: 4px;
+}
+
+#tabs {
+    width: 93%;
+    float: none;
+    list-style: none;
+    position: relative;
+    text-align: left;
+}
+#tabs li {
+    float: left;
+    display: block;
+}
+#tabs input[type="radio"] {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+#tabs label {
+    display: block;
+    padding: 14px 21px;
+    font-size: 20px;
+    font-weight: normal;
+    text-transform: uppercase;
+    background: #484848;
+    cursor: pointer;
+    position: relative;
+    top: 4px;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-top-left-radius: 10px;
+    -moz-border-top-right-radius: 10px;
+}
+#tabs label:hover {
+    background: #484848;
+}
+.tab-content {
+    z-index: 2;
+    display: none;
+    overflow: hidden;
+    width: 680px;
+    height: 260px;
+    font-size: 17px;
+    line-height: 25px;
+    padding: 10px;
+    position: absolute;
+    top: 53px;
+    left: 0;
+    background: #cccccc;
+    font-size: 13px;
+    overflow: hidden;
+}
+#tabs [id^="tab"]:checked + label {
+    top: 0;
+    padding-top: 17px;
+    background: #cccccc;
+}
+#tabs [id^="tab"]:checked ~ [id^="tab-content"] {
+    display: block;
+}
+
+p.link {
+    clear: both;
+    margin: 380px 0 0 15px;
+}
+
+p.link a:hover {
+    background-color: #484848;
+}
+
+.product-item {
+    width: 160px;
+    height: 250px;
+    float: left;
+    margin-left: 12px;
+    overflow: hidden;
+}
+.product-item:first-child {
+    margin: 0;
+}
+
+.product-item article {
+    width: 100%;
+    height: 100%;
+    line-height: 12px;
+    text-align: center;
+}
+
+.product-header {
+    width: 100%;
+    height: 40px;
+}
+
+.product-name {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.product-name a {
+    color: #484848;
+    text-decoration: none;
+}
+
+.product-image {
+    width: 160px;
+    height: 120px;
+    margin-top: 10px;
+    background: #024378;
+}
+
+.product-image img {
+    width: 160px;
+    height: 120px;
+}
+
+.product-description {
+    width: 100%;
+    height: 44px;
+    text-align: left;
+    line-height: 13px;
+    padding-top: 5px;
+    color: rgba(0,0,0,0.8);
+}
+
+.product-footer {
+    width: 100%;
+    height: 25px;
+    font-size: 15px;
+    padding-top: 10px;
+}
+
+.price {
+    float: left;
+    color: #000;
+}
+
+.product-more {
+    display: block;
+    width: 50px;
+    height: 25px;
+    line-height: 25px;
+    vertical-align: middle;
+    background: #484848;
+    color: #fff;
+    float: right;
+    text-decoration: none;
+}
