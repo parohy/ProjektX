@@ -3,6 +3,9 @@
     $handler->query('SELECT * FROM products');
     $result = $handler->resultSet();
 ?>
+
+<div id="leftArrow" class="slider-arrows"><</div>
+<div id="rightArrow" class="slider-arrows">></div>
 <div class="slider">
     <?php
         for($i = 0; $i < 4; $i++) {
@@ -30,16 +33,50 @@
 
 <script type="text/javascript">
     $(function(){
-        var slides = document.getElementsByClassName("slide");
+        var leftArrow = $("#leftArrow");
+        var rightArrow = $("#rightArrow");
         var margin = -260;
+        var i = 0;
 
-        setInterval(function() {
-            slides[0].style.marginTop = margin + "px";
-            margin -= 260;
-
-            if(margin == -1040) {
-                margin = 0;
-            }
+        var interval = setInterval(function(){
+            slide();
         },5000);
+
+        leftArrow.click(function() {
+            clearInterval(interval);
+            if(margin == 0) {
+                margin = -780;
+            } else {
+                margin += 260;
+            }
+
+            $(".slide").eq(0).animate({marginTop: margin + "px"});
+
+            interval = setInterval(function(){ slide(); },5000);
+        });
+
+        rightArrow.click(function() {
+
+            clearInterval(interval);
+
+            if(margin == -780) {
+                margin = 0;
+            } else {
+                margin -= 260;
+            }
+
+            $(".slide").eq(0).animate({marginTop: margin + "px"});
+
+            interval = setInterval(function(){ slide(); },5000);
+        });
+
+        function slide() {
+          $(".slide").eq(0).animate({marginTop: margin + "px"});
+          if(margin <= -780) {
+              margin = 0;
+          } else {
+              margin -= 260;
+          }
+        }
     });
 </script>

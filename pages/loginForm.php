@@ -7,7 +7,7 @@
         <li class="login-item"><input type="password" name="password" placeholder="Pasword..." maxlength="30" id="password-input" required><br><span id="pass-error" class="error"></span></li>
         <li class="login-item"><span class="login-dialogue">Do you want to stay logged in ?</span><input type="checkbox" name="stayLoggedin" value="true"></li>
         <li class="login-item"><a href="?page=forgottenPass">Forgot your password ?</a></li>
-        <li class="login-item"><a href="?page=registration" target="_blank">Not registered yet ?</a></li>
+        <li class="login-item"><a href="?page=registration">Not registered yet ?</a></li>
         <li class="login-item"><input type="submit" value="Log in" id="loginSubmit"></li>
         <li class="login-item">
         <?php
