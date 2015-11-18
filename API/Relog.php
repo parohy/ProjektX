@@ -44,8 +44,8 @@ if($_GET['register'] == 'registration'){
 		$user = User::newUser($name, $surname, $email, $password);
 		
 		$_SESSION['registerErr'] = $user->isSaved();
-		header('Location:  ../index.php');
 	}
+	header('Location:  ../index.php');
 }
 /*###############################*/
 /*Executes login algorithm*/
@@ -145,11 +145,9 @@ else if($_GET['register'] == 'edit'){
 
 function errorControl($name, $surname, $email, $password){
 	$error = $GLOBALS['check']->checkEmail($email, 50);
-	echo $error;
 	//email
 	if(!is_bool($error) || $error == false){
 		$_SESSION['registerErr'] = $error;
-		echo "what";
 		return false;
 	}
 	//name
