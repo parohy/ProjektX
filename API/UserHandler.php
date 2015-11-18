@@ -88,6 +88,10 @@ class User{
 		$this->id = $id;
 	}
 	
+	/**
+	 * @author Tomas Paronai
+	 * @return $id
+	 */
 	public function getId(){
 		return $this->id;
 	}
@@ -154,6 +158,12 @@ class User{
 		return "Registration failed.";
 	}
 	
+	/**
+	 * Returns the data from database of the current which is being handled.
+	 * @author Tomas Paronai
+	 * @param $parameter - the data i want
+	 * @return $users[$i][$parameter] - data at parameter
+	 */
 	public function getData($parameter){
 		if($this->id != null){
 			$this->handlerDB->query("SELECT `".$parameter."`,`userid` FROM users");

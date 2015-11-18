@@ -26,6 +26,7 @@ class Login{
 	
 	/**
 	 * Compares the email and password if they match the data in database.
+	 * @author Tomas Paronai
 	 * @param $email - login email
 	 * @param $password - login password
 	 * @return false - email or password not matching
@@ -54,6 +55,11 @@ class Login{
 		return false;
 	}
 	
+	/**
+	 * Creates an admin login instance.
+	 * @author Tomas Paronai
+	 * @return $instance 
+	 */
 	public static function adminLogin(){
 		$instance = new self();
 		$instance->name = "admin";
@@ -61,6 +67,7 @@ class Login{
 	}
 	
 	/**
+	 * @author Tomas Paronai
 	 * @return $this->name - the name of the logged in user.
 	 */
 	public function getName(){
