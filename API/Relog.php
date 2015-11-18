@@ -37,14 +37,14 @@ if($_GET['register'] == 'registration'){
 	$email = $check->dumpSpecialChars($_POST['mail']);
 	$password = $check->dumpSpecialChars($_POST['password']);
 	
-	
+	echo "Mail: ",$check->checkEmail($email, 50);
 	if(errorControl($name, $surname, $email, $password)){
 		/*handle for saving user information into the database*/
 		//$user = new User($name, $surname, $email, $password);
 		$user = User::newUser($name, $surname, $email, $password);
 		
 		$_SESSION['registerErr'] = $user->isSaved();
-		header('Location:  ../index.php');
+		//header('Location:  ../index.php');
 	}
 }
 /*###############################*/
@@ -106,7 +106,7 @@ else if($_GET['register'] == 'edit'){
 		}
 		if(isset($_POST['mail'])){
 			$value = $check->dumpSpecialChars($_POST['mail']);
-			if(!$check->checkEmail($value,50)){
+			if($check->checkEmail($value,50)===false || !is_bool($check->checkEmail($value,50))){
 				//todo error
 			}
 			else{
@@ -145,28 +145,30 @@ else if($_GET['register'] == 'edit'){
 
 function errorControl($name, $surname, $email, $password){
 	$error = $GLOBALS['check']->checkEmail($email, 50);
+	echo $error;
 	//email
-	if($error != true){
+	if(!is_bool($error) || $error == false){
 		$_SESSION['registerErr'] = $error;
+		echo "what";
 		return false;
 	}
 	//name
 	$error = $GLOBALS['check']->checkInput($name, 50);
-	if($error != true){
+	if(!is_bool($error) || $error == false){
 		$_SESSION['registerErr'] = $error;
 		return false;
 	}
 
 	//surname
 	$error = $GLOBALS['check']->checkInput($surname, 50);
-	if($error != true){
+	if(!is_bool($error) || $error == false){
 		$_SESSION['registerErr'] = $error;
 		return false;
 	}
 
 	//password
 	$error = $GLOBALS['check']->checkInput($password, 50);
-	if($error != true){
+	if(!is_bool($error) || $error == false){
 		$_SESSION['registerErr'] = $error;
 		return false;
 	}
