@@ -37,14 +37,14 @@ if($_GET['register'] == 'registration'){
 	$email = $check->dumpSpecialChars($_POST['mail']);
 	$password = $check->dumpSpecialChars($_POST['password']);
 	
-	echo "Mail: ",$check->checkEmail($email, 50);
+	//echo "Mail: ",$check->checkEmail($email, 50);
 	if(errorControl($name, $surname, $email, $password)){
 		/*handle for saving user information into the database*/
 		//$user = new User($name, $surname, $email, $password);
 		$user = User::newUser($name, $surname, $email, $password);
 		
 		$_SESSION['registerErr'] = $user->isSaved();
-		//header('Location:  ../index.php');
+		header('Location:  ../index.php');
 	}
 }
 /*###############################*/
