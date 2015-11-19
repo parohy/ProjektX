@@ -20,14 +20,14 @@ $result = $dbhandler->resultSet();
 
         if($diff > 1 && $res['categoryid'] == 2) { //-> PRINTING THE FIRST MAIN CATEGORY EXCEPT ALL PRODUCTS CATEGORY
             echo "<li class=\"nav-item\">";
-            echo "<a href=\"#\" class=\"nav-button\">" . $res['name'] . "</a>";
+            echo "<a href=\"?page=" . $res['name'] . "&category=" . $res['categoryid'] . "\" class=\"nav-button\">" . $res['name'] . "</a>";
             echo "<ul class=\"subnav-container\">";
         }
         else if($diff > 1 && $res['categoryid'] != 1) { //-> PRINTING THE MAIN CATEGORIES
             echo "</ul>";
             echo "</li>";
             echo "<li class=\"nav-item\">";
-            echo "<a href=\"#\" class=\"nav-button\">" . $res['name'] . "</a>";
+            echo "<a href=\"?page=" . $res['name'] . "&category=" . $res['categoryid'] . "\" class=\"nav-button\">" . $res['name'] . "</a>";
             echo "<ul class=\"subnav-container\">";
         }
         if($diff == 1) { //-> PRINTING SUBCATEGORIES

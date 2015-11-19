@@ -192,7 +192,10 @@ if(isset($_GET['login']) && $_GET['login'] == 'false') {
                 else if($page == "productPreview") {
                     include "pages/productPreview.php";
                 }
-                else if($page == "Smartfóny" || $page = "Púzdra%20a%20obaly" || $page = "Notebooky" || $page = "Monitory" || $page = "Android%20" || $page = "iPady")
+                else if($page == "Mobilné telefóny" || $page == "Notebooky a PC" || $page == "Tablety") {
+                    include "pages/categories/mainCategory.php";
+                }
+                else if($page == "Smartfóny" || $page = "Púzdra a obaly" || $page = "Notebooky" || $page = "Monitory" || $page = "Android" || $page = "iPady")
                 {
                     include "pages/categories/category.php";
                 }
