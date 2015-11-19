@@ -75,7 +75,7 @@ else if($_GET['register'] == 'login'){
 }
 /*###############################*/
 /*Executes admin login algorithm*/
-else if($_GET['register'] == 'admin'){
+/*else if($_GET['register'] == 'admin'){
 	$login = Login::adminLogin();
 	$email = $check->dumpSpecialChars($_POST['usermail']);
 	$password = $check->dumpSpecialChars($_POST['password']);
@@ -85,7 +85,7 @@ else if($_GET['register'] == 'admin'){
 	else{
 		header('Location: ../web-control.php');
 	}
-}
+}*/
 /*###############################*/
 /*Executes edit algorithm*/
 else if($_GET['register'] == 'edit'){

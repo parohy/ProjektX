@@ -18,7 +18,6 @@ class Login{
 	
 	private $handlerDB;
 	private $name;
-	private $password = "admin2015";
 	
 	function __construct(){
 		$this->handlerDB = new DBHandler();
@@ -33,7 +32,6 @@ class Login{
 	 * @return true - login correct
 	 */
 	public function checkLogin($email, $password){
-		if($this->name != "admin"){
 			$this->handlerDB->query('SELECT email,password,name FROM users');
 			
 			$users = array();
@@ -46,12 +44,6 @@ class Login{
 					return true;
 				}
 			}
-		}
-		else if($this->name == "admin"){
-			if($this->name == $email && $this->password == $password){
-				return true;
-			}
-		}		
 		return false;
 	}
 	
