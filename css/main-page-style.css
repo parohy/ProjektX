@@ -1,11 +1,47 @@
 .slider-container {
-    width: 99.5%;
+    width: 98%;
     height: 260px;
-    background: #eeeeee;
+    background: #fff;
     line-height: 260px;
     vertical-align: middle;
     text-align: center;
-    border: 1px solid grey;
+    margin: 1% 0 0 1%;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.4);
+}
+
+#leftArrow {
+    margin-left: -360px;
+    margin-top: 105px;
+}
+
+#rightArrow {
+    margin-left: 310px;
+    margin-top: 105px;
+}
+
+.slider-arrows {
+  position: absolute;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bolder;
+  color: #fff;
+  background: rgba(0,0,0,0.2);
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.slider-arrows:hover {
+    background: #383838;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
 }
 
 .slider {
@@ -19,55 +55,57 @@
     height: 100%;
 }
 
-.slider-image, .slider-description {
+.slide-image {
     width: 40%;
     height: 100%;
     float: left;
 }
 
-.slider-description {
+.slide-description {
     width: 60%;
+    height: 100%;
+    float: right;
 }
 
-.slider-image img {
+.slide-image img {
     width: 100%;
     height: 100%;
 }
 
-.slider-description article {
+.slide-description article {
     width: 100%;
     height: 100%;
 }
 
-.slider-description article header {
+.slide-description article header {
     width: 100%;
-    height: 36px;
-    font-size: 17px;
-    line-height: 18px;
+    height: 50px;
+    font-size: 15px;
+    line-height: 25px;
     vertical-align: middle;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
-.slider-product-description {
-    width: 100%;
-    height: 19%;
-    font-size: 12px;
-    line-height: 14px;
+.slide-description article header h3 a {
+    color: #2980b9;
+    text-decoration: none;
+}
+
+.slide-product-description {
+    width: 95%;
+    height: 140px;
+    color: #ecf0f1;
+    background: #e74c3c;
+    padding: 10px 20px;
+    line-height: 16px;
+    vertical-align: middle;
     text-align: justify;
-}
-
-.slider-product-description p {
-    width: 90%;
-    height: 90%;
-    margin: 20px 0 0 20px;
-}
-
-.slider-footer {
-    text-align: right;
-}
-
-.slider-footer h3 {
-    padding-right: 20px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    margin: 10px 0 0 5px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
 }
 /* TABS ON MAIN PAGE */
 
