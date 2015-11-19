@@ -8,6 +8,7 @@
 <div id="rightArrow" class="slider-arrows">></div>
 <div class="slider">
     <?php
+        /* PRINT SLIDES TO THE PAGE */
         for($i = 0; $i < 4; $i++) {
             echo "<div class=\"slide\">";
             echo "<div class=\"slide-image\">";
@@ -21,11 +22,6 @@
             echo "<div class=\"slide-product-description\">";
             echo "<p>" . substr($result[$i]['description'],0,300) . "...</p>";
             echo "</div>";
-            /*
-            echo "<footer class=\"slide-footer\">";
-            echo "<h3>".$result[$i]['price']." EUR</h3>";
-            echo "<footer>";
-            */
             echo "</article>";
             echo "</div>";
             echo "</div>";

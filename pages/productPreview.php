@@ -30,23 +30,24 @@
                 </div>
 
                 <footer class="product-footer">
-                    <div class="product-ranking">Hodnotenie: <?php echo $avgRating;?><br>
+                    <div class="product-ranking">Hodnotenie: <?php echo "<span id=\"numOfRating\">" . $avgRating . "</span>";?><br>
                         <?php
                             $id = $result['productid'];
 
                             for($i = 1; $i <= 5; $i++) {
                                 if(isset($_COOKIE[$id])) {
                                     if($_COOKIE[$id] == "true") {
-                                        echo "<a href=\"#\"><img src=\"../ProjektX/img/star.svg.png\"></a>";
+                                        echo "<a href=\"#\" class=\"rating\"><img src=\"../ProjektX/img/star.svg.png\"></a>";
                                     } else if($_COOKIE[$id] == "false"){
-                                        echo "<a href=\"?page=productPreview&product=" . $id . "&rating=" . $i ." \"><img src=\"../ProjektX/img/star.svg.png\"></a>";
+                                        echo "<a href=\"?page=productPreview&product=" . $id . "&rating=" . $i ." \" class=\"rating\"><img src=\"../ProjektX/img/star.svg.png\"></a>";
                                     }
                                 }
                                 else {
-                                    echo "<a href=\"?page=productPreview&product=" . $id . "&rating=" . $i ." \"><img src=\"../ProjektX/img/star.svg.png\"></a>";
+                                    echo "<a href=\"?page=productPreview&product=" . $id . "&rating=" . $i ." \" class=\"rating\"><img src=\"../ProjektX/img/star.svg.png\"></a>";
                                 }
                             }
                         ?>
+                        <script src="js/rating.js"></script>
                     </div>
                     <div class="product-info">
                         <span>Na sklade: <?php echo $result['amount']?></span>
