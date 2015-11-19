@@ -1,7 +1,11 @@
 <?php
-    $handler = new DBHandler();
-    $handler->query('SELECT * FROM products');
-    $result = $handler->resultSet();
+/**
+ * Author: Matus Kacmar
+ */
+
+$handler = new DBHandler();
+$handler->query('SELECT * FROM products');
+$result = $handler->resultSet();
 ?>
 
 <div id="leftArrow" class="slider-arrows"><</div>

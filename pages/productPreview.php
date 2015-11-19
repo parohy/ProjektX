@@ -1,16 +1,19 @@
 <?php
-    $product = $_GET['product'];
+/**
+ * Author: Matus Kacmar
+ */
+$product = $_GET['product'];
 
-    $handler = new DBHandler();
-    $handler->query("SELECT * FROM products WHERE productid = :id");
-    $handler->bind(":id",$product);
-    $result = $handler->singleRecord();
+$handler = new DBHandler();
+$handler->query("SELECT * FROM products WHERE productid = :id");
+$handler->bind(":id",$product);
+$result = $handler->singleRecord();
 
-    if($result['sumofratings'] > 0 && $result['numofratings'] > 0) {
-        $avgRating = round($result['sumofratings'] / $result['numofratings'], 1);
-    } else {
-        $avgRating = 0;
-    }
+if($result['sumofratings'] > 0 && $result['numofratings'] > 0) { // Calculate rating for given product
+    $avgRating = round($result['sumofratings'] / $result['numofratings'], 1);
+} else {
+    $avgRating = 0;
+}
 ?>
 <link rel="stylesheet" type="text/css" href="css/productPreview.css">
 <div class="frame-container product-preview">
@@ -35,12 +38,15 @@
                             $id = $result['productid'];
 
                             for($i = 1; $i <= 5; $i++) {
-                                if(isset($_COOKIE[$id])) {
-                                    if($_COOKIE[$id] == "true") {
+
+                                if(isset($_COOKIE[$id])) { // if cookie is set for given product
+
+                                    if($_COOKIE[$id] == "true") { // if cookie value is true forbid rating
                                         echo "<a href=\"#\" class=\"rating\"><img src=\"../ProjektX/img/star.svg.png\"></a>";
-                                    } else if($_COOKIE[$id] == "false"){
+                                    } else if($_COOKIE[$id] == "false"){ // if cookie value is false allow product rating
                                         echo "<a href=\"?page=productPreview&product=" . $id . "&rating=" . $i ." \" class=\"rating\"><img src=\"../ProjektX/img/star.svg.png\"></a>";
                                     }
+
                                 }
                                 else {
                                     echo "<a href=\"?page=productPreview&product=" . $id . "&rating=" . $i ." \" class=\"rating\"><img src=\"../ProjektX/img/star.svg.png\"></a>";

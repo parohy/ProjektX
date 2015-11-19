@@ -11,11 +11,11 @@
         <li class="login-item"><input type="submit" value="Log in" id="loginSubmit"></li>
         <li class="login-item">
         <?php
-        if(isset($_SESSION['loginErr']) && $_SESSION['loginErr'] != null) {
+        if(isset($_SESSION['loginErr']) && $_SESSION['loginErr'] != null) { // if login error is set and its not null print it and then set it to null
             echo "<span id=\"login-error\" class=\"error\">" . $_SESSION['loginErr'] . "</span>";
             $_SESSION['loginErr'] = null;
         }
         ?>
-        </span></li>
+        </li>
     </ul>
 </form>

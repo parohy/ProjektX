@@ -1,10 +1,15 @@
+<?php
+/**
+ * Author: Matus Kacmar
+ */
+?>
 <link rel="stylesheet" type="text/css" href="css/search-style.css">
 
 <div class="frame-container search-results">
     <div class="frame-titlebar search-titlebar">
         <span class="frame-title">Search results for:
             <?php
-                if(isset($_SESSION['search'])) {
+                if(isset($_SESSION['search'])) { // Displays searched term
                     $search = $_SESSION['search'];
 
                     echo $search;
@@ -14,11 +19,11 @@
     </div>
     <?php
         if(isset($_SESSION['result'])) {
-            if($_SESSION['result'] == "No results")
+            if($_SESSION['result'] == "No results") // If no results found print Message
                 echo "<h3 class='no-result'>"."No results"."</h3>";
             else {
                 $result = $_SESSION['result'];
-                foreach($result as $res) {
+                foreach($result as $res) { // Print product item
                   echo "<section>";
                   echo "<article>";
                   echo "<div class='description-image'><img src='". $res['imagepath'] ."'></div>";
