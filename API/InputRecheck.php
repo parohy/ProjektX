@@ -42,9 +42,9 @@ class Recheck{
 			return "Invalid email.";
 		}
 		
-		/*if(!preg_match("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$", $email)){
+		if(!preg_match("/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*([,;]\s*\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)*$/", $email)){
 			return "Invalid email.";
-		}*/
+		}
 		
 		
 		$this->handlerDB->query('SELECT email FROM users');

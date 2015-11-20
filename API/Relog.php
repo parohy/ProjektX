@@ -45,7 +45,7 @@ if($_GET['register'] == 'registration'){
 		
 		$_SESSION['registerErr'] = $user->isSaved();
 	}
-	//header('Location:  ../index.php');
+	header('Location:  ../index.php');
 }
 /*###############################*/
 /*Executes login algorithm*/
