@@ -2,10 +2,10 @@
 -- version 4.1.14
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 21, 2015 at 09:38 PM
--- Server version: 5.6.17
--- PHP Version: 5.5.12
+-- Hostiteľ: 127.0.0.1
+-- Čas generovania: So 21.Nov 2015, 22:20
+-- Verzia serveru: 5.6.17
+-- Verzia PHP: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `akademiasovy`
+-- Databáza: `akademiasovy`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categories`
+-- Štruktúra tabuľky pre tabuľku `categories`
 --
 
 CREATE TABLE IF NOT EXISTS `categories` (
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=24 ;
 
 --
--- Dumping data for table `categories`
+-- Sťahujem dáta pre tabuľku `categories`
 --
 
 INSERT INTO `categories` (`categoryid`, `name`, `parent`, `defaultpic`) VALUES
@@ -66,7 +66,7 @@ INSERT INTO `categories` (`categoryid`, `name`, `parent`, `defaultpic`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `images`
+-- Štruktúra tabuľky pre tabuľku `images`
 --
 
 CREATE TABLE IF NOT EXISTS `images` (
@@ -79,35 +79,35 @@ CREATE TABLE IF NOT EXISTS `images` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=51 ;
 
 --
--- Dumping data for table `images`
+-- Sťahujem dáta pre tabuľku `images`
 --
 
 INSERT INTO `images` (`imageid`, `productid`, `pic1path`, `pic2path`, `pic3path`) VALUES
-(1, 1, '*\\img\\products\\1\\1a.jpg', '*\\img\\products\\1\\1b.jpg', '*\\img\\products\\1\\1c.jpg'),
-(2, 2, '*\\img\\products\\2\\2a.jpg', '*\\img\\products\\2\\2b.jpg', '*\\img\\products\\2\\2c.jpg'),
-(3, 3, '*\\img\\products\\3\\3a.jpg', '*\\img\\products\\3\\3b.jpg', '*\\img\\products\\3\\3c.jpg'),
-(4, 4, '*\\img\\products\\4\\4a.jpg', '*\\img\\products\\4\\4b.jpg', '*\\img\\products\\4\\4c.jpg'),
-(5, 5, '*\\img\\products\\5\\5a.jpg', '*\\img\\products\\5\\5b.jpg', '*\\img\\products\\5\\5c.jpg'),
-(6, 6, '*\\img\\products\\6\\6a.jpg', '*\\img\\products\\6\\6b.jpg', '*\\img\\products\\6\\6c.jpg'),
-(7, 7, '*\\img\\products\\7\\7a.jpg', '*\\img\\products\\7\\7b.jpg', '*\\img\\products\\7\\7c.jpg'),
-(8, 8, '*\\img\\products\\8\\8a.jpg', '*\\img\\products\\8\\8b.jpg', '*\\img\\products\\8\\8c.jpg'),
-(9, 9, '*\\img\\products\\9\\9a.jpg', '*\\img\\products\\9\\9b.jpg', '*\\img\\products\\9\\9c.jpg'),
-(10, 10, '*\\img\\products\\10\\10a.jpg', '*\\img\\products\\10\\10b.jpg', '*\\img\\products\\10\\10c.jpg'),
-(11, 11, '*\\img\\products\\11\\11a.jpg', '*\\img\\products\\11\\11b.jpg', '*\\img\\products\\11\\11c.jpg'),
-(12, 12, '*\\img\\products\\12\\12a.jpg', '*\\img\\products\\12\\12b.jpg', '*\\img\\products\\12\\12c.jpg'),
-(13, 13, '*\\img\\products\\13\\13a.jpg', '*\\img\\products\\13\\13b.jpg', '*\\img\\products\\13\\13c.jpg'),
-(14, 14, '*\\img\\products\\14\\14a.jpg', '*\\img\\products\\14\\14b.jpg', '*\\img\\products\\14\\14c.jpg'),
-(15, 15, '*\\img\\products\\15\\15a.jpg', '*\\img\\products\\15\\15b.jpg', '*\\img\\products\\15\\15c.jpg'),
-(16, 16, '*\\img\\products\\16\\16a.jpg', '*\\img\\products\\16\\16b.jpg', '*\\img\\products\\16\\16c.jpg'),
-(17, 17, '*\\img\\products\\17\\17a.jpg', '*\\img\\products\\17\\17b.jpg', '*\\img\\products\\17\\17c.jpg'),
-(18, 18, '*\\img\\products\\18\\18a.jpg', '*\\img\\products\\18\\18b.jpg', '*\\img\\products\\18\\18c.jpg'),
-(19, 19, '*\\img\\products\\19\\19a.jpg', '*\\img\\products\\19\\19b.jpg', '*\\img\\products\\19\\19c.jpg'),
-(20, 20, '*\\img\\products\\20\\20a.jpg', '*\\img\\products\\20\\20b.jpg', '*\\img\\products\\20\\20c.jpg'),
-(21, 21, '*\\img\\products\\21\\21a.jpg', '*\\img\\products\\21\\21b.jpg', '*\\img\\products\\21\\21c.jpg'),
-(22, 22, '*\\img\\products\\22\\22a.jpg', '*\\img\\products\\22\\22b.jpg', '*\\img\\products\\22\\22c.jpg'),
-(23, 23, '*\\img\\products\\23\\23a.jpg', '*\\img\\products\\23\\23b.jpg', '*\\img\\products\\23\\23c.jpg'),
-(24, 24, '*\\img\\products\\24\\24a.jpg', '*\\img\\products\\24\\24b.jpg', '*\\img\\products\\24\\24c.jpg'),
-(25, 25, '*\\img\\products\\25\\25a.jpg', '*\\img\\products\\25\\25b.jpg', '*\\img\\products\\25\\25c.jpg'),
+(1, 1, '\\img\\products\\1\\1a.jpg', '\\img\\products\\1\\1b.jpg', '\\img\\products\\1\\1c.jpg'),
+(2, 2, '\\img\\products\\2\\2a.jpg', '\\img\\products\\2\\2b.jpg', '\\img\\products\\2\\2c.jpg'),
+(3, 3, '\\img\\products\\3\\3a.jpg', '\\img\\products\\3\\3b.jpg', '\\img\\products\\3\\3c.jpg'),
+(4, 4, '\\img\\products\\4\\4a.jpg', '\\img\\products\\4\\4b.jpg', '\\img\\products\\4\\4c.jpg'),
+(5, 5, '\\img\\products\\5\\5a.jpg', '\\img\\products\\5\\5b.jpg', '\\img\\products\\5\\5c.jpg'),
+(6, 6, '\\img\\products\\6\\6a.jpg', '\\img\\products\\6\\6b.jpg', '\\img\\products\\6\\6c.jpg'),
+(7, 7, '\\img\\products\\7\\7a.jpg', '\\img\\products\\7\\7b.jpg', '\\img\\products\\7\\7c.jpg'),
+(8, 8, '\\img\\products\\8\\8a.jpg', '\\img\\products\\8\\8b.jpg', '\\img\\products\\8\\8c.jpg'),
+(9, 9, '\\img\\products\\9\\9a.jpg', '\\img\\products\\9\\9b.jpg', '\\img\\products\\9\\9c.jpg'),
+(10, 10, '\\img\\products\\10\\10a.jpg', '\\img\\products\\10\\10b.jpg', '\\img\\products\\10\\10c.jpg'),
+(11, 11, '\\img\\products\\11\\11a.jpg', '\\img\\products\\11\\11b.jpg', '\\img\\products\\11\\11c.jpg'),
+(12, 12, '\\img\\products\\12\\12a.jpg', '\\img\\products\\12\\12b.jpg', '\\img\\products\\12\\12c.jpg'),
+(13, 13, '\\img\\products\\13\\13a.jpg', '\\img\\products\\13\\13b.jpg', '\\img\\products\\13\\13c.jpg'),
+(14, 14, '\\img\\products\\14\\14a.jpg', '\\img\\products\\14\\14b.jpg', '\\img\\products\\14\\14c.jpg'),
+(15, 15, '\\img\\products\\15\\15a.jpg', '\\img\\products\\15\\15b.jpg', '\\img\\products\\15\\15c.jpg'),
+(16, 16, '\\img\\products\\16\\16a.jpg', '\\img\\products\\16\\16b.jpg', '\\img\\products\\16\\16c.jpg'),
+(17, 17, '\\img\\products\\17\\17a.jpg', '\\img\\products\\17\\17b.jpg', '\\img\\products\\17\\17c.jpg'),
+(18, 18, '\\img\\products\\18\\18a.jpg', '\\img\\products\\18\\18b.jpg', '\\img\\products\\18\\18c.jpg'),
+(19, 19, '\\img\\products\\19\\19a.jpg', '\\img\\products\\19\\19b.jpg', '\\img\\products\\19\\19c.jpg'),
+(20, 20, '\\img\\products\\20\\20a.jpg', '\\img\\products\\20\\20b.jpg', '\\img\\products\\20\\20c.jpg'),
+(21, 21, '\\img\\products\\21\\21a.jpg', '\\img\\products\\21\\21b.jpg', '\\img\\products\\21\\21c.jpg'),
+(22, 22, '\\img\\products\\22\\22a.jpg', '\\img\\products\\22\\22b.jpg', '\\img\\products\\22\\22c.jpg'),
+(23, 23, '\\img\\products\\23\\23a.jpg', '\\img\\products\\23\\23b.jpg', '\\img\\products\\23\\23c.jpg'),
+(24, 24, '\\img\\products\\24\\24a.jpg', '\\img\\products\\24\\24b.jpg', '\\img\\products\\24\\24c.jpg'),
+(25, 25, '\\img\\products\\25\\25a.jpg', '\\img\\products\\25\\25b.jpg', '\\img\\products\\25\\25c.jpg'),
 (26, 26, '*\\img\\products\\26\\26a.jpg', '*\\img\\products\\26\\26b.jpg', '*\\img\\products\\26\\26c.jpg'),
 (27, 27, '*\\img\\products\\27\\27a.jpg', '*\\img\\products\\27\\27b.jpg', '*\\img\\products\\27\\27c.jpg'),
 (28, 28, '*\\img\\products\\28\\28a.jpg', '*\\img\\products\\28\\28b.jpg', '*\\img\\products\\28\\28c.jpg'),
@@ -137,7 +137,7 @@ INSERT INTO `images` (`imageid`, `productid`, `pic1path`, `pic2path`, `pic3path`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orderdetails`
+-- Štruktúra tabuľky pre tabuľku `orderdetails`
 --
 
 CREATE TABLE IF NOT EXISTS `orderdetails` (
@@ -152,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `orderdetails` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders`
+-- Štruktúra tabuľky pre tabuľku `orders`
 --
 
 CREATE TABLE IF NOT EXISTS `orders` (
@@ -167,7 +167,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Štruktúra tabuľky pre tabuľku `products`
 --
 
 CREATE TABLE IF NOT EXISTS `products` (
@@ -186,7 +186,7 @@ CREATE TABLE IF NOT EXISTS `products` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=51 ;
 
 --
--- Dumping data for table `products`
+-- Sťahujem dáta pre tabuľku `products`
 --
 
 INSERT INTO `products` (`productid`, `categoryid`, `amount`, `name`, `price`, `brand`, `description`, `viewamount`, `datecreated`, `numofratings`, `sumofratings`) VALUES
@@ -244,7 +244,7 @@ INSERT INTO `products` (`productid`, `categoryid`, `amount`, `name`, `price`, `b
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Štruktúra tabuľky pre tabuľku `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -262,7 +262,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=7 ;
 
 --
--- Dumping data for table `users`
+-- Sťahujem dáta pre tabuľku `users`
 --
 
 INSERT INTO `users` (`userid`, `email`, `name`, `surname`, `password`, `address`, `shipaddress`, `city`, `postcode`, `datejoined`) VALUES
