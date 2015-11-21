@@ -145,7 +145,13 @@ if(isset($_GET['login']) && $_GET['login'] == 'false') {
                 <div class="frame-content login-form">
                     <?php
                       if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == 'true') {
-                          include "pages/profile.php";
+
+                          if($_SESSION['username'] == "admin") {
+                              include "pages/web-control/adminProfile.php";
+                          } else {
+                              include "pages/profile.php";
+                          }
+
                       } else {
                           include "pages/loginForm.php";
                       }

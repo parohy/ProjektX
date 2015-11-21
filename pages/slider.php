@@ -16,7 +16,6 @@ for($i = 0; $i < 4; $i++) {
     $productID[$i] = $result[$i]['productid'];
 }
 
-//$product = join("','",$productID);
 for($i = 0; $i < 4; $i++) {
     $bindParam[$i] = ":pr" . $result[$i]['productid'];
 }

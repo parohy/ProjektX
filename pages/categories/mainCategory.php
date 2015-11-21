@@ -1,6 +1,7 @@
 <?php
 if(isset($_GET['category'])) {
   $dbhandler = new DBHandler();
+  $dbhandler->beginTransaction();
   $dbhandler->query('SELECT categoryid FROM categories WHERE parent=:catID');
   $dbhandler->bind(':catID',$_GET['category']);
   $level1 = $dbhandler->resultSet();
@@ -15,6 +16,7 @@ if(isset($_GET['category'])) {
   /*
   $dbhandler->bind(':catID', $level1);
   $result = $dbhandler->resultSet();*/
+  $dbhandler->endTransaction();
 }
 ?>
 <link rel="stylesheet" type="text/css" href="css/search-style.css">
