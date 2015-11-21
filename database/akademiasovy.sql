@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2015 at 03:43 PM
+-- Generation Time: Nov 21, 2015 at 09:38 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `images` (
   `pic2path` varchar(100) COLLATE utf8_slovak_ci NOT NULL,
   `pic3path` varchar(100) COLLATE utf8_slovak_ci NOT NULL,
   PRIMARY KEY (`imageid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=51 ;
 
 --
 -- Dumping data for table `images`
@@ -92,7 +92,47 @@ INSERT INTO `images` (`imageid`, `productid`, `pic1path`, `pic2path`, `pic3path`
 (7, 7, '*\\img\\products\\7\\7a.jpg', '*\\img\\products\\7\\7b.jpg', '*\\img\\products\\7\\7c.jpg'),
 (8, 8, '*\\img\\products\\8\\8a.jpg', '*\\img\\products\\8\\8b.jpg', '*\\img\\products\\8\\8c.jpg'),
 (9, 9, '*\\img\\products\\9\\9a.jpg', '*\\img\\products\\9\\9b.jpg', '*\\img\\products\\9\\9c.jpg'),
-(10, 10, '*\\img\\products\\10\\10a.jpg', '*\\img\\products\\10\\10b.jpg', '*\\img\\products\\10\\10c.jpg');
+(10, 10, '*\\img\\products\\10\\10a.jpg', '*\\img\\products\\10\\10b.jpg', '*\\img\\products\\10\\10c.jpg'),
+(11, 11, '*\\img\\products\\11\\11a.jpg', '*\\img\\products\\11\\11b.jpg', '*\\img\\products\\11\\11c.jpg'),
+(12, 12, '*\\img\\products\\12\\12a.jpg', '*\\img\\products\\12\\12b.jpg', '*\\img\\products\\12\\12c.jpg'),
+(13, 13, '*\\img\\products\\13\\13a.jpg', '*\\img\\products\\13\\13b.jpg', '*\\img\\products\\13\\13c.jpg'),
+(14, 14, '*\\img\\products\\14\\14a.jpg', '*\\img\\products\\14\\14b.jpg', '*\\img\\products\\14\\14c.jpg'),
+(15, 15, '*\\img\\products\\15\\15a.jpg', '*\\img\\products\\15\\15b.jpg', '*\\img\\products\\15\\15c.jpg'),
+(16, 16, '*\\img\\products\\16\\16a.jpg', '*\\img\\products\\16\\16b.jpg', '*\\img\\products\\16\\16c.jpg'),
+(17, 17, '*\\img\\products\\17\\17a.jpg', '*\\img\\products\\17\\17b.jpg', '*\\img\\products\\17\\17c.jpg'),
+(18, 18, '*\\img\\products\\18\\18a.jpg', '*\\img\\products\\18\\18b.jpg', '*\\img\\products\\18\\18c.jpg'),
+(19, 19, '*\\img\\products\\19\\19a.jpg', '*\\img\\products\\19\\19b.jpg', '*\\img\\products\\19\\19c.jpg'),
+(20, 20, '*\\img\\products\\20\\20a.jpg', '*\\img\\products\\20\\20b.jpg', '*\\img\\products\\20\\20c.jpg'),
+(21, 21, '*\\img\\products\\21\\21a.jpg', '*\\img\\products\\21\\21b.jpg', '*\\img\\products\\21\\21c.jpg'),
+(22, 22, '*\\img\\products\\22\\22a.jpg', '*\\img\\products\\22\\22b.jpg', '*\\img\\products\\22\\22c.jpg'),
+(23, 23, '*\\img\\products\\23\\23a.jpg', '*\\img\\products\\23\\23b.jpg', '*\\img\\products\\23\\23c.jpg'),
+(24, 24, '*\\img\\products\\24\\24a.jpg', '*\\img\\products\\24\\24b.jpg', '*\\img\\products\\24\\24c.jpg'),
+(25, 25, '*\\img\\products\\25\\25a.jpg', '*\\img\\products\\25\\25b.jpg', '*\\img\\products\\25\\25c.jpg'),
+(26, 26, '*\\img\\products\\26\\26a.jpg', '*\\img\\products\\26\\26b.jpg', '*\\img\\products\\26\\26c.jpg'),
+(27, 27, '*\\img\\products\\27\\27a.jpg', '*\\img\\products\\27\\27b.jpg', '*\\img\\products\\27\\27c.jpg'),
+(28, 28, '*\\img\\products\\28\\28a.jpg', '*\\img\\products\\28\\28b.jpg', '*\\img\\products\\28\\28c.jpg'),
+(29, 29, '*\\img\\products\\29\\29a.jpg', '*\\img\\products\\29\\29b.jpg', '*\\img\\products\\29\\29c.jpg'),
+(30, 30, '*\\img\\products\\30\\30a.jpg', '*\\img\\products\\30\\30b.jpg', '*\\img\\products\\30\\30c.jpg'),
+(31, 31, '*\\img\\products\\31\\31a.jpg', '*\\img\\products\\31\\31b.jpg', '*\\img\\products\\31\\31c.jpg'),
+(32, 32, '*\\img\\products\\32\\32a.jpg', '*\\img\\products\\32\\32b.jpg', '*\\img\\products\\32\\32c.jpg'),
+(33, 33, '*\\img\\products\\33\\33a.jpg', '*\\img\\products\\33\\33b.jpg', '*\\img\\products\\33\\33c.jpg'),
+(34, 34, '*\\img\\products\\34\\34a.jpg', '*\\img\\products\\34\\34b.jpg', '*\\img\\products\\34\\34c.jpg'),
+(35, 35, '*\\img\\products\\35\\35a.jpg', '*\\img\\products\\35\\35b.jpg', '*\\img\\products\\35\\35c.jpg'),
+(36, 36, '*\\img\\products\\36\\36a.jpg', '*\\img\\products\\36\\36b.jpg', '*\\img\\products\\36\\36c.jpg'),
+(37, 37, '*\\img\\products\\37\\37a.jpg', '*\\img\\products\\37\\37b.jpg', '*\\img\\products\\37\\37c.jpg'),
+(38, 38, '*\\img\\products\\38\\38a.jpg', '*\\img\\products\\38\\38b.jpg', '*\\img\\products\\38\\38c.jpg'),
+(39, 39, '*\\img\\products\\39\\39a.jpg', '*\\img\\products\\39\\39b.jpg', '*\\img\\products\\39\\39c.jpg'),
+(40, 40, '*\\img\\products\\40\\40a.jpg', '*\\img\\products\\40\\40b.jpg', '*\\img\\products\\40\\40c.jpg'),
+(41, 41, '*\\img\\products\\41\\41a.jpg', '*\\img\\products\\41\\41b.jpg', '*\\img\\products\\41\\41c.jpg'),
+(42, 42, '*\\img\\products\\42\\42a.jpg', '*\\img\\products\\42\\42b.jpg', '*\\img\\products\\42\\42c.jpg'),
+(43, 43, '*\\img\\products\\43\\43a.jpg', '*\\img\\products\\43\\43b.jpg', '*\\img\\products\\43\\43c.jpg'),
+(44, 44, '*\\img\\products\\44\\44a.jpg', '*\\img\\products\\44\\44b.jpg', '*\\img\\products\\44\\44c.jpg'),
+(45, 45, '*\\img\\products\\45\\45a.jpg', '*\\img\\products\\45\\45b.jpg', '*\\img\\products\\45\\45c.jpg'),
+(46, 46, '*\\img\\products\\46\\46a.jpg', '*\\img\\products\\46\\46b.jpg', '*\\img\\products\\46\\46c.jpg'),
+(47, 47, '*\\img\\products\\47\\47a.jpg', '*\\img\\products\\47\\47b.jpg', '*\\img\\products\\47\\47c.jpg'),
+(48, 48, '*\\img\\products\\48\\48a.jpg', '*\\img\\products\\48\\48b.jpg', '*\\img\\products\\48\\48c.jpg'),
+(49, 49, '*\\img\\products\\49\\49a.jpg', '*\\img\\products\\49\\49b.jpg', '*\\img\\products\\49\\49c.jpg'),
+(50, 50, '*\\img\\products\\50\\50a.jpg', '*\\img\\products\\50\\50b.jpg', '*\\img\\products\\50\\50c.jpg');
 
 -- --------------------------------------------------------
 
