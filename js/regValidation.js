@@ -13,10 +13,10 @@ window.onload = function() {
           firstError.innerHTML = "Wrong input";
       }
       else if(firstName.validity.rangeOverflow) {
-          firstError.innerHTML = "Name is too long";
+          firstError.innerHTML = "Your name is too long";
       }
       else if(firstName.validity.valueMissing) {
-          firstError.innerHTML = "You must enter the first name";
+          firstError.innerHTML = "Please enter your first name";
       }
       else if(firstName.validity.valid){
           firstError.innerHTML = "";
@@ -32,10 +32,10 @@ window.onload = function() {
           secondError.innerHTML = "Wrong input";
       }
       else if(lastName.validity.rangeOverflow) {
-          secondError.innerHTML = "Name is too long";
+          secondError.innerHTML = "Your name is too long";
       }
       else if(lastName.validity.valueMissing) {
-          secondError.innerHTML = "You must enter the last name";
+          secondError.innerHTML = "Please enter your last name";
       }
       else if(lastName.validity.valid){
           secondError.innerHTML = "";
@@ -48,13 +48,13 @@ window.onload = function() {
 
     email.onblur = function() {
       if(email.validity.typeMismatch) {
-          emailError.innerHTML = "Wrong type of email";
+          emailError.innerHTML = "Wrong format of email";
       }
       else if(email.validity.rangeOverflow) {
-          emailError.innerHTML = "Email is too long";
+          emailError.innerHTML = "Your email address is too long";
       }
       else if(email.validity.valueMissing) {
-          emailError.innerHTML = "You must enter the email";
+          emailError.innerHTML = "Please enter your email address";
       }
       else if(email.validity.valid){
           emailError.innerHTML = "";
@@ -70,13 +70,13 @@ window.onload = function() {
           passwordError.innerHTML = "Wrong input";
       }
       else if(password.validity.rangeOverflow) {
-          passwordError.innerHTML = "Password is too long";
+          passwordError.innerHTML = "Your password is too long";
       }
       else if(password.validity.rangeUnderflow) {
           passwordError.innerHTML = "Password must be at least 6 characters long";
       }
       else if(password.validity.valueMissing) {
-          passwordError.innerHTML = "You must enter the first password";
+          passwordError.innerHTML = "Please enter your password";
       }
       else if(password.validity.valid){
           passwordError.innerHTML = "";

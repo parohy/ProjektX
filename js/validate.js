@@ -6,13 +6,13 @@ window.onload=function() {
 
   email.onblur = function() {
       if(email.validity.typeMismatch) {
-          mailError.innerHTML = "Wrong type of email";
+          mailError.innerHTML = "Wrong format of email";
       }
       else if(email.validity.rangeOverflow) {
           mailError.innerHTML = "Input is too long";
       }
       else if(email.validity.valueMissing) {
-          mailError.innerHTML = "You must enter the email";
+          mailError.innerHTML = "Please enter your email address";
       }
       else if(email.validity.valid){
           mailError.innerHTML = "";
@@ -25,10 +25,10 @@ window.onload=function() {
 
   password.onblur = function() {
       if(email.validity.rangeOverflow) {
-          passwordError.innerHTML = "password is too long";
+          passwordError.innerHTML = "Password has too many characters";
       }
       else if(email.validity.valueMissing) {
-          passwordError.innerHTML = "You must enter the password";
+          passwordError.innerHTML = "Please enter your password";
       }
       else {
           passwordError.innerHTML = "";
