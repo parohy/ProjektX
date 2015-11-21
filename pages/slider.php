@@ -4,8 +4,33 @@
  */
 
 $handler = new DBHandler();
+
+$handler->beginTransaction();
 $handler->query('SELECT * FROM products');
 $result = $handler->resultSet();
+
+$productID = array(4);
+$bindParam = array(4);
+
+for($i = 0; $i < 4; $i++) {
+    $productID[$i] = $result[$i]['productid'];
+}
+
+//$product = join("','",$productID);
+for($i = 0; $i < 4; $i++) {
+    $bindParam[$i] = ":pr" . $result[$i]['productid'];
+}
+
+$parameters = join(',',$bindParam);
+$query = "SELECT pic1path FROM images WHERE productid IN(". $parameters .")";
+
+$handler->query($query);
+
+for($i = 0; $i < 4; $i++) {
+    $handler->bind($bindParam[$i],$productID[$i]);
+}
+$images = $handler->resultSet();
+$handler->endTransaction();
 ?>
 
 <div id="leftArrow" class="slider-arrows"><</div>
@@ -16,7 +41,7 @@ $result = $handler->resultSet();
         for($i = 0; $i < 4; $i++) {
             echo "<div class=\"slide\">";
             echo "<div class=\"slide-image\">";
-            echo "<img src=\"../ProjektX/" . $result[$i]['imagepath'] . "\">";
+            echo "<img src=\"../ProjektX" . $images[$i]['pic1path'] . "\">";
             echo "</div>";
             echo "<div class=\"slide-description\">";
             echo "<article>";
