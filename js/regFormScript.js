@@ -1,5 +1,5 @@
 /**
- * Created by Matúš on 8. 11. 2015.
+ * Created by MatÃºÅ¡ on 8. 11. 2015.
  */
 
 $(function() {

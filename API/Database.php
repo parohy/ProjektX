@@ -2,7 +2,7 @@
 
 /**
  * Created by PhpStorm.
- * User: Matúš Kaèmár
+ * User: MatÃºÅ¡ KaÄmÃ¡r
  * Date: 8. 11. 2015
  * Time: 12:00
  */
