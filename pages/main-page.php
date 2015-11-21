@@ -26,7 +26,7 @@
         $handler->bind($bindParam[$i],$productID[$i]);
     }
 
-    $images = $handler->resultSet();
+    $image = $handler->resultSet();
     $handler->endTransaction();
 ?>
 <div class="slider-container">
@@ -49,7 +49,7 @@
                         echo "<span class='product-name'><a href=\"?page=productPreview&product=" . $result[$i]['productid'] . "\">" . $result[$i]['name'] . "</a><span class='product-name'>";
                         echo "</header>";
                         echo "<div class='product-image'>";
-                        echo "<img src='..\ProjektX" . $images[$i]['pic1path'] . "'>";
+                        echo "<img src='..\ProjektX" . $image[$i]['pic1path'] . "'>";
                         echo "</div>";
                         echo "<div class='product-description'>";
                         echo substr($result[$i]['description'],0,40) . "...";
@@ -70,14 +70,14 @@
             <label for="tab2">Top rated</label>
             <div id="tab-content2" class="tab-content">
                 <?php
-                for($i = 3; $i <= 7; $i++) {
+                for($i = 4; $i <= 7; $i++) {
                     echo "<section class='product-item'>";
                     echo "<article>";
                     echo "<header class='product-header'>";
                     echo "<span class='product-name'><a href='?page=productPreview'>" . $result[$i]['name'] . "</a><span class='product-name'>";
                     echo "</header>";
                     echo "<div class='product-image'>";
-                    echo "<img src='..\ProjektX" . $images[$i]['pic1path'] . "'>";
+                    echo "<img src='..\ProjektX" . $image[$i]['pic1path'] . "'>";
                     echo "</div>";
                     echo "<div class='product-description'>";
                     echo substr($result[$i]['description'],0,40) . "...";

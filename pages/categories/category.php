@@ -1,9 +1,11 @@
 <?php
 if(isset($_GET['category'])) {
   $dbhandler = new DBHandler();
+  $dbhandler->beginTransaction();
   $dbhandler->query('SELECT * FROM products WHERE categoryid=:Categoryid');
   $dbhandler->bind(':Categoryid',$_GET['category']);
   $result = $dbhandler->resultSet();
+  $dbhandler->endTransaction();
 }
 ?>
 <link rel="stylesheet" type="text/css" href="css/search-style.css">
@@ -14,7 +16,7 @@ if(isset($_GET['category'])) {
     foreach($result as $res) { // Print product item
       echo "<section>";
       echo "<article>";
-      echo "<div class='description-image'><img src='". $res['imagepath'] ."'></div>";
+      echo "<div class='description-image'><img src=''></div>";
       echo "<div class='description-content'>";
       echo "<header>";
       echo "<h4><a href=\"?page=productPreview&product=" . $res['productid'] . "\">". $res["name"] . "</a></h4>";
