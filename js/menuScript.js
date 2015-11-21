@@ -8,6 +8,6 @@ $(function(){
     var navButton = $(".nav-item");
 
     navButton.hover(function(){
-        $(this).children("ul").slideToggle("fast");
+        $(this).children("ul").stop(true, false).slideToggle(600);
     });
 });
