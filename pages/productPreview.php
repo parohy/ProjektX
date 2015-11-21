@@ -14,6 +14,13 @@ if($result['sumofratings'] > 0 && $result['numofratings'] > 0) { // Calculate ra
 } else {
     $avgRating = 0;
 }
+
+// Author: Peter Varholak
+if ($result['amount'] > 0) {
+	$naSklade = "Na sklade";
+} else {
+	$naSklade = "Momentálne vypredané";
+}
 ?>
 <link rel="stylesheet" type="text/css" href="css/productPreview.css">
 <div class="frame-container product-preview">
@@ -56,7 +63,7 @@ if($result['sumofratings'] > 0 && $result['numofratings'] > 0) { // Calculate ra
                         <script src="js/rating.js"></script>
                     </div>
                     <div class="product-info">
-                        <span>Na sklade: <?php echo $result['amount']?></span>
+                        <span><?php echo $naSklade?></span>
                         <br>
                         <a href="#" class="addtocart">Pridať do košíku</a>
                         <span class="product-price"><?php echo $result['price']?> EUR</span>
