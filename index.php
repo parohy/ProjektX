@@ -192,13 +192,17 @@ if(isset($_GET['login']) && $_GET['login'] == 'false') {
                 else if($page == "productPreview") {
                     include "pages/productPreview.php";
                 }
-                else if($page == "Mobilné telefóny" || $page == "Notebooky a PC" || $page == "Tablety") {
+                else if($page == "TV,AUDIO" || $page == "PC,TABLETS" || $page == "MOBILE PHONES") {
                     include "pages/categories/mainCategory.php";
                 }
-                else if($page == "Smartfóny" || $page = "Púzdra a obaly" || $page = "Notebooky" || $page = "Monitory" || $page = "Android" || $page = "iPady")
+                else if($page == "BLURAY PLAYERS" || $page == "HEADPHONES" || $page == "HOME AUDIO" || $page == "NOTEBOOKS" || $page == "PC" || $page == "TABLETS" || $page == "MONITORS" || $page == "CELL PHONES" || $page == "ACCESSORIES" || $page == "SMART WATCHES")
                 {
                     include "pages/categories/category.php";
                 }
+                /*
+                else if($page == "") {
+
+                }*/
             ?>
 
         </main>

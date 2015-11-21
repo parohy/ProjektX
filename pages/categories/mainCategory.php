@@ -1,10 +1,20 @@
 <?php
 if(isset($_GET['category'])) {
   $dbhandler = new DBHandler();
-  $dbhandler->query('SELECT * FROM products WHERE categoryid >= :catNum AND categoryid <= :secCatNum');
-  $dbhandler->bind(':catNum',$_GET['category']);
-  $dbhandler->bind(':secCatNum',$_GET['category'] + 2);
-  $result = $dbhandler->resultSet();
+  $dbhandler->query('SELECT categoryid FROM categories WHERE parent=:catID');
+  $dbhandler->bind(':catID',$_GET['category']);
+  $level1 = $dbhandler->resultSet();
+  print_r($level1);
+  $dbhandler->query('SELECT * FROM products WHERE categoryid IN (:catID)');
+
+  foreach($level1 as $lvl) {
+      $value += "{$lvl['categoryid']},";
+  }
+
+  print_r($value);
+  /*
+  $dbhandler->bind(':catID', $level1);
+  $result = $dbhandler->resultSet();*/
 }
 ?>
 <link rel="stylesheet" type="text/css" href="css/search-style.css">
@@ -12,6 +22,7 @@ if(isset($_GET['category'])) {
     <div class="frame-titlebar"><span class="frame-title"><?php echo $_GET['page']?></span></div>
     <div class="frame-content">
     <?php
+    /*
     foreach($result as $res) { // Print product item
       echo "<section>";
       echo "<article>";
@@ -29,6 +40,7 @@ if(isset($_GET['category'])) {
       echo "</article>";
       echo "</section>";
     }
+    */
     ?>
     </div>
 </div>
