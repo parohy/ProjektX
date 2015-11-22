@@ -192,6 +192,18 @@ if(isset($_GET['login']) && $_GET['login'] == 'false') {
                 else if($page == "registration") {
                     include "pages/registration.php";
                 }
+                else if($page == "insert-item") {
+                    include "pages/web-control/insert-item.php";
+                }
+                else if($page == "delete-item") {
+                    include "pages/web-control/delete-item.php";
+                }
+                else if($page == "welcome-message") {
+                    include "pages/web-control/welcome-message.php";
+                }
+                else if($page == "change-video") {
+                    include "pages/web-control/change-video.php";
+                }
                 else if($page == "searchResults") {
                     include "pages/searchResults.php";
                 }
