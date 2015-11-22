@@ -22,9 +22,9 @@ if($result['sumofratings'] > 0 && $result['numofratings'] > 0) { // Calculate ra
 
 // Author: Peter Varholak
 if ($result['amount'] > 0) {
-	$naSklade = "Na sklade";
+	$naSklade = "In Stock";
 } else {
-	$naSklade = "Momentálne vypredané";
+	$naSklade = "Currently Unavailable";
 }
 ?>
 <link rel="stylesheet" type="text/css" href="css/productPreview.css">
