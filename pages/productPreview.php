@@ -5,9 +5,14 @@
 $product = $_GET['product'];
 
 $handler = new DBHandler();
+$handler->beginTransaction();
 $handler->query("SELECT * FROM products WHERE productid = :id");
 $handler->bind(":id",$product);
 $result = $handler->singleRecord();
+
+$handler->query("SELECT * FROM images WHERE productid=:id");
+$handler->bind(":id",$product);
+$image = $handler->singleRecord();
 
 if($result['sumofratings'] > 0 && $result['numofratings'] > 0) { // Calculate rating for given product
     $avgRating = round($result['sumofratings'] / $result['numofratings'], 1);
@@ -31,7 +36,7 @@ if ($result['amount'] > 0) {
 
                 <div class="product-content">
                     <div class="product-image">
-                        <img src="../ProjektX/<?php echo $result['imagepath']; ?>">
+                        <img src="../ProjektX<?php echo $image['pic1path']; ?>">
                     </div>
 
                     <div class="product-description">

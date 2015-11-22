@@ -49,6 +49,7 @@ if(isset($_GET['login']) && $_GET['login'] == 'false') {
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="">
+    <base href="../ProjektX/" target="_self">
     <title></title>
     <link rel="stylesheet" type="text/css" href="css/main.css"> <!-- LOADING MAIN CSS FILE -->
     <script src="js/jquery-1.11.3.min.js"></script>

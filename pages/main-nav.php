@@ -14,7 +14,7 @@ $subCategory = 0;
 
 <ul class="nav-container">
     <li class="nav-item">
-        <a href="?page=main-page" class="nav-button">Hlavná stránka</a>
+        <a href="?page=main-page" class="nav-button">Main page</a>
     </li>
     <?php
 
