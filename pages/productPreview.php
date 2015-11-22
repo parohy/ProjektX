@@ -21,10 +21,12 @@ if($result['sumofratings'] > 0 && $result['numofratings'] > 0) { // Calculate ra
 }
 
 // Author: Peter Varholak
-if ($result['amount'] > 0) {
-	$naSklade = "In Stock";
-} else {
+if ($result['amount'] > 5) {
+	$naSklade = "In Stock >5 units";
+} else if ($result['amount'] <= 0) {
 	$naSklade = "Currently Unavailable";
+} else {
+	$naSklade = "In Stock " . $result['amount'] . " units";
 }
 ?>
 <link rel="stylesheet" type="text/css" href="css/productPreview.css">
