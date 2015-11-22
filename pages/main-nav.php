@@ -22,7 +22,7 @@ $subCategory = 0;
         if($res['parent'] == 1 && $res['categoryid'] == 2) { //-> PRINTING THE FIRST MAIN CATEGORY EXCEPT ALL PRODUCTS CATEGORY
             $mainCategory = $res['categoryid'];
             echo "<li class=\"nav-item\">";
-            echo "<a href=\"?page=" . $res['name'] . "&category=" . $res['categoryid'] . "\" class=\"nav-button\">" . $res['name'] . "</a>";
+            echo "<a href=\"?page=" . $res['name'] . "&category=" . $res['categoryid'] . "&view=10\" class=\"nav-button\">" . $res['name'] . "</a>";
             echo "<ul class=\"subnav-container\">";
         }
         else if($res['parent'] == 1 && $res['categoryid'] > 2) { //-> PRINTING THE MAIN CATEGORIES
@@ -30,16 +30,16 @@ $subCategory = 0;
             echo "</ul>";
             echo "</li>";
             echo "<li class=\"nav-item\">";
-            echo "<a href=\"?page=" . $res['name'] . "&category=" . $res['categoryid'] . "\" class=\"nav-button\">" . $res['name'] . "</a>";
+            echo "<a href=\"?page=" . $res['name'] . "&category=" . $res['categoryid'] . "&view=10\" class=\"nav-button\">" . $res['name'] . "</a>";
             echo "<ul class=\"subnav-container\">";
         }
         if(($res['parent'] == $mainCategory && $mainCategory != 0) && $res['categoryid'] == 3) { //-> PRINTING SUBCATEGORIES
             $subCategory = $res['categoryid'];
-            echo "<li class=\"subnav-item\"><a href=\"?page=" . $res['name'] . "&category=" . $res['categoryid'] . "\" class=\"nav-button subnav-button\">" . $res['name'] . "</a></li>";
+            echo "<li class=\"subnav-item\"><a href=\"?page=" . $res['name'] . "&category=" . $res['categoryid'] . "&view=10\" class=\"nav-button subnav-button\">" . $res['name'] . "</a></li>";
         }
         else if(($res['parent'] == $mainCategory && $mainCategory != 0) && $res['categoryid'] > 3) {
             $subCategory = $res['categoryid'];
-            echo "<li class=\"subnav-item\"><a href=\"?page=" . $res['name'] . "&category=" . $res['categoryid'] . "\" class=\"nav-button subnav-button\">" . $res['name'] . "</a></li>";
+            echo "<li class=\"subnav-item\"><a href=\"?page=" . $res['name'] . "&category=" . $res['categoryid'] . "&view=10\" class=\"nav-button subnav-button\">" . $res['name'] . "</a></li>";
         }
     }
 
