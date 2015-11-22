@@ -26,7 +26,7 @@ if ($result['amount'] > 5) {
 } else if ($result['amount'] <= 0) {
 	$naSklade = "Currently Unavailable";
 } else {
-	$naSklade = "In Stock" . $result['amount'] . "units";
+	$naSklade = "In Stock " . $result['amount'] . " units";
 }
 ?>
 <link rel="stylesheet" type="text/css" href="css/productPreview.css">
