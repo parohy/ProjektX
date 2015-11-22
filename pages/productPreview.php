@@ -36,7 +36,15 @@ if ($result['amount'] > 0) {
 
                 <div class="product-content">
                     <div class="product-image">
-                        <img src="../ProjektX<?php echo $image['pic1path']; ?>">
+                        <img src="../ProjektX<?php echo $image['pic1path']; ?>" id="image-slide1">
+                        <?php
+                        if($image['pic2path'] != null) {
+                            echo "<img src=\"../ProjektX" . $image['pic2path'] . "\" class=\"image-slides\">";
+                        }
+                        if($image['pic3path'] != null) {
+                            echo "<img src=\"../ProjektX" . $image['pic3path'] . "\" class=\"image-slides\">";
+                        }
+                        ?>
                     </div>
 
                     <div class="product-description">
@@ -77,4 +85,5 @@ if ($result['amount'] > 0) {
             </article>
         </section>
     </div>
+    <script src="js/productPreview.js"></script>
 </div>

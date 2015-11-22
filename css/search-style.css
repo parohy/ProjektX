@@ -54,3 +54,13 @@ section {
     color: #484848;
     margin: 20px 10%;
 }
+
+.page-nav {
+    display: block;
+    margin: 0 10px;
+    text-align: center;
+}
+
+.page-nav a {
+    margin: 0 5px;
+}

@@ -101,13 +101,17 @@ if(isset($_GET['category']) && isset($_GET['view'])) {
         $pages = $size / 10;
 
         if($size % 10 > 0) {
-
+            echo "<span class=\"page-nav\">";
+            echo "<a href=\"?page=" . $_GET['page'] . "&category=" . $_GET['category'] . "&view=10\"><<<</a>";
             for($i = 0; $i < $pages; $i++) {
                 $temp = $i + 1;
                 $temp2 = $temp * 10;
                 echo "<a href=\"?page=" . $_GET['page'] . "&category=" . $_GET['category'] . "&view=" . $temp2 . "\">" . $temp . "</a>";
             }
+            echo "<a href=\"?page=" . $_GET['page'] . "&category=" . $_GET['category'] . "&view=" . $temp2 . "\">>>></a>";
+            echo "</span>";
         }
+
     } else {
       $i = 0;
       foreach($result as $res) { // Print product item
@@ -129,7 +133,7 @@ if(isset($_GET['category']) && isset($_GET['view'])) {
         $i++;
       }
 
-      echo "<a href=\"?page=TV,AUDIO&category=2\" class=\"first-page\" target=\"_parent\"><<</a><a href=\"?page=TV,AUDIO&category=2\" class=\"page\"> 1 </a><a href=\"#\" class=\"last-page\">>></a>";
+      echo "<span class=\"page-nav\"><a href=\"?page=" . $_GET['page'] . "&category=" . $_GET['category'] . "&view=10\" class=\"first-page\"><<</a><a href=\"?page=" . $_GET['page'] . "&category=" . $_GET['category'] . "&view=10\" class=\"page\"> 1 </a><a href=\"?page=" . $_GET['page'] . "&category=" . $_GET['category'] . "&view=10\" class=\"last-page\">>></a></span>";
     }
     ?>
     </div>
