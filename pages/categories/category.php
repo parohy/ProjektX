@@ -1,4 +1,7 @@
 <?php
+/**
+ * Author: Matus Kacmar
+ */
 if(isset($_GET['category'])) {
   $dbhandler = new DBHandler();
   $dbhandler->beginTransaction();

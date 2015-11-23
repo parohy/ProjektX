@@ -1,8 +1,6 @@
 <?php
 /**
- * Created by Mat�� Ka�m�r.
- * Date: 8. 11. 2015
- * Time: 22:43
+ * Author: Matus Kacmar
  */
 session_start();
 
@@ -21,17 +19,33 @@ if(isset($_GET['search'])) {
 }
 
 if(!foundRecord($result)) {
-    $database->beginTransaction();
     $database->query("SELECT * FROM products WHERE name LIKE :name OR brand LIKE :brand");
     $search = '%'.$search.'%';
     $database->bind(':name',$search);
     $database->bind(':brand',$search);
     $result = $database->resultSet();
-
 }
 
 if(foundRecord($result)) {
     $_SESSION['result'] = $result;
+
+    $bindParam = array(sizeof($result));
+
+    for($i = 0; $i < sizeof($result); $i++) {
+        $bindParam[$i] = ":pr" . $i;
+    }
+
+    $parameters = join(",", $bindParam);
+    $query = "SELECT pic1path FROM images WHERE productid IN(" . $parameters . ")";
+    $database->query($query);
+
+    for($i = 0; $i < sizeof($result); $i++) {
+        $database->bind($bindParam[$i], $result[$i]['productid']);
+    }
+
+    $images = $database->resultSet();
+
+    $_SESSION['images'] = $images;
 }
 else {
     $_SESSION['result'] = "No results";

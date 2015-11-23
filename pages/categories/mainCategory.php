@@ -1,4 +1,7 @@
 <?php
+/**
+ * Author: Matus Kacmar
+ */
 if(isset($_GET['category']) && isset($_GET['view'])) {
   $view = $_GET['view'];
   $view = (int) $view;

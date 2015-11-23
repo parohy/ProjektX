@@ -1,5 +1,8 @@
 <link rel="stylesheet" type="text/css" href="css/main-page-style.css">
 <?php
+    /**
+    * Author: Matus Kacmar
+    */
     $handler = new DBHandler();
     $handler->beginTransaction();
     $handler->query("SELECT * FROM products WHERE productid BETWEEN :first AND :second");

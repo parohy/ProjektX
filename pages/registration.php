@@ -1,3 +1,8 @@
+<?php
+/**
+ * Author: Matus Kacmar
+ */
+?>
 <link rel="stylesheet" type="text/css" href="css/registration-style.css">
 
 <div class="frame-container registration">
