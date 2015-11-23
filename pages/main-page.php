@@ -77,7 +77,7 @@
                     echo "<section class='product-item'>";
                     echo "<article>";
                     echo "<header class='product-header'>";
-                    echo "<span class='product-name'><a href='?page=productPreview'>" . $result[$i]['name'] . "</a><span class='product-name'>";
+                    echo "<span class='product-name'><a href=\"?page=productPreview&product=" . $result[$i]['productid'] . "\">" . $result[$i]['name'] . "</a><span class='product-name'>";
                     echo "</header>";
                     echo "<div class='product-image'>";
                     echo "<img src='..\ProjektX" . $image[$i]['pic1path'] . "'>";
