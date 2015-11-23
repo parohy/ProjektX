@@ -82,7 +82,7 @@ if(isset($_GET['category']) && isset($_GET['view'])) {
         for($i = $view - 10; $i < $iterateTo; $i++) {
           echo "<section>";
           echo "<article>";
-          echo "<div class='description-image'><img src='../ProjektX  " . $images[$i]['pic1path'] . "'></div>";
+          echo "<div class='description-image'><img src='../ProjektX" . $images[$i]['pic1path'] . "'></div>";
           echo "<div class='description-content'>";
           echo "<header>";
           echo "<h4><a href=\"?page=productPreview&product=" . $result[$i]['productid'] . "\">". $result[$i]["name"] . "</a></h4>";
@@ -117,7 +117,7 @@ if(isset($_GET['category']) && isset($_GET['view'])) {
       foreach($result as $res) { // Print product item
         echo "<section>";
         echo "<article>";
-        echo "<div class='description-image'><img src='../ProjektX  " . $images[$i]['pic1path'] . "'></div>";
+        echo "<div class='description-image'><img src='../ProjektX" . $images[$i]['pic1path'] . "'></div>";
         echo "<div class='description-content'>";
         echo "<header>";
         echo "<h4><a href=\"?page=productPreview&product=" . $res['productid'] . "\">". $res["name"] . "</a></h4>";

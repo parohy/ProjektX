@@ -4,43 +4,39 @@
     color: #484848;
     font-size: 19px;
 }
-
 .registration-title {
     width: 100.5%;
     height: 28px;
 }
-
 .registration-container {
     width: 100%;
     height: 300px;
     margin-top: 20px;
 }
-
 .registration-item {
     width: 100%;
     height: 200px;
     text-align: center;
 }
-
 .registration-item ul {
     width: 100%;
     height: 200px;
 }
-
 .registration-item ul li {
     width: 100%;
     height: 20px;
     padding-top: 10px;
 }
-
 .registration-item input {
     height: 20px;
     width: 200px;
     float: right;
     margin-right: 30%;
     margin-top: 20px;
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
     box-sizing: border-box;
 }
 .registration-item select {
@@ -48,8 +44,10 @@
     width: 250px;
     float: right;
     margin-right: 30%;
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
     box-sizing: border-box;
 }
 .registration-item textarea {
@@ -57,27 +55,25 @@
     width: 200px;
     float: right;
     margin-right: 30%;
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
     box-sizing: border-box;
 }
-
 .registration-item label {
     float: left;
     margin-left: 15%;
 }
-
 .reg-error {
     font-size: 12px;
     line-height: 20px;
     vertical-align: top;
     margin-left: -190px;
 }
-
 .inputs {
     list-style-type: none;
 }
-
-#productID{
-height: 100px;
+#productID {
+    height: 100px;
 }

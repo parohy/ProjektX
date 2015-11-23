@@ -21,11 +21,13 @@ if(isset($_GET['search'])) {
 }
 
 if(!foundRecord($result)) {
+    $database->beginTransaction();
     $database->query("SELECT * FROM products WHERE name LIKE :name OR brand LIKE :brand");
     $search = '%'.$search.'%';
     $database->bind(':name',$search);
     $database->bind(':brand',$search);
     $result = $database->resultSet();
+
 }
 
 if(foundRecord($result)) {
