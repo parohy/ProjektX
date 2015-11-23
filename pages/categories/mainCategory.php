@@ -3,11 +3,14 @@ if(isset($_GET['category']) && isset($_GET['view'])) {
   $view = $_GET['view'];
   $view = (int) $view;
 
-  $dbhandler = new DBHandler();
-  $dbhandler->beginTransaction();
-  $dbhandler->query('SELECT categoryid FROM categories WHERE parent=:catID');
+  $dbhandler = new DBHandler(); // CREATE CONNECTION WITH DATABASE
+
+  $dbhandler->beginTransaction(); // BEGIND DATA TRANSACTION
+
+  /****** GET ALL THE PRODUCTS FROM SUBCATEGORIES OF MAIN CATEGORY ******/
+  $dbhandler->query('SELECT categoryid FROM categories WHERE parent=:catID'); // GET CHILD OF THIS CATEGORY
   $dbhandler->bind(':catID',$_GET['category']);
-  $level1 = $dbhandler->resultSet();
+  $level1 = $dbhandler->resultSet(); // CHILDREN OF MAIN CATEGORY
 
   $bindParamLevel1 = array(sizeof($level1));
 
@@ -16,17 +19,16 @@ if(isset($_GET['category']) && isset($_GET['view'])) {
   }
 
   $parameters = join(",",$bindParamLevel1);
-  $query = "SELECT categoryid FROM categories WHERE parent IN(" . $parameters . ")";
-
+  $query = "SELECT categoryid FROM categories WHERE parent IN(" . $parameters . ")"; // GET GRANDCHILD OF THIS CATEGORY
   $dbhandler->query($query);
 
   for($i = 0; $i < sizeof($bindParamLevel1); $i++) {
       $dbhandler->bind($bindParamLevel1[$i],$level1[$i]['categoryid']);
   }
 
-  $level2 = $dbhandler->resultSet();
+  $level2 = $dbhandler->resultSet(); // GRAND CHILDREN OF MAIN CATEGORY
 
-  $level = array_merge($level1,$level2);
+  $level = array_merge($level1,$level2); // MERGE ALL CAREGORY IDS INTO ONE ARRAY
 
   $bindParam = array(sizeof($level));
 
@@ -35,7 +37,7 @@ if(isset($_GET['category']) && isset($_GET['view'])) {
   }
 
   $parameters = join(",",$bindParam);
-  $query = "SELECT * FROM products WHERE categoryid IN(" . $parameters . ")";
+  $query = "SELECT * FROM products WHERE categoryid IN(" . $parameters . ")"; // SELECT ALL PRODUCTS WHERE CATEGORY ID IS ONE OF THE VALUES IN ARRAY
   $dbhandler->query($query);
 
   for($i = 0; $i < sizeof($bindParam); $i++) {
@@ -44,6 +46,7 @@ if(isset($_GET['category']) && isset($_GET['view'])) {
 
   $result = $dbhandler->resultSet();
 
+  /****** GET IMAGES ******/
   $bindParamResult = array(sizeof($result));
 
   for($i = 0; $i < sizeof($result); $i++) {
@@ -51,15 +54,16 @@ if(isset($_GET['category']) && isset($_GET['view'])) {
   }
 
   $parameters = join(",",$bindParamResult);
-  $query = "SELECT pic1path FROM images WHERE productid IN(" . $parameters . ")";
+  $query = "SELECT pic1path FROM images WHERE productid IN(" . $parameters . ")"; // SELECT IMAGES FOR PRODUCTS
   $dbhandler->query($query);
 
   for($i = 0; $i < sizeof($bindParamResult); $i++) {
       $dbhandler->bind($bindParamResult[$i],$result[$i]['productid']);
   }
 
-  $images = $dbhandler->resultSet();
-  $dbhandler->endTransaction();
+  $images = $dbhandler->resultSet(); // LIST OF IMAGE PATHS
+
+  $dbhandler->endTransaction(); // END DATA TRANSACTION
 }
 ?>
 <link rel="stylesheet" type="text/css" href="css/search-style.css">
