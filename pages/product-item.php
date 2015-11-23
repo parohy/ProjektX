@@ -4,7 +4,7 @@
     ?>
         <table id="table">
             
-            <form name="pruduct-item-formular" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
+            <form name="pruduct-item-formular" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post" enctype="multipart/form-data">
 
               <tr>
 
@@ -15,7 +15,7 @@
                             $db->query("SELECT * FROM categories");
                             $result=$db->resultSet();
                             foreach($result as $row) {
-                                echo "<option type=\"text\" name=\"".$row['name']."\" id=\"".$row['categoryid']."\" value=\"".$row['categoryid']."\">".$row['categoryid'].". ".$row['name']."</option>";
+                                echo "<option type=\"text\" name=\"".$row['name']."\" id=\"".$row['categoryid']."\" value=\"".$row['categoryid']."\"><ul><li>".$row['categoryid'].". ".$row['name']."</li></ul></option>";
                             }                     
                           ?>  
                       </select>
@@ -47,19 +47,19 @@
 
 
               <tr>
-                  <td><span class="input-name">Picture </td> <td><input class="input" type="file" name="imagepath" id="imagepath"></td>
+                  <td><span class="input-name">Picture </td> <td><input class="input" type="file" name="filesToUpload[]" id="filesToUpload" multiple="multiple"></td>
                     </tr>
                 <tr>
                   <td><input type="submit" name="sent" id="sent"><td>
                 </tr>
+            </form>
+
 
                 <?php
                 if(isset($_POST['sent']))
                 {
-                
-
-                $db->query("INSERT INTO products (categoryid, amount, name, price, brand, description, viewamount, imagepath, numofratings, sumofratings) ".
-                       "VALUES (:categoryID, :amount, :name, :price, :brand, :desc, :viewamount, :imagepath, :numofratings, :sumofratings)");
+                $db->query("INSERT INTO products (categoryid, amount, name, price, brand, description, viewamount, datecreated, numofratings, sumofratings) ".
+                       "VALUES (:categoryID, :amount, :name, :price, :brand, :desc, :viewamount, :datecreated, :numofratings, :sumofratings)");
                 $db->bind(':categoryID', $_POST["categoryID"]);
                 $db->bind(':amount', $_POST["amount"]);
                 $db->bind(':name', $_POST["name"]);
@@ -67,15 +67,50 @@
                 $db->bind(':brand', $_POST["brand"]);
                 $db->bind(':desc', $_POST["description"]);
                 $db->bind(':viewamount', 0);
-                $db->bind(':imagepath', 0);
+                $db->bind(':datecreated', date("Y-m-d")." ".date("H:i:s"));  //format 2015-11-21 13:57:53
                 $db->bind(':numofratings', 0);
                 $db->bind(':sumofratings', 0);
                 $db->execute();
+                $id=$db->lastinsertid();
+                $target= "../img/products/".$id."/";     
+                if (!file_exists($target)) {
+                mkdir($target, 0777, true);
+                }
+                $count=0;
+                $db=new DBHandler();
+                $db->query("INSERT INTO images (productid, pic1path, pic2path, pic3path) VALUES (:productid, :pic1path, :pic2path, :pic3path)");
+                $db->bind(':productid', $id);
+                foreach ($_FILES['filesToUpload']['name'] as $filename) 
+                {
+                    $temp=$target;
+                    $tmp=$_FILES['filesToUpload']['tmp_name'][$count];
+                    $count=$count + 1;
+                    if($count<=3)
+                    {
+                        $bind="pic".$count."path";
+                        $db->bind($bind,"*\\img\\products\\".$id."\\".$filename);
+                    }
+                    $temp=$temp.basename($filename);
+                    move_uploaded_file($tmp,$temp);
+                    $temp='';
+                    $tmp='';
+                }     
+                for ($i = $count+1; $i <= 3; $i++)
+                {
+                    $bind="pic".$i."path";
+                    $db->bind($bind,"");
+                }
+                 $db->execute();  
+                
+                
+                
+                
+                
+
                 }
                 ?>
                 
                 
-             </form>
 
         </table>
 
