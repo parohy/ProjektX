@@ -52,7 +52,7 @@
                         echo "<span class='product-name'><a href=\"?page=productPreview&product=" . $result[$i]['productid'] . "\">" . $result[$i]['name'] . "</a><span class='product-name'>";
                         echo "</header>";
                         echo "<div class='product-image'>";
-                        echo "<img src='..\ProjektX" . $image[$i]['pic1path'] . "'>";
+                        echo "<img src='../ProjektX" . $image[$i]['pic1path'] . "'>";
                         echo "</div>";
                         echo "<div class='product-description'>";
                         echo substr($result[$i]['description'],0,40) . "...";
