@@ -8,7 +8,13 @@ $user;
 if(isset($_SESSION['userID'])){
 	//$user = User::editUser($_SESSION['userID']);
 }
-$user = User::editUser('6');
+if(isset($_SESSION['userid'])){
+	$user = User::editUser($_SESSION['userid']);
+}
+else{
+	
+}
+
 ?>
 <html lang="">
 <head>
@@ -81,7 +87,7 @@ $user = User::editUser('6');
 <body id="body">
 
 
-<form id="profile" action="../API/relog.php?register=edit&id=6" method="POST">
+<form id="profile" action="../API/relog.php?register=edit" method="POST">
     <fieldset id="edit-profile">
         <legend>Edit profile</legend>
         <ul>

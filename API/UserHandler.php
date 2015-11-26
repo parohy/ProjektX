@@ -56,30 +56,7 @@ class User{
 		$instance->id = $id;
 		return $instance;
 	}
-	
-	/**
-	 * 
-	 * @author Tomas Paronai
-	 * @param $address
-	 * @param $city
-	 * @param $postcode
-	 */
-	public function saveAddress($address, $city, $postcode){
 		
-		if($this->id != null){
-			if($address!=null){
-				$this->saveData('address', $address, $this->id);
-			}
-			if($city!=null){
-				$this->saveData('city', $city, $this->id);
-			}
-			if($postcode!=null){
-				$this->saveData('postcode', $postcode, $this->id);
-			}
-		}
-		
-	}
-	
 	/**
 	 * @author Tomas Paronai
 	 * @param $id
@@ -152,10 +129,11 @@ class User{
 	 * @return "Registration failed." - saving failed. Probably database error.
 	 */
 	public function isSaved(){
-		if($this->success){
+		return $this->success;
+		/*if($this->success){
 			return "User registered.";
 		}
-		return "Registration failed.";
+		return "Registration failed.";*/
 	}
 	
 	/**

@@ -18,6 +18,7 @@ class Login{
 	
 	private $handlerDB;
 	private $name;
+	private $id;
 	
 	function __construct(){
 		$this->handlerDB = new DBHandler();
@@ -32,7 +33,7 @@ class Login{
 	 * @return true - login correct
 	 */
 	public function checkLogin($email, $password){
-			$this->handlerDB->query('SELECT email,password,name FROM users');
+			$this->handlerDB->query('SELECT email,password,name,userid FROM users');
 			
 			$users = array();
 			$users = $this->handlerDB->resultSet();
@@ -41,6 +42,7 @@ class Login{
 			for($i=0;$i<$count;$i++){
 				if($users[$i]['email'] == $email && $users[$i]['password'] == $password){
 					$this->name = $users[$i]['name'];
+					$this->id = $users[$i]['userid'];
 					return true;
 				}
 			}
@@ -64,6 +66,10 @@ class Login{
 	 */
 	public function getName(){
 		return $this->name;
+	}
+	
+	public function getUserId(){
+		return $this->id;
 	}
 }
 

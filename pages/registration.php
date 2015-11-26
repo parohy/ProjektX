@@ -10,6 +10,16 @@
     if (session_status() == PHP_SESSION_NONE) {
     	session_start();
     }
+    $name = $surname = $email = "";
+    if(isset($_GET['name'])){
+    	$name = $_GET['name'];
+    }
+    if(isset($_GET['surname'])){
+    	$surname = $_GET['surname'];
+    }
+    if(isset($_GET['email'])){
+    	$email = $_GET['email'];
+    }
     ?>
 
   <div class="frame-titlebar registration-title"><span class="frame-title">Registration</span></div>
@@ -18,11 +28,11 @@
   		<ul class="registration-container">
               <li class="registration-item">
                   <ul class="inputs">
-                      <li><label for="name">First name:</label><input type="text" name="name" placeholder="First name..." maxlength="20" required id="first-name"></li>
+                      <li><label for="name">First name:</label><input type="text" name="name" placeholder="First name..." maxlength="20" required id="first-name" value="<?php echo $name;?>"></li>
                       <li><span class="reg-error" id="first-registration"></span></li>
-                      <li><label for="last-name">Last name:</label><input type="text" name="last-name" placeholder="Last name..." maxlength="20" required id="last-name"></li>
+                      <li><label for="last-name">Last name:</label><input type="text" name="last-name" placeholder="Last name..." maxlength="20" required id="last-name" value="<?php echo $surname;?>"></li>
                       <li><span class="reg-error" id="second-registration"></span></li>
-                      <li><label for="mail">E-mail:</label><input type="email" name="mail" placeholder="johnSmith@mail.com" maxlength="40" required id="email"></li>
+                      <li><label for="mail">E-mail:</label><input type="email" name="mail" placeholder="johnSmith@mail.com" maxlength="40" required id="email" value="<?php echo $email;?>"></li>
                       <li><span class="reg-error" id="mail-registration"></span></li>
                       <li><label for="password">Password:</label><input type="password" name="password" placeholder="*******" maxlength="30" minlength="6" required id="password"></li>
                       <li><span class="reg-error" id="password-registration"></span></li>

@@ -9,10 +9,10 @@ session_start();
 
 error_reporting(E_ALL);
 
-include_once ('../API/InputRecheck.php');
-include_once ('../API/UserHandler.php');
-include_once ('../API/Login.php');
-include_once ('../API/Database.php');
+include_once ('InputRecheck.php');
+include_once ('UserHandler.php');
+include_once ('Login.php');
+include_once ('Database.php');
 
 $tempDB = new DBHandler();
 $tempDB->query('SELECT * FROM users');
@@ -22,30 +22,32 @@ $users = $tempDB->resultSet();
 $count = count($users);
 
 $check = new Recheck();
-
-/*if($_GET['register']=='true'){
-	$_GET['register']=true;
-}
-else if($_GET['register']=='false'){
-	$_GET['register']=false;
-}*/
 	
 /*Executes registration algorithm*/
 if($_GET['register'] == 'registration'){
+	$_SESSION['registerErr']=false;
 	$name = $check->dumpSpecialChars($_POST['name']);
 	$surname = $check->dumpSpecialChars($_POST['last-name']);
 	$email = $check->dumpSpecialChars($_POST['mail']);
 	$password = $check->dumpSpecialChars($_POST['password']);
 	
-	//echo "Mail: ",$check->checkEmail($email, 50);
 	if(errorControl($name, $surname, $email, $password)){
 		/*handle for saving user information into the database*/
-		//$user = new User($name, $surname, $email, $password);
 		$user = User::newUser($name, $surname, $email, $password);
 		
 		$_SESSION['registerErr'] = $user->isSaved();
 	}
-	header('Location:  ../index.php');
+	else{
+		$_SESSION['registerErr'] = "Registration failed.";
+		header('Location:  ../?page=registration&name='.$name.'&surname='.$surname.'&email='.$email.'');
+		exit();
+	}
+	
+	if($_SESSION['registerErr']==true){
+		$_SESSION['registerErr'] = "User registered.";
+		header('Location:  ../index.php');
+		exit();
+	}
 }
 /*###############################*/
 /*Executes login algorithm*/
@@ -62,34 +64,23 @@ else if($_GET['register'] == 'login'){
 			$_SESSION['loggedin'] = true;
 			$_SESSION['loginErr'] = "Login successful";
 			$_SESSION['username'] = $login->getName();
-			echo $_SESSION['username'];
+			$_SESSION['userid'] = $login->getUserId();
 			header('Location:  ../index.php');
+			exit();
 		}
 		else{
 			echo "login bad"; //LOGIN NOT PASSED
 			$_SESSION['loggedin'] = false;
 			$_SESSION['loginErr'] = "Wrong email and password.";
-			header('Location: ../index.php');
+			header('Location: ../index.php?logmail='.$loginEmail.'');
+			exit();
 		}
 	}
 }
 /*###############################*/
-/*Executes admin login algorithm*/
-/*else if($_GET['register'] == 'admin'){
-	$login = Login::adminLogin();
-	$email = $check->dumpSpecialChars($_POST['usermail']);
-	$password = $check->dumpSpecialChars($_POST['password']);
-	if($check->checkInput($email, 20) && $check->checkInput($password, 20) && $login->checkLogin($email, $password)){
-		header('Location: ../pages/adminPage.php');	
-	}
-	else{
-		header('Location: ../web-control.php');
-	}
-}*/
-/*###############################*/
 /*Executes edit algorithm*/
-else if($_GET['register'] == 'edit'){
-	$editUser = User::editUser($_GET['id']);
+else if($_GET['register'] == 'edit' && isset($_SESSION['userid'])){
+	$editUser = User::editUser($_SESSION['userid']);
 	if(isset($_POST['passwordorg']) && $_POST['passwordorg'] == $editUser->getData('password')){	
 		
 		//name
