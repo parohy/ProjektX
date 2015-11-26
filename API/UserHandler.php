@@ -156,4 +156,21 @@ class User{
 		}
 		return "Id not set.";
 	}
+	
+	/**
+	 * On call deletes the current user from database.
+	 * @author Tomas Paronai
+	 */
+	
+	public function delete(){
+		if($this->id != null){
+			$this->handlerDB->query("DELETE FROM users WHERE `userid`=(:userid)");
+			$this->handlerDB0->bind(":userid",$this->id);
+			try{
+				$this->handlerDB->execute();
+			}catch(PDOException $e){
+				echo $e;
+			}
+		}
+	}
 }
