@@ -2,10 +2,10 @@
 -- version 4.1.14
 -- http://www.phpmyadmin.net
 --
--- Hostiteľ: 127.0.0.1
--- Čas generovania: Út 24.Nov 2015, 10:21
--- Verzia serveru: 5.6.17
--- Verzia PHP: 5.5.12
+-- Host: 127.0.0.1
+-- Generation Time: Nov 26, 2015 at 07:09 PM
+-- Server version: 5.6.17
+-- PHP Version: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Databáza: `akademiasovy`
+-- Database: `akademiasovy`
 --
 
 -- --------------------------------------------------------
 
 --
--- Štruktúra tabuľky pre tabuľku `categories`
+-- Table structure for table `categories`
 --
 
 CREATE TABLE IF NOT EXISTS `categories` (
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=24 ;
 
 --
--- Sťahujem dáta pre tabuľku `categories`
+-- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`categoryid`, `name`, `parent`, `defaultpic`) VALUES
@@ -66,7 +66,7 @@ INSERT INTO `categories` (`categoryid`, `name`, `parent`, `defaultpic`) VALUES
 -- --------------------------------------------------------
 
 --
--- Štruktúra tabuľky pre tabuľku `images`
+-- Table structure for table `images`
 --
 
 CREATE TABLE IF NOT EXISTS `images` (
@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `images` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=51 ;
 
 --
--- Sťahujem dáta pre tabuľku `images`
+-- Dumping data for table `images`
 --
 
 INSERT INTO `images` (`imageid`, `productid`, `pic1path`, `pic2path`, `pic3path`) VALUES
@@ -137,7 +137,7 @@ INSERT INTO `images` (`imageid`, `productid`, `pic1path`, `pic2path`, `pic3path`
 -- --------------------------------------------------------
 
 --
--- Štruktúra tabuľky pre tabuľku `orderdetails`
+-- Table structure for table `orderdetails`
 --
 
 CREATE TABLE IF NOT EXISTS `orderdetails` (
@@ -152,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `orderdetails` (
 -- --------------------------------------------------------
 
 --
--- Štruktúra tabuľky pre tabuľku `orders`
+-- Table structure for table `orders`
 --
 
 CREATE TABLE IF NOT EXISTS `orders` (
@@ -167,7 +167,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
 -- --------------------------------------------------------
 
 --
--- Štruktúra tabuľky pre tabuľku `products`
+-- Table structure for table `products`
 --
 
 CREATE TABLE IF NOT EXISTS `products` (
@@ -186,7 +186,7 @@ CREATE TABLE IF NOT EXISTS `products` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=51 ;
 
 --
--- Sťahujem dáta pre tabuľku `products`
+-- Dumping data for table `products`
 --
 
 INSERT INTO `products` (`productid`, `categoryid`, `amount`, `name`, `price`, `brand`, `description`, `viewamount`, `datecreated`, `numofratings`, `sumofratings`) VALUES
@@ -244,7 +244,7 @@ INSERT INTO `products` (`productid`, `categoryid`, `amount`, `name`, `price`, `b
 -- --------------------------------------------------------
 
 --
--- Štruktúra tabuľky pre tabuľku `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -258,20 +258,21 @@ CREATE TABLE IF NOT EXISTS `users` (
   `city` varchar(50) COLLATE utf8_slovak_ci NOT NULL,
   `postcode` varchar(5) COLLATE utf8_slovak_ci NOT NULL,
   `datejoined` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `role` int(11) NOT NULL,
   PRIMARY KEY (`userid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=7 ;
 
 --
--- Sťahujem dáta pre tabuľku `users`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`userid`, `email`, `name`, `surname`, `password`, `address`, `shipaddress`, `city`, `postcode`, `datejoined`) VALUES
-(1, 'admin@admin.com', 'admin', '', 'admin2015', '', '', '', '', '0000-00-00 00:00:00'),
-(2, 'david99@gmail.com', 'David', 'Kostra', 'transformers55', 'Trieda SNP 50', '', 'Košice', '04001', '0000-00-00 00:00:00'),
-(3, 'jozo19898@gmail.com', 'Jozef', 'Samuraj', 'jablko', 'Šafárikova 11', '', 'Košice', '04011', '0000-00-00 00:00:00'),
-(4, 'marek.sss@gmail.com', 'Marek', 'Velký', 'iamlegend', 'Bernolákova 1', '', 'Košice', '04001', '0000-00-00 00:00:00'),
-(5, 'ottoman787@azet.sk', 'Otto', 'Markus', '55ottis', 'Kuzmányho', '', 'Košice', '04001', '0000-00-00 00:00:00'),
-(6, 'serusky44@azet.sk', 'Martha', 'Big', 'yesyes22', 'Hlavná 55', '', 'Košice', '04001', '0000-00-00 00:00:00');
+INSERT INTO `users` (`userid`, `email`, `name`, `surname`, `password`, `address`, `shipaddress`, `city`, `postcode`, `datejoined`, `role`) VALUES
+(1, 'admin@admin.com', 'admin', '', 'admin2015', '', '', '', '', '0000-00-00 00:00:00', 2),
+(2, 'david99@gmail.com', 'David', 'Kostra', 'transformers55', 'Trieda SNP 50', '', 'Košice', '04001', '0000-00-00 00:00:00', 1),
+(3, 'jozo19898@gmail.com', 'Jozef', 'Samuraj', 'jablko', 'Šafárikova 11', '', 'Košice', '04011', '0000-00-00 00:00:00', 1),
+(4, 'marek.sss@gmail.com', 'Marek', 'Velký', 'iamlegend', 'Bernolákova 1', '', 'Košice', '04001', '0000-00-00 00:00:00', 1),
+(5, 'ottoman787@azet.sk', 'Otto', 'Markus', '55ottis', 'Kuzmányho', '', 'Košice', '04001', '0000-00-00 00:00:00', 1),
+(6, 'serusky44@azet.sk', 'Martha', 'Big', 'yesyes22', 'Hlavná 55', '', 'Košice', '04001', '0000-00-00 00:00:00', 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
