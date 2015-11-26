@@ -1,5 +1,8 @@
 <link rel="stylesheet" type="text/css" href="css/main-page-style.css">
 <?php
+    /**
+    * Author: Matus Kacmar
+    */
     $handler = new DBHandler();
     $handler->beginTransaction();
     $handler->query("SELECT * FROM products WHERE productid BETWEEN :first AND :second");
@@ -49,7 +52,7 @@
                         echo "<span class='product-name'><a href=\"?page=productPreview&product=" . $result[$i]['productid'] . "\">" . $result[$i]['name'] . "</a><span class='product-name'>";
                         echo "</header>";
                         echo "<div class='product-image'>";
-                        echo "<img src='..\ProjektX" . $image[$i]['pic1path'] . "'>";
+                        echo "<img src='../ProjektX" . $image[$i]['pic1path'] . "'>";
                         echo "</div>";
                         echo "<div class='product-description'>";
                         echo substr($result[$i]['description'],0,40) . "...";
@@ -74,7 +77,7 @@
                     echo "<section class='product-item'>";
                     echo "<article>";
                     echo "<header class='product-header'>";
-                    echo "<span class='product-name'><a href='?page=productPreview'>" . $result[$i]['name'] . "</a><span class='product-name'>";
+                    echo "<span class='product-name'><a href=\"?page=productPreview&product=" . $result[$i]['productid'] . "\">" . $result[$i]['name'] . "</a><span class='product-name'>";
                     echo "</header>";
                     echo "<div class='product-image'>";
                     echo "<img src='..\ProjektX" . $image[$i]['pic1path'] . "'>";

@@ -10,9 +10,29 @@ $handler->query("SELECT * FROM products WHERE productid = :id");
 $handler->bind(":id",$product);
 $result = $handler->singleRecord();
 
+/************************************ IMAGES *******************************************/
+
 $handler->query("SELECT * FROM images WHERE productid=:id");
 $handler->bind(":id",$product);
 $image = $handler->singleRecord();
+
+/************************************ CATEGORIES *******************************************/
+
+$handler->query("SELECT * FROM categories WHERE categoryid=:category");
+$handler->bind(":category",$result['categoryid']);
+$actualCategoryResult = $handler->singleRecord();
+
+$handler->query("SELECT * FROM categories WHERE categoryid=:category");
+$handler->bind(':category',$actualCategoryResult['parent']);
+$categoryResult = $handler->singleRecord();
+
+$handler->query("SELECT * FROM categories WHERE categoryid=:category");
+$handler->bind(':category',$categoryResult['parent']);
+$parentCategoryResult = $handler->singleRecord();
+
+$handler->endTransaction();
+
+/************************************ RATING *******************************************/
 
 if($result['sumofratings'] > 0 && $result['numofratings'] > 0) { // Calculate rating for given product
     $avgRating = round($result['sumofratings'] / $result['numofratings'], 1);
@@ -34,11 +54,27 @@ if ($result['amount'] > 5) {
     <div class="frame-content">
         <section>
             <article>
-                <header class="product-header"><h1><?php echo $result['name'];?></h1></header>
+                <header class="product-header">
+                    <h1><?php echo $result['name'];?></h1>
+                    <br>
+                    <?php
+                    if($parentCategoryResult['categoryid'] != 1) echo "<a href=\"?page=" . $parentCategoryResult['name'] . "&category=" . $parentCategoryResult['categoryid'] . "&view=10\">" . $parentCategoryResult['name'] . "</a>>";
+                    echo "<a href=\"?page=" . $categoryResult['name'] . "&category=" . $categoryResult['categoryid'] . "&view=10\">" . $categoryResult['name'] . "</a>>";
+                    echo "<a href=\"?page=" . $actualCategoryResult['name'] . "&category=" . $actualCategoryResult['categoryid'] . "&view=10\">" . $actualCategoryResult['name'] . "</a>";
+                    ?>
+                </header>
 
                 <div class="product-content">
                     <div class="product-image">
-                        <img src="../ProjektX<?php echo $image['pic1path']; ?>">
+                        <img src="../ProjektX<?php echo $image['pic1path']; ?>" id="image-slide1">
+                        <?php
+                        if($image['pic2path'] != null) {
+                            echo "<img src=\"../ProjektX" . $image['pic2path'] . "\" class=\"image-slides\">";
+                        }
+                        if($image['pic3path'] != null) {
+                            echo "<img src=\"../ProjektX" . $image['pic3path'] . "\" class=\"image-slides\">";
+                        }
+                        ?>
                     </div>
 
                     <div class="product-description">
@@ -79,4 +115,5 @@ if ($result['amount'] > 5) {
             </article>
         </section>
     </div>
+    <script src="js/productPreview.js"></script>
 </div>

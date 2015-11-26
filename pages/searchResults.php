@@ -11,22 +11,23 @@
             <?php
                 if(isset($_SESSION['search'])) { // Displays searched term
                     $search = $_SESSION['search'];
-
                     echo $search;
                 }
             ?>
         </span>
     </div>
     <?php
-        if(isset($_SESSION['result'])) {
+        if(isset($_SESSION['result']) && isset($_SESSION['images'])) {
             if($_SESSION['result'] == "No results") // If no results found print Message
                 echo "<h3 class='no-result'>"."No results"."</h3>";
             else {
                 $result = $_SESSION['result'];
+                $images = $_SESSION['images'];
+                $i = 0;
                 foreach($result as $res) { // Print product item
                   echo "<section>";
                   echo "<article>";
-                  echo "<div class='description-image'><img src='". $res['imagepath'] ."'></div>";
+                  echo "<div class='description-image'><img src='../ProjektX". $images[$i]['pic1path'] ."'></div>";
                   echo "<div class='description-content'>";
                   echo "<header>";
                   echo "<h4><a href=\"?page=productPreview&product=" . $res['productid'] . "\">". $res["name"] . "</a></h4>";
@@ -39,6 +40,7 @@
                   echo "</div>";
                   echo "</article>";
                   echo "</section>";
+                  $i++;
                 }
             }
         }
