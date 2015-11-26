@@ -143,7 +143,15 @@ else if($_GET['register'] == 'edit' && isset($_SESSION['userid'])){
 	}
 }
 
-	
+/**
+ * Validates user inputs for registration form.
+ * @author Tomas Paronai
+ * @param $name
+ * @param $surname
+ * @param $email
+ * @param $password
+ * @return - true if all OK
+ */
 
 function errorControl($name, $surname, $email, $password){
 	$error = $GLOBALS['check']->checkEmail($email, 50);

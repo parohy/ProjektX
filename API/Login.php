@@ -49,16 +49,6 @@ class Login{
 		return false;
 	}
 	
-	/**
-	 * Creates an admin login instance.
-	 * @author Tomas Paronai
-	 * @return $instance 
-	 */
-	public static function adminLogin(){
-		$instance = new self();
-		$instance->name = "admin";
-		return $instance;
-	}
 	
 	/**
 	 * @author Tomas Paronai
