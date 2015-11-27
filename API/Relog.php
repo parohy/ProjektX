@@ -136,7 +136,7 @@ else if($_GET['register'] == 'edit' && isset($_SESSION['userid'])){
 		}
 		
 		$_SESSION['editErr'] = "Saved.";
-		header('Location: ../index.php');
+		header('Location: ../?page=editProfile');
 	}
 	else{
 		$_SESSION['editErr'] = "Wrong password.";
