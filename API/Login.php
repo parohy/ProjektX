@@ -58,6 +58,10 @@ class Login{
 		return $this->name;
 	}
 	
+	/**
+	 * @author Tomas Paronai
+	 * @return $this->id - the id of the logged in user.
+	 */
 	public function getUserId(){
 		return $this->id;
 	}
