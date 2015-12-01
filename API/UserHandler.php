@@ -41,6 +41,7 @@ class User{
 		 $instance->saveData('surname', ucfirst($surname));
 		 $instance->saveData('email', $email);
 		 $instance->saveData('password', $password);
+		 $instance->saveData('role', '1');
 		 }
 		 
 		 return $instance;

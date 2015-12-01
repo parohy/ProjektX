@@ -33,7 +33,7 @@ class Login{
 	 * @return true - login correct
 	 */
 	public function checkLogin($email, $password){
-			$this->handlerDB->query('SELECT email,password,name,userid FROM users');
+			$this->handlerDB->query('SELECT email,password,name,userid,role FROM users');
 			
 			$users = array();
 			$users = $this->handlerDB->resultSet();
@@ -43,6 +43,7 @@ class Login{
 				if($users[$i]['email'] == $email && $users[$i]['password'] == $password){
 					$this->name = $users[$i]['name'];
 					$this->id = $users[$i]['userid'];
+					$_SESSION['userrole'] = $users[$i]['role'];
 					return true;
 				}
 			}
@@ -58,6 +59,10 @@ class Login{
 		return $this->name;
 	}
 	
+	/**
+	 * @author Tomas Paronai
+	 * @return $this->id - the id of the logged in user.
+	 */
 	public function getUserId(){
 		return $this->id;
 	}
