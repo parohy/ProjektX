@@ -58,7 +58,7 @@
                 </div>
 
                 <div class="bottom-tab-content">
-                    <div class="product-item">
+                    <div class="product-item  first-row">
                         <div class="product-photo">
                         </div>
 
@@ -68,7 +68,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item second-row">
                         <div class="product-photo">
                         </div>
 
@@ -78,7 +78,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item first-row">
                         <div class="product-photo">
                         </div>
 
@@ -88,7 +88,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item second-row">
                         <div class="product-photo">
                         </div>
 
@@ -98,7 +98,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item first-row">
                         <div class="product-photo">
                         </div>
 
@@ -108,7 +108,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item second-row">
                         <div class="product-photo">
                         </div>
 
@@ -118,7 +118,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item first-row">
                         <div class="product-photo">
                         </div>
 
@@ -128,7 +128,7 @@
                         </div>
                     </div>
 
-                    <div class="product-item">
+                    <div class="product-item second-row">
                         <div class="product-photo">
                         </div>
 
