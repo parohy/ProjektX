@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2015 at 07:09 PM
+-- Generation Time: Dec 02, 2015 at 06:48 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -66,77 +66,6 @@ INSERT INTO `categories` (`categoryid`, `name`, `parent`, `defaultpic`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `images`
---
-
-CREATE TABLE IF NOT EXISTS `images` (
-  `imageid` int(11) NOT NULL AUTO_INCREMENT,
-  `productid` int(11) NOT NULL,
-  `pic1path` varchar(100) COLLATE utf8_slovak_ci NOT NULL,
-  `pic2path` varchar(100) COLLATE utf8_slovak_ci NOT NULL,
-  `pic3path` varchar(100) COLLATE utf8_slovak_ci NOT NULL,
-  PRIMARY KEY (`imageid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=51 ;
-
---
--- Dumping data for table `images`
---
-
-INSERT INTO `images` (`imageid`, `productid`, `pic1path`, `pic2path`, `pic3path`) VALUES
-(1, 1, '/img/products/1/1a.jpg', '/img/products/1/1b.jpg', '/img/products/1/1c.jpg'),
-(2, 2, '/img/products/2/2a.jpg', '/img/products/2/2b.jpg', '/img/products/2/2c.jpg'),
-(3, 3, '/img/products/3/3a.jpg', '/img/products/3/3b.jpg', '/img/products/3/3c.jpg'),
-(4, 4, '/img/products/4/4a.jpg', '/img/products/4/4b.jpg', '/img/products/4/4c.jpg'),
-(5, 5, '/img/products/5/5a.jpg', '/img/products/5/5b.jpg', '/img/products/5/5c.jpg'),
-(6, 6, '/img/products/6/6a.jpg', '/img/products/6/6b.jpg', '/img/products/6/6c.jpg'),
-(7, 7, '/img/products/7/7a.jpg', '/img/products/7/7b.jpg', '/img/products/7/7c.jpg'),
-(8, 8, '/img/products/8/8a.jpg', '/img/products/8/8b.jpg', '/img/products/8/8c.jpg'),
-(9, 9, '/img/products/9/9a.jpg', '/imgproducts/9/9b.jpg', '/img/products/9/9c.jpg'),
-(10, 10, '/img/products/10/10a.jpg', '/img/products/10/10b.jpg', '/img/products/10/10c.jpg'),
-(11, 11, '/img/products/11/11a.jpg', '/img/products/11/11b.jpg', '/img/products/11/11c.jpg'),
-(12, 12, '/img/products/12/12a.jpg', '/img/products/12/12b.jpg', '/img/products/12/12c.jpg'),
-(13, 13, '/img/products/13/13a.jpg', '/img/products/13/13b.jpg', '/img/products/13/13c.jpg'),
-(14, 14, '/img/products/14/14a.jpg', '/img/products/14/14b.jpg', '/img/products/14/14c.jpg'),
-(15, 15, '/img/products/15/15a.jpg', '/img/products/15/15b.jpg', '/img/products/15/15c.jpg'),
-(16, 16, '/img/products/16/16a.jpg', '/img/products/16/16b.jpg', '/img/products/16/16c.jpg'),
-(17, 17, '/img/products/17/17a.jpg', '/img/products/17/17b.jpg', '/img/products/17/17c.jpg'),
-(18, 18, '/img/products/18/18a.jpg', '/img/products/18/18b.jpg', '/img/products/18/18c.jpg'),
-(19, 19, '/img/products/19/19a.jpg', '/img/products/19/19b.jpg', '/img/products/19/19c.jpg'),
-(20, 20, '/img/products/20/20a.jpg', '/img/products/20/20b.jpg', '/img/products/20/20c.jpg'),
-(21, 21, '/img/products/21/21a.jpg', '/img/products/21/21b.jpg', '/img/products/21/21c.jpg'),
-(22, 22, '/img/products/22/22a.jpg', '/img/products/22/22b.jpg', '/img/products/22/22c.jpg'),
-(23, 23, '/img/products/23/23a.jpg', '/img/products/23/23b.jpg', '/img/products/23/23c.jpg'),
-(24, 24, '/img/products/24/24a.jpg', '/img/products/24/24b.jpg', '/img/products/24/24c.jpg'),
-(25, 25, '/img/products/25/25a.jpg', '/img/products/25/25b.jpg', '/img/products/25/25c.jpg'),
-(26, 26, '/img/products/26/26a.jpg', '/img/products/26/26b.jpg', '/img/products/26/26c.jpg'),
-(27, 27, '/img/products/27/27a.jpg', '/img/products/27/27b.jpg', '/img/products/27/27c.jpg'),
-(28, 28, '/img/products/28/28a.jpg', '/img/products/28/28b.jpg', '/img/products/28/28c.jpg'),
-(29, 29, '/img/products/29/29a.jpg', '/img/products/29/29b.jpg', '/img/products/29/29c.jpg'),
-(30, 30, '/img/products/30/30a.jpg', '/img/products/30/30b.jpg', '/img/products/30/30c.jpg'),
-(31, 31, '/img/products/31/31a.jpg', '/img/products/31/31b.jpg', '/img/products/31/31c.jpg'),
-(32, 32, '/img/products/32/32a.jpg', '/img/products/32/32b.jpg', '/img/products/32/32c.jpg'),
-(33, 33, '/img/products/33/33a.jpg', '/img/products/33/33b.jpg', '/img/products/33/33c.jpg'),
-(34, 34, '/img/products/34/34a.jpg', '/img/products/34/34b.jpg', '/img/products/34/34c.jpg'),
-(35, 35, '/img/products/35/35a.jpg', '/img/products/35/35b.jpg', '/img/products/35/35c.jpg'),
-(36, 36, '/img/products/36/36a.jpg', '/img/products/36/36b.jpg', '/img/products/36/36c.jpg'),
-(37, 37, '/img/products/37/37a.jpg', '/img/products/37/37b.jpg', '/img/products/37/37c.jpg'),
-(38, 38, '/img/products/38/38a.jpg', '/img/products/38/38b.jpg', '/img/products/38/38c.jpg'),
-(39, 39, '/img/products/39/39a.jpg', '/img/products/39/39b.jpg', '/img/products/39/39c.jpg'),
-(40, 40, '/img/products/40/40a.jpg', '/img/products/40/40b.jpg', '/img/products/40/40c.jpg'),
-(41, 41, '/img/products/41/41a.jpg', '/img/products/41/41b.jpg', '/img/products/41/41c.jpg'),
-(42, 42, '/img/products/42/42a.jpg', '/img/products/42/42b.jpg', '/img/products/42/42c.jpg'),
-(43, 43, '/img/products/43/43a.jpg', '/img/products/43/43b.jpg', '/img/products/43/43c.jpg'),
-(44, 44, '/img/products/44/44a.jpg', '/img/products/44/44b.jpg', '/img/products/44/44c.jpg'),
-(45, 45, '/img/products/45/45a.jpg', '/img/products/45/45b.jpg', '/img/products/45/45c.jpg'),
-(46, 46, '/img/products/46/46a.jpg', '/img/products/46/46b.jpg', '/img/products/46/46c.jpg'),
-(47, 47, '/img/products/47/47a.jpg', '/img/products/47/47b.jpg', '/img/products/47/47c.jpg'),
-(48, 48, '/img/products/48/48a.jpg', '/img/products/48/48b.jpg', '/img/products/48/48c.jpg'),
-(49, 49, '/img/products/49/49a.jpg', '/img/products/49/49b.jpg', '/img/products/49/49c.jpg'),
-(50, 50, '/img/products/50/50a.jpg', '/img/products/50/50b.jpg', '/img/products/50/50c.jpg');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `orderdetails`
 --
 
@@ -183,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `numofratings` int(11) NOT NULL,
   `sumofratings` int(11) NOT NULL,
   PRIMARY KEY (`productid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=51 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=56 ;
 
 --
 -- Dumping data for table `products`
@@ -239,7 +168,12 @@ INSERT INTO `products` (`productid`, `categoryid`, `amount`, `name`, `price`, `b
 (47, 22, 20, 'Galaxy S5 case, Caseology® [Wavelength Series] [Navy Blue]', 16.99, 'CASEOLOGY', 'Compatible with Samsung Galaxy S5 - Verizon, AT&T, T-Mobile, Sprint, International models.\r\nPrecise cutouts for improved access to all ports, buttons, cameras, speakers, and mics.\r\nMaterial: TPU (Thermoplastic Polyurethane) - Highly resistant to oil, dirt, and scratches with finished look of a hard case but shock absorption of a soft case\r\nDesigned and produced by one of the leading manufacturers in South Korea', 1, '2015-11-21 15:38:32', 1, 1),
 (48, 23, 30, 'Sony SWR50 SmartWatch 3 Transflective Display Black Watch', 159.99, 'SONY', 'Black Classic Band, Water Protected, IP68 rated : "up to 2 days normal use"\r\nSensors: Ambient light sensors, Accelerometer, Compass, Gyro, GPS\r\nNotifications, Voice Commands, Lifelong, Impressive stand-alone functions\r\nPowered By Android Wear - Useful information when you need it, Apps for everything\r\nTell the Smartwatch 3 SWR50 what you want and it will do it, Search, Command, Find\r\nWaterproof. IP58 Rated.', 1, '2015-11-21 15:40:19', 1, 1),
 (49, 23, 30, 'LG Electronics G Watch', 135.99, 'LG', 'Compatible with most devices with an Android 4.3 or later operating system\r\nVoice activated\r\nPowered by Android Wear\r\nMobile notifications\r\n1.2GHz Qualcomm processor', 1, '2015-11-21 15:41:20', 1, 1),
-(50, 23, 25, 'Samsung Gear 2 Neo Smartwatch', 199.99, 'SAMSUNG', 'Smart Notification: Samsung Gear 2 Neo allows you to make and receive calls and read more on a large sAMOLED display making communication smooth and seamless.\r\nInstant Notification: Samsung Gear 2 enables you to receive instant notifications from your phone and apps plus a variety of 3rd party apps which you can view clearly on a sAMOLED screen.\r\nPersonalized Fitness Motivator: Samsung Gear 2, with its built-in Heart Rate Sensor, S Health features, and pedometer, track your daily pattern of exercise to give you customized real time coaching to help you achieve your goals.', 1, '2015-11-21 15:42:17', 1, 1);
+(50, 23, 25, 'Samsung Gear 2 Neo Smartwatch', 199.99, 'SAMSUNG', 'Smart Notification: Samsung Gear 2 Neo allows you to make and receive calls and read more on a large sAMOLED display making communication smooth and seamless.\r\nInstant Notification: Samsung Gear 2 enables you to receive instant notifications from your phone and apps plus a variety of 3rd party apps which you can view clearly on a sAMOLED screen.\r\nPersonalized Fitness Motivator: Samsung Gear 2, with its built-in Heart Rate Sensor, S Health features, and pedometer, track your daily pattern of exercise to give you customized real time coaching to help you achieve your goals.', 1, '2015-11-21 15:42:17', 1, 1),
+(51, 0, 12, 'Sony Bravia KDL-48W705C ', 555, 'Sony', 'Televízor SMART LED, uhlopriečka 121cm, Motionflow XR 200Hz, FullHD 1920x1080, DVB-S2 / S / T2 / T / C, 4x HDMI, 2x USB, Scart, LAN, CI +, MHL, DLNA, WiFi, HbbTV, webový prehliadač, energ. trieda A++', 1, '2015-11-30 21:55:59', 0, 0),
+(52, 0, 22, 'LG 58UF8307 ', 999, 'LG', 'Televízor SMART LED TV, uhlopriečka 147cm , 4K Ultra HD 3840x2160 , 4K Upscaler , DVB -S2/T2/C ,H.265 , 3x HDMI , 3x USB , Scart , CI+ , LAN, WiFi, Miracast , DLNA , MHL , HbbTV , webový prehliadač, webOS 2.0 , repro 2x10W , magický ovládač MR15 , energ . trieda A+', 0, '2015-11-30 21:55:59', 0, 0),
+(53, 0, 4, 'Panasonic TX-65CX700E ', 2499, 'Panasonic', 'Televízor 3D SMART LED, uhlopriečka 165cm, 4K Ultra HD 3840x2160, 800Hz BMR, DVB-T2 / C, H.265 (HEVC Decoder), lokálne stmievanie, Studio Master Colour, Firefox OS, 3x HDMI 2.0, 3x USB, CI +, SCART, WiFi, USB / HDD nahrávanie, my Home Screen 2.0, webový prehliadač, Netflix, Miracast, HbbTV, Quad-Core PRO, aktívne 3D, vyrobené v ČR, energ. trieda A', 0, '2015-11-30 21:58:28', 0, 0),
+(54, 0, 70, 'Samsung UE55J6302 ', 1149, 'Samsung', 'Televízor prehnutá, SMART LED, uhlopriečka 138cm, PQI 800, Full HD (1920 x 1080), DVB-T2 / C, 4x HDMI, 3x USB, CI +, DLNA, LAN, Micro Dimming Pro, WiFi, Webový prehliadač, Wireless, Mirroring, Quad Core, filmový mód, repro 2x 10W, energ. trieda A +', 0, '2015-11-30 21:58:28', 0, 0),
+(55, 0, 2, 'Philips 55PFK7509 ', 899, 'Philips', 'Televízor 3D SMART LED, Ambilight 3, 800Hz PMR, Pixel Precise HD, uhlopriečka 140cm, 400cd / m2, FullHD 1920x1080p, DVB-T / C / S / S2, 4x HDMI, CI +, Scart, 2x USB, LAN, HbbTV, WiFi, Miracast, Micro Dimming Pro, Dual Core, Multiroom, 4x 3D okuliare pasívny, VESA 400x400, energ. trieda A++', 0, '2015-11-30 21:59:32', 0, 0);
 
 -- --------------------------------------------------------
 

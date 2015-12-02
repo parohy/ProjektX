@@ -13,25 +13,36 @@ class Product{
 
 	private $id;
 	private $handlerDB;
-
         public $error=null;
-
+        public $categoryid;
+        public $amount;
         public $name;
+        public $price;
+        public $brand;
+        public $description;
+        public $viewamount;
+        public $datecreated;
+        public $numofratings;
+        public $sumofratings;
 
-	public function __construct($id=null){
+	/**
+	 * Creates an ProductHandler instance with optional $id parameter
+	 * @author Matus Kokoska
+	 */
+        
+        public function __construct($id=null){
             $this->handlerDB = new DBHandler();
             $this->id=$id;
 
             $this->load();
 	}
 
-        public function delete() {
-
-        }
-
+	/**
+	 * If $id is set, loads existing product. 
+	 * @author Matus Kokoska
+	 */
+        
         public function load() {
-            $error=null;
-
             if($this->id != null){
                 $this->handlerDB->query("SELECT * FROM products where productid=:id");
                 $this->handlerDB->bind(":id", $this->id);
@@ -54,19 +65,14 @@ class Product{
             }
             else {
                 $error="Id not set.";
-                $this->categoryid="";
-                $this->amount="";
-                $this->name="";
-                $this->price="";
-                $this->brand="";
-                $this->description="";
-                $this->viewamount="";
-                $this->datecreated="";
-                $this->numofratings="";
-                $this->sumofratings="";
             }
         }
-
+	
+        /**
+	 * Saves edited properties of product or creates a new product if $id is not set
+	 * @author Matus Kokoska
+	 */
+        
         public function save(){
             if($this->id == null){
                 $this->handlerDB->query("INSERT INTO products (categoryid, amount, name, price, brand, description, viewamount, datecreated, numofratings, sumofratings) ".
@@ -88,5 +94,17 @@ class Product{
             $this->handlerDB->bind(':numofratings', $this->numofratings);
             $this->handlerDB->bind(':sumofratings', $this->sumofratings);
             $this->handlerDB->execute();
+        }
+	
+        /**
+	 * Deletes existing product
+	 * @author Matus Kokoska
+	 */
+        
+        public function delete() {
+            if($this->id!=null){
+                $this->handlerDB->query("DELETE FROM products WHERE productid LIKE '%".$this->id."%'");
+            }
+            $this->handlerDB->execute();   
         }
 }
