@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2015 at 09:49 PM
+-- Generation Time: Dec 02, 2015 at 06:48 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -112,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `numofratings` int(11) NOT NULL,
   `sumofratings` int(11) NOT NULL,
   PRIMARY KEY (`productid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=51 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=56 ;
 
 --
 -- Dumping data for table `products`
@@ -168,7 +168,12 @@ INSERT INTO `products` (`productid`, `categoryid`, `amount`, `name`, `price`, `b
 (47, 22, 20, 'Galaxy S5 case, Caseology® [Wavelength Series] [Navy Blue]', 16.99, 'CASEOLOGY', 'Compatible with Samsung Galaxy S5 - Verizon, AT&T, T-Mobile, Sprint, International models.\r\nPrecise cutouts for improved access to all ports, buttons, cameras, speakers, and mics.\r\nMaterial: TPU (Thermoplastic Polyurethane) - Highly resistant to oil, dirt, and scratches with finished look of a hard case but shock absorption of a soft case\r\nDesigned and produced by one of the leading manufacturers in South Korea', 1, '2015-11-21 15:38:32', 1, 1),
 (48, 23, 30, 'Sony SWR50 SmartWatch 3 Transflective Display Black Watch', 159.99, 'SONY', 'Black Classic Band, Water Protected, IP68 rated : "up to 2 days normal use"\r\nSensors: Ambient light sensors, Accelerometer, Compass, Gyro, GPS\r\nNotifications, Voice Commands, Lifelong, Impressive stand-alone functions\r\nPowered By Android Wear - Useful information when you need it, Apps for everything\r\nTell the Smartwatch 3 SWR50 what you want and it will do it, Search, Command, Find\r\nWaterproof. IP58 Rated.', 1, '2015-11-21 15:40:19', 1, 1),
 (49, 23, 30, 'LG Electronics G Watch', 135.99, 'LG', 'Compatible with most devices with an Android 4.3 or later operating system\r\nVoice activated\r\nPowered by Android Wear\r\nMobile notifications\r\n1.2GHz Qualcomm processor', 1, '2015-11-21 15:41:20', 1, 1),
-(50, 23, 25, 'Samsung Gear 2 Neo Smartwatch', 199.99, 'SAMSUNG', 'Smart Notification: Samsung Gear 2 Neo allows you to make and receive calls and read more on a large sAMOLED display making communication smooth and seamless.\r\nInstant Notification: Samsung Gear 2 enables you to receive instant notifications from your phone and apps plus a variety of 3rd party apps which you can view clearly on a sAMOLED screen.\r\nPersonalized Fitness Motivator: Samsung Gear 2, with its built-in Heart Rate Sensor, S Health features, and pedometer, track your daily pattern of exercise to give you customized real time coaching to help you achieve your goals.', 1, '2015-11-21 15:42:17', 1, 1);
+(50, 23, 25, 'Samsung Gear 2 Neo Smartwatch', 199.99, 'SAMSUNG', 'Smart Notification: Samsung Gear 2 Neo allows you to make and receive calls and read more on a large sAMOLED display making communication smooth and seamless.\r\nInstant Notification: Samsung Gear 2 enables you to receive instant notifications from your phone and apps plus a variety of 3rd party apps which you can view clearly on a sAMOLED screen.\r\nPersonalized Fitness Motivator: Samsung Gear 2, with its built-in Heart Rate Sensor, S Health features, and pedometer, track your daily pattern of exercise to give you customized real time coaching to help you achieve your goals.', 1, '2015-11-21 15:42:17', 1, 1),
+(51, 0, 12, 'Sony Bravia KDL-48W705C ', 555, 'Sony', 'Televízor SMART LED, uhlopriečka 121cm, Motionflow XR 200Hz, FullHD 1920x1080, DVB-S2 / S / T2 / T / C, 4x HDMI, 2x USB, Scart, LAN, CI +, MHL, DLNA, WiFi, HbbTV, webový prehliadač, energ. trieda A++', 1, '2015-11-30 21:55:59', 0, 0),
+(52, 0, 22, 'LG 58UF8307 ', 999, 'LG', 'Televízor SMART LED TV, uhlopriečka 147cm , 4K Ultra HD 3840x2160 , 4K Upscaler , DVB -S2/T2/C ,H.265 , 3x HDMI , 3x USB , Scart , CI+ , LAN, WiFi, Miracast , DLNA , MHL , HbbTV , webový prehliadač, webOS 2.0 , repro 2x10W , magický ovládač MR15 , energ . trieda A+', 0, '2015-11-30 21:55:59', 0, 0),
+(53, 0, 4, 'Panasonic TX-65CX700E ', 2499, 'Panasonic', 'Televízor 3D SMART LED, uhlopriečka 165cm, 4K Ultra HD 3840x2160, 800Hz BMR, DVB-T2 / C, H.265 (HEVC Decoder), lokálne stmievanie, Studio Master Colour, Firefox OS, 3x HDMI 2.0, 3x USB, CI +, SCART, WiFi, USB / HDD nahrávanie, my Home Screen 2.0, webový prehliadač, Netflix, Miracast, HbbTV, Quad-Core PRO, aktívne 3D, vyrobené v ČR, energ. trieda A', 0, '2015-11-30 21:58:28', 0, 0),
+(54, 0, 70, 'Samsung UE55J6302 ', 1149, 'Samsung', 'Televízor prehnutá, SMART LED, uhlopriečka 138cm, PQI 800, Full HD (1920 x 1080), DVB-T2 / C, 4x HDMI, 3x USB, CI +, DLNA, LAN, Micro Dimming Pro, WiFi, Webový prehliadač, Wireless, Mirroring, Quad Core, filmový mód, repro 2x 10W, energ. trieda A +', 0, '2015-11-30 21:58:28', 0, 0),
+(55, 0, 2, 'Philips 55PFK7509 ', 899, 'Philips', 'Televízor 3D SMART LED, Ambilight 3, 800Hz PMR, Pixel Precise HD, uhlopriečka 140cm, 400cd / m2, FullHD 1920x1080p, DVB-T / C / S / S2, 4x HDMI, CI +, Scart, 2x USB, LAN, HbbTV, WiFi, Miracast, Micro Dimming Pro, Dual Core, Multiroom, 4x 3D okuliare pasívny, VESA 400x400, energ. trieda A++', 0, '2015-11-30 21:59:32', 0, 0);
 
 -- --------------------------------------------------------
 
