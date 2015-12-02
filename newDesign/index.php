@@ -145,6 +145,9 @@
     <footer class="footer">
         <h3>CONNECT WITH US</h3>
         <p>
+            <b>VIATECH</b>
+            <br>
+            <br>
             Dneperská 1, Košice, Slovakia<br>
             +421 902 095 588<br>
             eleshopsk@gmail.com
