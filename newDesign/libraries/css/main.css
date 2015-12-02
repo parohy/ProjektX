@@ -19,6 +19,7 @@ body {
     color: #595959;
     font-family: 'Source Sans Pro', sans-serif;
     font-style: normal;
+    background: #fbfbfb;
 }
 
 .container {
@@ -211,6 +212,30 @@ body {
     height: 424px;
     background: grey;
     margin-bottom: 55px;
+}
+
+.product-photo {
+    width: 100%;
+    height: 300px;
+}
+
+.product-description {
+    width: 100%;
+    height: 124px;
+    background: #fff;
+    box-shadow: 1px 1px 1px #cacaca, -1px -1px 1px #cacaca;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.product-line {
+    width: 50px;
+    margin: 0 auto;
+}
+
+.product-description h3 {
+    line-height: 80px;
+    vertical-align: middle;
 }
 
 .footer {

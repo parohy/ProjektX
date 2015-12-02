@@ -59,27 +59,83 @@
 
                 <div class="bottom-tab-content">
                     <div class="product-item">
+                        <div class="product-photo">
+                        </div>
+
+                        <div class="product-description">
+                            <hr class="product-line">
+                            <h3>PRODUCT</h3>
+                        </div>
                     </div>
 
                     <div class="product-item">
+                        <div class="product-photo">
+                        </div>
+
+                        <div class="product-description">
+                            <hr class="product-line">
+                            <h3>PRODUCT</h3>
+                        </div>
                     </div>
 
                     <div class="product-item">
+                        <div class="product-photo">
+                        </div>
+
+                        <div class="product-description">
+                            <hr class="product-line">
+                            <h3>PRODUCT</h3>
+                        </div>
                     </div>
 
                     <div class="product-item">
+                        <div class="product-photo">
+                        </div>
+
+                        <div class="product-description">
+                            <hr class="product-line">
+                            <h3>PRODUCT</h3>
+                        </div>
                     </div>
 
                     <div class="product-item">
+                        <div class="product-photo">
+                        </div>
+
+                        <div class="product-description">
+                            <hr class="product-line">
+                            <h3>PRODUCT</h3>
+                        </div>
                     </div>
 
                     <div class="product-item">
+                        <div class="product-photo">
+                        </div>
+
+                        <div class="product-description">
+                            <hr class="product-line">
+                            <h3>PRODUCT</h3>
+                        </div>
                     </div>
 
                     <div class="product-item">
+                        <div class="product-photo">
+                        </div>
+
+                        <div class="product-description">
+                            <hr class="product-line">
+                            <h3>PRODUCT</h3>
+                        </div>
                     </div>
 
                     <div class="product-item">
+                        <div class="product-photo">
+                        </div>
+
+                        <div class="product-description">
+                            <hr class="product-line">
+                            <h3>PRODUCT</h3>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -87,6 +143,12 @@
     </main>
 
     <footer class="footer">
+        <h3>CONNECT WITH US</h3>
+        <p>
+            Dneperská 1, Košice, Slovakia<br>
+            +421 902 095 588<br>
+            eleshopsk@gmail.com
+        </p>
     </footer>
 
     <script src="libraries/js/pageScript.js"></script>
