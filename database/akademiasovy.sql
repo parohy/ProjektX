@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2015 at 06:48 AM
+-- Generation Time: Dec 03, 2015 at 06:25 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -30,38 +30,38 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `categoryid` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_slovak_ci NOT NULL,
   `parent` int(11) DEFAULT NULL,
-  `defaultpic` varchar(100) COLLATE utf8_slovak_ci NOT NULL,
   PRIMARY KEY (`categoryid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=24 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=25 ;
 
 --
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`categoryid`, `name`, `parent`, `defaultpic`) VALUES
-(1, 'ELECTRONICS', NULL, '*\\img\\categories\\1.jpg'),
-(2, 'TV,AUDIO', 1, '*\\img\\categories\\2.jpg'),
-(3, 'BLURAY PLAYERS', 2, '*\\img\\categories\\3.jpg'),
-(4, 'HEADPHONES', 2, '*\\img\\categories\\4.jpg'),
-(5, 'IN-EAR', 4, '*\\img\\categories\\5.jpg'),
-(6, 'ON EAR', 4, '*\\img\\categories\\6.jpg'),
-(7, 'HOME AUDIO', 2, '*\\img\\categories\\7.jpg'),
-(8, 'PC,TABLETS', 1, '*\\img\\categories\\8.jpg'),
-(9, 'NOTEBOOKS', 8, '*\\img\\categories\\9.jpg'),
-(10, 'PC', 8, '*\\img\\categories\\10.jpg'),
-(11, 'TABLETS', 8, '*\\img\\categories\\11.jpg'),
-(12, 'ANDROID', 11, '*\\img\\categories\\12.jpg'),
-(13, 'IOS', 11, '*\\img\\categories\\13.jpg'),
-(14, 'MONITORS', 8, '*\\img\\categories\\14.jpg'),
-(15, 'MOBILE PHONES', 1, '*\\img\\categories\\15.jpg'),
-(16, 'CELL PHONES', 15, '*\\img\\categories\\16.jpg'),
-(17, 'TOUCH DISPLAY', 16, '*\\img\\categories\\17.jpg'),
-(18, 'CLASSIC PHONES', 16, '*\\img\\categories\\18.jpg'),
-(19, 'ACCESSORIES', 15, '*\\img\\categories\\19.jpg'),
-(20, 'ARMBANDS', 19, '*\\img\\categories\\20.jpg'),
-(21, 'BATTERIES', 19, '*\\img\\categories\\21.jpg'),
-(22, 'CASES', 19, '*\\img\\categories\\22.jpg'),
-(23, 'SMART WATCHES', 15, '*\\img\\categories\\23.jpg');
+INSERT INTO `categories` (`categoryid`, `name`, `parent`) VALUES
+(1, 'ELECTRONICS', NULL),
+(2, 'TV,AUDIO', 1),
+(3, 'BLURAY PLAYERS', 2),
+(4, 'HEADPHONES', 2),
+(5, 'IN-EAR', 4),
+(6, 'ON EAR', 4),
+(7, 'HOME AUDIO', 2),
+(8, 'PC,TABLETS', 1),
+(9, 'NOTEBOOKS', 8),
+(10, 'PC', 8),
+(11, 'TABLETS', 8),
+(12, 'ANDROID', 11),
+(13, 'IOS', 11),
+(14, 'MONITORS', 8),
+(15, 'MOBILE PHONES', 1),
+(16, 'CELL PHONES', 15),
+(17, 'TOUCH DISPLAY', 16),
+(18, 'CLASSIC PHONES', 16),
+(19, 'ACCESSORIES', 15),
+(20, 'ARMBANDS', 19),
+(21, 'BATTERIES', 19),
+(22, 'CASES', 19),
+(23, 'SMART WATCHES', 15),
+(24, 'TV', 2);
 
 -- --------------------------------------------------------
 
@@ -169,11 +169,11 @@ INSERT INTO `products` (`productid`, `categoryid`, `amount`, `name`, `price`, `b
 (48, 23, 30, 'Sony SWR50 SmartWatch 3 Transflective Display Black Watch', 159.99, 'SONY', 'Black Classic Band, Water Protected, IP68 rated : "up to 2 days normal use"\r\nSensors: Ambient light sensors, Accelerometer, Compass, Gyro, GPS\r\nNotifications, Voice Commands, Lifelong, Impressive stand-alone functions\r\nPowered By Android Wear - Useful information when you need it, Apps for everything\r\nTell the Smartwatch 3 SWR50 what you want and it will do it, Search, Command, Find\r\nWaterproof. IP58 Rated.', 1, '2015-11-21 15:40:19', 1, 1),
 (49, 23, 30, 'LG Electronics G Watch', 135.99, 'LG', 'Compatible with most devices with an Android 4.3 or later operating system\r\nVoice activated\r\nPowered by Android Wear\r\nMobile notifications\r\n1.2GHz Qualcomm processor', 1, '2015-11-21 15:41:20', 1, 1),
 (50, 23, 25, 'Samsung Gear 2 Neo Smartwatch', 199.99, 'SAMSUNG', 'Smart Notification: Samsung Gear 2 Neo allows you to make and receive calls and read more on a large sAMOLED display making communication smooth and seamless.\r\nInstant Notification: Samsung Gear 2 enables you to receive instant notifications from your phone and apps plus a variety of 3rd party apps which you can view clearly on a sAMOLED screen.\r\nPersonalized Fitness Motivator: Samsung Gear 2, with its built-in Heart Rate Sensor, S Health features, and pedometer, track your daily pattern of exercise to give you customized real time coaching to help you achieve your goals.', 1, '2015-11-21 15:42:17', 1, 1),
-(51, 0, 12, 'Sony Bravia KDL-48W705C ', 555, 'Sony', 'Televízor SMART LED, uhlopriečka 121cm, Motionflow XR 200Hz, FullHD 1920x1080, DVB-S2 / S / T2 / T / C, 4x HDMI, 2x USB, Scart, LAN, CI +, MHL, DLNA, WiFi, HbbTV, webový prehliadač, energ. trieda A++', 1, '2015-11-30 21:55:59', 0, 0),
-(52, 0, 22, 'LG 58UF8307 ', 999, 'LG', 'Televízor SMART LED TV, uhlopriečka 147cm , 4K Ultra HD 3840x2160 , 4K Upscaler , DVB -S2/T2/C ,H.265 , 3x HDMI , 3x USB , Scart , CI+ , LAN, WiFi, Miracast , DLNA , MHL , HbbTV , webový prehliadač, webOS 2.0 , repro 2x10W , magický ovládač MR15 , energ . trieda A+', 0, '2015-11-30 21:55:59', 0, 0),
-(53, 0, 4, 'Panasonic TX-65CX700E ', 2499, 'Panasonic', 'Televízor 3D SMART LED, uhlopriečka 165cm, 4K Ultra HD 3840x2160, 800Hz BMR, DVB-T2 / C, H.265 (HEVC Decoder), lokálne stmievanie, Studio Master Colour, Firefox OS, 3x HDMI 2.0, 3x USB, CI +, SCART, WiFi, USB / HDD nahrávanie, my Home Screen 2.0, webový prehliadač, Netflix, Miracast, HbbTV, Quad-Core PRO, aktívne 3D, vyrobené v ČR, energ. trieda A', 0, '2015-11-30 21:58:28', 0, 0),
-(54, 0, 70, 'Samsung UE55J6302 ', 1149, 'Samsung', 'Televízor prehnutá, SMART LED, uhlopriečka 138cm, PQI 800, Full HD (1920 x 1080), DVB-T2 / C, 4x HDMI, 3x USB, CI +, DLNA, LAN, Micro Dimming Pro, WiFi, Webový prehliadač, Wireless, Mirroring, Quad Core, filmový mód, repro 2x 10W, energ. trieda A +', 0, '2015-11-30 21:58:28', 0, 0),
-(55, 0, 2, 'Philips 55PFK7509 ', 899, 'Philips', 'Televízor 3D SMART LED, Ambilight 3, 800Hz PMR, Pixel Precise HD, uhlopriečka 140cm, 400cd / m2, FullHD 1920x1080p, DVB-T / C / S / S2, 4x HDMI, CI +, Scart, 2x USB, LAN, HbbTV, WiFi, Miracast, Micro Dimming Pro, Dual Core, Multiroom, 4x 3D okuliare pasívny, VESA 400x400, energ. trieda A++', 0, '2015-11-30 21:59:32', 0, 0);
+(51, 24, 12, 'Sony Bravia KDL-48W705C ', 555, 'Sony', 'Televízor SMART LED, uhlopriečka 121cm, Motionflow XR 200Hz, FullHD 1920x1080, DVB-S2 / S / T2 / T / C, 4x HDMI, 2x USB, Scart, LAN, CI +, MHL, DLNA, WiFi, HbbTV, webový prehliadač, energ. trieda A++', 1, '2015-11-30 21:55:59', 0, 0),
+(52, 24, 22, 'LG 58UF8307 ', 999, 'LG', 'Televízor SMART LED TV, uhlopriečka 147cm , 4K Ultra HD 3840x2160 , 4K Upscaler , DVB -S2/T2/C ,H.265 , 3x HDMI , 3x USB , Scart , CI+ , LAN, WiFi, Miracast , DLNA , MHL , HbbTV , webový prehliadač, webOS 2.0 , repro 2x10W , magický ovládač MR15 , energ . trieda A+', 0, '2015-11-30 21:55:59', 0, 0),
+(53, 24, 4, 'Panasonic TX-65CX700E ', 2499, 'Panasonic', 'Televízor 3D SMART LED, uhlopriečka 165cm, 4K Ultra HD 3840x2160, 800Hz BMR, DVB-T2 / C, H.265 (HEVC Decoder), lokálne stmievanie, Studio Master Colour, Firefox OS, 3x HDMI 2.0, 3x USB, CI +, SCART, WiFi, USB / HDD nahrávanie, my Home Screen 2.0, webový prehliadač, Netflix, Miracast, HbbTV, Quad-Core PRO, aktívne 3D, vyrobené v ČR, energ. trieda A', 0, '2015-11-30 21:58:28', 0, 0),
+(54, 24, 70, 'Samsung UE55J6302 ', 1149, 'Samsung', 'Televízor prehnutá, SMART LED, uhlopriečka 138cm, PQI 800, Full HD (1920 x 1080), DVB-T2 / C, 4x HDMI, 3x USB, CI +, DLNA, LAN, Micro Dimming Pro, WiFi, Webový prehliadač, Wireless, Mirroring, Quad Core, filmový mód, repro 2x 10W, energ. trieda A +', 0, '2015-11-30 21:58:28', 0, 0),
+(55, 24, 2, 'Philips 55PFK7509 ', 899, 'Philips', 'Televízor 3D SMART LED, Ambilight 3, 800Hz PMR, Pixel Precise HD, uhlopriečka 140cm, 400cd / m2, FullHD 1920x1080p, DVB-T / C / S / S2, 4x HDMI, CI +, Scart, 2x USB, LAN, HbbTV, WiFi, Miracast, Micro Dimming Pro, Dual Core, Multiroom, 4x 3D okuliare pasívny, VESA 400x400, energ. trieda A++', 0, '2015-11-30 21:59:32', 0, 0);
 
 -- --------------------------------------------------------
 
