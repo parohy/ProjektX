@@ -19,7 +19,17 @@
 
     <main class="main">
         <?php
-            include 'view/pages/main-page.php';
+            if(isset($_GET['page'])) {
+                $page = $_GET['page'];
+            } else {
+                $page = "";
+            }
+
+            if($page == 'main-page' || $page == '') {
+                include_once 'view/pages/main-page.php';
+            } else if($page = 'cart') {
+                include_once 'view/pages/cart.php';
+            }
         ?>
     </main>
 

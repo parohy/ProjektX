@@ -52,12 +52,16 @@ body {
     width: 33.3%;
     height: 100%;
     float: left;
-    color: #34A994;
     font-size: 45px;
     font-weight: bold;
     text-align: center;
     letter-spacing: 5px;
     padding-top: 20px;
+}
+
+.title a {
+    color: #34A994;
+    text-decoration: none;
 }
 .welcome-buttons:hover {
     color: #34A994;
@@ -83,6 +87,12 @@ body {
     line-height: 30px;
     vertical-align: middle;
 }
+
+.cart-title a {
+    text-decoration: none;
+    color: #484848;
+}
+
 .amount {
     color: #34A994;
 }

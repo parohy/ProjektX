@@ -4,7 +4,7 @@
     </div>
 
     <div class="title">
-        <h1>VIATECH</h1>
+        <h1><a href="?page=main-page">VIATECH</a></h1>
     </div>
 
     <div class="search">
@@ -13,7 +13,7 @@
                 <img src="libraries/img/icons/cart-icon.png">
             </div>
             <div class="cart-title">
-                SHOPPING CART :<span class="amount">0.00 EUR</span>
+                <a href="?page=cart">SHOPPING CART :</a><span class="amount">0.00 EUR</span>
             </div>
         </div>
         <br>
