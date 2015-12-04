@@ -1,6 +1,6 @@
 <div class="top">
     <div class="welcome">
-        <span class="welcome-label"><img src="libraries/img/icons/user icon.png">Welcome User you can <strong class="welcome-buttons">Login</strong> or <strong class="welcome-buttons">Register</strong></span>
+        <span class="welcome-label"><img src="libraries/img/icons/user icon.png">Welcome User you can <strong class="welcome-buttons">Login</strong> or <strong class="welcome-buttons"><a href="?page=reg-acc">Register</a></strong></span>
     </div>
 
     <div class="title">

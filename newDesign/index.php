@@ -6,6 +6,7 @@
     <meta name="viewport" content="width = device-width, initial-scale = 1">
     <title></title>
     <link rel="stylesheet" type="text/css" href="libraries/css/main.css">
+
     <script src="libraries/js/jquery-1.11.3.min.js"></script>
 </head>
 <body>
@@ -27,8 +28,12 @@
 
             if($page == 'main-page' || $page == '') {
                 include_once 'view/pages/main-page.php';
-            } else if($page = 'cart') {
+            }
+            else if($page = 'cart') {
                 include_once 'view/pages/cart.php';
+            }
+            else if($page = 'reg-acc') {
+                include_once 'view/pages/reg-acc.php';
             }
         ?>
     </main>
