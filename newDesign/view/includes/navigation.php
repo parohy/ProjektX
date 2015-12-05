@@ -1,7 +1,11 @@
+<?php
+include_once (ROOT.'controllers/NavigationController.php');
+$navController = new NavigationController();
+?>
 <div class="bottom">
     <nav class="page-nav">
-        <a href="#">TV,AUDIO</a>
-        <a href="#">PC,TABLETS</a>
-        <a href="#">MOBILE PHONES</a>
+        <?php
+            $navController->displayNavigation();
+        ?>
     </nav>
 </div>

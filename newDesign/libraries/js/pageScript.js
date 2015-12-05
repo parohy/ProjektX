@@ -1,7 +1,13 @@
 $(function() {
-
+    $(".subnav").css("visibility","visible");
+    $(".subnav").hide();
     $(".addToCart").hide();
     $(".login-frame").hide();
+
+
+    $(".button").hover(function() {
+        $(this).children(".subnav").stop(true, false).slideToggle(600);
+    });
 
     $(".link").hover(function() {
         $(this).css("font-weight", "bold");

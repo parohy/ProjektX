@@ -1,7 +1,8 @@
 <?php
 session_start();
 
-include "API/Database.php";
+include ("config.php");
+include (ROOT."API/Database.php");
 
 if(isset($_GET['product'])) {
     if(!isset($_COOKIE[$_GET['product']])) setcookie($_GET['product'],"false", 60 * 60 * 24 * 60 + time(),"/");
@@ -57,8 +58,8 @@ if(isset($_GET['login']) && $_GET['login'] == 'false') {
 <div class="container">
     <header class="page-header">
         <?php
-            require_once 'view/includes/header.php';
-            require_once 'view/includes/navigation.php';
+            require_once (ROOT.'view/includes/header.php');
+            require_once (ROOT.'view/includes/navigation.php');
         ?>
     </header>
 
@@ -70,20 +71,20 @@ if(isset($_GET['login']) && $_GET['login'] == 'false') {
                 $page = "";
             }
             if($page == 'main-page' || $page == '') {
-                include_once 'view/pages/main-page.php';
+                include_once (ROOT.'view/pages/main-page.php');
             }
             else if($page == 'cart') {
-                include_once 'view/pages/cart.php';
+                include_once (ROOT.'view/pages/cart.php');
             }
             else if($page == 'reg-acc') {
-                include_once 'view/pages/reg-acc.php';
+                include_once (ROOT.'view/pages/reg-acc.php');
             }
         ?>
     </main>
 
     <footer class="footer">
         <?php
-            require_once 'view/includes/footer.php';
+            require_once (ROOT.'view/includes/footer.php');
         ?>
     </footer>
     <script src="libraries/js/pageScript.js"></script>
