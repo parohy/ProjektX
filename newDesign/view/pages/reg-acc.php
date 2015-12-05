@@ -1,5 +1,5 @@
 
-<link rel="stylesheet" type="text/css" href="../css/reg-acc.css">
+<link rel="stylesheet" type="text/css" href="libraries/css/reg-acc.css">
 
 
 
@@ -31,5 +31,3 @@
              </div>
         </div>
     </div>
-
-

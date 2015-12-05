@@ -1,3 +1,47 @@
+<?php
+session_start();
+
+include "API/Database.php";
+
+if(isset($_GET['product'])) {
+    if(!isset($_COOKIE[$_GET['product']])) setcookie($_GET['product'],"false", 60 * 60 * 24 * 60 + time(),"/");
+
+    if(isset($_COOKIE[$_GET['product']]) == "false") {
+        if(isset($_GET['rating'])) {
+            setcookie($_GET['product'],"true", 60 * 60 * 24 * 60 + time(),"/");
+
+            $handler = new DBHandler();
+            $handler->beginTransaction();
+            $handler->query('SELECT numofratings,sumofratings FROM products WHERE productid=:id');
+            $handler->bind(":id",$_GET['product']);
+            $ratingResult = $handler->singleRecord();
+
+            $ratingResult['numofratings'] += 1;
+            $ratingResult['sumofratings'] += $_GET['rating'];
+
+            $handler->query('UPDATE products SET numofratings=:numofratings,sumofratings=:sumofratings WHERE productid=:id');
+            $handler->bind(":numofratings", $ratingResult['numofratings']);
+            $handler->bind(":sumofratings", $ratingResult['sumofratings']);
+            $handler->bind(":id", $_GET['product']);
+            $handler->execute();
+            $handler->endTransaction();
+            header("Location: ?page=productPreview&product=" . $_GET['product'],"Content-Type: text/html; charset=UTF-8");
+        }
+    }
+}
+
+if(isset($_GET['login']) && $_GET['login'] == 'false') {
+    session_destroy();
+    header('Location: ?page=main-page','Content-Type: text/html; charset=UTF-8');
+    exit();
+}
+
+//$_SESSION['loggedin'] = false; //true if logged in, false if not
+
+//$_SESSION['loginErr'] = null; //contains loggin error or login message if successful
+//$_SESSION['registerErr'] = null; //contains registration error or registration message if successful
+//$_SESSION['editErr'] //edit error message;
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -25,14 +69,13 @@
             } else {
                 $page = "";
             }
-
             if($page == 'main-page' || $page == '') {
                 include_once 'view/pages/main-page.php';
             }
-            else if($page = 'cart') {
+            else if($page == 'cart') {
                 include_once 'view/pages/cart.php';
             }
-            else if($page = 'reg-acc') {
+            else if($page == 'reg-acc') {
                 include_once 'view/pages/reg-acc.php';
             }
         ?>
