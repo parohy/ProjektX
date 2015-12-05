@@ -4,28 +4,28 @@
 
 
 
-    <div class="main">
-        <div class="settings">
+    <div class="reg-formular">
+        <div class="title-page">
             <h1>ACCOUNT SETTINGS</h1>
         </div>
 
-        <div class="clearfix">
-            <div class="left">
+        <div id="reg-content" class="group">
+            <div class="left-side">
 
-                <ul class="nav">
-                     <li><a href="#" class="link">LOGIN</a></li>
-                     <li><a href="#" class="link">REGISTER</a></li>
-                     <li><a href="#" class="link">RECOVER PASSWORD</a></li>
+                <ul class="nav-bar">
+                     <li><a href="#" class="formular-link">LOGIN</a></li>
+                     <li><a href="#" class="formular-link">REGISTER</a></li>
+                     <li><a href="#" class="formular-link">RECOVER PASSWORD</a></li>
                  </ul>
 
              </div>
 
-             <div class="right">
+             <div class="right-side">
                  <form action="" method="get">
                      <ul>
                          <li><input class="input" type="text" placeholder="name" name="name"> </li>
                          <li><input class="input" type="password" placeholder="password" name="password"></li>
-                         <li><input  type="submit" value="Submit"></li>
+                         <li><input class="submit-button"  type="submit" value="LOGIN"></li>
                      </ul>
 
              </div>

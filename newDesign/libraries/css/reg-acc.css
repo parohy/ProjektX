@@ -1,59 +1,65 @@
-.main{
+.reg-formular{
     text-align: center;
     color: #595959;
     width:100%;
+    margin-bottom: 30px;
+
 }
-.settings{
+.title-page{
     margin-top: 20px;
     padding-bottom: 20px;
     border-bottom: 1px solid #ccc;
 }
 
 
+#reg-content{
+margin-top: 30px;
+}
 
-.left{
+.left-side{
     border: 1px solid #ccc;
-    width: 200px;
+    width: 18%;
     height: 100px;
     float: left;
     display: block;
 
 }
-.left ul{
+.left-side ul{
     list-style: none;
 }
-.nav{
+.nav-bar{
     display: block;
     text-decoration: none;
 }
-.nav  li{
+.nav-bar  li{
     margin-top: 10px;
 }
-.link{
+.formular-link{
     text-decoration: none;
     font-weight: bold;
     color: #595959;
 
 
 }
-.link:hover{
+.formular-link:hover{
     color:#34A994;
 }
 
-.right{
+.right-side{
     width: 80%;
     height: 200px;
     border: 1px solid #ccc;
-    margin: 20 20 20 240px;
     display: block;
-    text-align: left;
+    float: right;
+
 }
-.right ul{
+.right-side ul{
     list-style: none;
+    margin-top: 20px;
 }
-.right ul li{
+.right-side ul li{
     display: block;
-    margin: 30 20 20 20px;
+    margin-top: 25px;
     text-align: center;
 }
 
@@ -62,11 +68,24 @@
     height: 35px;
     background-color: #fbfbfb;
     border: 1px solid #ccc;
-
 }
-.clearfix:after {
+.submit-button{
+    border:none;
+    background: white;
+    font-weight: bold;
+    color: #595959 ;
+}
+.submit-button:hover{
+    background-color: #34A994 ;
+}
+.group:before,
+.group:after {
     content: " ";
     display: block;
-    height: 0;
+}
+.group:after{
     clear: both;
+}
+.group{
+    *zoom:1 ;
 }
