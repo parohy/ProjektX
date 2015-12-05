@@ -80,7 +80,7 @@ if(isset($_GET['login']) && $_GET['login'] == 'false') {
                 include_once (ROOT.'view/pages/main-page.php');
             } else {
                 $fileName = $page . '.php';
-                include_once (ROOT.'view/pages/' . $fileName);
+                include_once (ROOT . 'view/pages/' . $fileName);
             }
         ?>
     </main>
