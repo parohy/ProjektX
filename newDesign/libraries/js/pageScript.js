@@ -1,6 +1,7 @@
 $(function() {
 
     $(".addToCart").hide();
+    $(".login-frame").hide();
 
     $(".link").hover(function() {
         $(this).css("font-weight", "bold");
@@ -42,5 +43,9 @@ $(function() {
             height: "424px"
         });
         $(this).children('.product-description').children('.addToCart').stop(true, false).slideUp();
+    });
+
+    $("#login").click(function(){
+        $(".login-frame").slideToggle();
     });
 });

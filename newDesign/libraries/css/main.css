@@ -63,8 +63,41 @@ body {
     color: #34A994;
     text-decoration: none;
 }
+.welcome-buttons a {
+    color:#484848;
+    text-decoration: none;
+}
 .welcome-buttons:hover {
     color: #34A994;
+}
+.login-frame {
+    width: 250px;
+    height:150px;
+    background: #fbfbfb;
+    margin: 10px 0 0 130px;
+    border: 1px solid #cccccc;
+}
+
+.login-frame form ul {
+    list-style-type: none;
+}
+.login-frame form ul li {
+    text-align: center;
+    margin-top: 10px;
+}
+.login-frame form ul li input {
+    height: 30px;
+    padding-left: 10px;
+}
+.login-frame form ul li input[type="submit"] {
+    height: 25px;
+    width: 120px;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    background: #34A994;
+    margin-top: 10px;
+    border: none;
 }
 .search {
     width: 33.3%;
@@ -314,4 +347,3 @@ body {
         font-size: 38px;
     }
 }
-
