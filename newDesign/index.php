@@ -59,7 +59,13 @@ if(isset($_GET['login']) && $_GET['login'] == 'false') {
     <header class="page-header">
         <?php
             require_once (ROOT.'view/includes/header.php');
-            require_once (ROOT.'view/includes/navigation.php');
+            if(isset($_SESSION['loggedin'])) {
+                if($_SESSION['loggedin'] == "true") {
+                    require_once (ROOT.'view/includes/navigation.php');
+                } else {
+                    require_once (ROOT.'view/includes/navigation.php');
+                }
+            }
         ?>
     </header>
 
@@ -72,12 +78,9 @@ if(isset($_GET['login']) && $_GET['login'] == 'false') {
             }
             if($page == 'main-page' || $page == '') {
                 include_once (ROOT.'view/pages/main-page.php');
-            }
-            else if($page == 'cart') {
-                include_once (ROOT.'view/pages/cart.php');
-            }
-            else if($page == 'reg-acc') {
-                include_once (ROOT.'view/pages/reg-acc.php');
+            } else {
+                $fileName = $page . '.php';
+                include_once (ROOT.'view/pages/' . $fileName);
             }
         ?>
     </main>

@@ -20,6 +20,7 @@ class NavigationController {
             if($res['parent'] == 1) {
                 $categories[$i]['id'] = $res['categoryid'];
                 $categories[$i]['category'] = $res['name'];
+                $categories[$i]['parent'] = $res['parent'];
                 $i++;
             }
         }
@@ -30,26 +31,11 @@ class NavigationController {
                 if($this->result[$j]['parent'] == $categories[$i]['id']) {
                     $categories[$i]['subcategory'][$k]['id'] = $this->result[$j]['categoryid'];
                     $categories[$i]['subcategory'][$k]['name'] = $this->result[$j]['name'];
+                    $categories[$i]['subcategory'][$k]['parent'] = $this->result[$j]['parent'];
                     $k++;
                 }
             }
         }
-        /*
-        $l = 0;
-        $length = sizeof($categories[$i]['subcategory']);
-        print_r($length);
-        for($i = 0; $i < sizeof($categories); $i++) {
-            for($j = 0; $j < sizeof($this->result); $j++) {
-                for($k = 0; $k < sizeof($categories[$i]['subcategory']); $k++) {
-                    if($this->result[$j]['parent'] == $categories[$i]['subcategory'][$k]['id']) {
-                        $categories[$i]['subcategory'][$k]['subcategory'][$l]['id'] = $this->result[$j]['categoryid'];
-                        $categories[$i]['subcategory'][$k]['subcategory'][$l]['name'] = $this->result[$j]['name'];
-                        $l++;
-                    }
-                }
-            }
-        }
-        */
 
         return $categories;
     }
@@ -60,10 +46,10 @@ class NavigationController {
         echo "<ul class=\"nav\">";
 
         foreach ($categories as $cat) {
-            echo "<li class=\"button\"><a href=\"?page=" . $cat['category'] . "\">" . $cat['category'] . "</a>";
+            echo "<li class=\"button\"><a href=\"?page=mainCategory&catid=" . $cat['id'] . "\">" . $cat['category'] . "</a>";
             echo "<ul class=\"subnav\">";
             foreach ($cat['subcategory'] as $subcat) {
-                echo "<li><a href=\"?page=" . $subcat['name'] . "\">" .$subcat['name'] . "</a></li>";
+                echo "<li><a href=\"?page=subCategory" . $subcat['id'] . "\">" .$subcat['name'] . "</a></li>";
             }
             echo "</ul>";
             echo "</li>";
