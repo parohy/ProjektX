@@ -1,4 +1,11 @@
 
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Dominik Kolesar
+ * Date: 5. 12. 2015
+ */
+?>
 <link rel="stylesheet" type="text/css" href="libraries/css/reg-acc.css">
 
 
@@ -23,20 +30,22 @@
 
         <div id="all-tab">
             <div id="tab1" class="tab-content">
-                REGISTER
+
                 <form class="form"action="" method="get">
                     <ul>
                         <li><input class="input" type="text" placeholder="name" name="name"> </li>
+                        <li><input class="input" type="text" placeholder="sure-name" name="sure-name"> </li>
+                        <li><input class="input" type="email" placeholder="email" name="email"> </li>
                         <li><input class="input" type="password" placeholder="password" name="password"></li>
                         <li><input class="submit-button"  type="submit" value="REGISTER"></li>
                     </ul>
                 </form>
             </div>
             <div id="tab2" class="tab-content">
-                LOGIN
+
                 <form class="form" action="" method="get">
                     <ul>
-                        <li><input class="input" type="text" placeholder="name" name="name"> </li>
+                        <li><input class="input" type="email" placeholder="email" name="email"> </li>
                         <li><input class="input" type="password" placeholder="password" name="password"></li>
                         <li><input class="submit-button"  type="submit" value="LOGIN"></li>
                     </ul>
@@ -44,11 +53,10 @@
 
             </div>
             <div id="tab3" class="tab-content">
-                recovery pasword
+
                 <form class="form" action="" method="get">
                     <ul>
-                        <li><input class="input" type="text" placeholder="name" name="name"> </li>
-                        <li><input class="input" type="password" placeholder="password" name="password"></li>
+                        <li><input class="input" type="email" placeholder="email" name="name"> </li>
                         <li><input class="submit-button"  type="submit" value="RECOVER"></li>
                     </ul>
                 </form>

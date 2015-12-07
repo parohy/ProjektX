@@ -79,8 +79,8 @@
 /*switching*/
 .tab-content {
     z-index: 0;
-    background-color: white;
-    height: 300px;
+
+    height: 380px;
     border: 1px solid #ccc;
 }
 .tab-content:first-child {
