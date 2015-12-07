@@ -33,6 +33,12 @@
             </div>
         </div>
         <br>
-        <input type="search" placeholder="SEARCH">
+        <form action="?page=searchResults" method="GET" id="searchForm">
+            <input type="search" placeholder="SEARCH" id="search">
+        </form>
     </div>
+    
+    <?php
+    include_once (ROOT.'view/includes/navigation.php');
+    ?>
 </div>

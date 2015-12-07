@@ -1,12 +1,23 @@
 $(function() {
     $(".subnav").css("visibility","visible");
+    $(".login-frame").css("visibility","visible");
     $(".subnav").hide();
     $(".addToCart").hide();
     $(".login-frame").hide();
 
+    $("#login").click(function(){
+        $(".login-frame").slideToggle();
+    });
 
     $(".button").hover(function() {
         $(this).children(".subnav").stop(true, false).slideToggle(600);
+    });
+
+    $("#search").on('keypress', function(event){
+        if(event.which == 13) {
+            $("#searchForm").submit();
+            return false;
+        }
     });
 
     $(".link").hover(function() {
@@ -49,9 +60,5 @@ $(function() {
             height: "424px"
         });
         $(this).children('.product-description').children('.addToCart').stop(true, false).slideUp();
-    });
-
-    $("#login").click(function(){
-        $(".login-frame").slideToggle();
     });
 });

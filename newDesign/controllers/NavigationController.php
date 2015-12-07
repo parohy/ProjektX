@@ -32,11 +32,25 @@ class NavigationController {
                     $categories[$i]['subcategory'][$k]['id'] = $this->result[$j]['categoryid'];
                     $categories[$i]['subcategory'][$k]['name'] = $this->result[$j]['name'];
                     $categories[$i]['subcategory'][$k]['parent'] = $this->result[$j]['parent'];
+                    $categories[$i]['subcategory'][$k]['subcategory'] = array();
                     $k++;
                 }
             }
         }
-
+        /*
+        $i = 0;
+        foreach($categories as $cat) {
+            foreach($cat['subcategory'] as $subcat) {
+                foreach($this->result as $res) {
+                    if($subcat['id'] == $res['parent']) {
+                        $subcat['subcategory']['id'] = $res['categoryid'];
+                        $subcat['subcategory']['name'] = $res['name'];
+                    }
+                }
+                $i = 0;
+            }
+        }
+        */
         return $categories;
     }
 

@@ -38,7 +38,6 @@ if(isset($_GET['login']) && $_GET['login'] == 'false') {
 }
 
 //$_SESSION['loggedin'] = false; //true if logged in, false if not
-
 //$_SESSION['loginErr'] = null; //contains loggin error or login message if successful
 //$_SESSION['registerErr'] = null; //contains registration error or registration message if successful
 //$_SESSION['editErr'] //edit error message;
