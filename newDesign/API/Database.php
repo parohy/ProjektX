@@ -26,8 +26,8 @@ class DBHandler
         );
 
         try {
-
-            $this->dbHandler = new PDO('mysql:host=localhost;dbname=akademiasovy',$this->dbUser, $this->dbPassword, $options);
+            $dsn = 'mysql:host=' . $this->dbHost . ';dbname=' . $this->dbName;
+            $this->dbHandler = new PDO($dsn,$this->dbUser, $this->dbPassword, $options);
 
         } catch(PDOException $e) {
 
