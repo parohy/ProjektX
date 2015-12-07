@@ -1,4 +1,11 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Matus Kacmar
+ * Date: 7. 12. 2015
+ * Time: 14:23
+ */
+
 	$email = "";
 	if(isset($_GET['logmail'])){
 		$email = $_GET['logmail'];
@@ -33,11 +40,11 @@
             </div>
         </div>
         <br>
-        <form action="?page=searchResults" method="GET" id="searchForm">
-            <input type="search" placeholder="SEARCH" id="search">
+        <form action="controllers/searchController.php" method="GET" id="searchForm">
+            <input type="search" name="search" placeholder="SEARCH" id="search">
         </form>
     </div>
-    
+
     <?php
     include_once (ROOT.'view/includes/navigation.php');
     ?>

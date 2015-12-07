@@ -1,4 +1,11 @@
 $(function() {
+    /**
+     * Created by PhpStorm.
+     * User: Matus Kacmar
+     * Date: 7. 12. 2015
+     * Time: 14:23
+     */
+    
     $(".subnav").css("visibility","visible");
     $(".login-frame").css("visibility","visible");
     $(".subnav").hide();

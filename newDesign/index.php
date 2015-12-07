@@ -1,8 +1,20 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Matus Kacmar
+ * Date: 7. 12. 2015
+ * Time: 14:23
+ */
+
 session_start();
 
 include ("config.php");
 include (ROOT."API/Database.php");
+
+if(isset($_GET['logout'])) {
+    if($_GET['logout'] == "true") {
+    }
+}
 
 if(isset($_GET['product'])) {
     if(!isset($_COOKIE[$_GET['product']])) setcookie($_GET['product'],"false", 60 * 60 * 24 * 60 + time(),"/");
@@ -60,7 +72,12 @@ if(isset($_GET['login']) && $_GET['login'] == 'false') {
             require_once (ROOT.'view/includes/header.php');
             if(isset($_SESSION['loggedin'])) {
                 if($_SESSION['loggedin'] == "true") {
-                    require_once (ROOT.'view/includes/navigation.php');
+                    if($_SESSION['username'] == "admin" && $_SESSION['userrole'] == 2) {
+                        echo "<a href=\"?login=false\">Logout</a>";
+                    } else {
+                        echo "<a href=\"?login=false\">Logout</a>";
+                        require_once (ROOT.'view/includes/navigation.php');
+                    }
                 } else {
                     require_once (ROOT.'view/includes/navigation.php');
                 }

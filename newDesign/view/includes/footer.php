@@ -1,3 +1,11 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Matus Kacmar
+ * Date: 7. 12. 2015
+ * Time: 14:23
+ */
+?>
 <div class="contact-us">
     <div class="foot-title">
         <div class="text">CONNECT WITH US</div>

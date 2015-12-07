@@ -2,9 +2,9 @@
 
 /**
  * Created by PhpStorm.
- * User: Matúš Kačmár
- * Date: 8. 11. 2015
- * Time: 12:00
+ * User: Matus Kacmar
+ * Date: 7. 12. 2015
+ * Time: 14:23
  */
 
 class DBHandler
