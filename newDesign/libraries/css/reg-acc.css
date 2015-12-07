@@ -1,68 +1,66 @@
-.reg-formular{
-    text-align: center;
+#tab{
     color: #595959;
-    width:100%;
-    margin-bottom: 30px;
-
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
 }
 .title-page{
     margin-top: 20px;
     padding-bottom: 20px;
     border-bottom: 1px solid #ccc;
 }
-
-
-#reg-content{
-margin-top: 30px;
+#formulars{
+    display: block;
+    margin: 30px;
 }
-
-.left-side{
-    border: 1px solid #ccc;
+#menu-content{
     width: 18%;
     height: 100px;
+    border:1px solid #ccc;
+    display: block;
     float: left;
-    display: block;
-
 }
-.left-side ul{
+#menu {
     list-style: none;
+    padding: 0;
 }
-.nav-bar{
-    display: block;
-    text-decoration: none;
-}
-.nav-bar  li{
+#menu li {
+
     margin-top: 10px;
 }
-.formular-link{
-    text-decoration: none;
-    font-weight: bold;
+#menu li a{
     color: #595959;
-
-
+    font-weight: bold;
+    text-decoration: none;
 }
-.formular-link:hover{
+#menu li a:hover{
     color:#34A994;
 }
-
-.right-side{
+#all-tab{
     width: 80%;
-    height: 200px;
-    border: 1px solid #ccc;
     display: block;
     float: right;
 
 }
-.right-side ul{
+/**/
+.tab-content {
+    display: none;
+}
+.tab-content:target {
+    display: block;
+}
+/*formular-input*/
+.form ul{
     list-style: none;
     margin-top: 20px;
 }
-.right-side ul li{
+.form ul li{
     display: block;
     margin-top: 25px;
     text-align: center;
 }
-
 .input{
     width: 50%;
     height: 35px;
@@ -78,6 +76,20 @@ margin-top: 30px;
 .submit-button:hover{
     background-color: #34A994 ;
 }
+/*switching*/
+.tab-content {
+    z-index: 0;
+    background-color: white;
+    height: 300px;
+    border: 1px solid #ccc;
+}
+.tab-content:first-child {
+    z-index: 1;
+}
+.tab-content:target {
+    z-index: 2;
+}
+/*Floating*/
 .group:before,
 .group:after {
     content: " ";
