@@ -71,6 +71,7 @@ body {
     color: #34A994;
 }
 .login-frame {
+    visibility: hidden;
     width: 250px;
     height:180px;
     background: #fbfbfb;

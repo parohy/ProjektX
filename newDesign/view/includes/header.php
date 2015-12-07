@@ -6,7 +6,7 @@
 ?>
 <div class="top">
     <div class="welcome">
-        <span class="welcome-label"><img src="libraries/img/icons/user icon.png">WLECOME USER YOU CAN <strong class="welcome-buttons"><a href="#" id="login">LOGIN</a></strong> OR <strong class="welcome-buttons"><a href="?page=reg-acc">REGISTER</a></strong></span>
+        <span class="welcome-label"><img src="libraries/img/icons/user icon.png">WELCOME USER YOU CAN <strong class="welcome-buttons"><a href="#" id="login">LOGIN</a></strong> OR <strong class="welcome-buttons"><a href="?page=reg-acc">REGISTER</a></strong></span>
         <div class="login-frame">
             <form action="API/Relog.php?register=login" method="POST">
                 <ul>
@@ -33,6 +33,12 @@
             </div>
         </div>
         <br>
-        <input type="search" placeholder="SEARCH">
+        <form action="?page=searchResults" method="GET" id="searchForm">
+            <input type="search" placeholder="SEARCH" id="search">
+        </form>
     </div>
+    
+    <?php
+    include_once (ROOT.'view/includes/navigation.php');
+    ?>
 </div>

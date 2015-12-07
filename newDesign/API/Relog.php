@@ -7,8 +7,6 @@ session_start();
  * Time: 17:00
  */
 
-error_reporting(E_ALL);
-
 include_once ('InputRecheck.php');
 include_once ('UserHandler.php');
 include_once ('Login.php');
