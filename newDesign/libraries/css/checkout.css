@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:400italic&subset=latin,latin-ext);
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,600,700,900&subset=latin,latin-ext);
 
+
 .checkoutpage{
     width: 100%;
     height: 700px;
@@ -13,7 +14,7 @@
 .title-page{
     text-align: center;
     font-family: 'Source Sans Pro', sans-serif;
-    font-size: 30px;
+    font-size: 28px;
     font-style: normal;
     color: #595959;
     border-bottom: 1px solid #ccc;
@@ -29,7 +30,7 @@
 .nav-bar{
     
     display: inline-block;
-    width: 25%;
+    width: 30%;
     font-size: 36px;
     font-weight: 200;
     list-style-type: none;
@@ -47,18 +48,20 @@
 .form-inp{
     padding-left: 35px;
     display: inline-block;
-    width: 74%;
+    width: 69%;
     font-weight: 200;
     border-right: 1px solid #ccc;
+    margin-top: -25%;
     
 }
 
 input[type="text"]{
    display: block;
+   width: 80%;
    font-family: 'Source Sans Pro', sans-serif;
-   font-size: 45px;
+   font-size: 25px;
    font-weight: 200;
-   margin-bottom: 5px;
+   margin-bottom: 12px;
    line-height: 50px;
 }
 
@@ -77,24 +80,39 @@ input[type="text"]{
     display: block;
     font-size: 36px;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 80px;
     
 }
 
 .sum{
     display: block;
-    font-size: 72px;
+    font-size: 56px;
     font-weight: 700;
     text-align: center;
-    
-    
-}
+ }
+ 
+ .querylogin{
+    display: block;
+    font-size: 36px;
+    font-weight: 200;
+    text-align: center;
+    margin-top: 5px;
+ }
+ 
+ .boldlogin{
+    font-weight: 600;
+ }
+ .boldlogin:hover{
+    color: #34A994;
+    cursor: pointer; cursor: hand;
+ }
+ 
 
 .order-button{
     font-family: 'Source Sans Pro', sans-serif;
     width: 70%;
     margin-left: 15%;
-    margin-top: 25px;
+    margin-top: 12px;
     padding: 30px;
     display: block;
     font-size: 48px;
@@ -104,10 +122,12 @@ input[type="text"]{
     border-style: none;
     color: white;
     outline: none;
+    border: 3px solid #fbfbfb;
 }
 
 .order-button:hover{
     background-color: #fbfbfb;
+    border: 3px solid #34A994;
     color: #34A994;
     outline: none;
     cursor: pointer; cursor: hand;
