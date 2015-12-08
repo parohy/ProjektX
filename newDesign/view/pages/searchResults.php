@@ -9,13 +9,17 @@
 $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= 'ProjektX/newDesign/';
 include_once ($path.'config.php');
-include_once (ROOT . 'controllers/searchController.php');
+include_once (ROOT . 'controllers/ProductDisplay.php');
 
 if(isset($_SESSION['results'])) {
 
     $results = $_SESSION['results'];
-    displayResults($results);
+    $product = new ProductDisplay();
+    $product->displayResults($results);
 
 } else if(isset($_SESSION['noresults'])){
     echo $_SESSION['noresults'];
 }
+?>
+
+<link rel="stylesheet" type="text/css" href="libraries/css/search-style.css">
