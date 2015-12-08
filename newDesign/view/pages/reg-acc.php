@@ -6,6 +6,7 @@
  * Date: 5. 12. 2015
  */
 ?>
+
 <link rel="stylesheet" type="text/css" href="libraries/css/reg-acc.css">
 
 
@@ -23,15 +24,14 @@
         <div id="menu-content">
             <ul id="menu">
                 <li><a href="#tab1">REGISTRATION</a></li>
-                <li><a href="#tab2">LOGIN</a></li>
-                <li><a href="#tab3">RECOVER PASSWORD</a></li>
+                <li><a href="#tab2">RECOVER PASSWORD</a></li>
             </ul>
         </div>
 
         <div id="all-tab">
             <div id="tab1" class="tab-content">
 
-                <form class="form"action="" method="get">
+                <form class="form" action="" method="post">
                     <ul>
                         <li><input class="input" type="text" placeholder="name" name="name"> </li>
                         <li><input class="input" type="text" placeholder="sure-name" name="sure-name"> </li>
@@ -41,18 +41,8 @@
                     </ul>
                 </form>
             </div>
+
             <div id="tab2" class="tab-content">
-
-                <form class="form" action="" method="get">
-                    <ul>
-                        <li><input class="input" type="email" placeholder="email" name="email"> </li>
-                        <li><input class="input" type="password" placeholder="password" name="password"></li>
-                        <li><input class="submit-button"  type="submit" value="LOGIN"></li>
-                    </ul>
-                </form>
-
-            </div>
-            <div id="tab3" class="tab-content">
 
                 <form class="form" action="" method="get">
                     <ul>
