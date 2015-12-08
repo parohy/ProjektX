@@ -14,6 +14,7 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= 'ProjektX/newDesign/';
 include_once ($path.'config.php');
 include (ROOT .'API/SearchModel.php');
+include (ROOT. 'API/ImageScaling.php');
 
 if(isset($_GET['search'])) {
     $searchTerm = $_GET['search'];
@@ -34,9 +35,10 @@ function displayResults($searchResult) {
         echo "<div class=\"tab-content\">
                  <div class=\"bottom-tab-content\">";
 
+        $scaling = new ImageScaling();
         foreach($searchResult as $res) {
 
-            $size = calculateSize($res['productid']);
+            $size = $scaling->productItemTumbnail($res['productid']);
             $margin = array(2);
             $margin[0] = (278 - $size[0]) / 2;
             $margin[1] = (300 - $size[1]) / 2;
@@ -57,34 +59,4 @@ function displayResults($searchResult) {
                  ";
         }
         echo "</div>";
-}
-
-function calculateSize($productid) {
-    $newH = 300;
-    $newW = 278;
-
-    $oldSize = getimagesize('libraries/img/products/' . $productid . '/' . $productid . 'a.jpg');
-
-    $oldW = $oldSize[0];
-    $oldH = $oldSize[1];
-
-    if($oldW > $oldH) {
-        $finalW = $newW;
-        $finalH = $oldH * ($newH / $oldW);
-    }
-
-    if($oldW < $oldH) {
-        $finalW = $oldW * ($newW / $oldH);
-        $finalH = $newH;
-    }
-
-    if($oldW == $oldH) {
-        $finalW = $newW;
-        $finalH = $newH;
-    }
-
-    $size = array(2);
-    $size[0] = $finalW;
-    $size[1] = $finalH;
-    return $size;
 }
