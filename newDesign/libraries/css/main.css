@@ -277,11 +277,11 @@ body {
     margin-bottom: 55px;
     overflow: hidden;
     border: 1px solid #cacaca;
-    border-top: none;
 }
 .product-photo {
     width: 100%;
     height: 300px;
+    background: #fff;
 }
 .product-description {
     width: 100%;

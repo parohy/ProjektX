@@ -14,6 +14,7 @@ if(isset($_SESSION['results'])) {
 
     $results = $_SESSION['results'];
     displayResults($results);
+
 } else if(!isset($_SESSION['result'])){
     echo "NOT SEND";
 }
