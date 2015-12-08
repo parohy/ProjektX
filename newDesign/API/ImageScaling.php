@@ -2,7 +2,7 @@
 
 /**
  * Created by PhpStorm.
- * User: Matus
+ * User: Matus Kacmar
  * Date: 8. 12. 2015
  * Time: 11:11
  */
@@ -51,5 +51,13 @@ class ImageScaling
 
             return $size;
         }
+    }
+
+    public function productItemTumbnailMargin($size) { // CALCULATE MARGIN OF PRODUCT ITEM TUMBNAIL IMAGE
+        $margin = array(2);
+        $margin[0] = ($this->productItemThumbNailWidth - $size[0]) / 2;
+        $margin[1] = ($this->productItemThumbNailHeight - $size[1]) / 2;
+
+        return $margin;
     }
 }

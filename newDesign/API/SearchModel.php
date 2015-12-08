@@ -21,7 +21,7 @@ class SearchModel
         $this->prepare = new Recheck();
     }
 
-    public  function getResults() {
+    public  function getResults() { // get results related to search term from database
         $this->searchTerm = $this->prepare->dumpSpecialChars($this->searchTerm);
         $search = '%' . $this->searchTerm . '%';
 
@@ -32,7 +32,7 @@ class SearchModel
         return $this->handlerDB->resultSet();
     }
 
-    public function foundResults($results) {
+    public function foundResults($results) { // Find out if query retuned some results
         $temp = sizeof($results);
 
         if($temp > 0) {

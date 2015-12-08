@@ -6,7 +6,7 @@
  * Time: 14:23
  */
 
-if(session_status() == PHP_SESSION_NONE) {
+if(session_status() == PHP_SESSION_NONE) { // start session if it doesnt exist
     session_start();
 }
 
@@ -22,15 +22,18 @@ if(isset($_GET['search'])) {
     $search = new SearchModel($searchTerm);
     $results = $search->getResults();
 
-    if($search->foundResults($results)) {
+    if($search->foundResults($results)) { // if results were found send them trough session variable
         $_SESSION['results'] = $results;
     }
+    else { // else send message results not found
+        $_SESSION['noresults'] = "Results not found";
+    }
 
-    header('Location:../?page=searchResults');
+    header('Location:../?page=searchResults'); // redirect to search results page
     exit();
 }
 
-function displayResults($searchResult) {
+function displayResults($searchResult) { // Display results on page
 
         echo "<div class=\"tab-content\">
                  <div class=\"bottom-tab-content\">";
@@ -38,10 +41,8 @@ function displayResults($searchResult) {
         $scaling = new ImageScaling();
         foreach($searchResult as $res) {
 
-            $size = $scaling->productItemTumbnail($res['productid']);
-            $margin = array(2);
-            $margin[0] = (278 - $size[0]) / 2;
-            $margin[1] = (300 - $size[1]) / 2;
+            $size = $scaling->productItemTumbnail($res['productid']); // get scaled size of image to fit tumbnail
+            $margin = $scaling->productItemTumbnailMargin($size); // calculate margin after scale to center it in thumbnail
 
             echo "
                   <div class=\"product-item  first-row\">

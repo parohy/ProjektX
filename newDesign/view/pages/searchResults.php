@@ -5,6 +5,7 @@
  * Date: 7. 12. 2015
  * Time: 14:23
  */
+
 $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= 'ProjektX/newDesign/';
 include_once ($path.'config.php');
@@ -15,6 +16,6 @@ if(isset($_SESSION['results'])) {
     $results = $_SESSION['results'];
     displayResults($results);
 
-} else if(!isset($_SESSION['result'])){
-    echo "NOT SEND";
+} else if(isset($_SESSION['noresults'])){
+    echo $_SESSION['noresults'];
 }
