@@ -23,6 +23,7 @@ $check = new Recheck();
 	
 /*Executes registration algorithm*/
 if($_GET['register'] == 'registration'){
+	echo "jaj";
 	$_SESSION['registerErr']=false;
 	$name = $check->dumpSpecialChars($_POST['name']);
 	$surname = $check->dumpSpecialChars($_POST['last-name']);
@@ -50,6 +51,7 @@ if($_GET['register'] == 'registration'){
 /*###############################*/
 /*Executes login algorithm*/
 else if($_GET['register'] == 'login'){
+	echo "jaj";
 	$loginEmail = $check->dumpSpecialChars($_POST['usermail']);
 	$loginPassword = $check->dumpSpecialChars($_POST['password']);
 	
