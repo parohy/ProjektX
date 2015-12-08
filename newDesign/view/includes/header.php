@@ -13,7 +13,22 @@
 ?>
 <div class="top">
     <div class="welcome">
-        <span class="welcome-label"><img src="libraries/img/icons/user icon.png">WELCOME USER YOU CAN <strong class="welcome-buttons"><a href="#" id="login">LOGIN</a></strong> OR <strong class="welcome-buttons"><a href="?page=reg-acc">REGISTER</a></strong></span>
+        <?php
+        if(isset($_SESSION['loggedin'])) {
+            if($_SESSION['loggedin'] == "true") {
+                if($_SESSION['username'] == "admin") {
+                    echo '<span class="welcome-label"><img src="libraries/img/icons/user icon.png"><strong class="welcome-buttons"><a href="?page=private/pageSettings">PAGE SETTINGS</a></strong> / <strong class="welcome-buttons"><a href="?login=false">LOG OUT</a></strong></span>';
+                }
+                else {
+                    echo '<span class="welcome-label"><img src="libraries/img/icons/user icon.png"><strong class="welcome-buttons"><a href="?page=accountSettings">ACCOUNT SETTINGS</a></strong> / <strong class="welcome-buttons"><a href="?login=false">LOG OUT</a></strong></span>';
+                }
+            }
+        }
+        else {
+            echo '<span class="welcome-label"><img src="libraries/img/icons/user icon.png">WELCOME USER YOU CAN <strong class="welcome-buttons"><a href="#" id="login">LOGIN</a></strong> OR <strong class="welcome-buttons"><a href="?page=reg-acc">REGISTER</a></strong></span>';
+        }
+        ?>
+
         <div class="login-frame">
             <form action="API/Relog.php?register=login" method="POST">
                 <ul>
