@@ -36,7 +36,7 @@ class UserEditorController
             echo '<li>';
             echo '<span class="username">' . $users[$i]['name'] . ' ' . $users[$i]['surname'] . '</span>';
             echo '<span class="email">' . $users[$i]['email'] . '</span>';
-            echo '<span class="user-controls"><a href="">View</a> <a href="">Edit</a> <a href="">Delete</a></span>';
+            echo '<span class="user-controls"><a href="?page=private/pageSettings&settings=editUser/userPreview&userid=' . $users[$i]['userid'] . '">View</a> <a href="?page=private/pageSettings&settings=editUser/editUser&userid=' . $users[$i]['userid'] . '">Edit</a> <a href="">Delete</a></span>';
             echo '</li>';
         }
 
