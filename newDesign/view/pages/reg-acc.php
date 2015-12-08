@@ -14,7 +14,7 @@
 
 
 
-<link rel="stylesheet" href="tab2.css">
+<!--<link rel="stylesheet" href="tab2.css">-->
 
 <div id="tab">
     <div class="title-page">
