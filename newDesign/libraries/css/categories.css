@@ -1,0 +1,38 @@
+.sorting-table {
+    width: 200px;
+    height: 550px;
+    margin: 20px 0;
+    border: 1px solid #cacaca;
+}
+
+.sorting-table form {
+    width: 160px;
+    margin: 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #cacaca;
+}
+
+.sorting-table form ul {
+    width: 100%;
+    list-style-type: none;
+}
+
+.sorting-table form ul li {
+    width: 100%;
+}
+
+.table-header {
+    display: block;
+    width: 100%;
+    height:45px;
+    line-height: 45px;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #cacaca;
+}
+
+input[type="number"] {
+    width: 60px;
+}
