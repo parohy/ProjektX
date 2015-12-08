@@ -5,20 +5,31 @@ $(function() {
      * Date: 7. 12. 2015
      * Time: 14:23
      */
-    
+
     $(".subnav").css("visibility","visible");
     $(".login-frame").css("visibility","visible");
     $(".subnav").hide();
     $(".addToCart").hide();
     $(".login-frame").hide();
 
+    /*
+     * LOGIN FORM
+    */
     $("#login").click(function(){
         $(".login-frame").slideToggle();
     });
 
+    /*
+     * PAGE NAVIGATION
+     */
+
     $(".button").hover(function() {
         $(this).children(".subnav").stop(true, false).slideToggle(600);
     });
+
+    /*
+     * SEARCH BAR
+     */
 
     $("#search").on('keypress', function(event){
         if(event.which == 13) {
@@ -26,6 +37,10 @@ $(function() {
             return false;
         }
     });
+
+    /*
+     * TABS
+     */
 
     $(".link").hover(function() {
         $(this).css("font-weight", "bold");

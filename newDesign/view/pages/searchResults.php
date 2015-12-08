@@ -5,12 +5,15 @@
  * Date: 7. 12. 2015
  * Time: 14:23
  */
+$path = $_SERVER['DOCUMENT_ROOT'];
+$path .= 'ProjektX/newDesign/';
+include_once ($path.'config.php');
+include_once (ROOT . 'controllers/searchController.php');
 
 if(isset($_SESSION['results'])) {
-    echo "howdy";
+
     $results = $_SESSION['results'];
-    $search = $_SESSION['object'];
-    $search->displayResults($results);
+    displayResults($results);
 } else if(!isset($_SESSION['result'])){
     echo "NOT SEND";
 }
