@@ -31,7 +31,7 @@
         <div id="all-tab">
             <div id="tab1" class="tab-content">
 
-                <form class="form" action="" method="POST">
+                <form class="form" action='API/Relog.php?register=registration' method="POST">
                     <ul>
                         <li><input class="input" type="text" placeholder="name" name="name"> </li>
                         <li><input class="input" type="text" placeholder="surname" name="last-name"> </li>
