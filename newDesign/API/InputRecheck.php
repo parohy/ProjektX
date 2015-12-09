@@ -9,7 +9,7 @@
  * Time: 17:00
  */
 
-include_once ('../API/Database.php');
+include_once ('Database.php');
 
 /**
  * Creates an instance of checking object which validates and rechecks the user inputs.

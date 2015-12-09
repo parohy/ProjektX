@@ -7,11 +7,11 @@
  * Time: 22:00
  */
 
-include_once ('..\ProjektX\API\Database.php');
+include_once ('Database.php');
 
 class Product{
 
-	private $id;
+	public $id;
 	private $handlerDB;
         public $error=null;
         public $categoryid;

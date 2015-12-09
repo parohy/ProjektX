@@ -2,9 +2,9 @@
 
 /**
  * Created by PhpStorm.
- * User: Matúš Kačmár
- * Date: 8. 11. 2015
- * Time: 12:00
+ * User: Matus Kacmar
+ * Date: 7. 12. 2015
+ * Time: 14:23
  */
 
 class DBHandler
@@ -26,8 +26,8 @@ class DBHandler
         );
 
         try {
-
-            $this->dbHandler = new PDO('mysql:host=localhost;dbname=akademiasovy',$this->dbUser, $this->dbPassword, $options);
+            $dsn = 'mysql:host=' . $this->dbHost . ';dbname=' . $this->dbName;
+            $this->dbHandler = new PDO($dsn,$this->dbUser, $this->dbPassword, $options);
 
         } catch(PDOException $e) {
 

@@ -7,7 +7,7 @@
  * Time: 17:00
  */
 
-include_once ('../API/Database.php');
+include_once ('Database.php');
 
 /**
  * Handle for saving user information into the database.
@@ -166,7 +166,7 @@ class User{
 	public function delete(){
 		if($this->id != null){
 			$this->handlerDB->query("DELETE FROM users WHERE `userid`=(:userid)");
-			$this->handlerDB0->bind(":userid",$this->id);
+			$this->handlerDB->bind(":userid",$this->id);
 			try{
 				$this->handlerDB->execute();
 			}catch(PDOException $e){

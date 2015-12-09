@@ -1,3 +1,54 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Matus Kacmar
+ * Date: 7. 12. 2015
+ * Time: 14:23
+ */
+
+session_start();
+
+include ("config.php");
+include (ROOT."API/Database.php");
+
+if(isset($_GET['product'])) {
+    if(!isset($_COOKIE[$_GET['product']])) setcookie($_GET['product'],"false", 60 * 60 * 24 * 60 + time(),"/");
+
+    if(isset($_COOKIE[$_GET['product']]) == "false") {
+        if(isset($_GET['rating'])) {
+            setcookie($_GET['product'],"true", 60 * 60 * 24 * 60 + time(),"/");
+
+            $handler = new DBHandler();
+            $handler->beginTransaction();
+            $handler->query('SELECT numofratings,sumofratings FROM products WHERE productid=:id');
+            $handler->bind(":id",$_GET['product']);
+            $ratingResult = $handler->singleRecord();
+
+            $ratingResult['numofratings'] += 1;
+            $ratingResult['sumofratings'] += $_GET['rating'];
+
+            $handler->query('UPDATE products SET numofratings=:numofratings,sumofratings=:sumofratings WHERE productid=:id');
+            $handler->bind(":numofratings", $ratingResult['numofratings']);
+            $handler->bind(":sumofratings", $ratingResult['sumofratings']);
+            $handler->bind(":id", $_GET['product']);
+            $handler->execute();
+            $handler->endTransaction();
+            header("Location: ?page=productPreview&product=" . $_GET['product'],"Content-Type: text/html; charset=UTF-8");
+        }
+    }
+}
+
+if(isset($_GET['login']) && $_GET['login'] == 'false') {
+    session_destroy();
+    header('Location: ?page=main-page','Content-Type: text/html; charset=UTF-8');
+    exit();
+}
+
+//$_SESSION['loggedin'] = false; //true if logged in, false if not
+//$_SESSION['loginErr'] = null; //contains loggin error or login message if successful
+//$_SESSION['registerErr'] = null; //contains registration error or registration message if successful
+//$_SESSION['editErr'] //edit error message;
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,36 +57,19 @@
     <meta name="viewport" content="width = device-width, initial-scale = 1">
     <title></title>
     <link rel="stylesheet" type="text/css" href="libraries/css/main.css">
+
     <script src="libraries/js/jquery-1.11.3.min.js"></script>
 </head>
 <body>
 <div class="container">
     <header class="page-header">
-        <div class="top">
-            <div class="welcome">
-                <span class="welcome-label">Welcome User you can <strong class="welcome-buttons">Login</strong> or <strong class="welcome-buttons">Register</strong></span>
-            </div>
-
-            <div class="title">
-                <h1>VIATECH</h1>
-            </div>
-
-            <div class="search">
-                <span>SHOPPING CART: <span class="amount">0.00 EUR</span></span><br>
-                <input type="search" placeholder="SEARCH">
-            </div>
-        </div>
-
-        <div class="bottom">
-            <nav class="page-nav">
-                <a href="#">TV,AUDIO</a>
-                <a href="#">PC,TABLETS</a>
-                <a href="#">MOBILE PHONES</a>
-            </nav>
-        </div>
+        <?php
+            require_once (ROOT.'view/includes/header.php');
+        ?>
     </header>
 
     <main class="main">
+<<<<<<< HEAD
         <div class="slider">
             <div id="left-arrow">
                 <
@@ -140,35 +174,29 @@
                 </div>
             </div>
         </div>
+=======
+        <?php
+            if(isset($_GET['page'])) {
+                $page = $_GET['page'];
+            } else {
+                $page = "";
+            }
+
+            if($page == 'main-page' || $page == '') {
+                include_once (ROOT.'view/pages/main-page.php');
+            } else {
+                $fileName = $page . '.php';
+                include_once (ROOT . 'view/pages/' . $fileName);
+            }
+        ?>
+>>>>>>> Sprint-5
     </main>
 
-        <footer class="footer">
-            <div class="contact-us">
-                <div class="foot-title">
-                    <div class="text">CONNECT WITH US</div>
-                </div>
-
-                <ul>
-                    <li>Viashop</li>
-                    <li>Dneperska 1,Kosice, Slovakia</li>
-                    <li>+421 902 095 588</li>
-                    <li>Viashopsk@gmail.com</li>
-                </ul>
-                <div class="social-icons">
-                    <img src="libraries/img/footer/fb.png">
-                    <img src="libraries/img/footer/g+.png">
-                    <img src="libraries/img/footer/li.png">
-                    <img src="libraries/img/footer/tw.png">
-                </div>
-            </div>
-            <div class="payment-icons">
-                <img src="libraries/img/footer/maestro.png">
-                <img src="libraries/img/footer/paypal.png">
-                <img src="libraries/img/footer/aexpress.png">
-                <img src="libraries/img/footer/mastercard.png">
-                <img src="libraries/img/footer/visa.png">
-            </div>
-        </footer>
+    <footer class="footer">
+        <?php
+            require_once (ROOT.'view/includes/footer.php');
+        ?>
+    </footer>
     <script src="libraries/js/pageScript.js"></script>
 </div>
 </body>
