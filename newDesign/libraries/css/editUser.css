@@ -1,0 +1,44 @@
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:400italic&subset=latin,latin-ext);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,600,700,900&subset=latin,latin-ext);
+
+#edit-profile{
+    height: 310px;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 30px;
+    border: 1px solid #cacaca;
+
+}
+legend{
+    TEXT-ALIGN: left;
+    margin-left: 24px;
+}
+#edit-profile ul{
+    list-style: none;
+}
+
+#edit-profile ul li{
+    display: block;
+    margin: 8px;;
+}
+
+.edit-input{
+    width: 30%;
+    height: 27px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size:18px;
+    padding-left: 10px;
+
+}
+
+
+#edit-profile-submit{
+    border: none;
+    color: #595959;
+    background: #fbfbfb;
+    font-size: 20px;
+    font-weight: bold;
+}
+#edit-profile-submit:hover{
+    color: #34A994;
+}
