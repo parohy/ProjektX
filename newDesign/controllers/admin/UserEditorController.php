@@ -30,7 +30,7 @@ class UserEditorController
 
     public function displayUsers($users, $displayFrom, $displayTo) {
 		
-    	//echo '<span class="username"><b>Name</b></span><span class="email"><b>Email><b/><span class="user-controls"><b>Controls</b></span>';
+    	
         echo '<ul class="users">';
 
         for($i = $displayFrom; $i <= $displayTo; $i++) {
