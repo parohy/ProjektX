@@ -23,7 +23,7 @@ class SearchModel
 
     public  function getResults() { // get results related to search term from database
         $this->searchTerm = $this->prepare->dumpSpecialChars($this->searchTerm);
-        $search = $this->searchTerm;
+        $search = $this->searchTerm . '%';
 
         $this->handlerDB->query("SELECT * FROM products WHERE name LIKE :name OR brand LIKE :brand");
         $this->handlerDB->bind(':name',$search);
