@@ -37,7 +37,7 @@ if($_GET['register'] == 'registration'){
 	}
 	else{
 		$_SESSION['registerErr'] = "Registration failed.";
-		header('Location:  ../?page=registration&name='.$name.'&surname='.$surname.'&email='.$email.'');
+		header('Location:  ../?page=reg-acc&name='.$name.'&surname='.$surname.'&email='.$email.'#tab1');
 		exit();
 	}
 	
