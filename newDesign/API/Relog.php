@@ -70,7 +70,7 @@ else if($_GET['register'] == 'login'){
 			echo "login bad"; //LOGIN NOT PASSED
 			$_SESSION['loggedin'] = false;
 			$_SESSION['loginErr'] = "Wrong email and password.";
-			header('Location: ../index.php?logmail='.$loginEmail.'');
+			header('Location: ../index.php');
 			exit();
 		}
 	}

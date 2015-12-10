@@ -5,6 +5,19 @@
  * User: Dominik Kolesar
  * Date: 5. 12. 2015
  */
+
+$name = $surname = $email = "";
+if(isset($_GET['name'])){
+	$name = $_GET['name'];
+}
+
+if(isset($_GET['surname'])){
+	$surname = $_GET['surname'];
+}
+
+if(isset($_GET['email'])){
+	$email = $_GET['email'];
+}	
 ?>
 
 <link rel="stylesheet" type="text/css" href="libraries/css/reg-acc.css">
@@ -33,9 +46,9 @@
 
                 <form class="form" action='API/Relog.php?register=registration' method="POST">
                     <ul>
-                        <li><input class="input" type="text" placeholder="name" name="name"> </li>
-                        <li><input class="input" type="text" placeholder="surname" name="last-name"> </li>
-                        <li><input class="input" type="email" placeholder="email" name="mail"> </li>
+                        <li><input class="input" type="text" placeholder="name" name="name" value="<?php echo $name;?>"> </li>
+                        <li><input class="input" type="text" placeholder="surname" name="last-name" value="<?php echo $surname;?>"> </li>
+                        <li><input class="input" type="email" placeholder="email" name="mail" value="<?php echo $email;?>"> </li>
                         <li><input class="input" type="password" placeholder="password" name="password"></li>
                         <li><input type="submit" class="submit-button" value="REGISTER"></li>
                     </ul>
