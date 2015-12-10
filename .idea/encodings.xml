@@ -3,6 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/css/productPreview.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/newDesign/controllers/ProductDisplay.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/newDesign/view/pages/productPreview.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/pages/productPreview.php" charset="UTF-8" />
   </component>
 </project>

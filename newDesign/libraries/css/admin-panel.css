@@ -80,3 +80,16 @@
 .user-controls a {
     margin: 0 10px;
 }
+
+.userView {
+	list-style-type: none;
+}
+
+.view{
+	padding-top: 20px;
+	margin-left: 30px;
+}
+
+.view-controls{
+	margin-right: 10px;
+}

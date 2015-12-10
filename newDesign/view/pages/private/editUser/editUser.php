@@ -1,32 +1,40 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Matus ,Dominik
+ * User: Tomas Paronai ,Dominik
  * Date: 8. 12. 2015
  * Time: 22:04
  */
 
+include_once (ROOT.'API/UserHandler.php');
+
+$editUser;
+if(isset($_GET['userid'])){
+	$editUser = User::editUser($_GET['userid']);
+	$_SESSION['editId'] = $editUser->getId();
+}
+
 // DO EDIT USER ?>
 <link rel="stylesheet" href="libraries/css/editUser.css">
 
-<form id="profile" action="" method="POST">
+<form id="profile" action="?page=private/pageSettings&settings=editUser/editScript" method="POST">
 
     <fieldset id="edit-profile">
         <legend>EDIT PROFILE</legend>
         <ul>
             <li>
 
-                <input class="edit-input" type="text" name="name" value="" placeholder="NAME">
+                <input class="edit-input" type="text" name="name" value="<?php echo $editUser->getData('name');?>" placeholder="NAME">
             </li>
 
             <li>
 
-                <input class="edit-input" type="text" name="surename" value="" placeholder="SURNAME">
+                <input class="edit-input" type="text" name="surename" value="<?php echo $editUser->getData('surname');?>" placeholder="SURNAME">
             </li>
 
             <li>
 
-                <input class="edit-input" type="email" name="mail" value="" placeholder="EMAIL">
+                <input class="edit-input" type="email" name="mail" value="<?php echo $editUser->getData('email');?>" placeholder="EMAIL">
             </li>
 
 
@@ -37,17 +45,17 @@
 
             <li>
 
-                <input class="edit-input" type="text" name="address"value="" placeholder="ADRESS">
+                <input class="edit-input" type="text" name="address"value="<?php echo $editUser->getData('address');?>" placeholder="ADRESS">
             </li>
 
             <li>
 
-                <input class="edit-input"  type="text" name="city"  value="" placeholder="CITY">
+                <input class="edit-input"  type="text" name="city"  value="<?php echo $editUser->getData('city');?>" placeholder="CITY">
             </li>
 
             <li>
 
-                <input class="edit-input" type="text" name="postcode" value="" placeholder="POSTCODE">
+                <input class="edit-input" type="text" name="postcode" value="<?php echo $editUser->getData('postcode');?>" placeholder="POSTCODE">
             </li>
 
             <li>
