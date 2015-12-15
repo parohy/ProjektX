@@ -13,7 +13,7 @@ include (ROOT.'controllers/ProductPreviewController.php');
 include (ROOT.'API/ImageScaling.php');
 
 $productController = new ProductPreviewController();
-$product = $productController->getProduct($_GET['prodid']);
+$product = $productController->getProduct($_GET['product']);
 ?>
 
 <link rel="stylesheet" type="text/css" href="libraries/css/productPreview.css">
@@ -38,7 +38,42 @@ $product = $productController->getProduct($_GET['prodid']);
         <div id="product-info" class="group">
 
             <div class="product-ranking">
-            hviezdicky
+            <?php
+                $rating = $product['sumofratings'] / $product['numofratings'];
+                $id = $product['productid'];
+
+                if(isset($_COOKIE[$id])) {
+                    if($_COOKIE[$id] == "true") {
+                        for($i = 1; $i <= 5; $i++) {
+                            if($i <= $rating) {
+                                echo '<img src="libraries/img/star-selected.png">';
+                            }
+                            else if($i > $rating) {
+                                echo '<img src="libraries/img/star.png" style="opacity: 0.5;">';
+                            }
+                        }
+                    }
+                    else if($_COOKIE[$id] == "false") {
+                        for($i = 1; $i <= 5; $i++) {
+                            if($i <= $rating) {
+                                echo '<a href="?page=productPreview&product=' . $id . '&rating=' . $i .'"><img src="libraries/img/star-selected.png"></a>';
+                            }
+                            else if($i > $rating) {
+                                echo '<a href="?page=productPreview&product=' . $id . '&rating=' . $i .'"><img src="libraries/img/star.png" style="opacity: 0.5;"></a>';
+                            }
+                        }
+                    }
+                } else {
+                    for($i = 1; $i <= 5; $i++) {
+                        if($i <= $rating) {
+                            echo '<a href="?page=productPreview&product=' . $id . '&rating=' . $i .'"><img src="libraries/img/star-selected.png"></a>';
+                        }
+                        else if($i > $rating) {
+                            echo '<a href="?page=productPreview&product=' . $id . '&rating=' . $i .'"><img src="libraries/img/star.png" style="opacity: 0.5;"></a>';
+                        }
+                    }
+                }
+            ?>
             </div>
 
             <div class="product-brand">

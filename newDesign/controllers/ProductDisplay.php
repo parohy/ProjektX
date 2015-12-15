@@ -36,7 +36,7 @@ class ProductDisplay
 
              echo "
                         <div class=\"product-photo\">
-                            <a href=\"?page=productPreview&prodid=" . $res['productid'] . "\"><img src=\"libraries/img/products/" . $res['productid'] . "/" . $res['productid'] . "a.jpg\" width=\"" . $size[0] . "\" height=\"" . $size[1] . "\" style=\"margin:" . $margin[1] . "px " . $margin[0] . "px;\" alt=\"product photo\"></a>
+                            <a href=\"?page=productPreview&product=" . $res['productid'] . "\"><img src=\"libraries/img/products/" . $res['productid'] . "/" . $res['productid'] . "a.jpg\" width=\"" . $size[0] . "\" height=\"" . $size[1] . "\" style=\"margin:" . $margin[1] . "px " . $margin[0] . "px;\" alt=\"product photo\"></a>
                         </div>
                         <div class=\"product-description\">
                             <hr class=\"product-line\">

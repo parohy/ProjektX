@@ -46,16 +46,18 @@
     display: block;
     margin-top: 20px;
     text-align: start;
-
-
 }
 
 .product-ranking{
     width: 40%;
     height: 50px;
-    border: 1px solid #ccc;
     display: block;
     margin-bottom: 20px;
+}
+
+.product-ranking img {
+    width: 35px;
+    height: 35px;
 }
 
 .product-brand{
@@ -64,14 +66,14 @@
     color: #595959 ;
     font-weight: bold;
     display: block;
-    margin:20 0;
+    margin:20px 0;
 }
 .short-describtion{
     width: 40%;
     height: 50px;
     color: #595959 ;
     display: block;
-    margin: 20 0;
+    margin: 20px 0;
 
 }
 
