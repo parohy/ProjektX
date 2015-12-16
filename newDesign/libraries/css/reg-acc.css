@@ -75,6 +75,10 @@
     height: 35px;
     background-color: #fbfbfb;
     border: 1px solid #ccc;
+	font-family: 'Source Sans Pro', sans-serif;
+    padding-left: 10px;
+    font-size: 25px;
+    font-weight: 200;
 }
 .submit-button{
     background: white;
@@ -121,24 +125,3 @@
 .group{
     *zoom:1 ;
 }
-
-input[type="text"]{
-   font-family: 'Source Sans Pro', sans-serif;
-   padding-left: 10px;
-   font-size: 25px;
-   font-weight: 200;
-  }
-  
-input[type="email"]{
-   font-family: 'Source Sans Pro', sans-serif;
-   padding-left: 10px;
-   font-size: 25px;
-   font-weight: 200;
-  }
-
-input[type="password"]{
-   font-family: 'Source Sans Pro', sans-serif;
-   padding-left: 10px;
-   font-size: 25px;
-   font-weight: 200;
-  }  
