@@ -36,8 +36,8 @@ if(isset($_GET['email'])){
     <div id="formulars"class="group">
         <div id="menu-content">
             <ul id="menu">
-                <li><a href="#tab1">REGISTRATION</a></li>
-                <li><a href="#tab2">RECOVER PASSWORD</a></li>
+                <li id="regtab1" class="tabselect"><a>Registration</a></li>
+                <li class="tabselect"><a>Recover password</a></li>
             </ul>
         </div>
 

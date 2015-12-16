@@ -7,6 +7,7 @@
     text-align: center;
 }
 .title-page{
+	font-size: 20px;
     margin-top: 20px;
     padding-bottom: 20px;
     border-bottom: 1px solid #ccc;
@@ -17,27 +18,36 @@
 }
 #menu-content{
     width: 18%;
-    height: 100px;
+    height: 80px;
     border:1px solid #ccc;
     display: block;
     float: left;
 }
 #menu {
+	color: #595959;
     list-style: none;
     padding: 0;
+	cursor: pointer; cursor: hand;
 }
-#menu li {
 
-    margin-top: 10px;
-}
 #menu li a{
-    color: #595959;
     font-weight: bold;
     text-decoration: none;
 }
-#menu li a:hover{
-    color:#34A994;
+
+.tabselect{
+	padding: 10px;
 }
+
+.tabselect:hover {
+    color: white;
+    background: #34A994;
+}
+
+#regtab1{
+	border-bottom: 1px solid #ccc;
+}
+
 #all-tab{
     width: 80%;
     display: block;
@@ -68,21 +78,31 @@
     border: 1px solid #ccc;
 }
 .submit-button{
-    border:none;
     background: white;
     font-size: 20px;
     font-weight: bold;
-    color: #595959 ;
+    color: white;
+	background: #34A994;
+	padding:15px 25px;
+	border-style: none;
+    color: white;
+    outline: none;
+    border: 3px solid #fbfbfb;
+	cursor: pointer; cursor: hand;
 }
 .submit-button:hover{
-    color: #34A994 ;
+    background-color: #fbfbfb;
+    border: 3px solid #34A994;
+    color: #34A994;
+    outline: none;
+    cursor: pointer; cursor: hand;
 }
 /*switching*/
 .tab-content {
     z-index: 0;
 
     height: 380px;
-    border: 1px solid #ccc;
+    
 }
 .tab-content:first-child {
     z-index: 1;
@@ -102,3 +122,21 @@
 .group{
     *zoom:1 ;
 }
+
+input[type="text"]{
+   font-family: 'Source Sans Pro', sans-serif;
+   font-size: 25px;
+   font-weight: 200;
+  }
+  
+input[type="email"]{
+   font-family: 'Source Sans Pro', sans-serif;
+   font-size: 25px;
+   font-weight: 200;
+  }
+
+input[type="password"]{
+   font-family: 'Source Sans Pro', sans-serif;
+   font-size: 25px;
+   font-weight: 200;
+  }  
