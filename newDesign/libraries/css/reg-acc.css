@@ -9,8 +9,7 @@
 .title-page{
 	font-size: 20px;
     margin-top: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px; border-bottom: 1px solid #ccc;
 }
 #formulars{
     display: block;
@@ -125,18 +124,21 @@
 
 input[type="text"]{
    font-family: 'Source Sans Pro', sans-serif;
+   padding-left: 10px;
    font-size: 25px;
    font-weight: 200;
   }
   
 input[type="email"]{
    font-family: 'Source Sans Pro', sans-serif;
+   padding-left: 10px;
    font-size: 25px;
    font-weight: 200;
   }
 
 input[type="password"]{
    font-family: 'Source Sans Pro', sans-serif;
+   padding-left: 10px;
    font-size: 25px;
    font-weight: 200;
   }  
