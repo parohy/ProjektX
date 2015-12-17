@@ -35,15 +35,17 @@ body {
 .page-header {
     width: 100%;
     height: 20%;
-    min-height: 180px;
+    min-height: 200px;
     border-bottom: 3px solid #34A994;
+	padding-bottom: 10px;
 }
 .top {
     width: 100%;
-    height: 80%;
+    height: 82%;
     padding-top: 20px;
 }
 .bottom {
+	display:block;
     width: 100%;
     height: 20%;
 }
@@ -64,11 +66,12 @@ body {
     font-weight: bold;
     text-align: center;
     letter-spacing: 5px;
-    padding-top: 20px;
+    padding-top: 0px;
 }
 
 .title a {
     color: #34A994;
+	font-size: 5.2vw;
     text-decoration: none;
 }
 .welcome-buttons a {
@@ -113,7 +116,7 @@ body {
     height: 100%;
     float: left;
     text-align: right;
-    padding-top: 35px;
+    padding-top: 0px;
     letter-spacing: 0.5px;
 }
 .cart {
@@ -153,15 +156,17 @@ body {
 }
 .nav li {
     display: inline-block;
-    margin: 5px 20px 0 20px;
+    margin: 5px 20px 5px 20px;
 }
 .nav li a {
     display: block;
     text-decoration: none;
     font-weight: bold;
+	font-size:130%;
     color: #595959;
-    height: 35px;
-    padding: 0 5px 0 5px;
+    height: 30px;
+    padding: 5px 20px 5px 20px;
+	
 }
 .nav li a:hover{
     color: #fff;
