@@ -9,7 +9,6 @@ Authors:
 -Matus Kacmar
 -Peter Varholak
 -Dominik Kolesar
--Vladimir Demko
 -Gergely Siladi
 -Matus Kokoska
 -Tomas Paronai
