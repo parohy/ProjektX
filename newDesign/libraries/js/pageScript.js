@@ -41,9 +41,9 @@ $(function() {
      */
 
     $(".link").hover(function() {
-        $(this).css("font-weight", "bold");
-    }, function() {
-        $(this).css("font-weight", "lighter");
+        $(this).css("color", "#34A994");
+	}, function() {
+        $(this).css("color", "#595959");
     });
 
     $(".product-item.first-row").hover(function() {

@@ -49,11 +49,11 @@
 
     <div class="search">
         <div class="cart">
-            <div class="cart-icon">
-                <img src="libraries/img/icons/cart-icon.png">
-            </div>
+
             <div class="cart-title">
-                <a href="?page=cart">SHOPPING CART :</a><span class="amount">0.00 EUR</span>
+                <ul>
+                    <li><i class="fa fa-shopping-bag"> </i> <a href="?page=cart">SHOPPING CART :</a><span class="amount">0.00 EUR</span></li>
+                </ul>
             </div>
         </div>
         <br>
@@ -63,8 +63,9 @@
             <script src="libraries/js/searchScript.js"></script>
         </form>
     </div>
-
+</div>
+   <div class="bottom">
     <?php
     include_once (ROOT.'view/includes/navigation.php');
     ?>
-</div>
+   </div>
