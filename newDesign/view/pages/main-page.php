@@ -7,6 +7,7 @@
  */
 
 include_once (ROOT.'API/Product.php');
+include_once (ROOT.'API/ImageScaling.php');
 
 $tempProduct = new Product();
 
@@ -38,8 +39,9 @@ $tempProduct = new Product();
         
         <?php 
         if($tempProduct != NULL){
+        	$scaleTool = new ImageScaling();
         	$productsId = $tempProduct->getProductsId();
-        	$max = 7;
+        	$max = 8;
         	
         	if($tempProduct->getTotalProducts() < $max){
         		$max = $tempProduct->getTotalProducts();
@@ -55,8 +57,14 @@ $tempProduct = new Product();
         		else{
         			echo '<div class="product-item second-row">';
         		}
+        		$size = $scaleTool->productItemTumbnail($product->id);
+        		$width = $size[0];
+        		$height = $size[1];
+        		$margin = $scaleTool->productItemTumbnailMargin($size);
+        		$marginWidth = $margin[0];
+        		$marginHeight = $margin[1];
         		
-        		echo '<div class="product-photo"><img src="libraries/img/products/'.$product->id.'/'.$product->id.'a.jpg"></div>';
+        		echo '<div class="product-photo"><img style="margin:'.$marginWidth.'px '.$marginHeight.'px;" alt="product-photo" width="'.$width.'" height="'.$height.'" src="libraries/img/products/'.$product->id.'/'.$product->id.'a.jpg"></div>';
         		echo '<div class="product-description">';
         		echo '<hr class="product-line">';
         		echo '<h3 class="product-name">'.$product->name.'</h3>';
