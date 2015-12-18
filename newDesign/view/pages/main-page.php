@@ -56,7 +56,7 @@ $tempProduct = new Product();
         			echo '<div class="product-item second-row">';
         		}
         		
-        		echo '<div class="product-photo"><img src="libraries/img/products/'.$product->categoryid.'/'.$product->id.'.jpg"></div>';
+        		echo '<div class="product-photo"><img src="libraries/img/products/'.$product->id.'/'.$product->id.'a.jpg"></div>';
         		echo '<div class="product-description">';
         		echo '<hr class="product-line">';
         		echo '<h3 class="product-name">'.$product->name.'</h3>';
