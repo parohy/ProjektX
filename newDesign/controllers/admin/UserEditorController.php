@@ -30,9 +30,12 @@ class UserEditorController
 
     public function displayUsers($users, $displayFrom, $displayTo) {
 		
-    	$total = count($users)/5+1;
-    	$path = ROOT.'view/pages/private/pageScript.php';
+    	$total = (count($users)-1)/5;
+    	if((count($users))%5 != 0){
+    		$total++;
+    	}
     	
+    	//echo count($users)/5;
         echo '<ul class="users">';
 
         for($i = $displayFrom; $i <= $displayTo; $i++) {
@@ -50,7 +53,19 @@ class UserEditorController
         
         echo '<span class="paging">';
         for($i=1;$i<=$total;$i++){
-        	echo '<a class="page" href="'.$path.'?current='.$i.'">'.$i.'</a>';
+        	$start = 1;
+        	$end = 6;
+        	if($i != 1){
+        		$start += 5;
+        		$end += 5;
+        	}
+        	
+        	if($end > count($users)-1){
+        		$temp = $end - count($users);
+        		$end -= $temp;
+        	}
+        	echo '<a class="page" href="?page=private/pageSettings&settings=users&from='.$start.'&to='.$end.'">'.$i.'</a>';
+        	//echo '<a class="page" href="'.$path.'?current='.$i.'">'.$i.'</a>';
         }
         echo '</span>';
     }

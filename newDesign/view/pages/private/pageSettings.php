@@ -32,6 +32,11 @@ if($_SESSION['username'] != "admin") {
     }
     else {
         $fileName = $settings . '.php';
+        
+        if(isset($_GET['from']) && isset($_GET['to'])){
+        	//$fileName .= '?from='.$_GET['from'].'&to='.$_GET['to'];
+        }
+        
         include_once ('view/pages/private/' . $fileName);
     }
     ?>
