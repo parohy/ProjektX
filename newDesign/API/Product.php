@@ -107,4 +107,14 @@ class Product{
             }
             $this->handlerDB->execute();   
         }
+        
+        public function getTotalProducts(){
+        	$this->handlerDB->query("SELECT productid FROM products");
+        	return count($this->handlerDB->resultSet());
+        }
+        
+        public function getProductsId(){
+        	$this->handlerDB->query("SELECT productid FROM products");
+        	return $this->handlerDB->resultSet();
+        }
 }

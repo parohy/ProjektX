@@ -5,6 +5,12 @@
  * Date: 7. 12. 2015
  * Time: 14:23
  */
+
+include_once (ROOT.'API/Product.php');
+
+$tempProduct = new Product();
+
+
 ?>
 <div class="slider">
     <div id="left-arrow">
@@ -29,7 +35,37 @@
         </div>
 
         <div class="bottom-tab-content">
-            <div class="product-item  first-row">
+        
+        <?php 
+        if($tempProduct != NULL){
+        	$productsId = $tempProduct->getProductsId();
+        	$max = 7;
+        	
+        	if($tempProduct->getTotalProducts() < $max){
+        		$max = $tempProduct->getTotalProducts();
+        	}
+        	
+        	for($i=0;$i<$max;$i++){
+        		$product = new Product($productsId[$i]['productid']);
+        		
+        		if($i%2==1){
+        			echo '<div class="product-item  first-row">';        			
+        		}
+        		
+        		else{
+        			echo '<div class="product-item second-row">';
+        		}
+        		
+        		echo '<div class="product-photo"><img src="libraries/img/products/'.$product->categoryid.'/'.$product->id.'.jpg"></div>';
+        		echo '<div class="product-description">';
+        		echo '<hr class="product-line">';
+        		echo '<h3 class="product-name">'.$product->name.'</h3>';
+        		echo '<span class="price">'.$product->price.'</span>';
+        		echo '<a href="#" class="addToCart">Add to Cart</a>';
+        		echo '</div></div>';
+        	}
+        }?>
+           <!-- <div class="product-item  first-row">
                 <div class="product-photo">
                 </div>
 
@@ -123,7 +159,7 @@
                     <span class="price">$299.0</span>
                     <a href="#" class="addToCart">Add to Cart</a>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="more">
             <a href="#">+ LOAD MORE PRODUCTS</a>
