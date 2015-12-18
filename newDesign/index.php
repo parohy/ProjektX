@@ -57,12 +57,14 @@ if(isset($_GET['login']) && $_GET['login'] == 'false') {
     <meta name="viewport" content="width = device-width, initial-scale = 1">
     <title></title>
     <link rel="stylesheet" type="text/css" href="libraries/css/main.css">
+    <link rel="stylesheet" href="libraries/css/font-awesome.css">
+    <link rel="stylesheet" href="libraries/fonts">
 
     <script src="libraries/js/jquery-1.11.3.min.js"></script>
 </head>
 <body>
 <div class="container">
-    <header class="page-header">
+    <header id="page-header" class="group">
         <?php
             require_once (ROOT.'view/includes/header.php');
         ?>
