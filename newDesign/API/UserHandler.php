@@ -48,6 +48,28 @@ class User{
 	}
 	
 	/**
+	 * Creates an user from admin and geneartes a password
+	 * @author Tomas Paronai
+	 * @param $name
+	 * @param $surname
+	 * @param $email
+	 */
+	public static function newForceUser($name, $surname, $email){
+		$instance = new self();
+		$instance->saveFirstData('name', ucfirst($name));
+		$instance->id = $instance->getValidId();
+	
+		if($instance->id != null && $instance->id != 0){
+			$instance->saveData('surname', ucfirst($surname));
+			$instance->saveData('email', $email);
+			$instance->saveData('password', $instance->generatePassword());
+			$instance->saveData('role', '1');
+		}
+			
+		return $instance;
+	}
+	
+	/**
 	 * Creates an UserHandler instance with only the given ID
 	 * @author Tomas Paronai
 	 * @param $id
@@ -173,5 +195,9 @@ class User{
 				echo $e;
 			}
 		}
+	}
+	
+	private function generatePassword(){
+		return '12345';
 	}
 }

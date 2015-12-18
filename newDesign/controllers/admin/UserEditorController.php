@@ -44,5 +44,6 @@ class UserEditorController
         }
 
         echo '</ul>';
+        echo '<a class="user-controls" href="?page=private/pageSettings&settings=editUser/editUser">New User</a>';
     }
 }

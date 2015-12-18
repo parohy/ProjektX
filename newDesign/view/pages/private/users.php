@@ -11,8 +11,11 @@ $path .= 'ProjektX/newDesign/';
 include_once ($path.'config.php');
 include (ROOT . 'controllers/admin/UserEditorController.php');
 
+
 $userEditor = new UserEditorController();
 
 $users = $userEditor->getUsers();
+$max = count($users);
+echo $max;
 $userEditor->displayUsers($users,1,5);
 
