@@ -29,7 +29,8 @@ if($_SESSION['username'] != "admin") {
 
     if($settings == "" || $settings == "statistics") {
         include 'view/pages/private/statistics.php';
-    } else {
+    }
+    else {
         $fileName = $settings . '.php';
         include_once ('view/pages/private/' . $fileName);
     }

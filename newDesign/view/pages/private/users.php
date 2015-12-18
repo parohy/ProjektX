@@ -15,14 +15,19 @@ include (ROOT . 'controllers/admin/UserEditorController.php');
 $userEditor = new UserEditorController();
 
 $users = $userEditor->getUsers();
-
 $max = count($users);
-echo $max;
+
 if($max > 5){
-	$userEditor->displayUsers($users,1,3);
+	$max = 6;
+}
+
+$userEditor->displayUsers($users,1,$max-1);
+
+/*if($max > 5){
+	$userEditor->displayUsers($users,$current,$max-1);
 }
 else{
 	$userEditor->displayUsers($users,1,$max-1);
-}
+}*/
 
 

@@ -30,6 +30,8 @@ class UserEditorController
 
     public function displayUsers($users, $displayFrom, $displayTo) {
 		
+    	$total = count($users)/5+1;
+    	$path = ROOT.'view/pages/private/pageScript.php';
     	
         echo '<ul class="users">';
 
@@ -45,5 +47,11 @@ class UserEditorController
 
         echo '</ul>';
         echo '<a class="user-controls" href="?page=private/pageSettings&settings=editUser/editUser">New User</a>';
+        
+        echo '<span class="paging">';
+        for($i=1;$i<=$total;$i++){
+        	echo '<a class="page" href="'.$path.'?current='.$i.'">'.$i.'</a>';
+        }
+        echo '</span>';
     }
 }
