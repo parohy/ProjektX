@@ -170,8 +170,9 @@ body {
 	
 }
 .nav li a:hover{
-    color: #fff;
-    background: #34A994;
+    font-size: bold;
+    color: #34A994;
+
 }
 .subnav {
     visibility: hidden;
@@ -397,7 +398,7 @@ body {
     }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 768px) {
     /*HEADER*/
     #page-header {
         height: 250px;
@@ -422,7 +423,8 @@ body {
     }
 
     .search input {
-        height: 25px;
+        height: 30px;
+        margin-top: 34px;
     }
 
     .cart-title a {
@@ -437,7 +439,7 @@ body {
 
     .bottom {
         display: inline-block;
-        width: 210px;
+        width: 230px;
         font-size: 2vw;
     }
 
@@ -449,4 +451,12 @@ body {
     .title h1{
     margin-top: 4px;
     }
+}
+
+@media screen and (max-width: 480px) {
+
+    .search input {
+        height: 30px;
+        margin-top: 10px;
+
 }
