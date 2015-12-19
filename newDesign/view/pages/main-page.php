@@ -46,23 +46,25 @@ $tempProduct = new Product();
         	if($tempProduct->getTotalProducts() < $max){
         		$max = $tempProduct->getTotalProducts();
         	}
-        	
+
+            $counter = 0;
+
         	for($i=0;$i<$max;$i++){
         		$product = new Product($productsId[$i]['productid']);
-        		
-        		if($i%2==1){
-        			echo '<div class="product-item  first-row">';        			
-        		}
-        		
-        		else{
-        			echo '<div class="product-item second-row">';
-        		}
+                $counter++;
+
+                if($counter == 1) {
+                    echo '<div class="row">';
+                }
+
+                echo '<div class="product-item">';
+
         		$size = $scaleTool->productItemTumbnail($product->id);
         		$width = $size[0];
         		$height = $size[1];
         		$margin = $scaleTool->productItemTumbnailMargin($size);
-        		$marginWidth = $margin[0];
-        		$marginHeight = $margin[1];
+        		$marginWidth = $margin[1];
+        		$marginHeight = $margin[0];
         		
         		echo '<div class="product-photo"><img style="margin:'.$marginWidth.'px '.$marginHeight.'px;" alt="product-photo" width="'.$width.'" height="'.$height.'" src="libraries/img/products/'.$product->id.'/'.$product->id.'a.jpg"></div>';
         		echo '<div class="product-description">';
@@ -71,8 +73,14 @@ $tempProduct = new Product();
         		echo '<span class="price">'.$product->price.'</span>';
         		echo '<a href="#" class="addToCart">Add to Cart</a>';
         		echo '</div></div>';
+
+                if($counter == 4) {
+                    echo '</div>';
+                    $counter = 0;
+                }
         	}
-        }?>
+        }
+        ?>
            <!-- <div class="product-item  first-row">
                 <div class="product-photo">
                 </div>
@@ -167,10 +175,10 @@ $tempProduct = new Product();
                     <span class="price">$299.0</span>
                     <a href="#" class="addToCart">Add to Cart</a>
                 </div>
-            </div> -->
+            </div>
         </div>
         <div class="more">
             <a href="#">+ LOAD MORE PRODUCTS</a>
-        </div>
+        </div>-->
     </div>
 </div>
