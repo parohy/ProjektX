@@ -18,7 +18,7 @@ class Product{
         public $amount;
         public $name;
         public $price;
-        public $brand;
+        public $brandid;
         public $description;
         public $viewamount;
         public $datecreated;
@@ -52,7 +52,7 @@ class Product{
                     $this->amount=$products[0]['amount'];
                     $this->name=$products[0]['name'];
                     $this->price=$products[0]['price'];
-                    $this->brand=$products[0]['brand'];
+                    $this->brandid=$products[0]['brandid'];
                     $this->description=$products[0]['description'];
                     $this->viewamount=$products[0]['viewamount'];
                     $this->datecreated=$products[0]['datecreated'];
@@ -75,11 +75,11 @@ class Product{
         
         public function save(){
             if($this->id == null){
-                $this->handlerDB->query("INSERT INTO products (categoryid, amount, name, price, brand, description, viewamount, datecreated, numofratings, sumofratings) ".
-                       "VALUES (:categoryid, :amount, :name, :price, :brand, :description, :viewamount, :datecreated, :numofratings, :sumofratings)");
+                $this->handlerDB->query("INSERT INTO products (categoryid, amount, name, price, brandid, description, viewamount, datecreated, numofratings, sumofratings) ".
+                       "VALUES (:categoryid, :amount, :name, :price, :brandid, :description, :viewamount, :datecreated, :numofratings, :sumofratings)");
             }
             else {
-                $this->handlerDB->query("UPDATE products SET categoryid=:categoryid, amount=:amount, name=:name, price=:price, brand=:brand, description=:description, viewamount=:viewamount, datecreated=:datecreated, numofratings=:numofratings, sumofratings=:sumofratings ".
+                $this->handlerDB->query("UPDATE products SET categoryid=:categoryid, amount=:amount, name=:name, price=:price, brandid=:brandid, description=:description, viewamount=:viewamount, datecreated=:datecreated, numofratings=:numofratings, sumofratings=:sumofratings ".
                        "WHERE productid=:productid");
                 $this->handlerDB->bind(':productid', $this->id);
             }
@@ -87,7 +87,7 @@ class Product{
             $this->handlerDB->bind(':amount', $this->amount);
             $this->handlerDB->bind(':name', $this->name);
             $this->handlerDB->bind(':price', $this->price);
-            $this->handlerDB->bind(':brand', $this->brand);
+            $this->handlerDB->bind(':brandid', $this->brandid);
             $this->handlerDB->bind(':description', $this->description);
             $this->handlerDB->bind(':viewamount', $this->viewamount);
             $this->handlerDB->bind(':datecreated', $this->datecreated);
