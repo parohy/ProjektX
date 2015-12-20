@@ -14,16 +14,16 @@ class Product{
 	public $id;
 	private $handlerDB;
         public $error=null;
-        public $categoryid;
-        public $amount;
-        public $name;
-        public $price;
-        public $brandid;
-        public $description;
-        public $viewamount;
-        public $datecreated;
-        public $numofratings;
-        public $sumofratings;
+        public $categoryid="";
+        public $amount="";
+        public $name="";
+        public $price="";
+        public $brandid="";
+        public $description="";
+        public $viewamount="";
+        public $datecreated="";
+        public $numofratings="";
+        public $sumofratings="";
 
 	/**
 	 * Creates an ProductHandler instance with optional $id parameter
@@ -77,6 +77,7 @@ class Product{
             if($this->id == null){
                 $this->handlerDB->query("INSERT INTO products (categoryid, amount, name, price, brandid, description, viewamount, datecreated, numofratings, sumofratings) ".
                        "VALUES (:categoryid, :amount, :name, :price, :brandid, :description, :viewamount, :datecreated, :numofratings, :sumofratings)");
+                $this->datecreated=date("Y-m-d")." ".date("H:i:s");
             }
             else {
                 $this->handlerDB->query("UPDATE products SET categoryid=:categoryid, amount=:amount, name=:name, price=:price, brandid=:brandid, description=:description, viewamount=:viewamount, datecreated=:datecreated, numofratings=:numofratings, sumofratings=:sumofratings ".

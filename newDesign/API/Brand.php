@@ -9,16 +9,15 @@
 
 include_once ('Database.php');
 
-class Category{
+class Brand{
 
 	public $id;
 	private $handlerDB;
         public $error=null;
         public $name;
-        public $parent;
 
 	/**
-	 * Creates an CategoryHandler instance with optional $id parameter
+	 * Creates an BrandHandler instance with optional $id parameter
 	 * @author Matus Kokoska
 	 */
         
@@ -29,21 +28,20 @@ class Category{
 	}
 
 	/**
-	 * If $id is set, loads existing Category. 
+	 * If $id is set, loads existing Brand. 
 	 * @author Matus Kokoska
 	 */
         
         public function load() {
             if($this->id != null){
-                $this->handlerDB->query("SELECT * FROM categories where categoryid=:id");
+                $this->handlerDB->query("SELECT * FROM brands where brandid=:id");
                 $this->handlerDB->bind(":id", $this->id);
-                $categories = $this->handlerDB->resultSet();
-                if (count($categories)==1) {
-                    $this->name=$categories[0]['name'];
-                    $this->parent=$categories[0]['parent'];
+                $brands = $this->handlerDB->resultSet();
+                if (count($brands)==1) {
+                    $this->name=$brands[0]['name'];
                 }
                 else {
-                    $error="Category not found.";
+                    $error="Brand not found.";
                 }
             }
             else {
@@ -52,31 +50,30 @@ class Category{
         }
 	
         /**
-	 * Saves edited properties of category or creates a new category if $id is not set
+	 * Saves edited properties of brand or creates a new brand if $id is not set
 	 * @author Matus Kokoska
 	 */
         
         public function save(){
             if($this->id == null){
-                $this->handlerDB->query("INSERT INTO categories (name, parent) VALUES (:name, :parent)");
+                $this->handlerDB->query("INSERT INTO brands (name) VALUES (:name)");
             }
             else {
-                $this->handlerDB->query("UPDATE categories SET name=:name, parent=:parent WHERE categoryid=:categoryid");
-                $this->handlerDB->bind(':categoryid', $this->id);
+                $this->handlerDB->query("UPDATE brands SET name=:name WHERE brandid=:brandid");
+                $this->handlerDB->bind(':brandid', $this->id);
             }
             $this->handlerDB->bind(':name', $this->name);
-            $this->handlerDB->bind(':parent', $this->parent);
             $this->handlerDB->execute();
         }
 	
         /**
-	 * Deletes existing category
+	 * Deletes existing brand
 	 * @author Matus Kokoska
 	 */
         
         public function delete() {
             if($this->id!=null){
-                $this->handlerDB->query("DELETE FROM categories WHERE categoryid LIKE '%".$this->id."%'");
+                $this->handlerDB->query("DELETE FROM brands WHERE brandid LIKE '%".$this->id."%'");
             }
             $this->handlerDB->execute();   
         }
