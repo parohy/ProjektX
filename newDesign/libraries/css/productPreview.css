@@ -31,7 +31,7 @@
 .product-slider{
     width: 400px;
     height: 350px;
-    border: 1px solid;
+    border: 0;
     margin-top: 20px;
     float: left;
     display: block;
