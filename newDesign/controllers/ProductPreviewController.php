@@ -27,4 +27,14 @@ class ProductPreviewController {
 
         return $results;
     }
+
+    public function getProductBrand($brandid) {
+        $this->handlerDB->beginTransaction();
+        $this->handlerDB->query('SELECT name FROM brands WHERE brandid=:id');
+        $this->handlerDB->bind(':id',$brandid);
+        $results = $this->handlerDB->singleRecord();
+        $this->handlerDB->endTransaction();
+
+        return $results;
+    }
 }

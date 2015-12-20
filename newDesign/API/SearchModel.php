@@ -25,9 +25,8 @@ class SearchModel
         $this->searchTerm = $this->prepare->dumpSpecialChars($this->searchTerm);
         $search = $this->searchTerm . '%';
 
-        $this->handlerDB->query("SELECT * FROM products WHERE name LIKE :name OR brand LIKE :brand");
+        $this->handlerDB->query("SELECT * FROM products WHERE name LIKE :name");
         $this->handlerDB->bind(':name',$search);
-        $this->handlerDB->bind(':brand',$search);
 
         return $this->handlerDB->resultSet();
     }

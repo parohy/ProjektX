@@ -77,7 +77,10 @@ $product = $productController->getProduct($_GET['product']);
             </div>
 
             <div class="product-brand">
-                <?php echo strtoupper($product['brand']);?>
+                <?php
+                $brand = $productController->getProductBrand($product['brandid']);
+                echo strtoupper($brand['name']);
+                ?>
             </div>
 
             <span class="short-describtion">
