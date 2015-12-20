@@ -39,3 +39,20 @@ input[type="number"] {
 
 input[type="checkbox"] {
 }
+
+@media screen and (max-width: 768px) {
+    .sorting-table {
+        width: 160px;
+        height: 550px;
+        margin: 20px 0;
+        border: 1px solid #cacaca;
+        font-size: 2vw;
+    }
+    .sorting-table form {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .sorting-table form {
+        margin: 0px;
+    }
+}
