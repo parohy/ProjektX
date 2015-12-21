@@ -26,9 +26,9 @@ $tempProduct = new Product();
 <div class="tabs">
     <div class="controls">
         <ul>
-            <li><a href="#" class="link">BEST SELLING <span class="arrow">&#8744;</span></a></li>
-            <li><a href="#" class="link">TOP RATED <span class="arrow">&#8744;</span></a></li>
-            <li><a href="#" class="link">NEW ARRIVALS <span class="arrow">&#8744;</span></a></li>
+            <li><a href="#" class="link">BEST SELLING <i class="fa fa-angle-down"></i> </a></li>
+            <li><a href="#" class="link">TOP RATED <i class="fa fa-angle-down"></i> </a></li>
+            <li><a href="#" class="link">NEW ARRIVALS <i class="fa fa-angle-down"></i> </a></li>
     </div>
     <div class="tab-content">
         <div class="top-tab-content">
@@ -182,3 +182,4 @@ $tempProduct = new Product();
         </div>-->
     </div>
 </div>
+    </div>
