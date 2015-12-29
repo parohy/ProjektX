@@ -27,7 +27,7 @@ body {
     background: #fbfbfb;
 }
 .container {
-    width: 70%;
+    width: 60%;
     height: 100%;
     margin: 0 auto;
 }
@@ -53,16 +53,18 @@ body {
     width: 33.3%;
     height: 100%;
     float: left;
+    font-size: 14px;
 }
 .welcome-label img {
     float:left;
+    width: 14px;
+    height: 14px;
     margin-right: 5px;
 }
 .title {
     width: 33.3%;
     height: 100%;
     float: left;
-    font-size: 45px;
     font-weight: bold;
     text-align: center;
     letter-spacing: 5px;
@@ -71,7 +73,7 @@ body {
 
 .title a {
     color: #34A994;
-	font-size: 5.2vw;
+	font-size: 4.2vw;
     text-decoration: none;
 }
 .welcome-buttons a {
@@ -115,9 +117,13 @@ body {
     width: 33.3%;
     height: 100%;
     float: left;
+    font-size: 14px;
     text-align: right;
     padding-top: 0px;
     letter-spacing: 0.5px;
+}
+.search input[type="search"] {
+    width: 80%;
 }
 .cart {
     float: right;
@@ -237,6 +243,9 @@ body {
     list-style-type: none;
     border-right: 1px solid #cacaca;
 }
+.controls ul li:last-child {
+    border: none;
+}
 .link {
     font-weight: lighter;
     color: #484848;
@@ -270,17 +279,17 @@ body {
 }
 .row {
     width: 100%;
-    height: 470px;
+    height: 49.78%;
     margin-top: 20px;
 }
 .product-item {
     display: inline-block;
-    width: 280px;
-    height: 424px;
+    width: 22.85%; /*1225.48 35.138*/
+    height: 90.21%;
     background: #cccccc;
     margin-bottom: 55px;
     overflow: hidden;
-    margin-right: 35px;
+    margin-right: 2.86%;
     border: 1px solid #cacaca;
     vertical-align: top;
 }
@@ -397,6 +406,11 @@ body {
         width: 310px;
         font-size: 38px;
     }
+    /*
+    .product-item {
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }*/
 }
 @media screen and (max-width: 1280px) {
     .controls ul li {
