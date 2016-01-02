@@ -67,7 +67,7 @@ if(isset($_GET['login']) && $_GET['login'] == 'false') {
 <div class="container">
     <header id="page-header" class="group">
         <?php
-            require_once (ROOT.'view/includes/header.php');
+            require_once ($path.'view/includes/header.php');
         ?>
     </header>
 
