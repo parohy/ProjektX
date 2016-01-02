@@ -1,7 +1,16 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Matus Kacmar
+ * Date: 7. 12. 2015
+ * Time: 14:23
+ */
+
 session_start();
 
-include "API/Database.php";
+$path = $_SERVER['DOCUMENT_ROOT'];
+$path .= 'ProjektX/';
+include ($path."API/Database.php");
 
 if(isset($_GET['product'])) {
     if(!isset($_COOKIE[$_GET['product']])) setcookie($_GET['product'],"false", 60 * 60 * 24 * 60 + time(),"/");
@@ -37,220 +46,54 @@ if(isset($_GET['login']) && $_GET['login'] == 'false') {
 }
 
 //$_SESSION['loggedin'] = false; //true if logged in, false if not
-
 //$_SESSION['loginErr'] = null; //contains loggin error or login message if successful
 //$_SESSION['registerErr'] = null; //contains registration error or registration message if successful
 //$_SESSION['editErr'] //edit error message;
 ?>
 <!doctype html>
-<html lang="">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="">
-    <base href="../ProjektX/" target="_self">
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="css/main.css"> <!-- LOADING MAIN CSS FILE -->
-    <script src="js/jquery-1.11.3.min.js"></script>
-    <script src="js/menuScript.js"></script>
-    <!--[if lt IE 9]>
-        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width = device-width, initial-scale = 1">
+    <title>VIATECH</title>
+    <link rel="stylesheet" type="text/css" href="libraries/css/main.css">
+    <link rel="stylesheet" href="libraries/css/font-awesome.css">
+    <link rel="stylesheet" href="libraries/fonts">
 
-    <!--[if gte IE 9]>
-        <style type="text/css">
-            .gradient {
-                filter: none;
-            }
-        </style>
-    <![endif]-->
+    <script src="libraries/js/jquery-1.11.3.min.js"></script>
 </head>
 <body>
-
-<!--[if lt IE 9]>
-    <p>Do your self a favour <strong>UPDATE YOUR BROWSER!</strong></p>
-<![endif]-->
-
-<div id="page-wrapper">
-
-    <!-- BEGGINING OF THE PAGE HEADER-->
-    <header id="main-header">
-
-        <div id="title-content">
-
-            <div id="title">
-                <img src="img/default-user.png" class="user-image">
-                <h1>Welcome
-
-                    <?php
-                    /* Je to provizorne riesienie. Po jednom prihlaseni sa meno ulozi uz do prehliadaca cize to meno sa uz zobrazuje po kazdej navsteve stranky.
-                     * Mozte to upravit, i dont care.
-                     * @author Tomas Paronai */
-                    if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-                    	if(isset($_SESSION['username']))
-                        	echo $_SESSION['username'];
-                    } else {
-                    	echo "guest";
-                    }
-                    ?>
-
-                </h1>
-            </div>
-
-            <div id="search">
-
-                <a href="#" class="faq-help-button">FAQ</a>
-                <span>/</span>
-                <a href="#" class="faq-help-button">Help</a>
-
-                <div class="search-container">
-                        <form action="php/searchHandler.php" method="GET" id="searchform">
-                            <input type="text" name="search" class="search" required>
-                            <input type="submit" class="search-button" value="">
-                        </form>
-                </div>
-
-            </div>
-
-        </div>
-
-        <nav id="main-nav">
-            <?php
-                include "pages/main-nav.php";
-            ?>
-        </nav>
-
+<div class="container">
+    <header id="page-header" class="group">
+        <?php
+            require_once (ROOT.'view/includes/header.php');
+        ?>
     </header>
-    <!-- ENDING OF THE PAGE HEADER-->
 
-    <!-- BEGGINING OF THE PAGE CONTENT-->
-    <div id="content-wrapper">
+    <main class="main">
+        <?php
+            if(isset($_GET['page'])) {
+                $page = $_GET['page'];
+            } else {
+                $page = "";
+            }
 
-        <aside id="side-panel">
+            if($page == 'main-page' || $page == '') {
+                include_once ($path.'view/pages/main-page.php');
+            } else {
+                $fileName = $page . '.php';
+                include_once ($path . 'view/pages/' . $fileName);
+            }
+        ?>
+    </main>
 
-            <div class="frame-container">
-
-                <div class="frame-titlebar">
-                    <span class="frame-title">
-                    <?php
-                    if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == 'true') {
-                        echo "Profil";
-                    } else {
-                        echo "Login";
-                    }
-                    ?>
-                   </span>
-                </div>
-
-                <div class="frame-content login-form">
-                    <?php
-                      if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == 'true') {
-
-                          if($_SESSION['username'] == "admin") {
-                              include "pages/web-control/adminProfile.php";
-                          } else {
-                              include "pages/profile.php";
-                          }
-
-                      } else {
-                          include "pages/loginForm.php";
-                      }
-                    ?>
-                </div>
-
-            </div>
-
-            <div class="frame-container embeded-video">
-
-                <div class="frame-titlebar">
-                    <span class="frame-title">Video</span>
-                </div>
-
-                <div class="frame-content">
-                    <iframe width="220" height="220" src="https://www.youtube.com/embed/DvOldr9Cjc8" frameborder="0" allowfullscreen></iframe>
-                </div>
-
-            </div>
-
-        </aside>
-
-        <main>
-
-            <?php
-                if(isset($_GET['page']))
-                {
-                    $page = $_GET['page'];
-                }
-                else {
-                    $page = "";
-                }
-
-                if($page == "" || $page == "main-page")
-                {
-                    include "pages/main-page.php";
-                }
-                else if($page == "registration") {
-                    include "pages/registration.php";
-                }
-                else if($page == "insert-item") {
-                    include "pages/web-control/insert-item.php";
-                }
-                else if($page == "delete-item") {
-                    include "pages/web-control/delete-item.php";
-                }
-                else if($page == "welcome-message") {
-                    include "pages/web-control/welcome-message.php";
-                }
-                else if($page == "change-video") {
-                    include "pages/web-control/change-video.php";
-                }
-                else if($page == "searchResults") {
-                    include "pages/searchResults.php";
-                }
-                else if($page == "productPreview") {
-                    include "pages/productPreview.php";
-                }
-                else if($page == "TV,AUDIO" || $page == "PC,TABLETS" || $page == "MOBILE PHONES") {
-                    include "pages/categories/mainCategory.php";
-                }
-                else if($page == "BLURAY PLAYERS" || $page == "HEADPHONES" || $page == "HOME AUDIO" || $page == "NOTEBOOKS" || $page == "PC" || $page == "TABLETS" || $page == "MONITORS" || $page == "CELL PHONES" || $page == "ACCESSORIES" || $page == "SMART WATCHES")
-                {
-                    include "pages/categories/category.php";
-                }
-                /*
-                else if($page == "") {
-
-                }*/
-            ?>
-
-        </main>
-
-    </div>
-    <!-- ENDING OF THE PAGE CONTENT-->
-
-    <!-- BEGGINING OF THE PAGE FOOOTER-->
-    <footer id="main-footer">
-
-        <div id="footer-nav">
-
-		<div id="picture">
-		    <p>GlobalLogic</p>
-		</div>
-		<div id="footer-butt">
-            <a href="#" class="faq-help-button">FAQ</a>
-            <span>/</span>
-            <a href="#" class="faq-help-button">Help</a>
-            <a href="https://www.facebook.com/GYMBOSAK/?fref=ts" id="fb"></a>
-        </div>
-        </div>
-        <div id="copyright">
-            <span>Copyright &#169; 2015 Project X Inc. All Rights Reserved. User Agreement, Privacy and Cookies.</span>
-        </div>
+    <footer class="footer">
+        <?php
+            require_once ($path.'view/includes/footer.php');
+        ?>
     </footer>
-    <!-- ENDING OF THE PAGE FOOTER-->
-
+    <script src="libraries/js/pageScript.js"></script>
 </div>
-
 </body>
 </html>
