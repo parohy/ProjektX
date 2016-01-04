@@ -16,24 +16,24 @@
 			 <li><a class="formular-link">CITY</a></li>
 			 <li><a class="formular-link">PSC</a></li> 
 		    </ul>
-                    <form class="form-inp" action="" method="get">
-			<ul class="text-bar">
-                            <li><input class="input" type="text" name="name"></li>
-                            <li><input class="input" type="text" name="surname"></li>
-                            <li><input class="input" type="text" name="email"></li>
-                            <li><input class="input" type="text" name="phone"></li>
-                            <li><input class="input" type="text" name="address"></li>
-                            <li><input class="input" type="text" name="city"><li>
-                            <li><input class="input" type="text" name="psc"></li>
-			</ul>
+            <form class="form-inp" action="" method="get">
+    			<ul class="text-bar">
+                    <li><input class="input" type="text" id="name"></li>
+                    <li><input class="input" type="text" id="surname"></li>
+                    <li><input class="input" type="text" id="email"></li>
+                    <li><input class="input" type="text" id="phone"></li>
+                    <li><input class="input" type="text" id="address"></li>
+                    <li><input class="input" type="text" id="city"><li>
+                    <li><input class="input" type="text" id="psc"></li>
+    			</ul>
 		    </form>    
 		</div>
 		<div class="rightside">
-                    <div class="subtotal">Subtotal (x items)</div>
-                    <div class="sum">XX.XX EUR</div>
-                    <input type="button" class="order-button" value="Place order">
-                    <div class="querylogin">Do you want to <a class="boldlogin">login</a>?</div>
-                </div>
+            <div class="subtotal">Subtotal (x items)</div>
+            <div class="sum">XX.XX EUR</div>
+            <input type="button" class="order-button" value="Place order">
+            <div class="querylogin">Do you want to <a class="boldlogin">login</a>?</div>
+        </div>
     </div>    
      
     
