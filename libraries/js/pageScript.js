@@ -14,7 +14,7 @@ $(function() {
      * LOGIN FORM
     */
     $("#login").click(function(){
-        $(".login-frame").slideToggle();
+        $(".login-frame").stop(true, false).slideToggle();
     });
 
     /*
