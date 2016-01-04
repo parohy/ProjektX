@@ -18,24 +18,29 @@ $product = $productController->getProduct($_GET['product']);
 <link rel="stylesheet" type="text/css" href="libraries/css/productPreview.css">
 
 <div id="product-prewiew">
-
-    <div class="product-name">
-        <h1><?php echo strtoupper($product['name']);?></h1>
-    </div>
-
-    <div id="about-product" class="group">
-
-        <div class="product-slider">
+    
+    <div class="product-slider">
             <?php
 
             $scaling = new ImageScaling();
             $size = $scaling->productPreviewImage($product['productid']);
-            echo '<img src="libraries/img/products/' . $product['productid'] . '/' . $product['productid'] . 'a.jpg" width="' . $size[0] . '" height="' . $size[1] . '">';
+            echo '<img id="propic" src="libraries/img/products/' . $product['productid'] . '/' . $product['productid'] . 'a.jpg" width="' . $size[0] . '" height="' . $size[1] . '">';
             ?>
+    </div>
+    
+    <div id="about-product" class="group">
+        
+        <div class="product-name">
+            <p><?php echo strtoupper($product['name']);?></p>
         </div>
-
-        <div id="product-info" class="group">
-
+                  
+        <div class="product-brand">
+            <?php
+                $brand = $productController->getProductBrand($product['brandid']);
+                echo strtoupper($brand['name']);
+                ?>
+            </div>
+            
             <div class="product-ranking">
             <?php
                 $rating = $product['sumofratings'] / $product['numofratings'];
@@ -75,16 +80,11 @@ $product = $productController->getProduct($_GET['product']);
             ?>
             </div>
 
-            <div class="product-brand">
-                <?php
-                $brand = $productController->getProductBrand($product['brandid']);
-                echo strtoupper($brand['name']);
-                ?>
-            </div>
+            
 
-            <span class="short-describtion">
+            <!--<span class="short-describtion">
             <?php echo substr($product['description'],0,200);?>
-            </span>
+            </span>-->
 
             <form class="cost-form" action="" method="get">
                 <span class="cost">
@@ -94,22 +94,22 @@ $product = $productController->getProduct($_GET['product']);
                 <input type="submit" value="BUY" name="BUY">
                 </div>
             </form>
-        </div>
+        
 
 
         </div>
 
+    <div class="desc">
+        <div class="description-title">
+            <h2> DESCRIPTION</h2>
+            
+        </div>
 
-    <div class="description-title">
-        <h2> DESCRIPTION</h2>
+        <div class="description-text">
+            <?php echo $product['description'];?>
 
+        </div>
     </div>
-
-    <div class="description-text">
-        <?php echo $product['description'];?>
-
-    </div>
-
 
 
 </div>
