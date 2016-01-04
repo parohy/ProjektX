@@ -13,9 +13,9 @@
 
     <ul>
         <li>Viashop</li>
-        <li>Dneperska 1,Kosice, Slovakia</li>
+        <li>Dneperska 1, Kosice, Slovakia</li>
         <li>+421 902 095 588</li>
-        <li>Viashopsk@gmail.com</li>
+        <li>viashopsk@gmail.com</li>
     </ul>
     <div class="social-icons">
         <img src="libraries/img/footer/fb.png">
