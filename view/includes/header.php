@@ -37,9 +37,9 @@
             <form action="API/Relog.php?register=login" method="POST">
                 <ul>
                     <li><input type="email" name="usermail" placeholder="email@email.com" required></li>
-                    <li><input type="password" name="password" placeholder="password" required></li>
-                    <li><a href="?page=forgottenPass">Forgot your password ?</a></li>
+                    <li><input type="password" name="password" placeholder="password" required></li>                    
                     <li><input type="submit" value="Login"></li>
+                    <li><a href="?page=forgottenPass">Forgot password?</a></li>
                 </ul>
             </form>
         </div>

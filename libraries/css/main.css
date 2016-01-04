@@ -85,34 +85,44 @@ body {
     color: #34A994;
 }
 .login-frame {
-    visibility: hidden;
-    width: 250px;
-    height:180px;
+    position: relative;
+    width: 95%;
+    height: 80%;
     background: #fbfbfb;
-    margin: 10px 0 0 130px;
+    margin: 0;
     border: 1px solid #cccccc;
+    font-size: 14px;
 }
 
 .login-frame form ul {
+    height: 100%;
+    width: 103%;
     list-style-type: none;
+    float: left;
 }
 .login-frame form ul li {
-    text-align: center;
-    margin-top: 10px;
+    display: inline-block;
+    width: 42%;
+    height: 200%;
+    text-align: left;
+    margin: 4% 0% 0% 4%;
 }
 .login-frame form ul li input {
-    height: 30px;
-    padding-left: 10px;
+    width: 100%;
+    height: 100%;
+    padding: 5% 5% 5% 5%;
 }
 .login-frame form ul li input[type="submit"] {
-    height: 25px;
-    width: 120px;
+    height: 100%;
+    width: 100%;
     color: #fff;
     font-weight: bold;
     text-align: center;
     background: #34A994;
-    margin-top: 10px;
     border: none;
+}
+.login-frame form ul li a {
+    padding: 0;
 }
 .search {
     width: 33.3%;
@@ -443,11 +453,47 @@ body {
         font-size: 2vw;
         text-align: right;
     }
-
+    .login-frame {
+        position: relative;
+        width: 100%;
+        height: 150%;
+        background: #fbfbfb;
+        margin: 0;
+        border: 1px solid #cccccc;
+        font-size: 14px;
+    }
+    .login-frame form ul {
+        height: 100%;
+        width: 100%;
+        list-style-type: none;
+        float: left;
+    }
+    .login-frame form ul li {
+        display: inherit;
+        width: 92.5%;
+        height: 200%;
+        text-align: center;
+        margin: 4% 0% 0% 4%;
+    }
+    .login-frame form ul li input {
+        width: 100%;
+        height: 100%;
+        padding: 5% 5% 5% 5%;
+    }
+    .login-frame form ul li input[type="submit"] {
+        height: 100%;
+        width: 100%;
+        color: #fff;
+        font-weight: bold;
+        background: #34A994;
+        border: none;
+    }
+    .login-frame form ul li a {
+        padding: 0;
+    }
     .search {
         font-size: 2vw;
     }
-
     .search input {
         height: 30px;
         margin-top: 34px;
