@@ -56,7 +56,7 @@ if(isset($_GET['login']) && $_GET['login'] == 'false') {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width = device-width, initial-scale = 1">
-    <title>VIATECH</title>
+    <title>Viatech</title>
     <link rel="stylesheet" type="text/css" href="libraries/css/main.css">
     <link rel="stylesheet" href="libraries/css/font-awesome.css">
     <link rel="stylesheet" href="libraries/fonts">
