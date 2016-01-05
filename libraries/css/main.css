@@ -152,12 +152,14 @@ body {
 .cart-title a {
     text-decoration: none;
     color: #484848;
+    padding-right: 4px;
+}
+.cart-title a:hover {
+    text-decoration: underline;
 }
 
 .amount {
     color: #34A994;
-
-
 }
 .search input {
     width: 90%;
