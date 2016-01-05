@@ -329,6 +329,9 @@ body {
     display: block;
     margin-top: 20px;
 }
+.product-body:hover .product-name{ 
+    font-weight: normal; 
+}
 .addToCart {
     display: block;
     width: 200px;
