@@ -81,7 +81,7 @@ body {
     color:#484848;
     text-decoration: none;
 }
-.welcome-buttons:hover {
+.welcome-buttons a:hover {
     color: #34A994;
 }
 .login-frame {
