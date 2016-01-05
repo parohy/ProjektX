@@ -57,4 +57,32 @@ $(function() {
         });
         $(this).children('.product-description').children('.addToCart').stop(true, false).slideUp();
     });
+
+    /*
+    * Image scaling
+    */
+    var maxWidth = $(".product-photo").width() - 20;
+    var maxHeight = $(".product-photo").height() - 20;
+
+    $(".thumbnailImage").each(function(){
+        var ratio = 0;
+        var width = $(this).width();
+        var height = $(this).height();
+
+        if(width > maxWidth){
+            ratio = maxWidth / width;
+            $(this).css("width", maxWidth);
+            $(this).css("height", height * ratio);
+            height = height * ratio;
+            width = width * ratio;
+        }
+
+        if(height > maxHeight){
+            ratio = maxHeight / height;
+            $(this).css("height", maxHeight);
+            $(this).css("width", width * ratio);
+            width = width * ratio;
+        }
+    });
+    $(".thumbnailImage").css({"margin":"10px"});
 });
