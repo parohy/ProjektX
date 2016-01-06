@@ -1,6 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:400italic&subset=latin,latin-ext);
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,600,700,900&subset=latin,latin-ext);
 
+.error {
+    color: #FF0000;
+}
 
 .checkoutpage{
     width: 100%;

@@ -81,7 +81,7 @@ body {
     color:#484848;
     text-decoration: none;
 }
-.welcome-buttons:hover {
+.welcome-buttons a:hover {
     color: #34A994;
 }
 .login-frame {
@@ -152,12 +152,14 @@ body {
 .cart-title a {
     text-decoration: none;
     color: #484848;
+    padding-right: 4px;
+}
+.cart-title a:hover {
+    text-decoration: underline;
 }
 
 .amount {
     color: #34A994;
-
-
 }
 .search input {
     width: 90%;
@@ -336,6 +338,9 @@ body {
 .product-name {
     display: block;
     margin-top: 20px;
+}
+.product-body:hover .product-name{ 
+    font-weight: normal; 
 }
 .addToCart {
     display: block;
