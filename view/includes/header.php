@@ -13,7 +13,7 @@
 		$email = $_GET['logmail'];
 	}
 ?>
-<div class="top">
+<div class="group top">
     <div class="welcome">
         <?php
         if(isset($_SESSION['loggedin'])) {

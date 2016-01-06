@@ -441,17 +441,21 @@ body {
         font-size: 2.5vw;
     }
 }
-
+@media screen and (max-width: 867px){
+    .nav li{
+        font-size: 1.6vw;
+    }
+}
 @media screen and (max-width: 768px) {
     /*HEADER*/
     #page-header {
-        height: 250px;
+        height: 20%;
         text-align: center;
     }
 
     .top {
 
-        height: 140px;
+        height: 82%;
     }
 
     .welcome {
@@ -461,6 +465,7 @@ body {
         font-size: 2vw;
         text-align: right;
     }
+
     .login-frame {
         position: relative;
         width: 100%;
@@ -470,12 +475,14 @@ body {
         border: 1px solid #cccccc;
         font-size: 14px;
     }
+
     .login-frame form ul {
         height: 100%;
         width: 100%;
         list-style-type: none;
         float: left;
     }
+
     .login-frame form ul li {
         display: inherit;
         width: 92.5%;
@@ -483,11 +490,13 @@ body {
         text-align: center;
         margin: 4% 0% 0% 4%;
     }
+
     .login-frame form ul li input {
         width: 100%;
         height: 100%;
         padding: 5% 5% 5% 5%;
     }
+
     .login-frame form ul li input[type="submit"] {
         height: 100%;
         width: 100%;
@@ -496,12 +505,15 @@ body {
         background: #34A994;
         border: none;
     }
+
     .login-frame form ul li a {
         padding: 0;
     }
+
     .search {
         font-size: 2vw;
     }
+
     .search input {
         height: 30px;
         margin-top: 34px;
@@ -519,15 +531,11 @@ body {
 
     .bottom {
         display: inline-block;
-        width: 230px;
+        width: 100%;
         font-size: 2vw;
     }
 
-    .nav li {
-        display: inline-block;
-        margin: 0px 20px;
 
-    }
 
     .title h1 {
         margin-top: 4px;
@@ -537,8 +545,21 @@ body {
         height: 50%;
 
     }
+
     .container {
         width: 80%;
+    }
+}
+@media screen and (max-width: 660px){
+    #page-header{
+        height: auto;
+        padding-bottom: 0;
+    }
+    .nav li{
+        display: block;
+    }
+    .search input{
+        height: 20px;
     }
 }
 
