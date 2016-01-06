@@ -36,6 +36,9 @@ $(function() {
         }
     });
 
+    var sliderWidth = $(".slider").width() - 35;
+    $("#right-arrow").css({"margin-left":sliderWidth + "px"});
+
     /*
      * TABS
      */
@@ -60,6 +63,18 @@ $(function() {
 
     /*
     * Image scaling
+    */
+
+    /*
+     * Slides
+     */
+    var sliderWidth = $(".slider").width();
+    var sliderHeight = $(".slider").height();
+
+    $(".slides").css({"width": sliderWidth + "px","height": sliderHeight + "px"});
+
+    /*
+    * Prduct items
     */
     var maxWidth = $(".product-photo").width() - 20;
     var maxHeight = $(".product-photo").height() - 20;

@@ -19,6 +19,21 @@ $tempProduct = new Product();
         <
     </div>
 
+    <div class="sliderContent">
+        <?php
+        $slidesPath = "libraries/img/slider/";
+        $slides = scandir($slidesPath,1);
+
+        foreach($slides as $slide) {
+            if($slide == "..") {
+                break;
+            } else {
+                echo '<img src="' . $slidesPath . $slide . '" class="slides">';
+            }
+        }
+        ?>
+    </div>
+
     <div id="right-arrow">
         >
     </div>

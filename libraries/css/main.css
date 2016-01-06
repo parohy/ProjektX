@@ -212,22 +212,32 @@ body {
     background: #CCCCCC;
     margin: 35px auto;
     text-align: center;
+    overflow: hidden;
+}
+.sliderContent {
+    position: absolute;
+    z-index: 10;
+}
+.slides {
+    float:left;
 }
 #left-arrow {
+    position: absolute;
     line-height: 300px;
     vertical-align: middle;
     font-size: 50px;
-    color: #7A7A7A;
-    margin-left: 10px;
-    float: left;
+    color: #fff;
+    padding-left: 10px;
+    z-index: 50;
 }
 #right-arrow {
+    position: absolute;
     line-height: 300px;
     vertical-align: middle;
     font-size: 50px;
-    color: #7A7A7A;
-    margin-right: 10px;
-    float: right;
+    color: #fff;
+    margin-left: 500px;
+    z-index: 50;
 }
 .tabs {
     width: 95%;
