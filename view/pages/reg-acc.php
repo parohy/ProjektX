@@ -30,9 +30,9 @@ if(isset($_GET['email'])){
 <!--<link rel="stylesheet" href="tab2.css">-->
 
 <div id="tab">
-    <div class="title-page">
+   <!--   <div class="title-page">
         <span>ACCOUNT SETTINGS</span>
-    </div>
+    </div> -->
     <div id="formulars"class="group">
         <div id="menu-content">
             <ul id="menu">

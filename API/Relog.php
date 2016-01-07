@@ -43,6 +43,12 @@ if($_GET['register'] == 'registration'){
 	
 	if($_SESSION['registerErr']==true){
 		$_SESSION['registerErr'] = "User registered.";
+		
+		/*login after registration*/
+		$_SESSION['loggedin'] = true;
+		$_SESSION['username'] = $user->getData('name');
+		$_SESSION['userid'] = $user->getId();
+		
 		header('Location:  ../index.php');
 		exit();
 	}
