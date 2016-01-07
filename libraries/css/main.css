@@ -29,6 +29,7 @@ body {
 }
 .container {
     width: 60%;
+    max-width: 1920px;
     height: 100%;
     margin: 0 auto;
 }
@@ -208,38 +209,58 @@ body {
 .main  {
     width: 100%;
 }
-.slider {
+.slider-wrapper {
     width: 95%;
     height: 300px;
     background: #CCCCCC;
     margin: 35px auto;
     text-align: center;
+}
+.slider {
+    position: absolute;
+    width: 1084px;
+    height: inherit;
     overflow: hidden;
 }
 .sliderContent {
-    position: absolute;
+    position: relative;
+    width: 1084px;
     z-index: 10;
 }
 .slides {
-    float:left;
+    width: 1094px;
+}
+.slides img {
+    width: 100%;
+    height: 100%;
 }
 #left-arrow {
     position: absolute;
     line-height: 300px;
     vertical-align: middle;
     font-size: 50px;
-    color: #fff;
+    color: #000;
     padding-left: 10px;
-    z-index: 50;
+    z-index: 100;
+}
+#left-arrow a {
+    color: #484848;
+    text-decoration: none;
 }
 #right-arrow {
     position: absolute;
     line-height: 300px;
     vertical-align: middle;
     font-size: 50px;
-    color: #fff;
+    color: #000;
     margin-left: 500px;
     z-index: 50;
+    top: 0;
+    left: 10px;
+}
+#right-arrow a {
+    color: #484848;
+    text-decoration: none;
 }
 .tabs {
     width: 95%;

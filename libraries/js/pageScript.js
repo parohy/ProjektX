@@ -68,10 +68,12 @@ $(function() {
     /*
      * Slides
      */
-    var sliderWidth = $(".slider").width();
-    var sliderHeight = $(".slider").height();
+    var sliderWidth = $(".slider-wrapper").width();
+    var sliderHeight = $(".slider-wrapper").height();
 
     $(".slides").css({"width": sliderWidth + "px","height": sliderHeight + "px"});
+
+    $("")
 
     /*
     * Prduct items

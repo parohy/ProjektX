@@ -14,28 +14,36 @@ $tempProduct = new Product();
 
 
 ?>
-<div class="slider">
-    <div id="left-arrow">
-        <
-    </div>
+<div class="slider-wrapper">
+    <div class="slider">
+        <div id="left-arrow">
+            <a href="#">
+            <
+            </a>
+        </div>
 
-    <div class="sliderContent">
-        <?php
-        $slidesPath = "libraries/img/slider/";
-        $slides = scandir($slidesPath,1);
+        <div class="sliderContent">
+            <?php
+            $slidesPath = "libraries/img/slider/";
+            $slides = scandir($slidesPath,1);
 
-        foreach($slides as $slide) {
-            if($slide == "..") {
-                break;
-            } else {
-                echo '<img src="' . $slidesPath . $slide . '" class="slides">';
+            foreach($slides as $slide) {
+                if($slide == "..") {
+                    break;
+                } else {
+                    echo '<div class="slides">';
+                    echo '<img src="' . $slidesPath . $slide . '">';
+                    echo '</div>';
+                }
             }
-        }
-        ?>
-    </div>
+            ?>
+        </div>
 
-    <div id="right-arrow">
-        >
+        <div id="right-arrow">
+            <a href="#">
+            >
+            </a>
+        </div>
     </div>
 </div>
 
