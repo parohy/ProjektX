@@ -23,8 +23,16 @@ $product = $productController->getProduct($_GET['product']);
             <?php
 
             $scaling = new ImageScaling();
-            $size = $scaling->productPreviewImage($product['productid']);
-            echo '<img id="propic" src="libraries/img/products/' . $product['productid'] . '/' . $product['productid'] . 'a.jpg" width="' . $size[0] . '" height="' . $size[1] . '">';
+            if(isset($_GET['index'])){
+            	$size = $scaling->productPreviewImageIndex($product['productid'], $_GET['index']);
+            	$imgName = $product['productid'] . $_GET['index'] . '.jpg';
+            	echo '<img id="propic" src="libraries/img/products/' . $product['productid'] . '/' . $imgName . '" width="' . $size[0] . '" height="' . $size[1] . '">';
+            }
+            else{
+            	$size = $scaling->productPreviewImage($product['productid']);
+            	echo '<img id="propic" src="libraries/img/products/' . $product['productid'] . '/' . $product['productid'] . 'a.jpg" width="' . $size[0] . '" height="' . $size[1] . '">';
+            }            
+            
             ?>
     </div>
     
@@ -113,6 +121,25 @@ $product = $productController->getProduct($_GET['product']);
             <?php echo $product['description'];?>
 
         </div>
+        
+        <!-- album of pictures
+        @author Tomas Paronai-->
+        <table>
+        	<tr>
+        		<?php
+        			$alpha = range('a','z');
+        			$index = 0;
+        			while(file_exists('libraries/img/products/' . $product['productid'] . '/' . $product['productid'] . $alpha[$index] . '.jpg')){
+        				$localPath = 'libraries/img/products/' . $product['productid'] . '/' . $product['productid'] . $alpha[$index] . '.jpg';
+        				$width = $height = 100;
+        				$alt = $product['productid'] . $alpha[$index] . '.jpg';
+        				echo '<td><a href="?page=productPreview&product=' . $product['productid'] . '&index='. $alpha[$index] . '"><img class="image-album" src="' . $path . '" alt="' . $alt . '" width="' . $width . '" height="' . $height . '"></a></td>';
+        				$index++;
+        			}
+        		?>
+        	</tr>
+        </table>
+        
     </div>
 
 

@@ -103,4 +103,45 @@ class ImageScaling
             return $size;
         }
     }
+    
+    public function productPreviewImageIndex($productid, $index)
+    {	
+    	$imgName = $productid . $index . '.jpg';
+    	$path = 'libraries/img/products/' . $productid . '/' . $imgName;
+    
+    	if (file_exists($path)) {
+    		$oldSize = getimagesize($path);
+    
+    		$oldW = $oldSize[0];
+    		$oldH = $oldSize[1];
+    
+    		if ($oldW > $oldH) {
+    			$finalW = $this->productPreviewImageWidth;
+    			$finalH = $oldH * ($this->productPreviewImageHeight / $oldW);
+    		}
+    
+    		if ($oldW < $oldH) {
+    			$finalW = $oldW * ($this->productPreviewImageWidth / $oldH);
+    			$finalH = $this->productPreviewImageHeight;
+    		}
+    
+    		if ($oldW == $oldH) {
+    			$finalW = $this->productPreviewImageWidth;
+    			$finalH = $this->productPreviewImageHeight;
+    		}
+    
+    		$size = array(2);
+    		$size[0] = $finalW;
+    		$size[1] = $finalH;
+    
+    		return $size;
+    	} else {
+    		$size = array(2);
+    		$size[0] = $this->productPreviewImageWidth;
+    		$size[1] = $this->productPreviewImageHeight;
+    
+    
+    		return $size;
+    	}
+    }
 }
