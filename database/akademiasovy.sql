@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2016 at 11:16 PM
+-- Generation Time: Jan 07, 2016 at 06:51 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -256,11 +256,11 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`userid`, `email`, `name`, `surname`, `password`, `address`, `city`, `postcode`, `phone`, `datejoined`, `role`) VALUES
 (1, 'admin@admin.com', 'admin', '', 'admin2015', '', '', '', '', '0000-00-00 00:00:00', 2),
-(2, 'david99@gmail.com', 'David', 'Kostra', 'transformers55', 'Trieda SNP 50', 'Košice', '04001', '0902645125', '0000-00-00 00:00:00', 1),
-(3, 'jozo19898@gmail.com', 'Jozef', 'Samuraj', 'jablko', 'Šafárikova 11', 'Košice', '04011', '0911584778', '0000-00-00 00:00:00', 1),
-(4, 'marek.sss@gmail.com', 'Marek', 'Velký', 'iamlegend', 'Bernolákova 1', 'Košice', '04001', '0941598623', '0000-00-00 00:00:00', 1),
-(5, 'ottoman787@azet.sk', 'Otto', 'Markus', '55ottis', 'Kuzmányho', 'Košice', '04001', '0948555877', '0000-00-00 00:00:00', 1),
-(6, 'serusky44@azet.sk', 'Martha', 'Big', 'yesyes22', 'Hlavná 55', 'Košice', '04001', '0910632200', '0000-00-00 00:00:00', 1);
+(2, 'david99@gmail.com', 'David', 'Kostra', 'transformers55', 'Trieda SNP 50', 'Kosice', '04001', '0902645125', '0000-00-00 00:00:00', 1),
+(3, 'jozo19898@gmail.com', 'Jozef', 'Samuraj', 'jablko', 'Safarikova 11', 'Kosice', '04011', '0911584778', '0000-00-00 00:00:00', 1),
+(4, 'marek.sss@gmail.com', 'Marek', 'Velky', 'iamlegend', 'Bernolakova 1', 'Kosice', '04001', '0941598623', '0000-00-00 00:00:00', 1),
+(5, 'ottoman787@azet.sk', 'Otto', 'Markus', '55ottis', 'Kuzmanyho', 'Kosice', '04001', '0948555877', '0000-00-00 00:00:00', 1),
+(6, 'serusky44@azet.sk', 'Martha', 'Big', 'yesyes22', 'Hlavna 55', 'Kosice', '04001', '0910632200', '0000-00-00 00:00:00', 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
