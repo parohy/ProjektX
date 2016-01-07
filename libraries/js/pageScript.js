@@ -73,8 +73,6 @@ $(function() {
 
     $(".slides").css({"width": sliderWidth + "px","height": sliderHeight + "px"});
 
-    $("")
-
     /*
     * Prduct items
     */
@@ -100,6 +98,13 @@ $(function() {
             $(this).css("width", width * ratio);
             width = width * ratio;
         }
+
+        var newWidth = this.width;
+        var newHeight = this.height;
+
+        var marginTop = ((maxHeight+20) - newHeight) / 2;
+        var marginLeft = ((maxWidth+20) - newWidth) / 2;
+        $(".thumbnailImage").css({"margin-top":marginTop+"px","margin-left":marginLeft+"px"});
     });
-    $(".thumbnailImage").css({"margin":"10px"});
+    //$(".thumbnailImage").css({"margin":"10px"});
 });

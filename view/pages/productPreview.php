@@ -43,7 +43,11 @@ $product = $productController->getProduct($_GET['product']);
             
             <div class="product-ranking">
             <?php
-                $rating = $product['sumofratings'] / $product['numofratings'];
+                if($product['numofratings'] > 0) {
+                    $rating = $product['sumofratings'] / $product['numofratings'];
+                } else {
+                    $rating = 0;
+                }
                 $id = $product['productid'];
 
                 if(isset($_COOKIE[$id])) {
@@ -86,7 +90,7 @@ $product = $productController->getProduct($_GET['product']);
             <?php echo substr($product['description'],0,200);?>
             </span>-->
 
-            <form class="cost-form" action="" method="get">
+            <form class="cost-form" action="controllers/addToCart.php?product=<?php echo $product['productid'] ?>" method="POST">
                 <span class="cost">
                     <?php echo $product['price'] . ' €';?>
                 </span>

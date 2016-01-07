@@ -54,7 +54,17 @@
 
             <div class="cart-title">
                 <ul>
-                    <li><i class="fa fa-shopping-bag"> </i> <a href="?page=cart">SHOPPING CART</a><span class="amount">0.00 <i class="fa fa-eur"></i> </span></li>
+                    <li>
+                        <?php
+                        if(isset($_COOKIE['cart'])) {
+                            $cart = $_COOKIE['cart'];
+                            echo sizeof($cart);
+                        } else {
+                            echo "empty";
+                        }
+                        ?>
+                        <i class="fa fa-shopping-bag"> </i> <a href="?page=cart">SHOPPING CART</a><span class="amount">0.00 <i class="fa fa-eur"></i> </span>
+                    </li>
                 </ul>
             </div>
         </div>
