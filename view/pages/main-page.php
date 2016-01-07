@@ -82,7 +82,7 @@ $tempProduct = new Product();
 
                 echo '<div class="product-item">';
         		
-        		echo '<div class="product-photo"><img alt="product-photo" src="libraries/img/products/'.$product->id.'/'.$product->id.'a.jpg" class="thumbnailImage"></div>';
+        		echo '<div class="product-photo"><a href="?page=productPreview&product='.$product->id.'"><img alt="product-photo" src="libraries/img/products/'.$product->id.'/'.$product->id.'a.jpg" class="thumbnailImage"></a></div>';
         		echo '<div class="product-description">';
         		echo '<hr class="product-line">';
         		echo '<h3 class="product-name">'.substr($product->name,0,40).'</h3>';
