@@ -34,5 +34,5 @@ else
 
 $order->save();
 
-header('Location:  ../index.php');
+header('Location:  ../index.php?page=endline');
 ?>
