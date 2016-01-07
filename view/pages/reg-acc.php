@@ -31,7 +31,7 @@ if(isset($_GET['email'])){
 
 <div id="tab">
     <div class="title-page">
-        <h1>ACCOUNT SETTINGS</h1>
+        <span>ACCOUNT SETTINGS</span>
     </div>
     <div id="formulars"class="group">
         <div id="menu-content">
