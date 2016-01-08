@@ -70,7 +70,9 @@
         </div>
         <br>
         <form action="controllers/searchController.php" method="GET" id="searchForm">
-            <input type="search" name="search" placeholder="SEARCH" id="search" list="suggestions">
+           <div class="group search-bar">
+               <i class="fa fa-search"></i><input type="search" name="search" placeholder="SEARCH" id="search" list="suggestions">
+           </div>
             <datalist id="suggestions"></datalist>
             <script src="libraries/js/searchScript.js"></script>
         </form>

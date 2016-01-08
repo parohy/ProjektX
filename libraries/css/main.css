@@ -162,12 +162,38 @@ body {
 .amount {
     color: #34A994;
 }
-.search input {
+#searchForm{
     width: 90%;
+    margin-left: 10%;
+    font-size: 20px;
+}
+.search-bar{
     height: 45px;
     padding-left: 10px;
     margin-top: 10px;
     border: 1px solid #cccccc;
+    background:#fbfbfb;
+
+}
+.fa-search{
+    float: left;
+    padding-top: 10px;
+}
+#fa-2x {
+    font-size: 1.5em;
+}
+.search input {
+    float: left;
+    padding-left: 10px;
+    border: none;
+    height: 95%;
+    padding: 2px 0px;
+    background: white;
+    margin-left: 7px;
+
+}
+.search input:focus{
+    outline: none;
 }
 .page-nav {
     text-align: center;
@@ -471,6 +497,11 @@ body {
         font-size: 2.5vw;
     }
 }
+@media screen and (max-width: 910px){
+    #searchForm{
+        margin-top: 40px;
+    }
+}
 @media screen and (max-width: 867px){
     .nav li{
         font-size: 1.6vw;
@@ -540,14 +571,7 @@ body {
         padding: 0;
     }
 
-    .search {
-        font-size: 2vw;
-    }
 
-    .search input {
-        height: 30px;
-        margin-top: 34px;
-    }
 
     .cart-title a {
         padding-right: 5px;
@@ -587,9 +611,21 @@ body {
     }
     .nav li{
         display: block;
+        width: 150px;
+        margin: 0 auto;
     }
-    .search input{
+    #searchForm{
         height: 20px;
+        font-size: 16px;
+    }
+    .search-bar{
+     height: 35px;
+    }
+    .fa-search{
+        padding-top: 8px;
+    }
+    .search input[type="search"] {
+        width: 75%;
     }
 }
 
