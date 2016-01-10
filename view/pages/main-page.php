@@ -87,7 +87,7 @@ $tempProduct = new Product();
         		echo '<hr class="product-line">';
         		echo '<h3 class="product-name">'.substr($product->name,0,40).'</h3>';
         		echo '<span class="price">'.$product->price.'</span>';
-        		echo '<a href="#" class="addToCart">Add to Cart</a>';
+        		echo '<a href="controllers/addToCart.php?productid='.$product->id.'&name='.$product->name.'&price='.$product->price.'" class="addToCart">Add to Cart</a>';
         		echo '</div></div>';
 
                 if($counter == 4) {

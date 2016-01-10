@@ -55,7 +55,7 @@
             <div class="cart-title">
                 <ul>
                     <li>
-                        <i class="fa fa-shopping-bag"> </i> <a href="?page=cart">SHOPPING CART</a><span class="amount">0.00 <i class="fa fa-eur"></i> </span>
+                        <span class=""><i class="fa fa-shopping-bag"> </i> <a href="?page=cart">SHOPPING CART</a><span class="amount">0.00 <i class="fa fa-eur"></i> </span>
                     </li>
                 </ul>
             </div>
