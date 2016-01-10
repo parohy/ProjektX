@@ -133,7 +133,7 @@ $product = $productController->getProduct($_GET['product']);
         				$localPath = 'libraries/img/products/' . $product['productid'] . '/' . $product['productid'] . $alpha[$index] . '.jpg';
         				$width = $height = 100;
         				$alt = $product['productid'] . $alpha[$index] . '.jpg';
-        				echo '<td><a href="?page=productPreview&product=' . $product['productid'] . '&index='. $alpha[$index] . '"><img class="image-album" src="' . $path . '" alt="' . $alt . '" width="' . $width . '" height="' . $height . '"></a></td>';
+        				echo '<td><a href="?page=productPreview&product=' . $product['productid'] . '&index='. $alpha[$index] . '"><img class="image-album" src="' . $localPath . '" alt="' . $alt . '" width="' . $width . '" height="' . $height . '"></a></td>';
         				$index++;
         			}
         		?>
