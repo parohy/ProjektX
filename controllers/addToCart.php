@@ -11,40 +11,50 @@ if(isset($_GET['productid']) && isset($_GET['name']) && isset($_GET['price'])) {
     if(isset($_SESSION['cart'])) {
 
         $cartContent = $_SESSION['cart'];
-        array_push($cartContent,$_GET['productid']);
 
-        $sizeOfCart = sizeof($cartContent);
-        $sizeOfCart--;
+        $match = null;
+        $i = 0;
+        $product = $_GET['productid'];
 
-        $match = 0;
-        for($i = 0; $i <= $sizeOfCart; $i++) {
-            if($_GET['productid'] == $cartContent[$i]["productid"]) {
+        foreach($cartContent as $cart) {
+
+            $cartProduct = $cart['product'];
+
+            if($product === $cartProduct) {
                 $match = $i;
+                break;
             }
+            $i++;
         }
 
-        //if($match == 0) {
+        if($match == null) {
+            array_push($cartContent,$_GET['productid']);
+
+            $sizeOfCart = sizeof($cartContent);
+            $sizeOfCart--;
+
             $cartContent[$sizeOfCart] = array(
-                "productid"=>$_GET['productid'],
+                "product"=>$_GET['productid'],
                 "count"=>1,
                 "name" =>$_GET['name'],
                 "price"=>$_GET['price'],
             );
-        /*}
+        }
         else {
             $count = $cartContent[$match]['count'];
             $count = (int) $count;
             $count++;
             $cartContent[$match]['count'] = $count;
-        }*/
+        }
 
         $_SESSION['cart'] = $cartContent;
         var_dump($_SESSION['cart']);
-        //header("Location:../?page=productPreview&product=" . $_GET['product']);
+        header("Location:../?page=productPreview&product=" . $_GET['product']);
+        exit();
     }
     else {
         $cartContent = array(0=>array(
-            "productid"=>$_GET['productid'],
+            "product"=>$_GET['productid'],
             "count"=>1,
             "name" =>$_GET['name'],
             "price"=>$_GET['price']
@@ -53,7 +63,8 @@ if(isset($_GET['productid']) && isset($_GET['name']) && isset($_GET['price'])) {
         $_SESSION['cart'] = $cartContent;
 
         var_dump($_SESSION['cart']);
-        //header("Location:../?page=productPreview&product=" . $_GET['product']);
+        header("Location:../?page=productPreview&product=" . $_GET['product']);
+        exit();
     }
 }
 else {
