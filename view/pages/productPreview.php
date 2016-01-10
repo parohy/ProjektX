@@ -98,7 +98,7 @@ $product = $productController->getProduct($_GET['product']);
             <?php echo substr($product['description'],0,200);?>
             </span>-->
 
-            <form class="cost-form" action="controllers/addToCart.php?product=<?php echo $product['productid'] ?>" method="POST">
+            <form class="cost-form" action="controllers/addToCart.php?productid=<?php echo $product['productid'] ?>&name=<?php echo $product['name'] ?>&price=<?php echo $product['price'] ?>" method="POST">
                 <span class="cost">
                     <?php echo $product['price'] . ' €';?>
                 </span>
