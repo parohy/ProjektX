@@ -25,6 +25,7 @@
             foreach($cartContent as $cart) {
                 $numOfItems += $cart['count'];
                 $temp = floatval($cart['price']);
+                $temp *= $cart['count'];
                 $totalCost += $temp;
 
 

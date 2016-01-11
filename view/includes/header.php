@@ -63,10 +63,11 @@
 
                                 foreach($cartContent as $cart) {
                                     $temp = floatval($cart['price']);
+                                    $temp *= $cart['count'];
                                     $totalCost += $temp;
                                 }
 
-                                echo $totalCost + " EUR";
+                                echo $totalCost;
                             }
                             ?>
                             <i class="fa fa-eur"></i> </span>
