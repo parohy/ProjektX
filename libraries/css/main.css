@@ -86,6 +86,7 @@ body {
     color: #34A994;
 }
 .login-frame {
+    visibility: hidden;
     position: relative;
     width: 95%;
     height: 80%;
