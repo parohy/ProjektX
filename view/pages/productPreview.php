@@ -35,6 +35,8 @@ $product = $productController->getProduct($_GET['product']);
             
             ?>
     </div>
+	
+	
     
     <div id="about-product" class="group">
         
@@ -107,10 +109,11 @@ $product = $productController->getProduct($_GET['product']);
                 </div>
             </form>
         
+		
 
 
-        </div>
-
+    </div>
+		
     <div class="desc">
         <div class="description-title">
             <h2> DESCRIPTION</h2>
@@ -122,9 +125,9 @@ $product = $productController->getProduct($_GET['product']);
 
         </div>
         
-        <!-- album of pictures
+		<!-- album of pictures
         @author Tomas Paronai-->
-        <table>
+        <table class="pictable">
         	<tr>
         		<?php
         			$alpha = range('a','z');
@@ -139,6 +142,7 @@ $product = $productController->getProduct($_GET['product']);
         		?>
         	</tr>
         </table>
+        
         
     </div>
 
