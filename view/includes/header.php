@@ -68,6 +68,8 @@
                                 }
 
                                 echo $totalCost;
+                            } else {
+                                echo "0";
                             }
                             ?>
                             <i class="fa fa-eur"></i> </span>

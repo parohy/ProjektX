@@ -31,10 +31,10 @@
 
                 echo '<div class="product-body">';
                 echo '<div class="product-img">
-				        <img src="libraries/img/icons/blankproduct.png" alt="product blank icon" width="100" height="100">
+				        <img src="libraries/img/products/' . $cart['id'] . '/'.$cart['id'].'a.jpg" alt="product blank icon" width="100" height="100">
 			          </div>';
                 echo '<div class="product-name">
-				      '.$cart['name'].'
+				      <a href="?page=productPreview&product='.$cart['id'].'">'.$cart['name'].'</a>
 			          </div>';
                 echo '<div class="product-price">
 				        '.$cart['price'].' EUR
