@@ -41,7 +41,7 @@ class ProductDisplay
                             <hr class=\"product-line\">
                             <h3 class=\"product-name\">" . substr($res['name'],0,21) . "</h3>
                             <span class=\"price\">€ ".$res['price']."</span>
-                            <a href=\"#\" class=\"addToCart\">Add to Cart</a>
+                            <a href=\"controllers/addToCart.php?productid=".$res['productid']."&name=".$res['name']."&price=".$res['price']."\" class=\"addToCart\">Add to Cart</a>
                         </div>
                   </div>
                  ";
