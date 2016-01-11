@@ -29,5 +29,5 @@
             <li><input type="checkbox" name="hp"> HP</li>
             <li><input type="checkbox" name="samsung"> SAMSUNG</li>
         </ul>
-    </form> 
+    </form>
 </div>

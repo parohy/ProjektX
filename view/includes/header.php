@@ -55,7 +55,21 @@
             <div class="cart-title">
                 <ul>
                     <li>
-                        <span class=""><i class="fa fa-shopping-bag"> </i> <a href="?page=cart">SHOPPING CART</a><span class="amount">0.00 <i class="fa fa-eur"></i> </span>
+                        <i class="fa fa-shopping-bag"> </i> <a href="?page=cart">SHOPPING CART</a><span class="amount">
+                            <?php
+                            if(isset($_SESSION['cart'])) {
+                                $cartContent = $_SESSION['cart'];
+                                $totalCost = 0;
+
+                                foreach($cartContent as $cart) {
+                                    $temp = floatval($cart['price']);
+                                    $totalCost += $temp;
+                                }
+
+                                echo $totalCost + " EUR";
+                            }
+                            ?>
+                            <i class="fa fa-eur"></i> </span>
                     </li>
                 </ul>
             </div>
