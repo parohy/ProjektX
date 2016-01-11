@@ -439,11 +439,37 @@ body {
     line-height: 22px;
     list-style: none;
 }
-.social-icons {
-    margin-top: 20px;
+.mail{
+    text-decoration: none;
+    color:  #484848;
+    font-weight: 600;
 }
-.social-icons img:nth-child(n+2) {
-    padding-left: 16px;
+.mail:hover{
+    font-weight: bold;
+}
+.social-icons ul li{
+    display: inline-block;
+}
+.social-icons a {
+    display: block;
+    color:white;
+    background: #34A994;
+    font-size: 25px;
+    height: 25px;
+    width: 35px;
+    text-align: center;
+    border-radius: 5px;
+
+
+}
+.social-icons a:hover{
+    border: none;
+    color:  #34A994;
+    background: white;
+    border-radius: 5px;
+}
+.social-icons li:nth-child(n+2) {
+    margin-left: 10px;
 }
 .payment-icons {
     width: 400px;
