@@ -42,7 +42,7 @@
                 echo '<div class="product-qty">
 				        <input class="input" type="number" name="qty" min="1" max="99" value="'.$cart['count'].'">
 			          </div>';
-                echo '<a href="?page=cart&number='.$i.'">X</a>';
+                echo '<a href="?page=cart&number='.$i.'" class="removeItem">X</a>';
                 echo '</div>';
                 $i++;
             }
@@ -54,5 +54,5 @@
 	</div>
 	<a class="pro-button" href="?page=checkout">Proceed to checkout</a>
 	
-	
+	<script src="libraries/js/cart.js"></script>
 </div>
