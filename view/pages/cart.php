@@ -34,14 +34,15 @@
 				        <img src="libraries/img/products/' . $cart['id'] . '/'.$cart['id'].'a.jpg" alt="product blank icon" width="100" height="100">
 			          </div>';
                 echo '<div class="product-name">
-				      <a href="?page=productPreview&product='.$cart['id'].'">'.$cart['name'].'</a>
+				      <span class="namespan"><a href="?page=productPreview&product='.$cart['id'].'">'.$cart['name'].'</a></span>
 			          </div>';
                 echo '<div class="product-price">
 				        '.$cart['price'].' EUR
 			          </div>';
                 echo '<div class="product-qty">
 				        <input class="input" type="number" name="qty" min="1" max="99" value="'.$cart['count'].'">
-			          </div>';
+					  </div>
+					  <div class="kus"><a>kus</a></div>';
                 echo '<a href="?page=cart&number='.$i.'" class="removeItem">X</a>';
                 echo '</div>';
                 $i++;
