@@ -127,6 +127,7 @@ $product = $productController->getProduct($_GET['product']);
         
 		<!-- album of pictures
         @author Tomas Paronai-->
+        <script src="libraries/js/albumScript.js"></script>
         <table class="pictable">
         	<tr>
         		<?php
@@ -136,7 +137,8 @@ $product = $productController->getProduct($_GET['product']);
         				$localPath = 'libraries/img/products/' . $product['productid'] . '/' . $product['productid'] . $alpha[$index] . '.jpg';
         				$width = $height = 100;
         				$alt = $product['productid'] . $alpha[$index] . '.jpg';
-        				echo '<td><a href="?page=productPreview&product=' . $product['productid'] . '&index='. $alpha[$index] . '"><img class="image-album" src="' . $localPath . '" alt="' . $alt . '" width="' . $width . '" height="' . $height . '"></a></td>';
+        				//echo '<td><a href="?page=productPreview&product=' . $product['productid'] . '&index='. $alpha[$index] . '" onclick="changePic('.$alpha[$index].')"><img class="image-album" src="' . $localPath . '" alt="' . $alt . '" width="' . $width . '" height="' . $height . '"></a></td>';
+        				echo '<img class="image-album" src="' . $localPath . '" alt="' . $alt . '" width="' . $width . '" height="' . $height . '" onclick="changePic(\''.$alpha[$index].'\',\''.$product['productid'].'\')">';
         				$index++;
         			}
         		?>
