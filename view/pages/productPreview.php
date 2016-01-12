@@ -119,16 +119,11 @@ $product = $productController->getProduct($_GET['product']);
             <h2> DESCRIPTION</h2>
             
         </div>
-
-        <div class="description-text">
-            <?php echo $product['description'];?>
-
-        </div>
-        
-		<!-- album of pictures
+        	<!-- album of pictures
         @author Tomas Paronai-->
         <script src="libraries/js/albumScript.js"></script>
-        <table class="pictable">
+        <div class="pictable">
+        <table>
         	<tr>
         		<?php
         			$alpha = range('a','z');
@@ -138,13 +133,19 @@ $product = $productController->getProduct($_GET['product']);
         				$width = $height = 100;
         				$alt = $product['productid'] . $alpha[$index] . '.jpg';
         				//echo '<td><a href="?page=productPreview&product=' . $product['productid'] . '&index='. $alpha[$index] . '" onclick="changePic('.$alpha[$index].')"><img class="image-album" src="' . $localPath . '" alt="' . $alt . '" width="' . $width . '" height="' . $height . '"></a></td>';
-        				echo '<img class="image-album" src="' . $localPath . '" alt="' . $alt . '" width="' . $width . '" height="' . $height . '" onclick="changePic(\''.$alpha[$index].'\',\''.$product['productid'].'\')">';
+        				echo '<td><img class="image-album" src="' . $localPath . '" alt="' . $alt . '" width="' . $width . '" height="' . $height . '" onclick="changePic(\''.$alpha[$index].'\',\''.$product['productid'].'\')"></td>';
         				$index++;
         			}
         		?>
         	</tr>
         </table>
+        </div>
+        <div class="description-text">
+            <?php echo $product['description'];?>
+
+        </div>
         
+	
         
     </div>
 
