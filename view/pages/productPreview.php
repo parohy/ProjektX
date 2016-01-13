@@ -94,7 +94,27 @@ $product = $productController->getProduct($_GET['product']);
             ?>
             </div>
 
-            
+            <!-- album of pictures
+        @author Tomas Paronai-->
+        <script src="libraries/js/albumScript.js"></script>
+        <div class="pictable">
+        <table>
+        	<tr>
+        		<?php
+        			$alpha = range('a','z');
+        			$index = 0;
+        			while(file_exists('libraries/img/products/' . $product['productid'] . '/' . $product['productid'] . $alpha[$index] . '.jpg')){
+        				$localPath = 'libraries/img/products/' . $product['productid'] . '/' . $product['productid'] . $alpha[$index] . '.jpg';
+        				$width = $height = 50;
+        				$alt = $product['productid'] . $alpha[$index] . '.jpg';
+        				//echo '<td><a href="?page=productPreview&product=' . $product['productid'] . '&index='. $alpha[$index] . '" onclick="changePic('.$alpha[$index].')"><img class="image-album" src="' . $localPath . '" alt="' . $alt . '" width="' . $width . '" height="' . $height . '"></a></td>';
+        				echo '<td><img class="image-album" src="' . $localPath . '" alt="' . $alt . '" width="' . $width . '" height="' . $height . '" onclick="changePic(\''.$alpha[$index].'\',\''.$product['productid'].'\')"></td>';
+        				$index++;
+        			}
+        		?>
+        	</tr>
+        </table>
+        </div>
 
             <!--<span class="short-describtion">
             <?php echo substr($product['description'],0,200);?>
@@ -119,27 +139,7 @@ $product = $productController->getProduct($_GET['product']);
             <h2> DESCRIPTION</h2>
             
         </div>
-        	<!-- album of pictures
-        @author Tomas Paronai-->
-        <script src="libraries/js/albumScript.js"></script>
-        <div class="pictable">
-        <table>
-        	<tr>
-        		<?php
-        			$alpha = range('a','z');
-        			$index = 0;
-        			while(file_exists('libraries/img/products/' . $product['productid'] . '/' . $product['productid'] . $alpha[$index] . '.jpg')){
-        				$localPath = 'libraries/img/products/' . $product['productid'] . '/' . $product['productid'] . $alpha[$index] . '.jpg';
-        				$width = $height = 100;
-        				$alt = $product['productid'] . $alpha[$index] . '.jpg';
-        				//echo '<td><a href="?page=productPreview&product=' . $product['productid'] . '&index='. $alpha[$index] . '" onclick="changePic('.$alpha[$index].')"><img class="image-album" src="' . $localPath . '" alt="' . $alt . '" width="' . $width . '" height="' . $height . '"></a></td>';
-        				echo '<td><img class="image-album" src="' . $localPath . '" alt="' . $alt . '" width="' . $width . '" height="' . $height . '" onclick="changePic(\''.$alpha[$index].'\',\''.$product['productid'].'\')"></td>';
-        				$index++;
-        			}
-        		?>
-        	</tr>
-        </table>
-        </div>
+        	
         <div class="description-text">
             <?php echo $product['description'];?>
 
