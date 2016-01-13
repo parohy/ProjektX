@@ -16,7 +16,18 @@
 .product-brand{
     font-size: 20px;
     font-weight: 400;
-    padding-bottom: 25px;
+	padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.pictable{
+    display: inline-block;
+    vertical-align: middle;
+    
+}
+
+.pictable td{
+    border: 1px solid #d0d0d0;
 }
 
 #propic {
@@ -26,6 +37,7 @@
     right: 0;
     margin: auto;
     max-width: 310px;
+    border: 1px solid #d0d0d0;
 }
 
 .product-slider{
@@ -49,7 +61,8 @@
 }
 
 .product-ranking{
-    margin-bottom: 0px;
+    margin-bottom: 5px;
+	margin-left: 0;
 }
 
 .product-ranking img {
@@ -65,13 +78,14 @@
 }
 
 .cost{
-    width: 100%;
+    width: 180px;
     height: 100%;
     display: block;
     float: left;
-    padding-top: 16px;
-    padding-bottom: 16px;
-    text-align: left;
+    padding-top: 0px;
+	padding-left: 0px;
+    padding-bottom: 0px;
+    text-align: center;
     
     font-size: 48px;
     color:#34A994;
@@ -79,7 +93,7 @@
 
 .submit-input{
     height: 100%;
-    width: 170px;
+    width: 180px;
     
     display: block;
 }
@@ -108,21 +122,28 @@
 
 .desc{
     border-top: 1px solid #d0d0d0;
-    width: 90%;
+    width: 100%;
     margin: auto;
     text-align: center;
     padding-top: 20px;
     margin-bottom: 50px;
+    display: inline-block;
 }
 
 .description-title{
     text-align: center;
     margin-bottom: 20px;
+    
+    
 }
 
 .description-text{
     text-align: justify;
     text-justify: inter-word;
+    vertical-align: middle;
+    display: inline-block;
+    width: 90%;
+    
 }
 
 .group:before,
@@ -150,6 +171,11 @@
         
     }
 }
+
+@media screen and (max-width: 1160px) {
+    
+}
+
 
 @media screen and (max-width: 1025px) {
     #about-product{

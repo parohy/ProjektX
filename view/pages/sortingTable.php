@@ -30,15 +30,4 @@
             <li><input type="checkbox" name="samsung"> SAMSUNG</li>
         </ul>
     </form>
-
-    <form action="" method="GET">
-        <ul>
-            <li><span class="table-header">RATING</span></li>
-            <li><input type="checkbox" name="apple"> & UP</li>
-            <li><input type="checkbox" name="asus"> & UP</li>
-            <li><input type="checkbox" name="dell"> & UP</li>
-            <li><input type="checkbox" name="hp"> & UP</li>
-            <li><input type="checkbox" name="samsung"> & UP</li>
-        </ul>
-    </form>
 </div>

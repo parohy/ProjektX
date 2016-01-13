@@ -30,38 +30,86 @@
 	margin-bottom: 25px;
 	margin-left: auto;
 	margin-right: auto;
-	width: 80%;
+	width: 85%;
 	height: 100px;
+	display: block;
 }
 
 .product-img{
-	display: inline-block;
+	display:inline-block;
+	vertical-align:middle;
 	width:100px;
+	height:100px;
+	margin-left: 1%;
+	margin-right: 1%;
 }
 
-.product-name{
+.product-name {
 	font-family: 'Source Sans Pro', sans-serif;
-    font-size: 36px;
+    font-size: 28px;
     font-style: normal;
 	font-weight: 200;
 	color: #595959;
-	vertical-align: 40px;
 	display: inline-block;
 	width: 40%;
 	margin-left: auto;
 	margin-right: auto;
+	margin-top:0;
+	margin-bottom: 0;
+	vertical-align:middle;
 	text-align: center;
+	cursor: pointer; cursor: hand;
+	height: 100px;
+	
+}
+
+.namespan {
+  display: table-cell;
+  vertical-align: middle;
+  height: 100px;
+}
+
+.kus{
+	display: inline-block;
+	font-family: 'Source Sans Pro', sans-serif;
+    font-size: 28px;
+    font-style: normal;
+	font-weight: 200;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top:0;
+	margin-bottom: 0;
+	vertical-align:middle;
+}
+
+.removeItem{
+	display: inline-block;
+	font-family: 'Source Sans Pro', sans-serif;
+    font-size: 28px;
+    font-style: normal;
+	font-weight: 200;
+	margin-left: 1%;
+	margin-right: auto;
+	margin-top:0;
+	margin-bottom: 0;
+	vertical-align:middle;
+	text-decoration: none;
+}
+
+.product-name a {
+    color: #595959;
+    text-decoration: none;
 }
 
 .product-price{
 	display: inline-block;
-	width: 35%;
+	width: 25%;
 	margin-left: auto;
 	margin-right: auto;
-	vertical-align: 40px;
+	vertical-align:middle;
 	text-align: center;
 	font-family: 'Source Sans Pro', sans-serif;
-    font-size: 36px;
+    font-size: 30px;
     font-style: normal;
 	font-weight: 700;
 	color: #595959;
@@ -73,7 +121,7 @@
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 28px;
 	font-weight: 200;
-	vertical-align: 42px;
+	vertical-align:middle;
 }
 
 input[type="number"]{
@@ -130,4 +178,11 @@ input[type="number"]{
     color: #34A994;
     outline: none;
     cursor: pointer; cursor: hand;
+}
+
+@media screen and (max-width: 1120px) {
+    .product-name {
+	    font-size: 20px;
+		width: 30%;
+    }
 }

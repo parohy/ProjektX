@@ -25,23 +25,25 @@
             foreach($cartContent as $cart) {
                 $numOfItems += $cart['count'];
                 $temp = floatval($cart['price']);
+                $temp *= $cart['count'];
                 $totalCost += $temp;
 
 
                 echo '<div class="product-body">';
                 echo '<div class="product-img">
-				        <img src="libraries/img/icons/blankproduct.png" alt="product blank icon" width="100" height="100">
+				        <img src="libraries/img/products/' . $cart['id'] . '/'.$cart['id'].'a.jpg" alt="product blank icon" width="100" height="100">
 			          </div>';
                 echo '<div class="product-name">
-				      '.$cart['name'].'
+				      <span class="namespan"><a href="?page=productPreview&product='.$cart['id'].'">'.$cart['name'].'</a></span>
 			          </div>';
                 echo '<div class="product-price">
 				        '.$cart['price'].' EUR
 			          </div>';
                 echo '<div class="product-qty">
 				        <input class="input" type="number" name="qty" min="1" max="99" value="'.$cart['count'].'">
-			          </div>';
-                echo '<a href="?page=cart&number='.$i.'">X</a>';
+					  </div>
+					  <div class="kus"><a>kus</a></div>';
+                echo '<a href="?page=cart&number='.$i.'" class="removeItem">X</a>';
                 echo '</div>';
                 $i++;
             }
@@ -53,5 +55,5 @@
 	</div>
 	<a class="pro-button" href="?page=checkout">Proceed to checkout</a>
 	
-	
+	<script src="libraries/js/cart.js"></script>
 </div>
