@@ -89,10 +89,10 @@ $(function() {
     function adjustThumbnail()
     {
         $(".thumbnailImage").each(function(){
-            var maxWidth = $(".product-photo").width() - 20;
-            var maxHeight = $(".product-photo").height() - 20;
+            var maxWidth = $(".product-photo").width() - 30;
+            var maxHeight = $(".product-photo").height() - 30;
 
-            var ratio = 0;
+            var ratio;
             var width = $(this).width();
             var height = $(this).height();
 
@@ -106,15 +106,17 @@ $(function() {
                 ratio = maxHeight / height;
                 $(this).css("height", maxHeight);
                 $(this).css("width", width * ratio);
+                height *= ratio;
                 width *= ratio;
             }
+            
+            var marginY = ((maxHeight+30) - height) / 2;
+            var marginX = ((maxWidth+30) - width) / 2;
 
-            var newWidth = this.width;
-            var newHeight = this.height;
-
-            var marginTop = ((maxHeight+20) - newHeight) / 2;
-            var marginLeft = ((maxWidth+20) - newWidth) / 2;
-            $(".thumbnailImage").css({"margin-top":marginTop+"px","margin-left":marginLeft+"px"});
+            $(this).css({"margin-top":marginY + "px",
+                         "margin-right":marginX + "px",
+                         "margin-bottom":marginY + "px",
+                         "margin-left":marginX + "px"}); 
         });
     }
 });
