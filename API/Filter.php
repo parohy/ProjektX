@@ -87,13 +87,11 @@ class Filter{
         $this->handlerDB->query("SELECT productid FROM products WHERE price>=:min && price<:max && :categoryquery && :brandquery ORDER BY :sortquery");
         $this->handlerDB->bind(':min', $this->minprice);
         $this->handlerDB->bind(':max', $this->maxprice);
-        $this->handlerDB->bind(':categoryquery', $categoryquery);
-        $this->handlerDB->bind(':brandquery', $brandquery);
-        $this->handlerDB->bind(':sortquery', $sortquery);
+        $this->handlerDB->bind(':categoryquery', categoryQuery());
+        $this->handlerDB->bind(':brandquery', brandQuery());
+        $this->handlerDB->bind(':sortquery', sortQuery());
+        $results = $this->handlerDB->resultSet();
         $db->execute();
-    }
-    
-    
-    
+        return $results;
+    }   
 }
-
