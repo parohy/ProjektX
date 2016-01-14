@@ -2,7 +2,18 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,600,700,900&subset=latin,latin-ext);
 
 .error {
+    position: absolute;
     color: #FF0000;
+    margin-top: 3%;
+    right: 2%;
+    font-size: 22px;
+}
+
+#errorMessage {
+    color: #FF0000;
+    margin: 2% 5% 0 0%;
+    float: right;
+    font-size: 22px;
 }
 
 .checkoutpage{
@@ -42,16 +53,24 @@
 }
 
 .formular-link{
-    display: block;
-    margin-bottom: 5px;
+    font-size: 36px;
+    font-weight: 200;
+    list-style-type: none;
+    display: inline-block;
+    margin-top: 1%;
     line-height: 60px;
     letter-spacing: 2px;
 }
 
+#checkoutForm {
+    margin-top: 1%;
+}
+
 .form-inp{
+    float: right;
     padding-left: 35px;
     display: inline-block;
-    width: 69%;
+    width: 100%;
     font-weight: 200;
     border-right: 1px solid #ccc;
     margin-top: -25%;
@@ -59,17 +78,19 @@
 }
 
 input[type="text"]{
-   display: block;
-   width: 80%;
+   float: right;
+   width: 50%;
    font-family: 'Source Sans Pro', sans-serif;
    font-size: 25px;
    font-weight: 200;
-   margin-bottom: 12px;
+   margin: 2% 5% 0 0;
    line-height: 50px;
+   padding-left: 2%;
 }
 
 
 .text-bar{
+    position: relative;
     list-style-type: none;
 }
 

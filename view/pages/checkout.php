@@ -33,7 +33,7 @@ if(isset($_SESSION['userid'])){
     </div>
     <div class="checkout-body">
 		<div class="leftside">
-		    <ul class="nav-bar">
+		    <!--<ul class="nav-bar">
     			<li><a class="formular-link">NAME</a></li>
     			<li><a class="formular-link">SURNAME</a></li>
     			<li><a class="formular-link">EMAIL</a></li>
@@ -41,36 +41,47 @@ if(isset($_SESSION['userid'])){
     			<li><a class="formular-link">ADDRESS</a></li>
     			<li><a class="formular-link">CITY</a></li>
     			<li><a class="formular-link">PSC</a></li> 
-		    </ul>
+		    </ul>-->
             <form class="form-inp" action="API/CheckoutSave.php" method="post" id="checkoutForm">
     			<ul class="text-bar">
                     <li>
-                        <input class="input" type="text" id="checkoutName" name="name" value="<?php echo $name;?>">
-                        <span class="error" id="checkoutNameError"><span>
+                        <a class="formular-link">NAME</a>
+                        <input class="input" type="text" id="checkoutName" name="name" placeholder="Name" value="<?php echo $name;?>">
+                        <span class="error" id="checkoutNameError"></span>
                     </li>
                     <li>
-                        <input class="input" type="text" id="checkoutSurname" name="surname" value="<?php echo $surname;?>">
-                        <span class="error" id="checkoutSurnameError"><span>
+                        <a class="formular-link">SURNAME</a>
+                        <span class="error" id="checkoutSurnameError"></span>
+                        <input class="input" type="text" id="checkoutSurname" name="surname" placeholder="Surname" value="<?php echo $surname;?>">
+                        
                     </li>
                     <li>
-                        <input class="input" type="text" id="checkoutEmail" name="email" value="<?php echo $email;?>">
-                        <span class="error" id="checkoutEmailError"><span>
+                        <a class="formular-link">EMAIL</a>
+                        <input class="input" type="text" id="checkoutEmail" name="email" placeholder="yourmail@address.com" value="<?php echo $email;?>">
+                        <span class="error" id="checkoutEmailError"></span>
                     </li>
                     <li>
-                        <input class="input" type="text" id="checkoutPhone" name="phone" value="<?php echo $phone;?>">
-                        <span class="error" id="checkoutPhoneError"><span>
+                        <a class="formular-link">PHONE</a>
+                        <input class="input" type="text" id="checkoutPhone" name="phone" placeholder="09XX 123 456" value="<?php echo $phone;?>">
+                        <span class="error" id="checkoutPhoneError"></span>
                     </li>
                     <li>
-                        <input class="input" type="text" id="checkoutAddress" name="address" value="<?php echo $address;?>">
-                        <span class="error" id="checkoutAddressError"><span>
+                        <a class="formular-link">ADDRESS</a>
+                        <input class="input" type="text" id="checkoutAddress" name="address" placeholder="Address (number)" value="<?php echo $address;?>">
+                        <span class="error" id="checkoutAddressError"></span>
                     </li>
                     <li>
-                        <input class="input" type="text" id="checkoutCity" name="city" value="<?php echo $city;?>">
-                        <span class="error" id="checkoutCityError"><span>
+                        <a class="formular-link">CITY</a>
+                        <input class="input" type="text" id="checkoutCity" name="city" placeholder="City" value="<?php echo $city;?>">
+                        <span class="error" id="checkoutCityError"></span>
                     </li>
                     <li>
-                        <input class="input" type="text" id="checkoutPsc" name="psc" value="<?php echo $psc;?>">
-                        <span class="error" id="checkoutPscError"><span>
+                        <a class="formular-link">PSC</a> 
+                        <input class="input" type="text" id="checkoutPsc" name="psc" placeholder="Postcode" value="<?php echo $psc;?>">
+                        <span class="error" id="checkoutPscError"></span>
+                    </li>
+                    <li>
+                        <span id="errorMessage"></span>
                     </li>
     			</ul>
 		    </form>    
