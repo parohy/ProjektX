@@ -52,6 +52,8 @@ class ProductDisplay
             }
         }
         echo "</div>";
+
+        adjustThumbnail();
     }
 
 }

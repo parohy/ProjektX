@@ -84,37 +84,37 @@ $(function() {
         {
             adjustThumbnail();
         });
-    });
-
-    function adjustThumbnail()
-    {
-        $(".thumbnailImage").each(function(){
-            var maxWidth = $(".product-photo").width() - 20;
-            var maxHeight = $(".product-photo").height() - 20;
-
-            var ratio = 0;
-            var width = $(this).width();
-            var height = $(this).height();
-
-            ratio = maxWidth / width;
-            $(this).css("width", maxWidth);
-            $(this).css("height", height * ratio);
-            height *= ratio;
-            width *= ratio;
-
-            if(height > maxHeight){
-                ratio = maxHeight / height;
-                $(this).css("height", maxHeight);
-                $(this).css("width", width * ratio);
-                width *= ratio;
-            }
-
-            var newWidth = this.width;
-            var newHeight = this.height;
-
-            var marginTop = ((maxHeight+20) - newHeight) / 2;
-            var marginLeft = ((maxWidth+20) - newWidth) / 2;
-            $(".thumbnailImage").css({"margin-top":marginTop+"px","margin-left":marginLeft+"px"});
-        });
-    }
+    });    
 });
+
+function adjustThumbnail()
+{
+    $(".thumbnailImage").each(function(){
+        var maxWidth = $(".product-photo").width() - 20;
+        var maxHeight = $(".product-photo").height() - 20;
+
+        var ratio = 0;
+        var width = $(this).width();
+        var height = $(this).height();
+
+        ratio = maxWidth / width;
+        $(this).css("width", maxWidth);
+        $(this).css("height", height * ratio);
+        height *= ratio;
+        width *= ratio;
+
+        if(height > maxHeight){
+            ratio = maxHeight / height;
+            $(this).css("height", maxHeight);
+            $(this).css("width", width * ratio);
+            width *= ratio;
+        }
+
+        var newWidth = this.width;
+        var newHeight = this.height;
+
+        var marginTop = ((maxHeight+20) - newHeight) / 2;
+        var marginLeft = ((maxWidth+20) - newWidth) / 2;
+        $(".thumbnailImage").css({"margin-top":marginTop+"px","margin-left":marginLeft+"px"});
+    });
+}
