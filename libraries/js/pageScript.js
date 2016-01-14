@@ -76,7 +76,7 @@ $(function() {
     /*
     * Prduct items
     */
-    $(document).ready(function()
+    $(window).ready(function()
     {
         adjustThumbnail();
 
@@ -84,39 +84,35 @@ $(function() {
         {
             adjustThumbnail();
         });
-    });
+    });    
+});
 
-    function adjustThumbnail()
-    {
-        $(".thumbnailImage").each(function(){
-            var maxWidth = $(".product-photo").width() - 30;
-            var maxHeight = $(".product-photo").height() - 30;
+function adjustThumbnail()
+{
+    $(".thumbnailImage").each(function(){
+        var maxWidth = $(".product-photo").width() - 20;
+        var maxHeight = $(".product-photo").height() - 20;
 
-            var ratio;
-            var width = $(this).width();
-            var height = $(this).height();
+        var ratio;
+        var width = $(this).width();
+        var height = $(this).height();
 
-            ratio = maxWidth / width;
-            $(this).css("width", maxWidth);
-            $(this).css("height", height * ratio);
+        ratio = maxWidth / width;
+        $(this).css("width", maxWidth);
+        $(this).css("height", height * ratio);
+        height *= ratio;
+        width *= ratio;
+
+        if(height > maxHeight){
+            ratio = maxHeight / height;
+            $(this).css("height", maxHeight);
+            $(this).css("width", width * ratio);
             height *= ratio;
             width *= ratio;
+        }
 
-            if(height > maxHeight){
-                ratio = maxHeight / height;
-                $(this).css("height", maxHeight);
-                $(this).css("width", width * ratio);
-                height *= ratio;
-                width *= ratio;
-            }
-            
-            var marginY = ((maxHeight+30) - height) / 2;
-            var marginX = ((maxWidth+30) - width) / 2;
-
-            $(this).css({"margin-top":marginY + "px",
-                         "margin-right":marginX + "px",
-                         "margin-bottom":marginY + "px",
-                         "margin-left":marginX + "px"}); 
-        });
-    }
-});
+        var marginTop = ((maxHeight+20) - height) / 2;
+        var marginLeft = ((maxWidth+20) - width) / 2;
+        $(this).css({"margin-top":marginTop+"px","margin-left":marginLeft+"px"});
+    });
+}

@@ -20,5 +20,7 @@ if(isset($_SESSION['results'])) {
     echo $_SESSION['noresults'];
 }
 ?>
+<script src="libraries/js/pageScript.js"></script>
+
 
 <link rel="stylesheet" type="text/css" href="libraries/css/search-style.css">

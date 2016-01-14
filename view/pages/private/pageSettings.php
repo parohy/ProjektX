@@ -15,6 +15,7 @@ if($_SESSION['username'] != "admin") {
     <ul>
         <li><a href="?page=private/pageSettings&settings=users">Users</a></li>
         <li><a href="?page=private/pageSettings&settings=statistics">Statistics</a></li>
+        <li><a href="?page=private/pageSettings&settings=addProduct">Add product</a></li>
     </ul>
 </nav>
 </aside>
@@ -29,6 +30,9 @@ if($_SESSION['username'] != "admin") {
 
     if($settings == "" || $settings == "statistics") {
         include 'view/pages/private/statistics.php';
+    }
+    else if($settings == "addProduct") {
+        include 'view/pages/private/addProduct.php';
     }
     else {
         $fileName = $settings . '.php';

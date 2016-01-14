@@ -16,6 +16,7 @@ class Category{
         public $error=null;
         public $name;
         public $parent;
+        public $alldescendants=array();
 
 	/**
 	 * Creates an CategoryHandler instance with optional $id parameter
@@ -25,7 +26,11 @@ class Category{
         public function __construct($id=null){
             $this->handlerDB = new DBHandler();
             $this->id=$id;
+            if($this->id!=null){
+                $this->getDescendants($this->id);
+            }
             $this->load();
+            
 	}
 
 	/**
@@ -35,7 +40,7 @@ class Category{
         
         public function load() {
             if($this->id != null){
-                $this->handlerDB->query("SELECT * FROM categories where categoryid=:id");
+                $this->handlerDB->query("SELECT * FROM categories WHERE categoryid=:id");
                 $this->handlerDB->bind(":id", $this->id);
                 $categories = $this->handlerDB->resultSet();
                 if (count($categories)==1) {
@@ -79,5 +84,18 @@ class Category{
                 $this->handlerDB->query("DELETE FROM categories WHERE categoryid LIKE '%".$this->id."%'");
             }
             $this->handlerDB->execute();   
+        }
+        
+        public function getDescendants($id) {
+            $this->handlerDB->query("SELECT categoryid FROM categories WHERE parent=:id");
+            $this->handlerDB->bind(":id", $id);
+            $categories = $this->handlerDB->resultSet();
+            if(count($categories>=1)){
+                    foreach($categories as $cat){
+                    $this->alldescendants[]=$cat['categoryid'];
+                   
+                    $this->getDescendants($cat['categoryid']);
+                }
+            }         
         }
 }

@@ -1,6 +1,8 @@
 .main {
     min-height: 500px;
 }
+
+
 .side-nav {
     width: 20%;
     height: 100%;
@@ -10,7 +12,7 @@
 .admin-nav {
     width: 90%;
     height: 300px;
-    margin: 30px;
+    margin-top: 30px;
     border: 1px solid #cacaca;
     background: #fff;
 }
@@ -48,7 +50,10 @@
 .admin-panel {
     width: 80%;
     height: 100%;
-    float: right;
+    float: left;
+    text-align: center;
+    border-top: 1px solid #CACACA;
+    margin-top: 30px;
 }
 
 .users {
@@ -82,26 +87,84 @@
 }
 
 .userView {
-	list-style-type: none;
+    list-style-type: none;
 }
 
 .view{
-	padding-top: 20px;
-	margin-left: 30px;
+    padding-top: 20px;
+    margin-left: 30px;
 }
 
 .view-controls{
-	margin-right: 10px;
+    margin-right: 10px;
 }
 
 .paging{
-	display:block;
-	margin-left:auto;
-	margin-right:auto;
-	text-align:center;
-	margin-top:20px;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+    margin-top:20px;
 }
 
 .page{
-	padding-right:10px;
+    padding-right:10px;
+}
+/*ADD PRODUCT CSS*/
+
+.addProductForm ul li{
+    list-style: none;
+    margin-top: 15px;
+}
+.addProductForm ul li label{
+    display: block;
+}
+.addProductForm ul li input,textarea{
+    width: 50%;
+    max-width: 250px;
+    height: 35px;
+}
+.addProductForm ul li textarea{
+    width: 50%;
+    max-width: 250px;
+    height: 80px;
+}
+.submit-button{
+    background: white;
+    width: 150px;
+    height: 35px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background: #34A994;
+    border-style: none;
+    color: white;
+    outline: none;
+    cursor: pointer; cursor: hand;
+}
+.submit-button:hover{
+    background-color: #fbfbfb;
+    border: 3px solid #34A994;
+    color: #34A994;
+    outline: none;
+    cursor: pointer; cursor: hand;
+}
+.categories{
+    width: 250px;
+    margin: 0 auto;
+}
+.category{
+    float: left;
+}
+.category select{
+    width: 100px;
+    height: 35px;
+}
+.subcategory{
+    float: left;
+    margin-left: 20px;
+}
+.subcategory select{
+    width: 100px;
+    height: 35px;
 }
