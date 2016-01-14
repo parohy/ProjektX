@@ -76,7 +76,7 @@ $(function() {
     /*
     * Prduct items
     */
-    $(document).ready(function()
+    $(window).ready(function()
     {
         adjustThumbnail();
 
@@ -93,7 +93,7 @@ function adjustThumbnail()
         var maxWidth = $(".product-photo").width() - 20;
         var maxHeight = $(".product-photo").height() - 20;
 
-        var ratio = 0;
+        var ratio;
         var width = $(this).width();
         var height = $(this).height();
 
@@ -107,14 +107,12 @@ function adjustThumbnail()
             ratio = maxHeight / height;
             $(this).css("height", maxHeight);
             $(this).css("width", width * ratio);
+            height *= ratio;
             width *= ratio;
         }
 
-        var newWidth = this.width;
-        var newHeight = this.height;
-
-        var marginTop = ((maxHeight+20) - newHeight) / 2;
-        var marginLeft = ((maxWidth+20) - newWidth) / 2;
-        $(".thumbnailImage").css({"margin-top":marginTop+"px","margin-left":marginLeft+"px"});
+        var marginTop = ((maxHeight+20) - height) / 2;
+        var marginLeft = ((maxWidth+20) - width) / 2;
+        $(this).css({"margin-top":marginTop+"px","margin-left":marginLeft+"px"});
     });
 }
