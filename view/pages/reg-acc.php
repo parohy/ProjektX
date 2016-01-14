@@ -48,7 +48,7 @@ $_SESSION['captcha'] = $a + $b;
         <li><span id="pass-err"></span></li>
         <li><input class="input" type="password" placeholder="password" name="password" id="pass1"></li>
         <li><input class="input" type="password" placeholder="password" name="password" id="pass2"></li>
-        <li><?php echo $a.' + '.$b.' = ';?><input class="input" type="number" name="captcha" id="captcha"></li>
+        <li><?php echo $a.' + '.$b.' = ';?><input class="input" type="number" placeholder="I am not a robot" name="captcha" id="captcha"></li>
         <li><input type="submit" class="submit-button" value="REGISTER"></li>
     </ul>
 </form>
