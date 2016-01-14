@@ -57,9 +57,9 @@ if(isset($_GET['login']) && $_GET['login'] == 'false') {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width = device-width, initial-scale = 1">
     <title>Viatech</title>
+    <link rel="icon" type="image/png" href="libraries/img/icons/logoV-16.png" sizes="16x16" />
     <link rel="stylesheet" type="text/css" href="libraries/css/main.css">
-    <link rel="stylesheet" href="libraries/css/font-awesome.css">
-    <link rel="stylesheet" href="libraries/fonts">
+    <link rel="stylesheet" type="text/css" href="libraries/css/font-awesome.css">
 
     <script src="libraries/js/jquery-1.11.3.min.js"></script>
 </head>
