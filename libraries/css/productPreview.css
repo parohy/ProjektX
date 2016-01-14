@@ -16,7 +16,8 @@
 .product-brand{
     font-size: 20px;
     font-weight: 400;
-    padding-bottom: 25px;
+	padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .pictable{
@@ -60,7 +61,7 @@
 }
 
 .product-ranking{
-    margin-bottom: 0px;
+    margin-bottom: 5px;
 	margin-left: 0;
 }
 
@@ -77,13 +78,14 @@
 }
 
 .cost{
-    width: 100%;
+    width: 180px;
     height: 100%;
     display: block;
     float: left;
-    padding-top: 16px;
-    padding-bottom: 16px;
-    text-align: left;
+    padding-top: 0px;
+	padding-left: 0px;
+    padding-bottom: 0px;
+    text-align: center;
     
     font-size: 48px;
     color:#34A994;
@@ -91,7 +93,7 @@
 
 .submit-input{
     height: 100%;
-    width: 170px;
+    width: 180px;
     
     display: block;
 }
@@ -131,7 +133,7 @@
 .description-title{
     text-align: center;
     margin-bottom: 20px;
-    margin-left: 39%;
+    
     
 }
 
@@ -140,7 +142,7 @@
     text-justify: inter-word;
     vertical-align: middle;
     display: inline-block;
-    width: 60%;
+    width: 90%;
     
 }
 
@@ -171,15 +173,7 @@
 }
 
 @media screen and (max-width: 1160px) {
-    .description-title{
-        margin-left: 0%;
-    }
-    .description-text{
-        width: 90%;
-    }
-    .pictable{
-        padding-bottom: 20px; 
-    }
+    
 }
 
 
