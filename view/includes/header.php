@@ -16,7 +16,7 @@
 <div class="group top">
     <div class="welcome">
         <?php
-        if(isset($_SESSION['loggedin'])) {
+        if(isset($_SESSION['loggedin']) && isset($_SESSION['username'])) {
             if($_SESSION['loggedin'] == "true") {
                 if($_SESSION['username'] == "admin") {
                     echo '<span class="welcome-label"><img src="libraries/img/icons/user icon.png"><strong class="welcome-buttons"><a href="?page=private/pageSettings">PAGE SETTINGS</a></strong> / <strong class="welcome-buttons"><a href="?login=false">LOG OUT</a></strong></span>';

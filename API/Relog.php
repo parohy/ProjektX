@@ -28,6 +28,13 @@ if($_GET['register'] == 'registration'){
 	$surname = $check->dumpSpecialChars($_POST['last-name']);
 	$email = $check->dumpSpecialChars($_POST['mail']);
 	$password = $check->dumpSpecialChars($_POST['password']);
+	echo $_SESSION['captcha'] . ' ' . $_POST['captcha'];
+	
+	if(!isset($_SESSION['captcha']) || $_SESSION['captcha'] != intval($_POST['captcha'])){
+		$_SESSION['registerErr'] = "Wrong captcha.";		
+		header('Location:  ../?page=reg-acc&name='.$name.'&surname='.$surname.'&email='.$email);
+		exit();
+	}
 	
 	if(errorControl($name, $surname, $email, $password)){
 		/*handle for saving user information into the database*/
@@ -37,7 +44,13 @@ if($_GET['register'] == 'registration'){
 	}
 	else{
 		$_SESSION['registerErr'] = "Registration failed.";
-		header('Location:  ../?page=reg-acc&name='.$name.'&surname='.$surname.'&email='.$email.'#tab1');
+		unset($_SESSION['username']);
+		unset($_SESSION['loggedin']);
+		unset($_SESSION['userid']);
+		if(isset($user)){
+			unset($user);
+		}		
+		header('Location:  ../?page=reg-acc&name='.$name.'&surname='.$surname.'&email='.$email);
 		exit();
 	}
 	
@@ -46,9 +59,10 @@ if($_GET['register'] == 'registration'){
 		
 		/*login after registration*/
 		$_SESSION['loggedin'] = true;
-		$_SESSION['username'] = $user->getData('name');
-		$_SESSION['userid'] = $user->getId();
-		
+		if(isset($user)){
+			$_SESSION['username'] = $user->getData('name');
+			$_SESSION['userid'] = $user->getId();
+		}	
 		header('Location:  ../index.php');
 		exit();
 	}
