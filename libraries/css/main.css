@@ -19,7 +19,8 @@ html {
     box-sizing: inherit;
 }
 body {
-    width: 100%;
+   max-width: 1750px;
+    min-width: 1350px;
     height: 100%;
     color: #595959;
     font-family: 'Source Sans Pro', sans-serif;
@@ -29,7 +30,6 @@ body {
 }
 .container {
     width: 60%;
-    max-width: 1920px;
     height: 100%;
     margin: 0 auto;
 }
@@ -306,9 +306,9 @@ body {
 }
 .controls ul li {
     display: inline-block;
-    height: 100%;
-    width: 350px;
-    font-size: 45px;
+    height: 80%;
+    width: 30%;
+    /*font-size: 30px;*/
     list-style-type: none;
     border-right: 1px solid #cacaca;
 }
@@ -452,19 +452,20 @@ body {
 }
 .social-icons a {
     display: block;
-    color:white;
-    background: #34A994;
+    color: white;
+    background: #595959;
     font-size: 25px;
-    height: 25px;
-    width: 35px;
+    height: 27px;
+    width: 40px;
     text-align: center;
     border-radius: 5px;
+    padding-top: 2px;
 
 
 }
 .social-icons a:hover{
     border: none;
-    color:  #34A994;
+    color:   #595959;
     background: white;
     border-radius: 5px;
 }
@@ -496,13 +497,19 @@ body {
 
 
 /************************ RESPONSIVE DESIGN ***************************/
+
 @media screen and (max-width: 1650px) {
     .container {
         width: 65%;
     }
     .controls ul li {
-        width: 310px;
-        font-size: 38px;
+        width: 30%;
+        font-size: 33px;
+    }
+}
+@media screen and (min-width: 1600px){
+    .controls ul li{
+        font-size: 33px;
     }
 }
 @media screen and (max-width: 1366px) {
@@ -510,9 +517,9 @@ body {
         width: 70%;
     }
     .controls ul li {
-        height: 80%;
+        height: 70%;
         width: 30%;
-        font-size: 30px;
+
     }
     .link {
         font-size: 2.5vw;
@@ -617,7 +624,7 @@ body {
     }
 
     .controls ul li {
-        height: 50%;
+        height: 80%;
 
     }
 
@@ -630,6 +637,15 @@ body {
         height: auto;
         padding-bottom: 0;
     }
+    .controls ul li{
+        width: 50%;
+        border: none;
+
+    }
+    .link{
+        font-size: 22px;
+    }
+
     .nav li{
         display: block;
         width: 150px;
@@ -658,12 +674,4 @@ body {
 
     }
 
-    .link {
-        font-size: 4vw;
-    }
-    .controls ul li {
-        width: 50%;
-        border: none;
-
-    }
 }
