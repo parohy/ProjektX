@@ -20,7 +20,7 @@ if(isset($_GET['userid'])){
 // DO EDIT USER ?>
 <link rel="stylesheet" href="libraries/css/editUser.css">
 
-<form id="profile" action="<?php echo $path;?>" method="POST">
+<form id="profile" action="<?php echo $scriptPath;?>" method="POST">
 
     <fieldset id="edit-profile">
         <legend>EDIT PROFILE</legend>
