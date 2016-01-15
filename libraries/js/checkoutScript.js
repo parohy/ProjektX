@@ -14,12 +14,13 @@ function checkFields()
 	var nameTest = /^[A-Za-z]{2,50}$/;
 	var surnameTest = /^[A-Za-z]{2,50}$/;
 	var emailTest = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i;
-	var phoneTest = /^[0-9-()+]{8,20}$/;
+	var phoneTest = /^[0-9-()+]{5,20}$/;
 	var addressTest = /^([A-Z]*[a-z]+)( [A-Z]*[a-z]+)* \d+$/;
 	var cityTest = /^([A-Z]*[a-z]+)( [A-Z]*[a-z]+)*$/;
 	var pscTest = /^[0-9]{5}$/;
 
 	var incomplete = false;
+	var invalid = "";
 
 	$("#checkoutNameError").html("");
 	$("#checkoutSurnameError").html("");
@@ -28,115 +29,121 @@ function checkFields()
 	$("#checkoutAddressError").html("");
 	$("#checkoutCityError").html("");
 	$("#checkoutPscError").html("");
+	$("#errorMessage").html("");
 
 	var name = $.trim($("#checkoutName").val());
 	if(name)
 	{
-		if(!nameTest.test(name))
+		if(!nameTest.test(name) && invalid === "")
 		{
-			$("#checkoutNameError").html("Invalid name format");
-			incomplete = true;
+			invalid = "Invalid name format";
+			$("#checkoutNameError").html("*");
 		}
 	}
 	else
 	{
-		$("#checkoutNameError").html("Name is required");
+		$("#checkoutNameError").html("*");
 		incomplete = true;
 	}
 
 	var surname = $.trim($("#checkoutSurname").val());
 	if(surname)
 	{
-		if(!surnameTest.test(surname))
+		if(!surnameTest.test(surname) && invalid === "")
 		{
-			$("#checkoutSurnameError").html("Invalid surname format");
-			incomplete = true;
+			invalid = "Invalid surname format";
+			$("#checkoutSurnameError").html("*");
 		}
 	}
 	else
 	{
-		$("#checkoutSurnameError").html("Surname is required");
+		$("#checkoutSurnameError").html("*");
 		incomplete = true;
 	}
 
 	var email = $.trim($("#checkoutEmail").val());
 	if(email)
 	{
-		if(!emailTest.test(email))
+		if(!emailTest.test(email) && invalid === "")
 		{
-			$("#checkoutEmailError").html("Invalid email format");
-			incomplete = true;
+			invalid = "Invalid email format";
+			$("#checkoutEmailError").html("*");
 		}
 	}
 	else
 	{
-		$("#checkoutEmailError").html("Email is required");
+		$("#checkoutEmailError").html("*");
 		incomplete = true;
 	}
 
-	var phone = $.trim($("#checkoutPhone").val());
+	var phone = $.trim($("#checkoutPhone").val().replace(/\s+/g, ''));
 	if(phone)
 	{
-		if(!phoneTest.test(phone))
+		if(!phoneTest.test(phone) && invalid === "")
 		{
-			$("#checkoutPhoneError").html("Invalid phone number format");
-			incomplete = true;
+			invalid = "Invalid phone number format";
+			$("#checkoutPhoneError").html("*");
 		}
 	}
 	else
 	{
-		$("#checkoutPhoneError").html("Phone number is required");
+		$("#checkoutPhoneError").html("*");
 		incomplete = true;
 	}
 
-	var address = $("#checkoutAddress").val();
+	var address = $.trim($("#checkoutAddress").val());
 	if(address)
 	{
-		if(!addressTest.test(address))
+		if(!addressTest.test(address) && invalid === "")
 		{
-			$("#checkoutAddressError").html("Invalid address format");
-			incomplete = true;
+			invalid = "Invalid address format";
+			$("#checkoutAddressError").html("*");
 		}
 	}
 	else
 	{
-		$("#checkoutAddressError").html("Address is required");
+		$("#checkoutAddressError").html("*");
 		incomplete = true;
 	}
 
-	var city = $("#checkoutCity").val();
+	var city = $.trim($("#checkoutCity").val());
 	if(city)
 	{
-		if(!cityTest.test(city))
+		if(!cityTest.test(city) && invalid === "")
 		{
-			$("#checkoutCityError").html("Invalid city format");
-			incomplete = true;
+			invalid = "Invalid city format";
+			$("#checkoutCityError").html("*");
 		}
 	}
 	else
 	{
-		$("#checkoutCityError").html("City is required");
+		$("#checkoutCityError").html("*");
 		incomplete = true;
 	}
 
-	var psc = $.trim($("#checkoutPsc").val());
+	var psc = $.trim($("#checkoutPsc").val().replace(/\s+/g, ''));
 	if(psc)
 	{
-		if(!pscTest.test(psc))
+		if(!pscTest.test(psc) && invalid === "")
 		{
-			$("#checkoutPscError").html("Invalid postcode format");
-			incomplete = true;
+			invalid = "Invalid postcode format";
+			$("#checkoutPscError").html("*");
 		}
 	}
 	else
 	{
-		$("#checkoutPscError").html("Postcode is required");
+		$("#checkoutPscError").html("*");
 		incomplete = true;
 	}
 
 	if(incomplete)
 	{
+		$("#errorMessage").html("* All fields are required");
 		return false;
+	}
+	if(invalid !== "")
+	{
+		$("#errorMessage").html("* " + invalid);
 	}
 	else
 	{
