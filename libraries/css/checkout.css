@@ -3,15 +3,15 @@
 
 .error {
     color: #FF0000;
+    white-space: nowrap;
 }
 
 .checkoutpage{
-    width: 100%;
-    height: 700px;
+    margin-bottom: 40px;
 }
 
 .checkout-body{
-    height: 80%;
+
     margin-top: 20px;
 }
 .title-page{
@@ -23,60 +23,57 @@
     border-bottom: 1px solid #ccc;
     padding: 25px;
 }
-
 .leftside{
-    width: 50%;
-    margin-top: 40px;
     float: left;
+    margin-left: 20px;
+    width: 45%;
+    border-right: 1px solid  #CCCCCC;
 }
+.form-inp ul li{
+    list-style: none;
+    margin-top: 15px;
+    min-width: 150px;
+    max-width: 250px;
+    width: 100%;
 
-.nav-bar{
-    
-    display: inline-block;
-    width: 30%;
-    font-size: 36px;
-    font-weight: 200;
-    list-style-type: none;
-    
-    
 }
-
-.formular-link{
+.form-inp ul li label{
     display: block;
-    margin-bottom: 5px;
-    line-height: 60px;
-    letter-spacing: 2px;
+    padding-left: 10px;
+    font-size: 25px;
 }
-
-.form-inp{
-    padding-left: 35px;
-    display: inline-block;
-    width: 69%;
-    font-weight: 200;
-    border-right: 1px solid #ccc;
-    margin-top: -25%;
-    
+.form-inp ul li input{
+    width: 100%;
+    max-width: 250px;
+    height: 35px;
 }
-
-input[type="text"]{
-   display: block;
-   width: 80%;
-   font-family: 'Source Sans Pro', sans-serif;
-   font-size: 25px;
-   font-weight: 200;
-   margin-bottom: 12px;
-   line-height: 50px;
+.delivery{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 15px;
 }
-
-
-.text-bar{
-    list-style-type: none;
+.delivery label{
+    font-size: 25px;
 }
+.delivery input{
+    margin-left: 15px;
 
+}
+.pay{
+    margin-left: 15px;
+}
+.pay label{
+    font-size: 25px;
+
+}
+.pay input{
+    margin-left: 15px;
+}
+/*right side*/
 .rightside{
-    width: 50%;
-    float: right;
+    float: left;
     margin-top: 40px;
+    width: 45%;
 }
 
 .subtotal{
@@ -84,7 +81,7 @@ input[type="text"]{
     font-size: 36px;
     text-align: center;
     margin-top: 80px;
-    
+
 }
 
 .sum{
@@ -92,24 +89,24 @@ input[type="text"]{
     font-size: 56px;
     font-weight: 700;
     text-align: center;
- }
- 
- .querylogin{
+}
+
+.querylogin{
     display: block;
     font-size: 36px;
     font-weight: 200;
     text-align: center;
     margin-top: 5px;
- }
- 
- .boldlogin{
+}
+
+.boldlogin{
     font-weight: 600;
- }
- .boldlogin:hover{
+}
+.boldlogin:hover{
     color: #34A994;
     cursor: pointer; cursor: hand;
- }
- 
+}
+
 
 .order-button{
     font-family: 'Source Sans Pro', sans-serif;
@@ -134,4 +131,12 @@ input[type="text"]{
     color: #34A994;
     outline: none;
     cursor: pointer; cursor: hand;
+}
+input[type="text"]{
+    font-family: 'Source Sans Pro', sans-serif;
+    ont-weight: 200;
+    font-size: 16px;
+    padding-left: 10px;
+
+
 }
