@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 /**
  * Created by Eclipse
  * User: Tomas Paronai

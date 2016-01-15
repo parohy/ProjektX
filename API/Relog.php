@@ -47,6 +47,7 @@ if($_GET['register'] == 'registration'){
 		unset($_SESSION['username']);
 		unset($_SESSION['loggedin']);
 		unset($_SESSION['userid']);
+		unset($_SESSION['userrole']);
 		if(isset($user)){
 			unset($user);
 		}		
@@ -62,6 +63,7 @@ if($_GET['register'] == 'registration'){
 		if(isset($user)){
 			$_SESSION['username'] = $user->getData('name');
 			$_SESSION['userid'] = $user->getId();
+			$_SESSION['userrole'] = $user->getData('role');
 		}	
 		header('Location:  ../index.php');
 		exit();
