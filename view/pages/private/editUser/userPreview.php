@@ -28,7 +28,7 @@ if(isset($_GET['userid'])){
 		echo '<li class="view"><b>Registered since:</b> '.$user->getData('datejoined').'</li>';
 		echo '<li class="view"><b>User role:</b> '.$role.'</li>';
 	echo '</ul>';
-	echo '<span class="view"><a class="view-controls" href="?page=private/pageSettings&settings=editUser/editUser&userid=' . $user->getId() . '">Edit</a>
-			                          <a class="view-controls" href="?page=private/pageSettings&settings=editUser/deleteUser&userid=' . $user->getId() . '">Delete</a></span>';
+	echo '<span class="view"><a class="view-controls" href="?page=private/pageSettings&settings=editUser/editUser&userid=' . $user->getId() . '"><i class="fa fa-pencil-square-o fa-2x"></i></a>
+			                          <a class="view-controls" href="?page=private/pageSettings&settings=editUser/deleteUser&userid=' . $user->getId() . '"><i class="fa fa-times fa-2x"></i></a></span>';
 }
 
