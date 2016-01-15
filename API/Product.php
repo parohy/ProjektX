@@ -117,5 +117,5 @@ class Product{
         public function getProductsId(){
         	$this->handlerDB->query("SELECT productid FROM products");
         	return $this->handlerDB->resultSet();
-        }
+        }       
 }
