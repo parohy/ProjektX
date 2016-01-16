@@ -22,9 +22,9 @@ class Filter{
     
     public function __construct(){
         $this->handlerDB = new DBHandler();
-        $this->handlerDB->query("SELECT MAX(price) FROM products");
+        $this->handlerDB->query('SELECT MAX(price) as "max" FROM products');
         $result = $this->handlerDB->resultSet();
-        $this->maxprice=$result[0];
+        $this->maxprice=$result[0]['max'];
     }
     
     private function sortQuery() {
@@ -54,51 +54,53 @@ class Filter{
         return $sortquery;
     }
     
-    private function categoryQuery() {
+    public function categoryQuery() {
         $cat=new Category($this->category);
         $categoryquery="";
         foreach($cat->alldescendants as $id)
         {
             if($categoryquery!=""){
-                $categoryquery.=" || categoryid=".$id;
+                $categoryquery.=", ".$id;
             }
             else{
-                $categoryquery="(categoryid=".$id;
+                $categoryquery="(categoryid IN (".$id;
             }
         }
-        $categoryquery.=")";
+        $categoryquery.="))";
         return $categoryquery;
     }
     
     private function brandQuery() {
        $brandquery="";
-       if(count($this->brand>=1)){
+       $brands=array();
+       if(count($this->brand)>=1){
             $brands=$this->brand;
         }
         else{
+            echo "pizza";
             $this->handlerDB->query("SELECT brandid FROM brands");
             $brands = $this->handlerDB->resultSet();
         }
         foreach($brands as $id)
              {
                  if($brandquery!=""){
-                     $brandquery.=" || brandid=".$id;
+                     $brandquery.=", ".$id['brandid'];
                  }
                  else{
-                     $brandquery="(brandid=".$id;
+                     $brandquery.="(brandid IN (".$id['brandid'];
                  }
              } 
-             $brandquery.=")";
+             $brandquery.="))";
              return $brandquery;
     }
     
     public function getResults() {
-        $this->handlerDB->query("SELECT productid FROM products WHERE price>=:min && price<:max && :categoryquery && :brandquery ORDER BY :sortquery");
-        $this->handlerDB->bind(':min', $this->minprice);
-        $this->handlerDB->bind(':max', $this->maxprice);
-        $this->handlerDB->bind(':categoryquery', categoryQuery());
-        $this->handlerDB->bind(':brandquery', brandQuery());
-        $this->handlerDB->bind(':sortquery', sortQuery());
+        $catQuery=$this->categoryQuery();
+        $brandQuery=$this->brandQuery();
+        $sortQuery=$this->sortQuery();
+        $this->handlerDB->query("SELECT productid FROM products WHERE price>=:minprice and price<=:maxprice and ".$catQuery." and ".$brandQuery." ORDER BY ".$sortQuery."");
+        $this->handlerDB->bind(':maxprice', $this->maxprice);
+        $this->handlerDB->bind(':minprice', $this->minprice);
         $results = $this->handlerDB->resultSet();
         $this->handlerDB->execute();
         return $results;
