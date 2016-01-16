@@ -6,7 +6,7 @@ $(function() {
      * Time: 14:23
      */
     $(".subnav").hide();
-    $(".addToCart").hide();
+
     $(".login-frame").css("visibility","visible").hide();
     $(".top-rated").css("visibility","visible").hide();
     $(".new-arrivals").css("visibility","visible").hide();
@@ -67,21 +67,7 @@ $(function() {
         $(this).css("color", "#595959");
     });
 
-    $(".product-item").hover(function() {
-        $(this).stop(true, false).animate({
-            height: "470px"
-        });
-        $(this).children('.product-description').children('.addToCart').stop(true, false).slideDown();
-    }, function() {
-        $(this).stop(true, false).animate({
-            height: "424px"
-        });
-        $(this).children('.product-description').children('.addToCart').stop(true, false).slideUp();
-    });
 
-    /*
-    * Image scaling
-    */
 
     /*
      * Slides

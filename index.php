@@ -62,6 +62,7 @@ if(isset($_GET['login']) && $_GET['login'] == 'false') {
     <link rel="stylesheet" type="text/css" href="libraries/css/font-awesome.css">
 
     <script src="libraries/js/jquery-1.11.3.min.js"></script>
+    <script src="libraries/js/jquery.endless-scroll.js"></script>
 </head>
 <body>
 <div class="container">
@@ -94,6 +95,7 @@ if(isset($_GET['login']) && $_GET['login'] == 'false') {
         ?>
     </footer>
     <script src="libraries/js/pageScript.js"></script>
+    <script src="libraries/js/loadMore.js"></script>
 </div>
 </body>
 </html>

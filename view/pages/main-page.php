@@ -135,6 +135,7 @@ $filter = new Filter();
 <div class="tabs">
     <div class="controls">
         <ul>
+
             <li><a href="#" class="link best-sellingButton">BEST SELLING <i class="fa fa-angle-down"></i> </a></li>
             <li><a href="#" class="link top-ratedButton">TOP RATED <i class="fa fa-angle-down"></i> </a></li>
             <li><a href="#" class="link new-arrivalsButton">NEW ARRIVALS <i class="fa fa-angle-down"></i> </a></li>
