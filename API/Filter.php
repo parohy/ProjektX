@@ -20,6 +20,9 @@ class Filter{
     private $handlerDB;
     
     
+    /**
+     * Creates Filter handler and sets default values
+     */
     public function __construct(){
         $this->handlerDB = new DBHandler();
         $this->handlerDB->query('SELECT MAX(price) as "max" FROM products');
@@ -27,6 +30,13 @@ class Filter{
         $this->maxprice=$result[0]['max'];
     }
     
+    /**
+     * Prepares part of query needed for sorting results
+     * Sorts by "Rating" on default
+     * change $this->criteria in order to change criteria
+     * check for available criteria in line 14
+     * This function is called in the function getResults();
+     */
     private function sortQuery() {
         switch ($this->criteria) {
             case "Rating":
@@ -54,6 +64,13 @@ class Filter{
         return $sortquery;
     }
     
+    /**
+     * Prepares part of query needed for category filtering
+     * category is "1"(ELECTRONICS) on default
+     * change $this->category in order to change target category
+     * check for available categories in the categories table
+     * This function is called in the function getResults();
+     */
     public function categoryQuery() {
         $cat=new Category($this->category);
         $categoryquery="";
@@ -70,6 +87,13 @@ class Filter{
         return $categoryquery;
     }
     
+    /**
+     * Prepares part of query needed for brand filtering
+     * selects all brands on default
+     * add brands to $this->brand in order to filter by brands
+     * check for available brands in the brands table
+     * This function is called in the function getResults();
+     */
     private function brandQuery() {
        $brandquery="";
        $brands=array();
@@ -94,6 +118,11 @@ class Filter{
              return $brandquery;
     }
     
+    /**
+     * Gets results from a database as an array of productids of products from the table
+     * change $this->minprice and $this->max price in order to set the price range
+     * results are filtered, sorted and ready to use
+     */
     public function getResults() {
         $catQuery=$this->categoryQuery();
         $brandQuery=$this->brandQuery();
