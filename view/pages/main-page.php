@@ -12,6 +12,7 @@ include_once ($path.'API/ImageScaling.php');
 include_once ($path.'API/Filter.php');
 
 $tempProduct = new Product();
+$filter = new Filter();
 
 
 ?>
@@ -185,12 +186,32 @@ $tempProduct = new Product();
             </div>
             <div class="top-rated">
                 <?php
-                $productsId = $tempProduct->getProductsId();
-                $max = 8;
+                //$products = $filter->getResults();
+                //var_dump($products);
+                /*
+                for($i=0;$i<$max;$i++){
+                    $product = new Product($products[$i]['productid']);
+                    $counter++;
 
-                if($tempProduct->getTotalProducts() < $max){
-                    $max = $tempProduct->getTotalProducts();
-                }
+                    if($counter == 1) {
+                        echo '<div class="row">';
+                    }
+
+                    echo '<div class="product-item">';
+
+                    echo '<div class="product-photo"><a href="?page=productPreview&product='.$product->id.'"><img alt="product-photo" src="libraries/img/products/'.$product->id.'/'.$product->id.'a.jpg" class="thumbnailImage"></a></div>';
+                    echo '<div class="product-description">';
+                    echo '<hr class="product-line">';
+                    echo '<h3 class="product-name">'.substr($product->name,0,40).'</h3>';
+                    echo '<span class="price">'.$product->price.'</span>';
+                    echo '<a href="controllers/addToCart.php?productid='.$product->id.'&name='.$product->name.'&price='.$product->price.'" class="addToCart">Add to Cart</a>';
+                    echo '</div></div>';
+
+                    if($counter == 4) {
+                        echo '</div>';
+                        $counter = 0;
+                    }
+                }*/
                 ?>
             </div>
             <div class="new-arrivals">CUSSS</div>

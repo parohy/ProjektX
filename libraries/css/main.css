@@ -464,16 +464,6 @@ body {
 .social-icons li:nth-child(n+2) {
     margin-left: 10px;
 }
-.payment-icons {
-    width: 400px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 70px;
-}
-.payment-icons img {
-    padding-left: 20px;
-}
 
 .group:before,
 .group:after {

@@ -26,10 +26,3 @@
         </ul>
     </div>
 </div>
-<div class="payment-icons">
-    <img src="libraries/img/footer/maestro.png">
-    <img src="libraries/img/footer/paypal.png">
-    <img src="libraries/img/footer/aexpress.png">
-    <img src="libraries/img/footer/mastercard.png">
-    <img src="libraries/img/footer/visa.png">
-</div>
