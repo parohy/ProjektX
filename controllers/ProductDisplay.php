@@ -24,13 +24,13 @@ class ProductDisplay
             $itemCount++;
 
             if($itemCount == 1) {
-                echo "<div class=\"row\" style=\"height: 470px\">";
+                echo "<div class=\"row\">";
             }
 
             $size = $scaling->productItemTumbnail($res['productid']); // get scaled size of image to fit tumbnail
             $margin = $scaling->productItemTumbnailMargin($size); // calculate margin after scale to center it in thumbnail
 
-            echo "<div class=\"product-item\" style=\"height: 424px\">";
+            echo "<div class=\"product-item\">";
 
 
              echo "

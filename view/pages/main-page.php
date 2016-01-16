@@ -77,7 +77,7 @@ $tempProduct = new Product();
                 $counter++;
 
                 if($counter == 1) {
-                    echo '<div class="row" style="height: 470px">';
+                    echo '<div class="row">';
                 }
 
                 echo '<div class="product-item">';

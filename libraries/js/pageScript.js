@@ -7,7 +7,7 @@ $(function() {
      */
     $(".login-frame").css("visibility","visible");
     $(".subnav").hide();
-    $(".addToCart").hide();
+    //$(".addToCart").hide();
     $(".login-frame").hide();
 
     /*
@@ -49,7 +49,7 @@ $(function() {
         $(this).css("color", "#595959");
     });
 
-    $(".product-item").hover(function() {
+    /*$(".product-item").hover(function() {
         $(this).stop(true, false).animate({
             height: "470px"
         });
@@ -59,7 +59,7 @@ $(function() {
             height: "424px"
         });
         $(this).children('.product-description').children('.addToCart').stop(true, false).slideUp();
-    });
+    });*/
 
     /*
     * Image scaling
