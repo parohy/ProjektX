@@ -39,7 +39,7 @@
                     <li><input type="email" name="usermail" placeholder="email@email.com" required></li>
                     <li><input type="password" name="password" placeholder="password" required></li>                    
                     <li><input type="submit" value="Login"></li>
-                    <li><a href="?page=passRecover">Forgot password?</a></li>
+                    <li><a href="?page=private/editUser/passRecover&password=recover">Forgot password?</a></li>
                 </ul>
             </form>
         </div>

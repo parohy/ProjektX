@@ -22,7 +22,7 @@ else{
 <nav class="admin-nav">
     <ul>
     	<?php if(isset($_GET['profile']) && $_GET['profile']=='editUser') echo '<li><a href="?page=accountSettings&profile=userPreview">Profile</a></li>'; else echo '<li><a href="?page=accountSettings&profile=editUser">Change profile</a></li>'?>
-    	<li><a href="">Change password</a></li>        
+    	<li><a href="?page=accountSettings&profile=passRecover&password=new">Change password</a></li>        
         <li><a href="">Orders</a></li>
         <li><a href="">Delete account</a></li>
     </ul>
