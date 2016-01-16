@@ -31,6 +31,6 @@
     <h4>Add new slides:</h4>
 
     <div class="dragNdrop">
-
+        <h3>Drag and Drop images you want to upload here</h3>
     </div>
 </div>
