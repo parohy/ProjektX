@@ -323,6 +323,20 @@ body {
     height: 984px;
     padding-top: 50px;
 }
+.best-selling {
+    width: 100%;
+    height: 100%;
+}
+.top-rated {
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+}
+.new-arrivals {
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+}
 .row {
     width: 100%;
     height: 49.78%;

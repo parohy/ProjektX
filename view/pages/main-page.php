@@ -17,7 +17,6 @@ $tempProduct = new Product();
 <div class="slider-wrapper">
     <div class="slider">
             <script type="text/javascript" src="libraries/js/jssor.slider.mini.js"></script>
-            <!-- use jssor.slider.debug.js instead for debug -->
             <script>
                 jQuery(document).ready(function ($) {
 
@@ -42,8 +41,6 @@ $tempProduct = new Product();
 
                     var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
 
-                    //responsive code begin
-                    //you can remove responsive code if you don't want the slider scales while window resizing
                     function ScaleSlider() {
                         var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
                         if (refSize) {
@@ -58,20 +55,10 @@ $tempProduct = new Product();
                     $(window).bind("load", ScaleSlider);
                     $(window).bind("resize", ScaleSlider);
                     $(window).bind("orientationchange", ScaleSlider);
-                    //responsive code end
                 });
             </script>
 
             <style>
-
-                /* jssor slider bullet navigator skin 05 css */
-                /*
-                .jssorb05 div           (normal)
-                .jssorb05 div:hover     (normal mouseover)
-                .jssorb05 .av           (active)
-                .jssorb05 .av:hover     (active mouseover)
-                .jssorb05 .dn           (mousedown)
-                */
                 .jssorb05 {
                     position: absolute;
                 }
@@ -89,15 +76,6 @@ $tempProduct = new Product();
                 .jssorb05 .av { background-position: -67px -7px; }
                 .jssorb05 .dn, .jssorb05 .dn:hover { background-position: -97px -7px; }
 
-                /* jssor slider arrow navigator skin 12 css */
-                /*
-                .jssora12l                  (normal)
-                .jssora12r                  (normal)
-                .jssora12l:hover            (normal mouseover)
-                .jssora12r:hover            (normal mouseover)
-                .jssora12l.jssora12ldn      (mousedown)
-                .jssora12r.jssora12rdn      (mousedown)
-                */
                 .jssora12l, .jssora12r {
                     display: block;
                     position: absolute;
@@ -155,9 +133,9 @@ $tempProduct = new Product();
 <div class="tabs">
     <div class="controls">
         <ul>
-            <li><a href="#" class="link">BEST SELLING <i class="fa fa-angle-down"></i> </a></li>
-            <li><a href="#" class="link">TOP RATED <i class="fa fa-angle-down"></i> </a></li>
-            <li><a href="#" class="link">NEW ARRIVALS <i class="fa fa-angle-down"></i> </a></li>
+            <li><a href="#" class="link best-sellingButton">BEST SELLING <i class="fa fa-angle-down"></i> </a></li>
+            <li><a href="#" class="link top-ratedButton">TOP RATED <i class="fa fa-angle-down"></i> </a></li>
+            <li><a href="#" class="link new-arrivalsButton">NEW ARRIVALS <i class="fa fa-angle-down"></i> </a></li>
     </div>
     <div class="tab-content">
         <div class="top-tab-content">
@@ -165,43 +143,46 @@ $tempProduct = new Product();
         </div>
 
         <div class="bottom-tab-content">
-        
-        <?php 
-        if($tempProduct != NULL){
-        	$productsId = $tempProduct->getProductsId();
-        	$max = 8;
-        	
-        	if($tempProduct->getTotalProducts() < $max){
-        		$max = $tempProduct->getTotalProducts();
-        	}
+            <div class="best-selling">
+                <?php
+                if($tempProduct != NULL){
+                    $productsId = $tempProduct->getProductsId();
+                    $max = 8;
 
-            $counter = 0;
+                    if($tempProduct->getTotalProducts() < $max){
+                        $max = $tempProduct->getTotalProducts();
+                    }
 
-        	for($i=0;$i<$max;$i++){
-        		$product = new Product($productsId[$i]['productid']);
-                $counter++;
-
-                if($counter == 1) {
-                    echo '<div class="row">';
-                }
-
-                echo '<div class="product-item">';
-        		
-        		echo '<div class="product-photo"><a href="?page=productPreview&product='.$product->id.'"><img alt="product-photo" src="libraries/img/products/'.$product->id.'/'.$product->id.'a.jpg" class="thumbnailImage"></a></div>';
-        		echo '<div class="product-description">';
-        		echo '<hr class="product-line">';
-        		echo '<h3 class="product-name">'.substr($product->name,0,40).'</h3>';
-        		echo '<span class="price">'.$product->price.'</span>';
-        		echo '<a href="controllers/addToCart.php?productid='.$product->id.'&name='.$product->name.'&price='.$product->price.'" class="addToCart">Add to Cart</a>';
-        		echo '</div></div>';
-
-                if($counter == 4) {
-                    echo '</div>';
                     $counter = 0;
+
+                    for($i=0;$i<$max;$i++){
+                        $product = new Product($productsId[$i]['productid']);
+                        $counter++;
+
+                        if($counter == 1) {
+                            echo '<div class="row">';
+                        }
+
+                        echo '<div class="product-item">';
+
+                        echo '<div class="product-photo"><a href="?page=productPreview&product='.$product->id.'"><img alt="product-photo" src="libraries/img/products/'.$product->id.'/'.$product->id.'a.jpg" class="thumbnailImage"></a></div>';
+                        echo '<div class="product-description">';
+                        echo '<hr class="product-line">';
+                        echo '<h3 class="product-name">'.substr($product->name,0,40).'</h3>';
+                        echo '<span class="price">'.$product->price.'</span>';
+                        echo '<a href="controllers/addToCart.php?productid='.$product->id.'&name='.$product->name.'&price='.$product->price.'" class="addToCart">Add to Cart</a>';
+                        echo '</div></div>';
+
+                        if($counter == 4) {
+                            echo '</div>';
+                            $counter = 0;
+                        }
+                    }
                 }
-        	}
-        }
-        ?>
+                ?>
+            </div>
+            <div class="top-rated">HELLO</div>
+            <div class="new-arrivals">CUSSS</div>
     </div>
 </div>
     </div>
