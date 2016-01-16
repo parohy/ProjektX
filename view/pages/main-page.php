@@ -16,21 +16,6 @@ $tempProduct = new Product();
 ?>
 <div class="slider-wrapper">
     <div class="slider">
-            <?php
-            /*
-            $slidesPath = "libraries/img/slider/";
-            $slides = scandir($slidesPath,1);
-
-            foreach($slides as $slide) {
-                if($slide == "..") {
-                    break;
-                } else {
-                    echo '<div class="slides">';
-                    echo '<img src="' . $slidesPath . $slide . '">';
-                    echo '</div>';
-                }
-            }*/
-            ?>
             <script type="text/javascript" src="libraries/js/jssor.slider.mini.js"></script>
             <!-- use jssor.slider.debug.js instead for debug -->
             <script>
@@ -139,15 +124,20 @@ $tempProduct = new Product();
                     <div style="position:absolute;display:block;background:url('libraries/img/slider/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
                 </div>
                 <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1084px; height: 300px; overflow: hidden;">
-                    <div data-p="173.00" style="display: none;">
-                        <img data-u="image" src="libraries/img/slider/bestTVs.png" />
-                    </div>
-                    <div data-p="173.00" style="display: none;">
-                        <img data-u="image" src="libraries/img/slider/free shipping.png" />
-                    </div>
-                    <div data-p="173.00" style="display: none;">
-                        <img data-u="image" src="libraries/img/slider/galaxy slider.png" />
-                    </div>
+                    <?php
+                    $slidesPath = "libraries/img/slider/slides/";
+                    $slides = scandir($slidesPath,1);
+
+                    foreach($slides as $slide) {
+                        if($slide == "..") {
+                            break;
+                        } else {
+                            echo '<div data-p="173.00" style="display: none;">';
+                            echo '<img data-u="image" src="'. $slidesPath . $slide .'" />';
+                            echo '</div>';
+                        }
+                    }
+                    ?>
                 </div>
                 <!-- Bullet Navigator -->
                 <div data-u="navigator" class="jssorb05" style="bottom:16px;right:16px;" data-autocenter="1">
