@@ -17,7 +17,7 @@ $filter = new Filter();
 
 ?>
 <div class="slider-wrapper">
-    <div class="slider">
+    
             <script type="text/javascript" src="libraries/js/jssor.slider.mini.js"></script>
             <script>
                 jQuery(document).ready(function ($) {
@@ -46,7 +46,7 @@ $filter = new Filter();
                     function ScaleSlider() {
                         var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
                         if (refSize) {
-                            refSize = Math.min(refSize, 1084);
+                            refSize = Math.min(refSize, 1100);
                             jssor_1_slider.$ScaleWidth(refSize);
                         }
                         else {
@@ -97,13 +97,13 @@ $filter = new Filter();
             </style>
 
 
-            <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 1084px; height: 300px; overflow: hidden; visibility: hidden;">
+            <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 1100px; height: 367px; overflow: hidden; visibility: hidden;">
                 <!-- Loading Screen -->
                 <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
                     <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
                     <div style="position:absolute;display:block;background:url('libraries/img/slider/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
                 </div>
-                <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1084px; height: 300px; overflow: hidden;">
+                <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1100px; height: 367px; overflow: hidden;">
                     <?php
                     $slidesPath = "libraries/img/slider/slides/";
                     $slides = scandir($slidesPath,1);
@@ -129,22 +129,19 @@ $filter = new Filter();
                 <span data-u="arrowright" class="jssora12r" style="top:0px;right:0px;width:30px;height:46px;" data-autocenter="2"></span>
                 <a href="http://www.jssor.com" style="display:none">Bootstrap Carousel</a>
             </div>
-    </div>
+    
 </div>
 
 <div class="tabs">
     <div class="controls">
         <ul>
 
-            <li><a href="#" class="link best-sellingButton">BEST SELLING <i class="fa fa-angle-down"></i> </a></li>
-            <li><a href="#" class="link top-ratedButton">TOP RATED <i class="fa fa-angle-down"></i> </a></li>
-            <li><a href="#" class="link new-arrivalsButton">NEW ARRIVALS <i class="fa fa-angle-down"></i> </a></li>
+            <li><a href="#" class="link best-sellingButton">BEST SELLING </a></li>
+            <li><a href="#" class="link top-ratedButton">TOP RATED </a></li>
+            <li><a href="#" class="link new-arrivalsButton">NEW ARRIVALS </a></li>
     </div>
     <div class="tab-content">
-        <div class="top-tab-content">
-            <p>WE HAVE OVER 50 PRODUCTS IN OUR SHOP</p>
-        </div>
-
+        
         <div class="bottom-tab-content">
             <div class="best-selling">
                 <?php

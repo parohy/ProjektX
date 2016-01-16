@@ -61,13 +61,7 @@ $(function() {
         $(".top-rated").hide();
     });
 
-    $(".link").hover(function() {
-        $(this).css("color", "#34A994");
-	}, function() {
-        $(this).css("color", "#595959");
-    });
-
-
+   
 
     /*
      * Slides
