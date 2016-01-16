@@ -377,7 +377,9 @@ body {
 }
 .product-name {
     display: block;
+    margin: auto;
     margin-top: 20px;
+    width: 200px;
 }
 .product-body:hover .product-name{ 
     font-weight: normal; 
