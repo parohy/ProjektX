@@ -43,7 +43,7 @@ body {
     cursor: default;
 }
 .container {
-    width:70%;
+    width:1170px;
     height: 100%;
     padding: 15px;
     margin: 0 auto;
@@ -296,6 +296,7 @@ body {
 }
 .link {
     font-weight: lighter;
+    font-size: 36px;
     color: #484848;
     text-decoration: none;
 }
@@ -505,15 +506,7 @@ body {
 
 /************************ RESPONSIVE DESIGN ***************************/
 
-@media screen and (max-width: 1650px) {
-    .container {
-        width: 90%;
-    }
-    .controls ul li {
-        width: 30%;
-        font-size: 33px;
-    }
-}
+
 /*
 @media screen and (min-width: 1600px){
     .controls ul li{
