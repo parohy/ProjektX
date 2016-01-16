@@ -12,31 +12,36 @@ include_once ($path.'API/UserHandler.php');
 
 $name = $surname = $email = $password = "";
 $check = new Recheck();
+$newUser = null;
+$exitTo = 'Location: ?page=private/pageSettings';
 
 if(isset($_POST['name'])){
 	$name = $check->dumpSpecialChars($_POST['name']); 
 }
 
-if(isset($_POST['surename'])){
-	$surname = $check->dumpSpecialChars($_POST['surename']);
+if(isset($_POST['surname'])){
+	$surname = $check->dumpSpecialChars($_POST['surname']);
 }
 
-if(isset($_POST['mail'])){
-	$email = $check->dumpSpecialChars($_POST['mail']);
+if(isset($_POST['email'])){
+	$email = $check->dumpSpecialChars($_POST['email']);
 }
 
-if($name != "" && $surname != "" && $email != ""){
+if($name != "" && $surname != "" && $email != "" && $check->checkEmail($email, 50) === true){
 	$newUser = User::newForceUser($name, $surname, $email);
-	if($newUser->isSaved()){
-		$_SESSION['editErr'] = "Saved.";
-		header('Location: ../newDesign/?page=private/pageSettings&settings=users');
-		
-	}
-	else{
-		$_SESSION['editErr'] = "Error saving.";
-		header('Location: ../newDesign/?page=private/pageSettings&settings=editUser/editUser');
-	}
-	exit();
+	echo $name . ' ' . $surname . ' ' . $email;
 }
-	
+
+if($newUser != null && $newUser->isSaved()){
+	$_SESSION['editErr'] = "Saved.";
+	$exitTo .= '&settings=users';
+}
+else{
+	$_SESSION['editErr'] = "Name, surname and email is required!";
+	$exitTo .= '&settings=editUser/editUser';
+}
+
+header($exitTo);
+exit();
+?>
 	
