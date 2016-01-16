@@ -9,6 +9,7 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= 'ProjektX/';
 include_once ($path.'API/Product.php');
 include_once ($path.'API/ImageScaling.php');
+include_once ($path.'API/Filter.php');
 
 $tempProduct = new Product();
 
@@ -147,6 +148,7 @@ $tempProduct = new Product();
                 <?php
                 if($tempProduct != NULL){
                     $productsId = $tempProduct->getProductsId();
+                    //$productsId-
                     $max = 8;
 
                     if($tempProduct->getTotalProducts() < $max){
@@ -181,7 +183,16 @@ $tempProduct = new Product();
                 }
                 ?>
             </div>
-            <div class="top-rated">HELLO</div>
+            <div class="top-rated">
+                <?php
+                $productsId = $tempProduct->getProductsId();
+                $max = 8;
+
+                if($tempProduct->getTotalProducts() < $max){
+                    $max = $tempProduct->getTotalProducts();
+                }
+                ?>
+            </div>
             <div class="new-arrivals">CUSSS</div>
     </div>
 </div>
