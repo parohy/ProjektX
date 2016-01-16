@@ -170,7 +170,7 @@ body {
     letter-spacing: 0.5px;
 }
 .search input[type="search"] {
-    width: 300px;
+    width: 287px;
     font-size: 12px;
     letter-spacing: 1.4px;
     color: #605f5f;
@@ -260,7 +260,7 @@ body {
     color: #2ba08b;
 }
 
-.fa-search{
+.lupa{
     float: left;
     padding-top: 10px;
 }

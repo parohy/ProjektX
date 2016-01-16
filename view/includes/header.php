@@ -81,6 +81,7 @@
         <form action="controllers/searchController.php" method="GET" id="searchForm">
            <div class="group search-bar">
                <input type="search" name="search" placeholder="SEARCH" id="search" list="suggestions">
+               <img class="lupa" src="libraries/img/icons/search-icon.png" onClick="document.forms['searchForm'].submit();">
            </div>
             <datalist id="suggestions"></datalist>
             <script src="libraries/js/searchScript.js"></script>
