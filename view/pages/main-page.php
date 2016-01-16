@@ -133,9 +133,9 @@ $tempProduct = new Product();
 <div class="tabs">
     <div class="controls">
         <ul>
-            <li><a href="#" class="link">BEST SELLING <i class="fa fa-angle-down"></i> </a></li>
-            <li><a href="#" class="link">TOP RATED <i class="fa fa-angle-down"></i> </a></li>
-            <li><a href="#" class="link">NEW ARRIVALS <i class="fa fa-angle-down"></i> </a></li>
+            <li><a href="#" class="link best-sellingButton">BEST SELLING <i class="fa fa-angle-down"></i> </a></li>
+            <li><a href="#" class="link top-ratedButton">TOP RATED <i class="fa fa-angle-down"></i> </a></li>
+            <li><a href="#" class="link new-arrivalsButton">NEW ARRIVALS <i class="fa fa-angle-down"></i> </a></li>
     </div>
     <div class="tab-content">
         <div class="top-tab-content">
@@ -143,43 +143,46 @@ $tempProduct = new Product();
         </div>
 
         <div class="bottom-tab-content">
-        
-        <?php 
-        if($tempProduct != NULL){
-        	$productsId = $tempProduct->getProductsId();
-        	$max = 8;
-        	
-        	if($tempProduct->getTotalProducts() < $max){
-        		$max = $tempProduct->getTotalProducts();
-        	}
+            <div class="best-selling">
+                <?php
+                if($tempProduct != NULL){
+                    $productsId = $tempProduct->getProductsId();
+                    $max = 8;
 
-            $counter = 0;
+                    if($tempProduct->getTotalProducts() < $max){
+                        $max = $tempProduct->getTotalProducts();
+                    }
 
-        	for($i=0;$i<$max;$i++){
-        		$product = new Product($productsId[$i]['productid']);
-                $counter++;
-
-                if($counter == 1) {
-                    echo '<div class="row">';
-                }
-
-                echo '<div class="product-item">';
-        		
-        		echo '<div class="product-photo"><a href="?page=productPreview&product='.$product->id.'"><img alt="product-photo" src="libraries/img/products/'.$product->id.'/'.$product->id.'a.jpg" class="thumbnailImage"></a></div>';
-        		echo '<div class="product-description">';
-        		echo '<hr class="product-line">';
-        		echo '<h3 class="product-name">'.substr($product->name,0,40).'</h3>';
-        		echo '<span class="price">'.$product->price.'</span>';
-        		echo '<a href="controllers/addToCart.php?productid='.$product->id.'&name='.$product->name.'&price='.$product->price.'" class="addToCart">Add to Cart</a>';
-        		echo '</div></div>';
-
-                if($counter == 4) {
-                    echo '</div>';
                     $counter = 0;
+
+                    for($i=0;$i<$max;$i++){
+                        $product = new Product($productsId[$i]['productid']);
+                        $counter++;
+
+                        if($counter == 1) {
+                            echo '<div class="row">';
+                        }
+
+                        echo '<div class="product-item">';
+
+                        echo '<div class="product-photo"><a href="?page=productPreview&product='.$product->id.'"><img alt="product-photo" src="libraries/img/products/'.$product->id.'/'.$product->id.'a.jpg" class="thumbnailImage"></a></div>';
+                        echo '<div class="product-description">';
+                        echo '<hr class="product-line">';
+                        echo '<h3 class="product-name">'.substr($product->name,0,40).'</h3>';
+                        echo '<span class="price">'.$product->price.'</span>';
+                        echo '<a href="controllers/addToCart.php?productid='.$product->id.'&name='.$product->name.'&price='.$product->price.'" class="addToCart">Add to Cart</a>';
+                        echo '</div></div>';
+
+                        if($counter == 4) {
+                            echo '</div>';
+                            $counter = 0;
+                        }
+                    }
                 }
-        	}
-        }
-        ?>
+                ?>
+            </div>
+            <div class="top-rated">HELLO</div>
+            <div class="new-arrivals">CUSSS</div>
     </div>
 </div>
     </div>

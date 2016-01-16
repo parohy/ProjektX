@@ -5,10 +5,11 @@ $(function() {
      * Date: 7. 12. 2015
      * Time: 14:23
      */
-    $(".login-frame").css("visibility","visible");
     $(".subnav").hide();
     $(".addToCart").hide();
-    $(".login-frame").hide();
+    $(".login-frame").css("visibility","visible").hide();
+    $(".top-rated").css("visibility","visible").hide();
+    $(".new-arrivals").css("visibility","visible").hide();
 
     /*
      * LOGIN FORM
@@ -42,6 +43,23 @@ $(function() {
     /*
      * TABS
      */
+    $(".best-sellingButton").click(function(){
+        $(".best-selling").show();
+        $(".top-rated").hide();
+        $(".new-arrivals").hide();
+    });
+
+    $(".top-ratedButton").click(function(){
+        $(".top-rated").show();
+        $(".best-selling").hide();
+        $(".new-arrivals").hide();
+    });
+
+    $(".new-arrivalsButton").click(function(){
+        $(".new-arrivals").show();
+        $(".best-selling").hide();
+        $(".top-rated").hide();
+    });
 
     $(".link").hover(function() {
         $(this).css("color", "#34A994");
