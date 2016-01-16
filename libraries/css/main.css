@@ -263,6 +263,7 @@ body {
 .lupa{
     float: left;
     padding-top: 10px;
+    cursor: pointer;
 }
 #fa-2x {
     font-size: 1.5em;
