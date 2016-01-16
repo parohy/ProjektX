@@ -17,6 +17,11 @@ if(isset($_GET['userid'])){
 	$scriptPath = '?page=private/pageSettings&settings=editUser/editScript';
 }
 
+else if(isset($_SESSION['userrole']) == 1 ){
+	$editUser = User::editUser($_SESSION['userid']);
+	$_SESSION['editId'] = $editUser->getId();
+	$scriptPath = '?page=accountSettings&profile=editScript';
+}
 // DO EDIT USER ?>
 <link rel="stylesheet" href="libraries/css/editUser.css">
 
@@ -32,12 +37,12 @@ if(isset($_GET['userid'])){
 
             <li>
 
-                <input class="edit-input" type="text" name="surename" value="<?php if($editUser != NULL) echo $editUser->getData('surname');?>" placeholder="SURNAME">
+                <input class="edit-input" type="text" name="surname" value="<?php if($editUser != NULL) echo $editUser->getData('surname');?>" placeholder="SURNAME">
             </li>
 
             <li>
 
-                <input class="edit-input" type="email" name="mail" value="<?php if($editUser != NULL) echo $editUser->getData('email');?>" placeholder="EMAIL">
+                <input class="edit-input" type="email" name="email" value="<?php if($editUser != NULL) echo $editUser->getData('email');?>" placeholder="EMAIL">
             </li>
 
 
@@ -60,7 +65,16 @@ if(isset($_GET['userid'])){
 
                 <input class="edit-input" type="text" name="postcode" value="<?php if($editUser != NULL) echo $editUser->getData('postcode');?>" placeholder="POSTCODE">
             </li>
-
+			<?php
+				if(isset($_SESSION['userrole']) && $_SESSION['userrole'] == 1 ){
+					echo '<li>';
+						echo 'Type password to continue:<span id="pass-err"></span>';
+					echo '</li>';
+					echo '<li>';
+						echo '<input class="edit-input" type="password" name="password" placeholder="PASSWORD">';
+					echo '</li>';
+				}
+			?>
             <li>
                 <input id="edit-profile-submit" type="submit" value="SAVE CHANGE">
             </li>

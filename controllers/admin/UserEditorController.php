@@ -43,14 +43,14 @@ class UserEditorController
             echo '<li>';
             echo '<span class="username">' . $users[$i]['name'] . ' ' . $users[$i]['surname'] . '</span>';
             echo '<span class="email">' . $users[$i]['email'] . '</span>';
-            echo '<span class="user-controls"><a href="?page=private/pageSettings&settings=editUser/userPreview&userid=' . $users[$i]['userid'] . '">View</a>
-            	                              <a href="?page=private/pageSettings&settings=editUser/editUser&userid=' . $users[$i]['userid'] . '">Edit</a>
-            				                  <a href="?page=private/pageSettings&settings=editUser/deleteUser&userid=' . $users[$i]['userid'] . '">Delete</a></span>';
+            echo '<span class="user-controls"><a href="?page=private/pageSettings&settings=editUser/userPreview&userid=' . $users[$i]['userid'] . '"><i class="fa fa-search-plus fa-2x"></i></a>
+            	                              <a href="?page=private/pageSettings&settings=editUser/editUser&userid=' . $users[$i]['userid'] . '"><i class="fa fa-pencil-square-o fa-2x"></i></a>
+            				                  <a href="?page=private/pageSettings&settings=editUser/deleteUser&userid=' . $users[$i]['userid'] . '"><i class="fa fa-times fa-2x"></i></a></span>';
             echo '</li>';
         }
 
         echo '</ul>';
-        echo '<a class="user-controls" href="?page=private/pageSettings&settings=editUser/editUser">New User</a>';
+        echo '<a class="user-controls" href="?page=private/pageSettings&settings=editUser/editUser"><i class="fa fa-plus-circle fa-2x"></i></a>';
         
         echo '<span class="paging">';
         for($i=1;$i<=$total;$i++){

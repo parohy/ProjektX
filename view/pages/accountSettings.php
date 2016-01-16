@@ -21,7 +21,7 @@ else{
 <aside class="side-nav">
 <nav class="admin-nav">
     <ul>
-        <li><a href="?page=accountSettings&profile=editUser">Change profile</a></li>
+    	<?php if(isset($_GET['profile']) && $_GET['profile']=='editUser') echo '<li><a href="?page=accountSettings&profile=userPreview">Profile</a></li>'; else echo '<li><a href="?page=accountSettings&profile=editUser">Change profile</a></li>'?>        
         <li><a href="">Orders</a></li>
         <li><a href="">Delete profile</a></li>
     </ul>

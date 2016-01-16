@@ -4,16 +4,40 @@ $path .= 'ProjektX/';
 include_once ($path.'API/UserHandler.php');
 include_once ($path.'API/InputRecheck.php');
 
+$exitTo = 'Location: ?page=';
+$editUser = null;
+$check = new Recheck();
 if(isset($_SESSION['editId'])){
 	$editUser = User::editUser($_SESSION['editId']);
-	$check = new Recheck();
-	
+}
+
+if(isset($_SESSION['userrole']) && $_SESSION['userrole'] == 1){
+	$exitTo .= 'accountSettings';	
+	if(isset($_POST['password'])){
+		$value = $check->dumpSpecialChars($_POST['password']);		
+		if($check->checkInput($value, 50) && $editUser->getData('password') == $value && $editUser != null){
+			proceed($check,$editUser);
+		}
+		else{
+			$_SESSION['editErr'] = "Wrong password.";
+			$exitTo .= '&profile=editUser';
+			exitScript();
+		}
+	}
+}
+else{
+	$exitTo .= 'private/pageSettings&settings=users';
+	proceed($check,$editUser);
+}
+
+
+function proceed($check,$editUser){
 	//name
 	if(isset($_POST['name'])){
 		$value = $check->dumpSpecialChars($_POST['name']);
 		if($check->checkInput($_POST['name'],50)){
 			$editUser->saveData('name', ucfirst($value));
-			echo "I AM HERE! " . $_POST['name'] . ' ' . $editUser->getId() . '<br>';
+			//echo "I AM HERE! " . $_POST['name'] . ' ' . $editUser->getId() . '<br>';
 		}
 	}
 	
@@ -22,17 +46,19 @@ if(isset($_SESSION['editId'])){
 		$value = $check->dumpSpecialChars($_POST['surname']);
 		if($check->checkInput($_POST['surname'],50)){
 			$editUser->saveData('surname', ucfirst($value));
+			//echo "I AM HERE! " . $_POST['surname'] . ' ' . $editUser->getId() . '<br>';
 		}
 	}
 	
 	//email
-	if(isset($_POST['mail'])){
-		$value = $check->dumpSpecialChars($_POST['mail']);
+	if(isset($_POST['email'])){
+		$value = $check->dumpSpecialChars($_POST['email']);
 		if($check->checkEmail($value,50)===false || !is_bool($check->checkEmail($value,50))){
 			//todo error
 		}
 		else{
 			$editUser->saveData('email', $value);
+			//echo "I AM HERE! " . $_POST['email'] . ' ' . $editUser->getId() . '<br>';
 		}
 	
 	}
@@ -62,7 +88,11 @@ if(isset($_SESSION['editId'])){
 		}
 	}
 	
-	$_SESSION['editErr'] = "Saved.";
-	//header('Location: ../newDesign/?page=private/pageSettings&settings=users');
-	//exit();
+	$_SESSION['editErr'] = "Saved.";	
+	exitScript();
+}
+
+function exitScript(){
+	header($GLOBALS['exitTo']);
+	exit();
 }
