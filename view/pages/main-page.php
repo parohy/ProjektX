@@ -64,7 +64,7 @@ $tempProduct = new Product();
         <?php 
         if($tempProduct != NULL){
         	$productsId = $tempProduct->getProductsId();
-        	$max = 8;
+        	$max = 12;
         	
         	if($tempProduct->getTotalProducts() < $max){
         		$max = $tempProduct->getTotalProducts();
@@ -77,7 +77,7 @@ $tempProduct = new Product();
                 $counter++;
 
                 if($counter == 1) {
-                    echo '<div class="row">';
+                    echo '<div class="row" style="height: 470px">';
                 }
 
                 echo '<div class="product-item">';
