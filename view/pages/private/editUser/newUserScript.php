@@ -13,7 +13,7 @@ include_once ($path.'API/UserHandler.php');
 $name = $surname = $email = $password = "";
 $check = new Recheck();
 $newUser = null;
-$exitTo = 'Location: ?page=private/pageSettings';
+$exitTo = 'Location:?page=private/pageSettings';
 
 if(isset($_POST['name'])){
 	$name = $check->dumpSpecialChars($_POST['name']); 

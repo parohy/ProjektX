@@ -1,4 +1,4 @@
-
+<?php ?>
 <link rel="stylesheet" type="text/css" href="libraries/css/cart.css">
 <div class="cartpage">
 	<div class="title-page">

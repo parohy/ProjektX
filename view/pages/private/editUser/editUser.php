@@ -25,7 +25,7 @@ else if(isset($_SESSION['userrole']) && $_SESSION['userrole'] == 1 ){
 // DO EDIT USER ?>
 <link rel="stylesheet" href="libraries/css/editUser.css">
 
-<form id="profile" action="<?php echo $scriptPath;?>" method="POST">
+<form id="profile" action="<?php echo $scriptPath;?>" method="POST" data-ajax="false">
 
     <fieldset id="edit-profile">
         <legend>EDIT PROFILE</legend>

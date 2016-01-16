@@ -28,7 +28,6 @@ if($_GET['register'] == 'registration'){
 	$surname = $check->dumpSpecialChars($_POST['last-name']);
 	$email = $check->dumpSpecialChars($_POST['mail']);
 	$password = $check->dumpSpecialChars($_POST['password']);
-	echo $_SESSION['captcha'] . ' ' . $_POST['captcha'];
 	
 	if(!isset($_SESSION['captcha']) || $_SESSION['captcha'] != intval($_POST['captcha'])){
 		$_SESSION['registerErr'] = "Wrong captcha.";		

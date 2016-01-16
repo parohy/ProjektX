@@ -1,12 +1,10 @@
-<!--
- * Created by
- * User: Peter Varholak
- * Date: 5. 1. 2016
- * Autofill: Tomas Paronai
--->
-
 <?php
-
+/*
+* Created by
+* User: Peter Varholak
+* Date: 5. 1. 2016
+* Autofill: Tomas Paronai
+*/
 include_once ('API/UserHandler.php');
 
 $name = $surname = $email = $phone = $address = $city = $psc = "";
