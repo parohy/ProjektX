@@ -198,6 +198,14 @@ class User{
 	}
 	
 	private function generatePassword(){
-		return '12345';
+		$password = "";
+		$char;
+		for($i=1;$i<=6;$i++){
+			do{
+				$char = rand(48,122);
+			}while(($char>57 && $char<65) || ($char>90 && $char<97));
+			$password .= chr($char);
+		}
+		return $password;
 	}
 }
