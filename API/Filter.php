@@ -28,7 +28,7 @@ class Filter{
     }
     
     private function sortQuery() {
-        switch ($criteria) {
+        switch ($this->criteria) {
             case "Rating":
                 $sortquery="sumofratings/numofratings DESC";
                 break;
@@ -56,6 +56,7 @@ class Filter{
     
     private function categoryQuery() {
         $cat=new Category($this->category);
+        $categoryquery="";
         foreach($cat->alldescendants as $id)
         {
             if($categoryquery!=""){
@@ -70,17 +71,25 @@ class Filter{
     }
     
     private function brandQuery() {
-       foreach($brand as $id)
-        {
-            if($brandquery!=""){
-                $brandquery.=" || brandid=".$id;
-            }
-            else{
-                $brandquery="(brandid=".$id;
-            }
-        } 
-        $brandquery.=")";
-        return $brandquery;
+       $brandquery="";
+       if(count($this->brand>=1)){
+            $brands=$this->brand;
+        }
+        else{
+            $this->handlerDB->query("SELECT brandid FROM brands");
+            $brands = $this->handlerDB->resultSet();
+        }
+        foreach($brands as $id)
+             {
+                 if($brandquery!=""){
+                     $brandquery.=" || brandid=".$id;
+                 }
+                 else{
+                     $brandquery="(brandid=".$id;
+                 }
+             } 
+             $brandquery.=")";
+             return $brandquery;
     }
     
     public function getResults() {
@@ -91,7 +100,7 @@ class Filter{
         $this->handlerDB->bind(':brandquery', brandQuery());
         $this->handlerDB->bind(':sortquery', sortQuery());
         $results = $this->handlerDB->resultSet();
-        $db->execute();
+        $this->handlerDB->execute();
         return $results;
     }   
 }
