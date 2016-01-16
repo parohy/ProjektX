@@ -17,7 +17,6 @@ $tempProduct = new Product();
 <div class="slider-wrapper">
     <div class="slider">
             <script type="text/javascript" src="libraries/js/jssor.slider.mini.js"></script>
-            <!-- use jssor.slider.debug.js instead for debug -->
             <script>
                 jQuery(document).ready(function ($) {
 
@@ -42,8 +41,6 @@ $tempProduct = new Product();
 
                     var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
 
-                    //responsive code begin
-                    //you can remove responsive code if you don't want the slider scales while window resizing
                     function ScaleSlider() {
                         var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
                         if (refSize) {
@@ -58,20 +55,10 @@ $tempProduct = new Product();
                     $(window).bind("load", ScaleSlider);
                     $(window).bind("resize", ScaleSlider);
                     $(window).bind("orientationchange", ScaleSlider);
-                    //responsive code end
                 });
             </script>
 
             <style>
-
-                /* jssor slider bullet navigator skin 05 css */
-                /*
-                .jssorb05 div           (normal)
-                .jssorb05 div:hover     (normal mouseover)
-                .jssorb05 .av           (active)
-                .jssorb05 .av:hover     (active mouseover)
-                .jssorb05 .dn           (mousedown)
-                */
                 .jssorb05 {
                     position: absolute;
                 }
@@ -89,15 +76,6 @@ $tempProduct = new Product();
                 .jssorb05 .av { background-position: -67px -7px; }
                 .jssorb05 .dn, .jssorb05 .dn:hover { background-position: -97px -7px; }
 
-                /* jssor slider arrow navigator skin 12 css */
-                /*
-                .jssora12l                  (normal)
-                .jssora12r                  (normal)
-                .jssora12l:hover            (normal mouseover)
-                .jssora12r:hover            (normal mouseover)
-                .jssora12l.jssora12ldn      (mousedown)
-                .jssora12r.jssora12rdn      (mousedown)
-                */
                 .jssora12l, .jssora12r {
                     display: block;
                     position: absolute;
