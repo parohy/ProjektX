@@ -4,7 +4,7 @@ $path .= 'ProjektX/';
 include_once ($path.'API/UserHandler.php');
 include_once ($path.'API/InputRecheck.php');
 
-$exitTo = 'Location: ?page=';
+$exitTo = '?page=';
 $editUser = null;
 $check = new Recheck();
 if(isset($_SESSION['editId'])){
@@ -37,7 +37,6 @@ function proceed($check,$editUser){
 		$value = $check->dumpSpecialChars($_POST['name']);
 		if($check->checkInput($_POST['name'],50)){
 			$editUser->saveData('name', ucfirst($value));
-			//echo "I AM HERE! " . $_POST['name'] . ' ' . $editUser->getId() . '<br>';
 		}
 	}
 	
@@ -46,7 +45,6 @@ function proceed($check,$editUser){
 		$value = $check->dumpSpecialChars($_POST['surname']);
 		if($check->checkInput($_POST['surname'],50)){
 			$editUser->saveData('surname', ucfirst($value));
-			//echo "I AM HERE! " . $_POST['surname'] . ' ' . $editUser->getId() . '<br>';
 		}
 	}
 	
@@ -58,7 +56,6 @@ function proceed($check,$editUser){
 		}
 		else{
 			$editUser->saveData('email', $value);
-			//echo "I AM HERE! " . $_POST['email'] . ' ' . $editUser->getId() . '<br>';
 		}
 	
 	}
@@ -88,11 +85,23 @@ function proceed($check,$editUser){
 		}
 	}
 	
+	//password
+	if(isset($_POST['new-password'])){
+		$value = $check->dumpSpecialChars($_POST['new-password']);
+		if($check->checkInput($_POST['new-password'],50)){
+			$editUser->saveData('password', $value);
+		}
+	}
+	
 	$_SESSION['editErr'] = "Saved.";	
 	exitScript();
 }
 
 function exitScript(){
-	header($GLOBALS['exitTo']);
-	exit();
+	if(headers_sent()){
+		die('Redirect failed. Please click on <a href="'.$GLOBALS['exitTo'].'">this</a> to try again.');
+	}
+	else{
+		exit(header('Location: ' . $GLOBALS['exitTo']));
+	}
 }
