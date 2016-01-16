@@ -2,16 +2,27 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,600,700,900&subset=latin,latin-ext);
 
 .error {
+    position: absolute;
     color: #FF0000;
-    white-space: nowrap;
+    margin-top: 3%;
+    right: 2%;
+    font-size: 22px;
+}
+
+#errorMessage {
+    color: #FF0000;
+    margin: 2% 5% 0 0%;
+    float: right;
+    font-size: 22px;
 }
 
 .checkoutpage{
-    margin-bottom: 40px;
+    width: 100%;
+    height: 700px;
 }
 
 .checkout-body{
-
+    height: 80%;
     margin-top: 20px;
 }
 .title-page{
@@ -23,57 +34,70 @@
     border-bottom: 1px solid #ccc;
     padding: 25px;
 }
+
 .leftside{
-    float: left;
-    margin-left: 20px;
-    width: 45%;
-    border-right: 1px solid  #CCCCCC;
-}
-.form-inp ul li{
-    list-style: none;
-    margin-top: 15px;
-    min-width: 150px;
-    max-width: 250px;
-    width: 100%;
-
-}
-.form-inp ul li label{
-    display: block;
-    padding-left: 10px;
-    font-size: 25px;
-}
-.form-inp ul li input{
-    width: 100%;
-    max-width: 250px;
-    height: 35px;
-}
-.delivery{
-    margin-top: 15px;
-    margin-bottom: 15px;
-    margin-left: 15px;
-}
-.delivery label{
-    font-size: 25px;
-}
-.delivery input{
-    margin-left: 15px;
-
-}
-.pay{
-    margin-left: 15px;
-}
-.pay label{
-    font-size: 25px;
-
-}
-.pay input{
-    margin-left: 15px;
-}
-/*right side*/
-.rightside{
-    float: left;
+    width: 50%;
     margin-top: 40px;
-    width: 45%;
+    float: left;
+}
+
+.nav-bar{
+    
+    display: inline-block;
+    width: 30%;
+    font-size: 36px;
+    font-weight: 200;
+    list-style-type: none;
+    
+    
+}
+
+.formular-link{
+    font-size: 36px;
+    font-weight: 200;
+    list-style-type: none;
+    display: inline-block;
+    margin-top: 1%;
+    line-height: 60px;
+    letter-spacing: 2px;
+}
+
+#checkoutForm {
+    margin-top: 1%;
+}
+
+.form-inp{
+    float: right;
+    padding-left: 35px;
+    display: inline-block;
+    width: 100%;
+    font-weight: 200;
+    border-right: 1px solid #ccc;
+    margin-top: -25%;
+    
+}
+
+input[type="text"]{
+   float: right;
+   width: 50%;
+   font-family: 'Source Sans Pro', sans-serif;
+   font-size: 25px;
+   font-weight: 200;
+   margin: 2% 5% 0 0;
+   line-height: 50px;
+   padding-left: 2%;
+}
+
+
+.text-bar{
+    position: relative;
+    list-style-type: none;
+}
+
+.rightside{
+    width: 50%;
+    float: right;
+    margin-top: 40px;
 }
 
 .subtotal{
@@ -81,7 +105,7 @@
     font-size: 36px;
     text-align: center;
     margin-top: 80px;
-
+    
 }
 
 .sum{
@@ -89,24 +113,24 @@
     font-size: 56px;
     font-weight: 700;
     text-align: center;
-}
-
-.querylogin{
+ }
+ 
+ .querylogin{
     display: block;
     font-size: 36px;
     font-weight: 200;
     text-align: center;
     margin-top: 5px;
-}
-
-.boldlogin{
+ }
+ 
+ .boldlogin{
     font-weight: 600;
-}
-.boldlogin:hover{
+ }
+ .boldlogin:hover{
     color: #34A994;
     cursor: pointer; cursor: hand;
-}
-
+ }
+ 
 
 .order-button{
     font-family: 'Source Sans Pro', sans-serif;
@@ -131,12 +155,4 @@
     color: #34A994;
     outline: none;
     cursor: pointer; cursor: hand;
-}
-input[type="text"]{
-    font-family: 'Source Sans Pro', sans-serif;
-    ont-weight: 200;
-    font-size: 16px;
-    padding-left: 10px;
-
-
 }

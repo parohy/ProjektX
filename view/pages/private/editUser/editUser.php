@@ -9,18 +9,18 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= 'ProjektX/';
 include_once ($path.'API/UserHandler.php');
 
-$path = '?page=private/pageSettings&settings=editUser/newUserScript';
+$scriptPath = '?page=private/pageSettings&settings=editUser/newUserScript';
 $editUser = NULL;
 if(isset($_GET['userid'])){
 	$editUser = User::editUser($_GET['userid']);
 	$_SESSION['editId'] = $editUser->getId();
-	$path = '?page=private/pageSettings&settings=editUser/editScript';
+	$scriptPath = '?page=private/pageSettings&settings=editUser/editScript';
 }
 
 // DO EDIT USER ?>
 <link rel="stylesheet" href="libraries/css/editUser.css">
 
-<form id="profile" action="<?php echo $path;?>" method="POST">
+<form id="profile" action="<?php echo $scriptPath;?>" method="POST">
 
     <fieldset id="edit-profile">
         <legend>EDIT PROFILE</legend>

@@ -13,6 +13,7 @@ if(isset($_SESSION['editId'])){
 		$value = $check->dumpSpecialChars($_POST['name']);
 		if($check->checkInput($_POST['name'],50)){
 			$editUser->saveData('name', ucfirst($value));
+			echo "I AM HERE! " . $_POST['name'] . ' ' . $editUser->getId() . '<br>';
 		}
 	}
 	
@@ -62,6 +63,6 @@ if(isset($_SESSION['editId'])){
 	}
 	
 	$_SESSION['editErr'] = "Saved.";
-	header('Location: ../newDesign/?page=private/pageSettings&settings=users');
-	exit();
+	//header('Location: ../newDesign/?page=private/pageSettings&settings=users');
+	//exit();
 }
