@@ -168,3 +168,8 @@
     width: 100px;
     height: 35px;
 }
+
+.page-link>i{
+	font-decoration: none;
+	color: #34A994;
+}

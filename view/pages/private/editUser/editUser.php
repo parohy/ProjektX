@@ -17,7 +17,7 @@ if(isset($_GET['userid'])){
 	$scriptPath = '?page=private/pageSettings&settings=editUser/editScript';
 }
 
-else if(isset($_SESSION['userrole']) == 1 ){
+else if(isset($_SESSION['userrole']) && $_SESSION['userrole'] == 1 ){
 	$editUser = User::editUser($_SESSION['userid']);
 	$_SESSION['editId'] = $editUser->getId();
 	$scriptPath = '?page=accountSettings&profile=editScript';
