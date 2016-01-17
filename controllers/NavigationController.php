@@ -67,7 +67,7 @@ class NavigationController {
         echo "<ul class=\"nav\">";
 
         foreach ($categories as $cat) {
-            echo "<li class=\"button\"><a href=\"?page=mainCategory&catid=" . $cat['id'] . "\">" . $cat['category'] . "</a>";
+            echo "<li class=\"button categoryButton\"><a href=\"?page=mainCategory&catid=" . $cat['id'] . "\">" . $cat['category'] . "</a>";
             echo "<ul class=\"subnav\">";
             foreach ($cat['subcategory'] as $subcat) {
                 echo "<li><a href=\"?page=subCategory&catid=" . $subcat['id'] . "\">" .$subcat['name'] . "</a></li>";
