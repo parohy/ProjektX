@@ -20,10 +20,10 @@ html {
     box-sizing: inherit;
 }
 body {
-    max-width: 1750px;
-    min-width: 1350px;
+   /* max-width: 1500px;*/
 
-    margin: 0 auto;
+
+    /*margin: 0 auto;*/
     color: #595959;
     font-family: 'Source Sans Pro', sans-serif;
     font-style: normal;
