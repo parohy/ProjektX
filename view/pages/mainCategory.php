@@ -13,4 +13,9 @@ $path .= 'ProjektX/';
 include ($path . 'view/pages/sortingTable.php');
 ?>
 <div class="product-display">
+<?php
+$path = $_SERVER['DOCUMENT_ROOT'];
+$path .= 'ProjektX/';
+include ($path . 'controllers/displayCategory.php');
+?>
 </div>

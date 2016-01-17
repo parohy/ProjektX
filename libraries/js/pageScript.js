@@ -25,16 +25,7 @@ $(function() {
     $(".button").hover(function() {
         $(this).children(".subnav").stop(true, false).slideToggle(600);
     });
-
-    $(".categoryButton").click(function () 
-    {
-        alert("jebne ma");
-        $.load("controllers/displayCategory.php", function(data, status)
-        {
-            alert("Data: " + data + "\nStatus: " + status);
-        });
-    });
-
+    
     /*
      * SEARCH BAR
      */

@@ -101,7 +101,6 @@ class Filter{
             $brands=$this->brand;
         }
         else{
-            echo "pizza";
             $this->handlerDB->query("SELECT brandid FROM brands");
             $brands = $this->handlerDB->resultSet();
         }
