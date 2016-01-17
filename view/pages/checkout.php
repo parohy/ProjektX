@@ -79,7 +79,6 @@ if(isset($_SESSION['userid'])){
             <div class="subtotal">Subtotal (x items)</div>
             <div class="sum">XX.XX EUR</div>
             <input type="button" class="order-button" value="Place order">
-            <div class="querylogin">Do you want to <a class="boldlogin">login</a>?</div>
         </div>
     </div>    
 </div>
