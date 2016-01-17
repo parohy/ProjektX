@@ -80,7 +80,18 @@ if(isset($_GET['numOfItems']) && isset($_GET['totalCost'])) {
 		    </form>    
 		</div>
 		<div class="rightside">
-            <div class="subtotal">Subtotal (<?php echo $numOfItems;?> items)</div>
+            <div class="subtotal">Subtotal (
+                <?php
+                echo $numOfItems;
+
+                if($numOfItems > 1) {
+                    echo " items";
+                }
+                else {
+                    echo " item";
+                }
+                ?>
+                )</div>
             <div class="sum"><?php echo $totalCost;?> EUR</div>
             <input type="button" class="order-button" value="Place order">
         </div>
