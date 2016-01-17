@@ -9,6 +9,7 @@
 $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= 'ProjektX/';
 include ($path . 'API/ImageScaling.php');
+include_once ($path.'API/Product.php');
 
 class ProductDisplay
 {
@@ -52,6 +53,23 @@ class ProductDisplay
             }
         }
         echo "</div>";
+    }
+    
+    public function displayProduct($id){
+    	$out = "";
+    	$product = new Product($id);
+    	 
+    	 
+    	$out .= '<div class="product-item">';
+    	$out .= '<div class="product-photo"><a href="?page=productPreview&product='.$product->id.'"><img alt="product-photo" src="libraries/img/products/'.$product->id.'/'.$product->id.'a.jpg" class="thumbnailImage"></a></div>';
+    	$out .= '<div class="product-description">';
+    	$out .= '<hr class="product-line">';
+    	$out .= '<h3 class="product-name">'.substr($product->name,0,40).'</h3>';
+    	$out .= '<span class="price">'.$product->price.'</span>';
+    	$out .= '<a href="controllers/addToCart.php?productid='.$product->id.'&name='.$product->name.'&price='.$product->price.'" class="addToCart">Add to Cart</a>';
+    	$out .= '</div></div>';
+    	 
+    	return $out;
     }
 }
 ?>
