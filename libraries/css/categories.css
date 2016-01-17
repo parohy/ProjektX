@@ -1,6 +1,7 @@
 .sorting-table {
+    position: relative;
     width: 200px;
-    height: 550px;
+    height: 600px;
     margin: 20px 0;
     border: 1px solid #cacaca;
 }
@@ -31,6 +32,10 @@
     font-weight: bold;
     margin-bottom: 10px;
     border-bottom: 1px solid #cacaca;
+}
+
+.lastForm {
+    border-bottom: 0 !important;
 }
 
 input[type="number"] {
