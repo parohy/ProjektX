@@ -15,6 +15,7 @@
         <li>+421 902 095 588</li>
 
         <li class="welcome-buttons"><a class="mail" href="mailto:viashopsk@gmail.com">viashopsk@gmail.com</a></li>
+        <li class="welcome-buttons"><a href="?page=faq">FAQ</a>/<a href="?page=aboutus">About us</a></li>
     </ul>
     <div class="social-icons">
         <ul>

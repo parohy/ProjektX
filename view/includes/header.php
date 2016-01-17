@@ -45,7 +45,7 @@
         </div>
     </div>
 
-    <a class="title" href="http://localhost/ProjektX/?page=main-page#">
+    <a class="title" href="?page=main-page">
         <img class="viatechlogo" src="libraries/img/header/logo.png" width="360px" height="62px">
     </a>
     
@@ -55,7 +55,7 @@
             <div class="cart-title" href="?page=cart">
                 <ul>
                     <li>
-                        <a>SHOPPING CART:</a><span class="amount">
+                        <a href="?page=cart" class="cartbutton">SHOPPING CART:</a><span class="amount">
                             <?php
                             if(isset($_SESSION['cart'])) {
                                 $cartContent = $_SESSION['cart'];

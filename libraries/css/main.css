@@ -27,6 +27,8 @@ body {
     color: #595959;
     font-family: 'Source Sans Pro', sans-serif;
     font-style: normal;
+    background: url("../img/photography.png");
+    /*
     background: no-repeat;
     background-image: -webkit-gradient(
             linear,
@@ -41,7 +43,7 @@ body {
     background-image: -webkit-linear-gradient(bottom, #09E0AE 0%, #F7FCFC 66%, #FFFFFF 100%);
     background-image: -ms-linear-gradient(bottom, #09E0AE 0%, #F7FCFC 66%, #FFFFFF 100%);
     background-image: linear-gradient(to bottom, #09E0AE 0%, #F7FCFC 66%, #FFFFFF 100%);
-    cursor: default;
+    cursor: default;*/
 }
 .container {
     width:1170px;
@@ -219,7 +221,6 @@ body {
     float: right;
     margin-right: 8px;
 }
-
 .shopicon{
     margin-right: 8px;
 }
@@ -238,6 +239,7 @@ body {
 }
 
 .cart-title a {
+    color: #484848;
     text-decoration: none;
     padding-right: 0px;
 }
