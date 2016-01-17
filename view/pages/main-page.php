@@ -158,7 +158,7 @@ $filter = new Filter();
                     for($i=0;$i<$max;$i++){
                     	$counter++;
                     	if($counter == 1){
-                    		$out .= '<div class="row">';
+                    		echo '<div class="row">';
                     	}
                     	echo $tempProduct->displayProduct($productsId[$i]['productid']);
                         if($counter == 4){
