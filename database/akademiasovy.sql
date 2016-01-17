@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2016 at 06:51 PM
+-- Generation Time: Jan 17, 2016 at 08:38 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -78,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `name` varchar(100) COLLATE utf8_slovak_ci NOT NULL,
   `parent` int(11) DEFAULT NULL,
   PRIMARY KEY (`categoryid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=25 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=32 ;
 
 --
 -- Dumping data for table `categories`
@@ -86,29 +86,28 @@ CREATE TABLE IF NOT EXISTS `categories` (
 
 INSERT INTO `categories` (`categoryid`, `name`, `parent`) VALUES
 (1, 'ELECTRONICS', NULL),
-(2, 'TV,AUDIO', 1),
-(3, 'BLURAY PLAYERS', 2),
-(4, 'HEADPHONES', 2),
-(5, 'IN-EAR', 4),
-(6, 'ON EAR', 4),
-(7, 'HOME AUDIO', 2),
-(8, 'PC,TABLETS', 1),
-(9, 'NOTEBOOKS', 8),
-(10, 'PC', 8),
-(11, 'TABLETS', 8),
-(12, 'ANDROID', 11),
-(13, 'IOS', 11),
-(14, 'MONITORS', 8),
-(15, 'MOBILE PHONES', 1),
-(16, 'CELL PHONES', 15),
-(17, 'TOUCH DISPLAY', 16),
-(18, 'CLASSIC PHONES', 16),
-(19, 'ACCESSORIES', 15),
-(20, 'ARMBANDS', 19),
-(21, 'BATTERIES', 19),
-(22, 'CASES', 19),
-(23, 'SMART WATCHES', 15),
-(24, 'TV', 2);
+(2, 'TV', 1),
+(3, 'AUDIO', 1),
+(4, 'PC', 1),
+(5, 'TABLETS', 1),
+(6, 'MOBILE PHONES', 1),
+(7, 'ACCESSORIES', 1),
+(8, 'HOME AUDIO', 3),
+(9, 'BLU-RAY PLAYERS', 3),
+(10, 'HEADPHONES', 3),
+(11, 'IN-EAR', 10),
+(12, 'ON-EAR', 10),
+(13, 'NOTEBOOK', 4),
+(14, 'DESKTOP', 4),
+(15, 'MONITORS', 4),
+(16, 'ANDROID', 5),
+(17, 'IOS', 5),
+(18, 'CELL PHONES', 6),
+(19, 'SMARTPHONES', 6),
+(20, 'BATTERIES', 6),
+(21, 'ARMBAND', 7),
+(22, 'CASES', 7),
+(23, 'SMART WATCHES', 7);
 
 -- --------------------------------------------------------
 
@@ -145,7 +144,24 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `shipped` tinyint(4) NOT NULL,
   `orderprice` float NOT NULL,
   PRIMARY KEY (`orderid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=12 ;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`orderid`, `userid`, `name`, `surname`, `email`, `phone`, `address`, `city`, `postcode`, `datecreated`, `shipped`, `orderprice`) VALUES
+(1, 0, 'Peter', 'Varholak', 'mymail@gmail.com', '0948120326', 'Alejova 5', 'Kosice', '04020', '2016-01-06 17:57:47', 0, 0),
+(2, 0, 'Peter', 'Varholak', 'mymail@gmail.com', '0948120326', 'Alejova 5', 'Kosice', '04020', '2016-01-06 17:59:45', 0, 0),
+(3, 0, 'Peter', 'Varholak', 'mymail@gmail.com', '0948120326', 'Alejova 5', 'Kosice', '04020', '2016-01-06 18:02:42', 0, 0),
+(4, 0, 'Peter', 'Varholak', 'mymail@gmail.com', '0948120326', 'Alejova 5', 'Kosice', '04020', '2016-01-06 18:04:07', 0, 0),
+(5, 7, 'Peter', 'Varholak', 'mymail@gmail.com', '0948120326', 'Alejova 5', 'Kosice', '04020', '2016-01-06 18:05:40', 0, 0),
+(6, 0, 'Peter', 'Varholak', 'mymail@gmail.com', '0948120326', 'Alejova 5', 'Kosice', '04020', '2016-01-06 18:06:12', 0, 0),
+(7, 7, 'Peter', 'Varholak', 'mymail@gmail.com', '0948120326', 'Alejova 5', 'Kosice', '04020', '2016-01-06 18:07:00', 0, 0),
+(8, 7, 'Peter', 'Varholak', 'mymail@gmail.com', '0948120326', 'Alejova 5', 'Kosice', '04020', '2016-01-06 18:07:34', 0, 0),
+(9, 0, 'Peter', 'Varholak', 'mymail@gmail.com', '0948120326', 'Alejova 5', 'Kosice', '04023', '2016-01-06 18:34:14', 0, 0),
+(10, 1, 'admin', 'kjdfbn', 'admin@admin.com', '09499999', 'jdhv 5', 'city', '04022', '2016-01-15 00:40:30', 0, 0),
+(11, 0, 'Name', 'nana', 'mail@mail.com', '0955555', 'adres 9', 'kosice', '04055', '2016-01-15 00:42:53', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -174,31 +190,31 @@ CREATE TABLE IF NOT EXISTS `products` (
 
 INSERT INTO `products` (`productid`, `categoryid`, `amount`, `name`, `price`, `brandid`, `description`, `viewamount`, `datecreated`, `numofratings`, `sumofratings`) VALUES
 (1, 3, 25, 'Sony BDP-S3200', 149.99, 1, 'The new Sony BDP-S3200 Blu-ray Disc Player come up with Super Wi-Fi features with completely incased optical drive for enhanced dust resistance. It supports Full HD 1080p resolution and DVD upscaling to near HD quality. You can also use your mobile device as a second display or as a remote control for the player. All you need is the Sony TV SideView app. You can even search for movie info using Gracenote. Our Sony BDP-S3200 hardware modified region A, B & C Blu-ray player is also guaranteed work with any future firmware updates from Sony. It also features a perfect real time PAL to NTSC conversion which enables you to watch PAL DVDs on US TVs without any external video converter.', 1, '2015-11-20 23:13:39', 1, 1),
-(2, 3, 45, 'Panasonic DMP-BDT270', 329.99, 2, 'The DMP-BDT270 Smart Network 4K Upscaling Wi-Fi and 3D Blu-ray Disc Player from Panasonic allows you to watch movies at near 4K resolution and can stream multimedia content. This Blu-ray player supports full HD 1080p 2D and 3D Blu-ray disc playback from its HDMI output, and can also upconvert standard definition DVDs and Blu-ray movies to near 4K quality when used with a 4K television. Additionally, you can convert 2D content into 3D when used with optional 3D glasses and a 3D TV. Wi-Fi and Ethernet are built-in for browsing the Internet, and accessing premium streaming content such as Netflix, Hulu Plus and YouTube.', 1, '2015-11-20 23:25:04', 1, 1),
+(2, 3, 45, 'Panasonic DMP-BDT270', 329.99, 2, 'The DMP-BDT270 Smart Network 4K Upscaling Wi-Fi and 3D Blu-ray Disc Player from Panasonic allows you to watch movies at near 4K resolution and can stream multimedia content. This Blu-ray player supports full HD 1080p 2D and 3D Blu-ray disc playback from its HDMI output, and can also upconvert standard definition DVDs and Blu-ray movies to near 4K quality when used with a 4K television. Additionally, you can convert 2D content into 3D when used with optional 3D glasses and a 3D TV. Wi-Fi and Ethernet are built-in for browsing the Internet, and accessing premium streaming content such as Netflix, Hulu Plus and YouTube.', 1, '2015-11-20 23:25:04', 2, 5),
 (3, 5, 35, 'Sony MDREX10LP/BLK In-Ear Headphones', 14.99, 1, '9mm driver unit, neodymium magnet, hybrid silicone earbuds (S/M/L), 1.2m Y-Type cord\r\nWide range of colours to choose from\r\nPowerful bass and high resolution treble\r\nSecure fit hybrid silicone earbuds', 1, '2015-11-20 23:29:44', 1, 1),
-(4, 5, 10, 'Bose SoundTrue In-Ear Headphones', 79.99, 3, 'Bose SoundTrue In-Ear Headphones have the audio quality and sophisticated style your busy life demands. They deliver deep, clear sound for the music you love. The StayHear tips keep the headphones comfortably in place for hours of listening. They are engineered and tested for lasting quality and durability, and include a matching carrying case. And you''ll look good wearing them. SoundTrue In-Ear Headphones come in three colors to fit your style: Black, White and Cranberry. What''s in the box: SoundTrue In-Ear Headphones, 3-pairs StayHear tips (S, M, L), Carry case and Clothing clip.', 1, '2015-11-20 23:31:21', 2, 5),
-(5, 5, 32, 'Sennheiser CX 300 II ', 32.99, 4, 'Offering a powerful, bass-driven stereo sound with greater clarity and improved dynamics over standard earbuds are the Sennheiser CX 300-II in-ear headphones. The various sizes of ear adapters (S/M/L sizes) provided in the package allow for a customized fit as well as exceptional noise blocking capability. A convenient carrying pouch is also included for easy storage.', 1, '2015-11-20 23:33:00', 1, 1),
-(6, 6, 0, 'Beats Solo2 Wireless On-Ear Headphones', 199.99, 5, 'Beats Solo2 Wireless. Designed for sound, tuned for emotion, now wireless.', 1, '2015-11-20 23:34:36', 1, 1),
-(7, 6, 75, 'Skullcandy Uprock Headphones ', 29.99, 6, 'The people at Skullcandy firmly believe that everyone has the right to have access to face-melting sound, which is why they made the Uprock Headphones with Mic with the quality everyone deserves, at a price anyone can afford. Supreme Sound drivers pump attacking bass and precision highs straight to your dome, while the cushy ear pillows keep you comfortable for hours of listening pleasure.', 1, '2015-11-20 23:39:22', 1, 1),
+(4, 5, 10, 'Bose SoundTrue In-Ear Headphones, Cranberry', 79.99, 3, 'Bose SoundTrue In-Ear Headphones have the audio quality and sophisticated style your busy life demands. They deliver deep, clear sound for the music you love. The StayHear tips keep the headphones comfortably in place for hours of listening. They are engineered and tested for lasting quality and durability, and include a matching carrying case. And you''ll look good wearing them. SoundTrue In-Ear Headphones come in three colors to fit your style: Black, White and Cranberry. What''s in the box: SoundTrue In-Ear Headphones, 3-pairs StayHear tips (S, M, L), Carry case and Clothing clip.', 1, '2015-11-20 23:31:21', 2, 5),
+(5, 5, 32, 'Sennheiser CX 300 II Precision Enhanced Bass Earbuds (Black)', 32.99, 4, 'Offering a powerful, bass-driven stereo sound with greater clarity and improved dynamics over standard earbuds are the Sennheiser CX 300-II in-ear headphones. The various sizes of ear adapters (S/M/L sizes) provided in the package allow for a customized fit as well as exceptional noise blocking capability. A convenient carrying pouch is also included for easy storage.', 1, '2015-11-20 23:33:00', 1, 1),
+(6, 6, 0, 'Beats Solo2 Wireless On-Ear Headphones - Black', 199.99, 5, 'Beats Solo2 Wireless. Designed for sound, tuned for emotion, now wireless.', 1, '2015-11-20 23:34:36', 1, 1),
+(7, 6, 75, 'Skullcandy Uprock Headphones with Mic', 29.99, 6, 'The people at Skullcandy firmly believe that everyone has the right to have access to face-melting sound, which is why they made the Uprock Headphones with Mic with the quality everyone deserves, at a price anyone can afford. Supreme Sound drivers pump attacking bass and precision highs straight to your dome, while the cushy ear pillows keep you comfortable for hours of listening pleasure.', 1, '2015-11-20 23:39:22', 1, 1),
 (8, 6, 51, 'Sony MDR-ZX330BT/B Bluetooth Wireless On-Ear Headphones', 59.99, 1, 'So easy-lightweight, compact listening with added wireless freedom. Enjoy your favorite beats with cord-free convenience via Bluetooth with Near Field Communications (NFC) technology. Envelope yourself in full, balanced sound and tight beats with 30mm drivers and easily swivel and stow away when done.', 1, '2015-11-20 23:41:09', 1, 1),
 (9, 7, 12, 'Acoustic Audio AA5170 Home Theater 5.1', 89.99, 7, 'This 6 piece, 700 watt system includes one powered subwoofer and five satellite speakers as well as all the necessary cables and instructions needed for simple integration into any multimedia configuration. This compact, yet powerful speaker package makes for an excellent addition to any home theater system, personal computer or laptop, gaming system, digital media player, "i" device or any other audio/video device that that can be connected via Bluetooth, RCA or 3.5mm auxiliary interface. The included powered subwoofer is housed in a digitally tuned, bass enhancing enclosure made of durable MDF for increased bass response while the full range satellite speakers feature magnetic shielding for worry-free use near televisions and computer monitors.', 1, '2015-11-20 23:42:47', 1, 1),
 (10, 7, 3, 'Orb Audio Mini 5.1 Home Theater Speaker System', 599.99, 8, 'Exclusive to Amazon - a custom 5.1 home theater surround sound system that will blow your mind without blowing your budget. Great for both movies and music, this system includes five state of the art Mod1X satellite speakers and the ultra compact subMINI powered subwoofer. You also get 100 feet of USA made speaker wire and a subwoofer cable - everything you need to connect the speakers to a receiver quickly and easily. Orb Audio is known for systems designed to produce big sound from small, attractive speakers and this system is sure to please. Don''t miss out on this exceptional limited time offer! It''s a great chance to bring high quality sound to your room without filling it up with speakers made from plastic or fake wood. Audiophile sound, outstanding looks and a fantastic sale price. This system has it all, so try it today!', 1, '2015-11-20 23:44:17', 2, 5),
 (11, 9, 15, 'Dell Inspiron i7559-763BLK 15.6" ', 729.99, 9, 'Intel i5-6300HQ 2.3 GHz Quad-Core (6M Cache, Turbo up to 3.2 GHz)\r\nNVIDIA GeForce GTX 960M 4GB GDDR5\r\n8 GB DDR3L / 256 GB Solid-State Drive\r\n15.6-Inch FHD IPS, Wide-Angle, Anti Glare Screen', 1, '2015-11-20 23:48:11', 1, 1),
-(12, 9, 22, 'ASUS Zenbook UX305LA 13.3-Inch Laptop ', 709.99, 10, '13.3-Inch Full-HD IPS Anti-Glare Matte Display with an Ultra-wide 170° Viewing Angle.\r\nPowerful 5th-generation Intel Core i5-5200U 2.2GHz (Turbo up to 2.7GHz) Broadwell.\r\n8 GB RAM/ 256 GB Solid State Drive; 10-Hours Battery Life. 1.2 MP High Definition Webcam.\r\nDesigned to be ultra-slim with an all-aluminum body. The unit weighs only 2.86 lbs, is less than .6-inch thin.', 1, '2015-11-20 23:49:49', 2, 2),
-(13, 9, 42, 'ASUS Chromebook Flip 10.1-Inch Convertible 2 in 1 Touchscreen ', 249.99, 10, 'Rockchip 1.8 GHz Processor\r\n4 GB DDR3 RAM\r\nCan open/edit MS Office files using free embedded QuickOffice editor or Google Docs, and can download Microsoft Office Online (an online version of Microsoft Office) for free. Cannot install standard MS Office software.\r\nStorage : 16GB Solid State Storage; No CD or DVD drive\r\n10.1 inches 1280*800 pixels LED-lit Screen\r\nChrome Operating System; Silver Chassis', 1, '2015-11-20 23:51:35', 1, 1),
-(14, 9, 12, 'Apple MacBook Air MJVE2LL/A 13-inch Laptop ', 929.99, 11, '1.6 GHz Intel Core i5 (Broadwell) 4GB of 1600 MHz LPDDR3 RAM\r\n128GB PCIe-Based Flash Storage Integrated Intel HD Graphics 6000\r\n13.3" LED-Backlit Glossy Display 1440 x 900 Native Resolution\r\n802.11ac Wi-Fi, Bluetooth 4.0 USB 3.0, Thunderbolt 2\r\n720p FaceTime HD Camera, SDXC Card Slot Mac OS X 10.10 Yosemite', 1, '2015-11-20 23:52:30', 1, 1),
-(15, 9, 8, 'Lenovo Flex 3 14-Inch Touchscreen Laptop ', 729.99, 12, 'Intel Core i7-6500U 2.5 GHz Processor\r\n8 GB DDR3L SDRAM\r\n1 TB 5400 rpm Hard Drive\r\n14.0-Inch Screen, Integrated Graphics\r\nWindows 10, 5-hour battery life', 1, '2015-11-20 23:54:22', 1, 1),
+(12, 9, 22, 'ASUS Zenbook UX305LA 13.3-Inch Laptop (Intel Core i5, 8GB, 256 GB SSD, Titanium Gold) with Windows 10', 709.99, 10, '13.3-Inch Full-HD IPS Anti-Glare Matte Display with an Ultra-wide 170° Viewing Angle.\r\nPowerful 5th-generation Intel Core i5-5200U 2.2GHz (Turbo up to 2.7GHz) Broadwell.\r\n8 GB RAM/ 256 GB Solid State Drive; 10-Hours Battery Life. 1.2 MP High Definition Webcam.\r\nDesigned to be ultra-slim with an all-aluminum body. The unit weighs only 2.86 lbs, is less than .6-inch thin.', 1, '2015-11-20 23:49:49', 2, 2),
+(13, 9, 42, 'ASUS Chromebook Flip 10.1-Inch Convertible 2 in 1 Touchscreen (Rockchip, 4 GB, 16GB SSD, Silver)', 249.99, 10, 'Rockchip 1.8 GHz Processor\r\n4 GB DDR3 RAM\r\nCan open/edit MS Office files using free embedded QuickOffice editor or Google Docs, and can download Microsoft Office Online (an online version of Microsoft Office) for free. Cannot install standard MS Office software.\r\nStorage : 16GB Solid State Storage; No CD or DVD drive\r\n10.1 inches 1280*800 pixels LED-lit Screen\r\nChrome Operating System; Silver Chassis', 1, '2015-11-20 23:51:35', 1, 1),
+(14, 9, 12, 'Apple MacBook Air MJVE2LL/A 13-inch Laptop (1.6 GHz Intel Core i5,4GB RAM,128 GB SSD Hard Drive, Mac OS X)', 929.99, 11, '1.6 GHz Intel Core i5 (Broadwell) 4GB of 1600 MHz LPDDR3 RAM\r\n128GB PCIe-Based Flash Storage Integrated Intel HD Graphics 6000\r\n13.3" LED-Backlit Glossy Display 1440 x 900 Native Resolution\r\n802.11ac Wi-Fi, Bluetooth 4.0 USB 3.0, Thunderbolt 2\r\n720p FaceTime HD Camera, SDXC Card Slot Mac OS X 10.10 Yosemite', 1, '2015-11-20 23:52:30', 1, 1),
+(15, 9, 8, 'Lenovo Flex 3 14-Inch Touchscreen Laptop (Core i7, 8 GB RAM, 1 TB HDD, Windows 10) 80R3000UUS', 729.99, 12, 'Intel Core i7-6500U 2.5 GHz Processor\r\n8 GB DDR3L SDRAM\r\n1 TB 5400 rpm Hard Drive\r\n14.0-Inch Screen, Integrated Graphics\r\nWindows 10, 5-hour battery life', 1, '2015-11-20 23:54:22', 1, 1),
 (16, 10, 15, 'CyberpowerPC Gamer Ultra GUA3100A Gaming Desktop', 499.99, 13, 'System: AMD FX-4300 3.80GHZ Quad-Core | AMD 760G Chipset | 8GB DDR3 | 1TB HDD | Genuine Windows 10 Home 64-bit\r\nGraphics: AMD Radeon R7 240 2GB Video Card | 24X DVD±RW Dual-Layer Drive | Audio: 7.1 Channel | Gigabit LAN | Keyboard and Mouse\r\nConnectivity: 8x USB 2.0 | 1x RJ-45 Network Ethernet 10/100/1000 | Audio | 1x HDMI | 1x DVI | 1x VGA\r\nWarranty: 1 Year Parts & Labor Warranty | Free Lifetime Tech Support', 1, '2015-11-21 13:57:53', 1, 1),
 (17, 10, 5, 'HP Pavilion Slimline Desktop PC', 249.99, 14, 'AMD E1-2500 Accelerated Processor with AMD Radeon HD 8240 graphics\r\n4GB PC3-10600 DDR3 SDRAM\r\n500GB Serial ATA hard drive (7200 rpm)\r\nMultiformat DVD±RW/CD-RW drive with double-layer support\r\nWindows 8.1 64-bit / 6 high-speed USB 2.0 ports / 802.11b/g/n WLAN', 1, '2015-11-21 14:00:17', 1, 1),
 (18, 10, 6, 'CyberpowerPC Borg-Q (Green) TGM4213B Gaming PC', 549.99, 13, 'System: AMD FX-4130 3.80GHz Quad-Core | 760G | 8GB DDR3 | 1TB HDD | Genuine Windows 8.1 64-Bit - Eligible for Windows 10 Free Upgrade After Purchase*\r\nGraphics: NVIDIA GeForce GT610 1GB Video Card | 24X DVD±RW Dual-Layer Drive | Audio: 7.1 Channel | Gigabit LAN | Keyboard and Mouse\r\nExpansion Bays/Slots Total(Free): 3(2) Ext. 5.25" | 4(3) Int. 3.5/2.5" | 1(1) PCI | 1(1) PCI-E x1 | 1(0) PCI-E x16 | 2(1) DIMM 240P\r\nConnectivity: 4x USB 3.0 | 2x USB 2.0 | 1x RJ-45 Network Ethernet 10/100/1000 | Audio | 1x HDMI | 1x DVI | 1x VGA\r\nChassis: Gaming Mid-Tower w/450 Watt Power Supply | 1 Year Parts & Labor Warranty | Free Lifetime Tech Support | *Upgrade Must be Completed by 7/26/16', 1, '2015-11-21 14:03:14', 1, 1),
-(19, 10, 50, 'Lenovo ThinkServer TS140 Tower Server Desktop Computer', 699.99, 12, 'Processor: Intel Core i7-4770 Quad Core Processor (8MB Cache, 3.4GHz - 3.9GHz) 84W\r\nHard Drive: 3TB 7200rpm Hard Disk Drive | PLEASE NOTE: Hard Drive Caddies are only included with Upgraded Hard Drives. Additional Caddies are only placeholders.\r\nRAM: 16GB DDR3 1600MHz | Optical Drive: DVD-ROM\r\n', 1, '2015-11-21 14:11:12', 1, 1),
-(20, 12, 15, 'Samsung 32GB Galaxy Note 10.1" ', 359.99, 15, 'Operating System Android 4.4, kitkat\r\n32GB internal memory\r\nWi-Fi 802.11 a/b/g/n/ac, (2.4GHz + 5.0 GHz), USB 2.0, Bluetooth 4.0\r\n10.1" WQXGA TFT 2560 x 1600 pixel display\r\n4G LTE - T-Mobile Unlocked', 1, '2015-11-21 14:13:16', 1, 1),
+(19, 10, 50, 'Lenovo ThinkServer TS140 i7-4770 16GB 3TB HDD Tower Server Desktop Computer', 699.99, 12, 'Processor: Intel Core i7-4770 Quad Core Processor (8MB Cache, 3.4GHz - 3.9GHz) 84W\r\nHard Drive: 3TB 7200rpm Hard Disk Drive | PLEASE NOTE: Hard Drive Caddies are only included with Upgraded Hard Drives. Additional Caddies are only placeholders.\r\nRAM: 16GB DDR3 1600MHz | Optical Drive: DVD-ROM\r\n', 1, '2015-11-21 14:11:12', 1, 1),
+(20, 12, 15, 'Samsung 32GB Galaxy Note 10.1" Android 4G LTE Wi-Fi Dual Camera Unlocked Tablet', 359.99, 15, 'Operating System Android 4.4, kitkat\r\n32GB internal memory\r\nWi-Fi 802.11 a/b/g/n/ac, (2.4GHz + 5.0 GHz), USB 2.0, Bluetooth 4.0\r\n10.1" WQXGA TFT 2560 x 1600 pixel display\r\n4G LTE - T-Mobile Unlocked', 1, '2015-11-21 14:13:16', 1, 1),
 (21, 12, 23, 'ASUS Transformer Pad TF103CX-A1-BK 10.1-Inch 16 GB Tablet (Black)', 269.99, 10, '1.33 GHz quad-core Intel Atom processor, Android 4.4 KitKat\r\n16 GB Storage expandable by 64 GB with micro SD, 1 GB RAM\r\n10-inch HD IPS Display. Keyboard dock NOT included\r\nDual band 802.11 a/b/g/n Wi-Fi for faster web browsing\r\nOver $270 worth of content and services included', 1, '2015-11-21 14:15:35', 1, 1),
 (22, 12, 15, 'Samsung Galaxy Note Pro 12.2 (32GB, Black)', 524.99, 15, 'Android 4.4 Kit Kat OS, 1.9GHz Samsung Exynos 5 Octa processor\r\n32 GB Flash Memory, 3 GB RAM\r\n12.2-inch 2560x1600 WQXGA Display\r\nFeatures Hancom Office, Multi Window (up to 4), Magazine UX, Remote PC, Sidesync', 1, '2015-11-21 14:17:18', 1, 1),
 (23, 12, 32, 'Dell Venue 8 7000 Android Tablet (16GB)', 309.99, 9, '8.4" OLED infinity display with 2560 x 1600 resolution\r\nAndroid 4.4 KitKat operating system\r\nIntel Atom processor Z3580 with up to 2.3GHz speed for optimal browsing.', 1, '2015-11-21 14:18:46', 1, 1),
-(24, 13, 86, 'Apple iPad Pro (32GB, Wi-Fi, Space Gray)', 889.99, 11, '12.9" Retina Display, 2732 x 2048 Resolution\r\nApple iOS 9, Dual-Core A9X Chip with Quad-Core Graphics\r\n8 MP iSight Camera, Four-Speaker Audio\r\n32GB Capacity, Wi-Fi (802.11a/b/g/n/ac) + MIMO + Bluetooth 4.2\r\nUp to 10 Hours of Battery Life, 1.57 lbs\r\niPad Pro supports new Apple Smart Keyboard and Apple Pencil', 1, '2015-11-21 14:21:07', 1, 1),
-(25, 13, 56, 'Apple iPad mini 3 (16GB)', 329.99, 11, 'Apple iOS 8, 7.9-Inch Retina Display; 2048x1536 Resolution\r\nA7 Chip with 64-bit Architecture; M7 Motion Coprocessor\r\nWi-Fi (802.11a/b/g/n); 16 GB Capacity\r\n5MP iSight Camera; FaceTime HD Camera\r\nUp to 10 Hours of Battery Life', 1, '2015-11-21 14:22:12', 1, 1),
-(26, 14, 53, 'LG UM57 25UM57 25-Inch Screen LED-lit Monitor', 179.99, 16, 'Resolution: 2560 x 1080 Resolution (WFHD)\r\nBrightness: 250 cd/m2 Brightness\r\nIncludes IPS Panel, Dual Controller, and Screen Split', 1, '2015-11-21 14:24:10', 1, 1),
+(24, 13, 86, 'Apple iPad Pro (32GB, Wi-Fi, Space Gray) - 12.9" Display', 889.99, 11, '12.9" Retina Display, 2732 x 2048 Resolution\r\nApple iOS 9, Dual-Core A9X Chip with Quad-Core Graphics\r\n8 MP iSight Camera, Four-Speaker Audio\r\n32GB Capacity, Wi-Fi (802.11a/b/g/n/ac) + MIMO + Bluetooth 4.2\r\nUp to 10 Hours of Battery Life, 1.57 lbs\r\niPad Pro supports new Apple Smart Keyboard and Apple Pencil', 1, '2015-11-21 14:21:07', 1, 1),
+(25, 13, 56, 'Apple MGNV2LL/A iPad mini 3, 7.9-Inch Retina Display 16GB, Wi-Fi, Silver', 329.99, 11, 'Apple iOS 8, 7.9-Inch Retina Display; 2048x1536 Resolution\r\nA7 Chip with 64-bit Architecture; M7 Motion Coprocessor\r\nWi-Fi (802.11a/b/g/n); 16 GB Capacity\r\n5MP iSight Camera; FaceTime HD Camera\r\nUp to 10 Hours of Battery Life', 1, '2015-11-21 14:22:12', 1, 1),
+(26, 14, 53, 'LG Electronics UM57 25UM57 25-Inch Screen LED-lit Monitor', 179.99, 16, 'Resolution: 2560 x 1080 Resolution (WFHD)\r\nBrightness: 250 cd/m2 Brightness\r\nIncludes IPS Panel, Dual Controller, and Screen Split', 1, '2015-11-21 14:24:10', 1, 1),
 (27, 14, 64, 'HP Pavilion 21.5-Inch IPS LED HDMI VGA Monitor', 119.99, 14, 'Amazing angles: Share consistent high-color fidelity with In-Plane Switching (IPS) technology across a 21.5-inch diagonal screen. A stunning vantage point for everyone, from almost any angle.\r\nDistinctively modern and accessible: The contemporary thin profile is enhanced by black and silver colors. The open WEDGE stand design provides convenient access to VGA and HDMI port connections.\r\nCaptivating imagery: Color and clarity radiate from the screen with Full HD 1920 x 1080 resolution, incredible 8,000,000:1 dynamic contrast ratio, 16:9 aspect ratio, and quick 7 mms response time.', 1, '2015-11-21 14:25:54', 1, 1),
 (28, 14, 48, 'BenQ GL2760H 27-inch HDMI LED-lit Monitor', 189.99, 17, 'The GL2760H has passed Windows 8 certification and are fully compatible with both color systems. Plug in the GL2760H to your computer, and Windows 8 will recognize it instantly, making setup and connection effortless\r\nLED backlighting offers significant advantages for not only performance metrics such as higher dynamic contrast, no light leakage and flicker-free, but also environmental factors, like a manufacturing process and disposal that produces fewer pollutants\r\nD-sub / DVI/ HDMI/ headphone jack', 1, '2015-11-21 14:29:47', 1, 1),
 (29, 17, 55, 'Samsung Galaxy S5', 449.99, 15, 'With a 5.1" 1080p screen, 16 MP camera and 2 GB of RAM, the Galaxy S5 might not be the utmost specs beast that the Android world has to offer, but it comes with plenty of new features, both in comparison with its predecessor, the S4, and when measured up to the other flagships. The heart beat sensor, for instance, is unique for the Galaxy S5, while something like the Finger Scanner can also be observed on the iPhone 5s, but in a rather different implementation. Samsung also introduced two new launch colors, including Copper Gold, and a brand new perforated design for the rear cover. The addition of Snapdragon 801 chipset brings on LTE-A download speeds, and 4K video recording, to an already superb handset.', 1, '2015-11-21 14:34:02', 1, 1),
@@ -219,7 +235,7 @@ INSERT INTO `products` (`productid`, `categoryid`, `amount`, `name`, `price`, `b
 (44, 21, 19, 'Samsung Original Standard Battery 2100mA ', 7.99, 15, 'OEM Part Numbers - EB-L1G6LLA, EB-L1G6LLU, EB-L1G6LLZ\r\nSamsung original battery for Galaxy S3 in Bulk Packaging\r\nThis battery is equipped with an NFC antenna, allowing your handset to communicate with other devices and accessories equipped with NFC technology.\r\n2100mAh battery allows you to store power necessary to keep your device charged throughout the day', 1, '2015-11-21 15:32:52', 1, 1),
 (45, 21, 19, 'LG LGIP-520B', 2.99, 16, 'LG SBPL0086903 Standard Li Ion Battery For 8350 1000mAh', 1, '2015-11-21 15:33:51', 1, 1),
 (46, 22, 36, 'Nexus 5X Case, AceAbove Google Nexus 5X slim case', 14.99, 27, 'Nexus 5X Case Compatible with Google Nexus 5X (2015)\r\nFull degree of protection: Covers all 4 corners and includes raised edges to keep the screen from scratching or touching the ground-even when the PU Leather cover isn''t in place\r\niPhone 6S Plus case for you: Turn as many heads with the Layered Dandy case as you will with your device. Refined, functional, and practical, this folio cover fully complements the iPhone 6S Plus and lets the phone''s natural beauty shine unhindered\r\nFlexible wrap-around design for an easy, user-friendly installation\r\nProvides excellent shock absorption without stretching, tearing, or fading over time', 1, '2015-11-21 15:35:16', 1, 1),
-(47, 22, 20, 'Galaxy S5 case, Caseology®', 16.99, 28, 'Compatible with Samsung Galaxy S5 - Verizon, AT&T, T-Mobile, Sprint, International models.\r\nPrecise cutouts for improved access to all ports, buttons, cameras, speakers, and mics.\r\nMaterial: TPU (Thermoplastic Polyurethane) - Highly resistant to oil, dirt, and scratches with finished look of a hard case but shock absorption of a soft case\r\nDesigned and produced by one of the leading manufacturers in South Korea', 1, '2015-11-21 15:38:32', 1, 1),
+(47, 22, 20, 'Galaxy S5 case, Caseology® [Wavelength Series] [Navy Blue]', 16.99, 28, 'Compatible with Samsung Galaxy S5 - Verizon, AT&T, T-Mobile, Sprint, International models.\r\nPrecise cutouts for improved access to all ports, buttons, cameras, speakers, and mics.\r\nMaterial: TPU (Thermoplastic Polyurethane) - Highly resistant to oil, dirt, and scratches with finished look of a hard case but shock absorption of a soft case\r\nDesigned and produced by one of the leading manufacturers in South Korea', 1, '2015-11-21 15:38:32', 1, 1),
 (48, 23, 30, 'Sony SWR50 SmartWatch 3 Transflective Display Black Watch', 159.99, 1, 'Black Classic Band, Water Protected, IP68 rated : "up to 2 days normal use"\r\nSensors: Ambient light sensors, Accelerometer, Compass, Gyro, GPS\r\nNotifications, Voice Commands, Lifelong, Impressive stand-alone functions\r\nPowered By Android Wear - Useful information when you need it, Apps for everything\r\nTell the Smartwatch 3 SWR50 what you want and it will do it, Search, Command, Find\r\nWaterproof. IP58 Rated.', 1, '2015-11-21 15:40:19', 1, 1),
 (49, 23, 30, 'LG Electronics G Watch', 135.99, 16, 'Compatible with most devices with an Android 4.3 or later operating system\r\nVoice activated\r\nPowered by Android Wear\r\nMobile notifications\r\n1.2GHz Qualcomm processor', 1, '2015-11-21 15:41:20', 1, 1),
 (50, 23, 25, 'Samsung Gear 2 Neo Smartwatch', 199.99, 15, 'Smart Notification: Samsung Gear 2 Neo allows you to make and receive calls and read more on a large sAMOLED display making communication smooth and seamless.\r\nInstant Notification: Samsung Gear 2 enables you to receive instant notifications from your phone and apps plus a variety of 3rd party apps which you can view clearly on a sAMOLED screen.\r\nPersonalized Fitness Motivator: Samsung Gear 2, with its built-in Heart Rate Sensor, S Health features, and pedometer, track your daily pattern of exercise to give you customized real time coaching to help you achieve your goals.', 1, '2015-11-21 15:42:17', 1, 1),
@@ -248,7 +264,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `datejoined` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `role` int(11) NOT NULL,
   PRIMARY KEY (`userid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `users`
@@ -256,11 +272,12 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`userid`, `email`, `name`, `surname`, `password`, `address`, `city`, `postcode`, `phone`, `datejoined`, `role`) VALUES
 (1, 'admin@admin.com', 'admin', '', 'admin2015', '', '', '', '', '0000-00-00 00:00:00', 2),
-(2, 'david99@gmail.com', 'David', 'Kostra', 'transformers55', 'Trieda SNP 50', 'Kosice', '04001', '0902645125', '0000-00-00 00:00:00', 1),
-(3, 'jozo19898@gmail.com', 'Jozef', 'Samuraj', 'jablko', 'Safarikova 11', 'Kosice', '04011', '0911584778', '0000-00-00 00:00:00', 1),
-(4, 'marek.sss@gmail.com', 'Marek', 'Velky', 'iamlegend', 'Bernolakova 1', 'Kosice', '04001', '0941598623', '0000-00-00 00:00:00', 1),
-(5, 'ottoman787@azet.sk', 'Otto', 'Markus', '55ottis', 'Kuzmanyho', 'Kosice', '04001', '0948555877', '0000-00-00 00:00:00', 1),
-(6, 'serusky44@azet.sk', 'Martha', 'Big', 'yesyes22', 'Hlavna 55', 'Kosice', '04001', '0910632200', '0000-00-00 00:00:00', 1);
+(2, 'david99@gmail.com', 'David', 'Kostra', 'transformers55', 'Trieda SNP 50', 'Košice', '04001', '0902645125', '0000-00-00 00:00:00', 1),
+(3, 'jozo19898@gmail.com', 'Jozef', 'Samuraj', 'jablko', 'Šafárikova 11', 'Košice', '04011', '0911584778', '0000-00-00 00:00:00', 1),
+(4, 'marek.sss@gmail.com', 'Marek', 'Velký', 'iamlegend', 'Bernolákova 1', 'Košice', '04001', '0941598623', '0000-00-00 00:00:00', 1),
+(5, 'ottoman787@azet.sk', 'Otto', 'Markus', '55ottis', 'Kuzmányho', 'Košice', '04001', '0948555877', '0000-00-00 00:00:00', 1),
+(6, 'serusky44@azet.sk', 'Martha', 'Big', 'yesyes22', 'Hlavná 55', 'Košice', '04001', '0910632200', '0000-00-00 00:00:00', 1),
+(7, 'mymail@gmail.com', 'Ice', 'Blaze', '12345678', '', '', '', '', '2016-01-05 13:42:24', 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
