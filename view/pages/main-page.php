@@ -205,7 +205,7 @@ $filter = new Filter();
                 $filter->criteria = $criteria[2];
                 $filter->categoryQuery();
                 $products = $filter->getResults();
-                
+
                 for($i=0;$i<$max;$i++){
                     $product = new Product($products[$i]['productid']);
                     $counter++;
