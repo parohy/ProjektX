@@ -147,7 +147,6 @@ $filter = new Filter();
                 <?php
                 if($tempProduct != NULL){
                     $productsId = $tempProduct->getProductsId();
-                    //$productsId-
                     $max = 8;
 
                     if($tempProduct->getTotalProducts() < $max){
@@ -157,10 +156,17 @@ $filter = new Filter();
                     $counter = 0;
 
                     for($i=0;$i<$max;$i++){
-                        $product = new Product($productsId[$i]['productid']);
-                        $counter++;
+                    	$counter++;
+                    	if($counter == 1){
+                    		$out .= '<div class="row">';
+                    	}
+                    	echo $tempProduct->displayProduct($productsId[$i]['productid']);
+                        if($counter == 4){
+                        	$counter = 0;
+                        	echo '</div>';
+                        }
 
-                        if($counter == 1) {
+                        /*if($counter == 1) {
                             echo '<div class="row">';
                         }
 
@@ -177,7 +183,7 @@ $filter = new Filter();
                         if($counter == 4) {
                             echo '</div>';
                             $counter = 0;
-                        }
+                        }*/
                     }
                 }
                 ?>
