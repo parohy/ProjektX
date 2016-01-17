@@ -53,7 +53,7 @@
 	<div class="sub">
 		Subtotal (<?php echo $numOfItems; ?> items): <a class="bold"><?php echo $totalCost; ?> EUR<a>
 	</div>
-	<a class="pro-button" href="?page=checkout">Proceed to checkout</a>
+	<a class="pro-button" href="?page=checkout&numOfItems=<?php echo $numOfItems;?>&totalCost=<?php echo $totalCost;?>">Proceed to checkout</a>
 	
 	<script src="libraries/js/cart.js"></script>
 </div>
