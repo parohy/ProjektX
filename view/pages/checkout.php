@@ -7,7 +7,7 @@
 */
 include_once ('API/UserHandler.php');
 
-$name = $surname = $email = $phone = $address = $city = $psc = "";
+$name = $surname = $email = $phone = $address = $city = $psc = $numOfItems = $totalCost = "";
 
 if(isset($_SESSION['userid'])){
 	$user = User::editUser($_SESSION['userid']);
@@ -20,6 +20,10 @@ if(isset($_SESSION['userid'])){
 	$psc = $user->getData('postcode');
 }
 
+if(isset($_GET['numOfItems']) && isset($_GET['totalCost'])) {
+    $numOfItems = $_GET['numOfItems'];
+    $totalCost = $_GET['totalCost'];
+}
 ?>
 
 <link rel="stylesheet" type="text/css" href="libraries/css/checkout.css">
@@ -76,10 +80,20 @@ if(isset($_SESSION['userid'])){
 		    </form>    
 		</div>
 		<div class="rightside">
-            <div class="subtotal">Subtotal (x items)</div>
-            <div class="sum">XX.XX EUR</div>
+            <div class="subtotal">Subtotal (
+                <?php
+                echo $numOfItems;
+
+                if($numOfItems > 1) {
+                    echo " items";
+                }
+                else {
+                    echo " item";
+                }
+                ?>
+                )</div>
+            <div class="sum"><?php echo $totalCost;?> EUR</div>
             <input type="button" class="order-button" value="Place order">
-            <div class="querylogin">Do you want to <a class="boldlogin">login</a>?</div>
         </div>
     </div>    
 </div>

@@ -10,7 +10,7 @@ if(isset($_GET['password'])){
 	if($_GET['password'] == 'recover'){
 		echo '<form class="form" action="" method="POST">
 				<ul>
-					<li><input class="input" type="email" placeholder="email" name="email></li>
+					<li><input class="input" type="email" placeholder="email" name="email"></li>
 					<li><input type="submit" class="submit-button" value="RECOVER"></li>
 				</ul>
 			</form>';
