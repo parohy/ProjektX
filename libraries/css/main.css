@@ -221,7 +221,6 @@ body {
     float: right;
     margin-right: 8px;
 }
-
 .shopicon{
     margin-right: 8px;
 }
@@ -240,6 +239,7 @@ body {
 }
 
 .cart-title a {
+    color: #484848;
     text-decoration: none;
     padding-right: 0px;
 }

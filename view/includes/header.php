@@ -55,7 +55,7 @@
             <div class="cart-title" href="?page=cart">
                 <ul>
                     <li>
-                        <a href="?page=cart">SHOPPING CART:</a><span class="amount">
+                        <a href="?page=cart" class="cartbutton">SHOPPING CART:</a><span class="amount">
                             <?php
                             if(isset($_SESSION['cart'])) {
                                 $cartContent = $_SESSION['cart'];
