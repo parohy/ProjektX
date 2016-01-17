@@ -1,5 +1,6 @@
 .sorting-table {
-    position: relative;
+   /* position: relative;*/
+    display: inline-block;
     width: 200px;
     height: 600px;
     margin: 20px 0;
@@ -44,8 +45,20 @@ input[type="number"] {
 
 input[type="checkbox"] {
 }
+.filterButton {
+    /*position: absolute;*/
+    bottom: 0;
+    display: block;
+    width: 85%;
+    padding: 10px;
+    margin: 0% 7.5% 7.5% 7.5%;
+    color: #fff;
+    text-align: center;
+    background: #34A994;
+    text-decoration: none;
+}
 
-@media screen and (max-width: 768px) {
+/*@media screen and (max-width: 768px) {
     .sorting-table {
         width: 160px;
         height: 550px;
@@ -60,4 +73,4 @@ input[type="checkbox"] {
     .sorting-table form {
         margin: 0px;
     }
-}
+}*/

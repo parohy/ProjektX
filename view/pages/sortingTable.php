@@ -39,5 +39,5 @@
             <li><input type="checkbox" value="15" name="samsung"> SAMSUNG</li>
         </ul>
     </form>    
-    <button class="addToCart">Search</button>
+    <button class="filterButton">Search</button>
 </div>

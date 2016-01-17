@@ -22,6 +22,7 @@ $total = $tempProduct->getTotalProducts();?>
 				if(load * 4 > max)
 				{
 					$(".messages").html("Back to Top");
+					adjustThumbnail();
 				}
 				else
 				{
