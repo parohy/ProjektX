@@ -31,15 +31,6 @@ if(isset($_SESSION['userid'])){
     </div>
     <div class="checkout-body">
 		<div class="leftside">
-		    <!--<ul class="nav-bar">
-    			<li><a class="formular-link">NAME</a></li>
-    			<li><a class="formular-link">SURNAME</a></li>
-    			<li><a class="formular-link">EMAIL</a></li>
-    			<li><a class="formular-link">PHONE</a></li>
-    			<li><a class="formular-link">ADDRESS</a></li>
-    			<li><a class="formular-link">CITY</a></li>
-    			<li><a class="formular-link">PSC</a></li> 
-		    </ul>-->
             <form class="form-inp" action="API/CheckoutSave.php" method="post" id="checkoutForm">
     			<ul class="text-bar">
                     <li>
