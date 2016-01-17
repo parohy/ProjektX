@@ -44,21 +44,30 @@ $(function() {
      * TABS
      */
     $(".best-sellingButton").click(function(){
+        $(".activeTab").removeClass("activeTab");
         $(".best-selling").show();
+        $(".best-selling").addClass("activeTab");
         $(".top-rated").hide();
         $(".new-arrivals").hide();
+        adjustThumbnail();
     });
 
     $(".top-ratedButton").click(function(){
+        $(".activeTab").removeClass("activeTab");
         $(".top-rated").show();
+        $(".top-rated").addClass("activeTab");
         $(".best-selling").hide();
         $(".new-arrivals").hide();
+        adjustThumbnail();
     });
 
     $(".new-arrivalsButton").click(function(){
+        $(".activeTab").removeClass("activeTab");
         $(".new-arrivals").show();
+        $(".new-arrivals").addClass("activeTab");
         $(".best-selling").hide();
         $(".top-rated").hide();
+        adjustThumbnail();
     });
 
    

@@ -455,6 +455,18 @@ body {
     background: #34A994;
     text-decoration: none;
 }
+.messages {
+    text-decoration: none;
+    position: relative;
+    bottom: 0px;
+    left: 45%;
+    color:#484848;
+    font-size: 18px;
+    font-size: 1.2vw;
+}
+.messages:hover {
+    color: #34A994;
+}
 /*
 .more {
     text-align: center;
