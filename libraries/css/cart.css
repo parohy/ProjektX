@@ -96,6 +96,11 @@
 	text-decoration: none;
 }
 
+.removeItem img {
+    width: 28px;
+    height: 28px;
+}
+
 .product-name a {
     color: #595959;
     text-decoration: none;
