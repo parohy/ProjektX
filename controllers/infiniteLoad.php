@@ -38,8 +38,8 @@ var load = 2;
 		function adjustThumbnail()
 		{
 		    $(".thumbnailImage").each(function(){
-		        var maxWidth = $(".product-photo").width() - 20;
-		        var maxHeight = $(".product-photo").height() - 20;
+		        var maxWidth = $(this).parent().parent().width() - 20;
+		        var maxHeight = $(this).parent().parent().height() - 20;
 
 		        var ratio;
 		        var width = $(this).width();

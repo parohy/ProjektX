@@ -45,30 +45,30 @@ $(function() {
      */
     $(".best-sellingButton").click(function(){
         $(".activeTab").removeClass("activeTab");
-        $(".best-selling").show();
-        $(".best-selling").addClass("activeTab");
         $(".top-rated").hide();
         $(".new-arrivals").hide();
+        $(".best-selling").show();
+        $(".best-selling").addClass("activeTab");        
         adjustThumbnail();
         load = 2;
     });
 
     $(".top-ratedButton").click(function(){
         $(".activeTab").removeClass("activeTab");
-        $(".top-rated").show();
-        $(".top-rated").addClass("activeTab");
         $(".best-selling").hide();
         $(".new-arrivals").hide();
+        $(".top-rated").show();
+        $(".top-rated").addClass("activeTab");        
         adjustThumbnail();
         load = 2;
     });
 
     $(".new-arrivalsButton").click(function(){
         $(".activeTab").removeClass("activeTab");
-        $(".new-arrivals").show();
-        $(".new-arrivals").addClass("activeTab");
         $(".best-selling").hide();
         $(".top-rated").hide();
+        $(".new-arrivals").show();
+        $(".new-arrivals").addClass("activeTab");        
         adjustThumbnail();
         load = 2;
     });
@@ -100,8 +100,8 @@ $(function() {
 function adjustThumbnail()
 {
     $(".thumbnailImage").each(function(){
-        var maxWidth = $(".product-photo").width() - 20;
-        var maxHeight = $(".product-photo").height() - 20;
+        var maxWidth = $(this).parent().parent().width() - 20;
+        var maxHeight = $(this).parent().parent().height() - 20;
 
         var ratio;
         var width = $(this).width();
