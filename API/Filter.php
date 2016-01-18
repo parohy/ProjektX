@@ -74,16 +74,21 @@ class Filter{
     public function categoryQuery() {
         $cat=new Category($this->category);
         $categoryquery="";
-        foreach($cat->alldescendants as $id)
-        {
-            if($categoryquery!=""){
-                $categoryquery.=", ".$id;
+        if(count($cat->alldescendants)>0){
+            foreach($cat->alldescendants as $id)
+            {
+                if($categoryquery!=""){
+                    $categoryquery.=", ".$id;
+                }
+                else{
+                    $categoryquery="(categoryid IN (".$id;
+                }
             }
-            else{
-                $categoryquery="(categoryid IN (".$id;
-            }
+            $categoryquery.="))";            
         }
-        $categoryquery.="))";
+        else{
+            $categoryquery="(categoryid=".$this->category.")";
+        }
         return $categoryquery;
     }
     
