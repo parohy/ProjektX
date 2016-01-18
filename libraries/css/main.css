@@ -478,6 +478,10 @@ body {
 .messages:hover {
     color: #34A994;
 }
+.product-display{
+    display: inline-block;
+	width: 800px;
+}
 /*
 .more {
     text-align: center;
