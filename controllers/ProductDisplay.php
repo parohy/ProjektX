@@ -8,7 +8,7 @@
  */
 $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= 'ProjektX/';
-include ($path . 'API/ImageScaling.php');
+include_once ($path . 'API/ImageScaling.php');
 include_once ($path.'API/Product.php');
 
 class ProductDisplay
