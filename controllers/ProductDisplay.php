@@ -13,7 +13,7 @@ include_once ($path.'API/Product.php');
 
 class ProductDisplay
 {
-    public function displayResults($searchResult) { // Display results on page
+    public function displayResults($searchResult, $maxInRow) { // Display results on page
 
         echo "<div class=\"search-content\">";
 
@@ -41,14 +41,14 @@ class ProductDisplay
                         </div>
                         <div class=\"product-description\">
                             <hr class=\"product-line\">
-                            <h3 class=\"product-name\">" . substr($product->name,0,21) . "</h3>
+                            <h3 class=\"product-name\">" . substr($product->name,0,40) . "</h3>
                             <span class=\"price\">€ ".$product->price."</span>
                             <a href=\"controllers/addToCart.php?productid=".$res."&name=".$product->name."&price=".$product->price."\" class=\"addToCart\">Add to Cart</a>
                         </div>
                   </div>
                  ";
 
-            if($itemCount == 3) {
+            if($itemCount == $maxInRow - 1) {
                 echo "</div>";
                 $itemCount = -1;
             }

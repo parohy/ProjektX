@@ -12,7 +12,6 @@ $filter = new Filter();
 $display = new ProductDisplay();
 
 $filter->category = $_GET['catid'];
-$filter->maxprice = 99999;
 $results = $filter->getResults();
-$display->displayResults($results);
+$display->displayResults($results, 3);
 ?>
