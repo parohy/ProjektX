@@ -21,7 +21,7 @@ if(isset($_GET['search'])) {
     $results = $search->getResults();
 
     if($search->foundResults($results)) { // if results were found send them trough session variable
-        $_SESSION['results'] = $results;
+        $_SESSION['results'] = $search->productIdArray($results);
     }
     else { // else send message results not found
         $_SESSION['noresults'] = "Results not found";

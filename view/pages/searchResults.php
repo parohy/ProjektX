@@ -14,7 +14,7 @@ if(isset($_SESSION['results'])) {
 
     $results = $_SESSION['results'];
     $product = new ProductDisplay();
-    $product->displayResults($results);
+    $product->displayResults($results, 4);
 
 } else if(isset($_SESSION['noresults'])){
     echo $_SESSION['noresults'];
