@@ -505,17 +505,19 @@ body {
 */
 /************************ FOOTER ***************************/
 .footer {
-    background: white;
-    position: fixed;
+    color: white;
+    background:#34A994;
+    margin-top: 30px;
     width: 1140px;
-    bottom: 0;
     border-top: 1px solid #ccc;
+    padding-top: 4px;
+    height: 60px;
 }
 .text {
     font-size: 19px;
     margin-top: 10px;
     margin-bottom: 10px;
-    color: #484848;
+    /*color: #484848;*/
     font-weight: bold;
 }
 #footerWrap {
@@ -524,6 +526,7 @@ body {
 .contact-us {
     width: 100%;
     display: inline;
+    color: white;
 }
 .contact-us ul li:first-child {
     margin-top: 10px;
@@ -534,13 +537,19 @@ body {
     line-height: 22px;
     list-style: none;
 }
+.contact-us ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+}
 .mail{
     text-decoration: none;
-    color:  #484848;
+    /*color:  #484848;*/
     font-weight: 600;
+
 }
 .mail:hover{
-    font-weight: bold;
+    color:  #484848;
 }
 .social-icons {
     width: 20%;
@@ -571,17 +580,20 @@ body {
     clear: both;
 }
 
-#footerInformationList {
+.footerInformationList {
     width: 80%;
-    padding: 10px 0% 10px 10%;
-    padding-top: 10px;
-    padding-bottom: 10px;
+
+    padding-top: 16px;
+    padding-left: 60px;
     float: left;
 }
 
-#footerInformationList li {
+.footerInformationList li {
     display: inline;
     padding: 0% 1% 0% 1%;
+}
+.footerInformationList li a:hover{
+    color: #484848;
 }
 
 

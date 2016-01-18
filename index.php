@@ -90,7 +90,7 @@ if(isset($_GET['login']) && $_GET['login'] == 'false') {
         ?>
     </main>
 
-    <footer class="footer">
+    <footer class=" group footer">
         <?php
             require_once ($path.'view/includes/footer.php');
         ?>
