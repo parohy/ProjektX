@@ -180,6 +180,25 @@ input[type="number"]{
     cursor: pointer; cursor: hand;
 }
 
+.empty {
+    display: block;
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.disabled {
+    background: #cacaca;
+}
+
+.disabled:hover {
+    background-color: #fbfbfb;
+    border: 3px solid #cacaca;
+    color: #cacaca;
+    outline: none;
+    cursor: pointer; cursor: hand;
+}
+
 @media screen and (max-width: 1120px) {
     .product-name {
 	    font-size: 20px;
