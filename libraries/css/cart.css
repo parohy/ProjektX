@@ -159,14 +159,14 @@ input[type="number"]{
 
 .pro-button{
     font-family: 'Source Sans Pro', sans-serif;
-    width: 35%;
+    width: 20%;
     margin-left: auto;
 	margin-right: auto;
     margin-top: 40px;
 	margin-bottom: 40px;
     padding: 20px;
     display: block;
-    font-size: 2.2vw;
+    font-size: 1.8vw;
     font-weight: 600;
     text-align: center;
     background-color: #34A994;
