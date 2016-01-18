@@ -370,8 +370,8 @@ body {
 }
 
 .link:hover{
-    font-weight: 600;
-    color: #605f5f;
+
+    color: #34A994;
 }
 .arrow {
     display: inline-block;
