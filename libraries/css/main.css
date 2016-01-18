@@ -551,25 +551,14 @@ body {
 }
 .social-icons ul li{
     display: inline-block;
+    margin: 0 10PX;
 }
 .social-icons a {
-    display: block;
-    color: white;
-    background: #595959;
-    font-size: 25px;
-    height: 27px;
-    width: 40px;
-    text-align: center;
-    border-radius: 5px;
-    padding-top: 2px;
-
+   display: block;
 
 }
 .social-icons a:hover{
-    border: none;
-    color:   #595959;
-    background: white;
-    border-radius: 5px;
+    border: 2px solid black;
 }
 .social-icons li:nth-child(n+2) {
     margin-left: 10px;
