@@ -130,7 +130,11 @@ class Filter{
         $this->handlerDB->bind(':maxprice', $this->maxprice);
         $this->handlerDB->bind(':minprice', $this->minprice);
         $results = $this->handlerDB->resultSet();
-        $this->handlerDB->execute();
-        return $results;
+        $this->handlerDB->execute();   
+        $array=array();
+        foreach($results as $result){
+            $array[]=$result['productid'];
+        }
+        return $array;
     }   
 }
