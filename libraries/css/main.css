@@ -557,9 +557,7 @@ body {
    display: block;
 
 }
-.social-icons a:hover{
-    border: 2px solid black;
-}
+
 .social-icons li:nth-child(n+2) {
     margin-left: 10px;
 }
