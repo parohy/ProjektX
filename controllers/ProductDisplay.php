@@ -22,13 +22,14 @@ class ProductDisplay
 
         foreach($searchResult as $res) {
 
-            $itemCount++;
+            
 
-            if($itemCount == 1) {
+            if($itemCount == 0) {
                 echo "<div class=\"row\">";
             }
 
-            $size = $scaling->productItemTumbnail($res['productid']); // get scaled size of image to fit tumbnail
+            $product = new Product($res);
+            $size = $scaling->productItemTumbnail($res); // get scaled size of image to fit tumbnail
             $margin = $scaling->productItemTumbnailMargin($size); // calculate margin after scale to center it in thumbnail
 
             echo "<div class=\"product-item\">";
@@ -36,21 +37,23 @@ class ProductDisplay
 
              echo "
                         <div class=\"product-photo\">
-                            <a href=\"?page=productPreview&product=" . $res['productid'] . "\"><img class=\"thumbnailImage\" src=\"libraries/img/products/" . $res['productid'] . "/" . $res['productid'] . "a.jpg\" width=\"" . $size[0] . "\" height=\"" . $size[1] . "\" style=\"margin:" . $margin[1] . "px " . $margin[0] . "px;\" alt=\"product photo\"></a>
+                            <a href=\"?page=productPreview&product=" . $res . "\"><img class=\"thumbnailImage\" src=\"libraries/img/products/" . $res . "/" . $res . "a.jpg\" width=\"" . $size[0] . "\" height=\"" . $size[1] . "\" style=\"margin:" . $margin[1] . "px " . $margin[0] . "px;\" alt=\"product photo\"></a>
                         </div>
                         <div class=\"product-description\">
                             <hr class=\"product-line\">
-                            <h3 class=\"product-name\">" . substr($res['name'],0,21) . "</h3>
-                            <span class=\"price\">€ ".$res['price']."</span>
-                            <a href=\"controllers/addToCart.php?productid=".$res['productid']."&name=".$res['name']."&price=".$res['price']."\" class=\"addToCart\">Add to Cart</a>
+                            <h3 class=\"product-name\">" . substr($product->name,0,21) . "</h3>
+                            <span class=\"price\">€ ".$product->price."</span>
+                            <a href=\"controllers/addToCart.php?productid=".$res."&name=".$product->name."&price=".$product->price."\" class=\"addToCart\">Add to Cart</a>
                         </div>
                   </div>
                  ";
 
-            if($itemCount == 4) {
+            if($itemCount == 3) {
                 echo "</div>";
-                $itemCount = 0;
+                $itemCount = -1;
             }
+
+            $itemCount++;
         }
         echo "</div>";
     }

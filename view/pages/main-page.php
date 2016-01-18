@@ -207,7 +207,7 @@ $filter = new Filter();
                 $products = $filter->getResults();
 
                 for($i=0;$i<$max;$i++){
-                    $product = new Product($products[$i]['productid']);
+                    $product = new Product($products[$i]);
                     $counter++;
 
                     if($counter == 1) {

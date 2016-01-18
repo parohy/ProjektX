@@ -14,7 +14,5 @@ $display = new ProductDisplay();
 $filter->category = $_GET['catid'];
 $filter->maxprice = 99999;
 $results = $filter->getResults();
-echo '<div class="row">';
-echo $display->displayProduct($results[0]['productid']);
-echo '</div>';
+$display->displayResults($results);
 ?>
