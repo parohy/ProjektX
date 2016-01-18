@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 18, 2016 at 11:44 AM
+-- Generation Time: Jan 18, 2016 at 01:51 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -178,7 +178,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `brandid` int(11) NOT NULL,
   `description` mediumtext COLLATE utf8_slovak_ci NOT NULL,
   `viewamount` int(11) NOT NULL,
-  `datecreated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `datecreated` datetime NOT NULL,
   `numofratings` int(11) NOT NULL,
   `sumofratings` int(11) NOT NULL,
   PRIMARY KEY (`productid`)
