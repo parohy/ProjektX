@@ -64,7 +64,9 @@ if(isset($_GET['login']) && $_GET['login'] == 'false') {
     <script src="libraries/js/jquery-1.11.3.min.js"></script>
 </head>
 <body>
+
 <div class="container">
+	
     <header id="page-header" class="group">
         <?php
             require_once ($path.'view/includes/header.php');
@@ -96,6 +98,7 @@ if(isset($_GET['login']) && $_GET['login'] == 'false') {
     <script src="libraries/js/pageScript.js"></script>
     <!--<script src="libraries/js/infiniteLoadScript.js"></script>-->
 </div>
+
 </body>
 </html>
 <?php
