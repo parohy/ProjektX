@@ -13,4 +13,7 @@ Authors:
 -Matus Kokoska
 -Tomas Paronai
 
-Sprint-7
+Sprint - 11
+
+
+ETA 15.2.2016
