@@ -24,7 +24,7 @@ $filter = new Filter();
                 jQuery(document).ready(function ($) {
 
                     var jssor_1_SlideshowTransitions = [
-                        {$Duration:1200,$Opacity:2}
+                        {$Duration:2000,$Opacity:2}
                     ];
 
                     var jssor_1_options = {
@@ -47,7 +47,7 @@ $filter = new Filter();
                     function ScaleSlider() {
                         var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
                         if (refSize) {
-                            refSize = Math.min(refSize, 1100);
+                            refSize = Math.min(refSize, 4500);
                             jssor_1_slider.$ScaleWidth(refSize);
                         }
                         else {
