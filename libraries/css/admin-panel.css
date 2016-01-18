@@ -68,6 +68,11 @@
     padding: 10px 10px 10px 60px;
 }
 
+.users li:nth-child(2n), .users li:nth-child(2n) .page-link>i {
+    color: #fff;
+    background: #34A994;
+}
+
 .username {
     float: left;
 }
@@ -170,6 +175,8 @@
 }
 
 .page-link>i{
+    line-height: 15px;
+    vertical-align: middle;
 	font-decoration: none;
 	color: #34A994;
 }
