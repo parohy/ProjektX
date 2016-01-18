@@ -8,7 +8,7 @@
 $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= 'ProjektX/';
 include_once ($path.'API/Product.php');
-include_once ($path . 'controllers/ProductDisplay.php');
+include_once ($path.'controllers/ProductDisplay.php');
 include_once ($path.'API/ImageScaling.php');
 include_once ($path.'API/Filter.php');
 
@@ -144,7 +144,7 @@ $filter = new Filter();
     <div class="tab-content">
         
         <div class="bottom-tab-content">
-            <div class="best-selling">
+            <div class="best-selling activeTab">
                 <?php
                 if($tempProduct != NULL){
                     $productsId = $tempProduct->getProductsId();
@@ -231,6 +231,7 @@ $filter = new Filter();
                 }
                 ?>
             </div>
+        </div>
     </div>
+    <a href="#" class="messages welcome-buttons"></a>
 </div>
-    </div>
