@@ -50,6 +50,7 @@ $(function() {
         $(".top-rated").hide();
         $(".new-arrivals").hide();
         adjustThumbnail();
+        load = 2;
     });
 
     $(".top-ratedButton").click(function(){
@@ -59,6 +60,7 @@ $(function() {
         $(".best-selling").hide();
         $(".new-arrivals").hide();
         adjustThumbnail();
+        load = 2;
     });
 
     $(".new-arrivalsButton").click(function(){
@@ -68,6 +70,7 @@ $(function() {
         $(".best-selling").hide();
         $(".top-rated").hide();
         adjustThumbnail();
+        load = 2;
     });
 
    

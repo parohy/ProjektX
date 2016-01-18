@@ -12,8 +12,8 @@ $tempProduct = new Product();
 $total = $tempProduct->getTotalProducts();?>
 ?>
 <script>
+var load = 2;
 	$(document).ready(function(){
-		var load = 2;
 		var max = "<?php echo $total;?>";
 
 		$(window).scroll(function(){
