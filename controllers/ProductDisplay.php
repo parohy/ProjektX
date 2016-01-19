@@ -42,9 +42,9 @@ class ProductDisplay
                         <div class=\"product-description\">
                             <hr class=\"product-line\">
                             <h3 class=\"product-name\">" . substr($product->name,0,40) . "</h3>
-                            <span class=\"price\">€ ".$product->price."</span>
-                            <a href=\"controllers/addToCart.php?productid=".$res."&name=".$product->name."&price=".$product->price."\" class=\"addToCart\">Add to Cart</a>
-                        </div>
+                            <span class=\"price\">€ ".$product->price."</span>";
+                            echo $this->productButtons($res,$product->name,$product->price);//<a href=\"controllers/addToCart.php?productid=".$res."&name=".$product->name."&price=".$product->price."\" class=\"addToCart\">Add to Cart</a>
+                   echo     "</div>
                   </div>
                  ";
 
@@ -69,8 +69,21 @@ class ProductDisplay
     	$out .= '<hr class="product-line">';
     	$out .= '<h3 class="product-name">'.substr($product->name,0,40).'</h3>';
     	$out .= '<span class="price">'.$product->price.'</span>';
-    	$out .= '<a href="controllers/addToCart.php?productid='.$product->id.'&name='.$product->name.'&price='.$product->price.'" class="addToCart">Add to Cart</a>';
+    	$out .= $this->productButtons($product->id,$product->name,$product->price);
+    	//$out .= '<a href="controllers/addToCart.php?productid='.$product->id.'&name='.$product->name.'&price='.$product->price.'" class="addToCart">Add to Cart</a>';
     	$out .= '</div></div>';
+    	 
+    	return $out;
+    }
+    
+    private function productButtons($id, $name, $price){
+    	$out = "";
+    	if((isset($_SESSION['username']) && $_SESSION['username'] != "admin") || !isset($_SESSION['username'])){
+    		$out = '<a href="controllers/addToCart.php?productid='.$id.'&name='.$name.'&price='.$price.'" class="addToCart">Add to Cart</a>'; 
+    	}
+    	else if(isset($_SESSION['username']) && $_SESSION['username'] == "admin"){
+ 			$out = '<div class="admin-buttons"><a href="">EDIT</a> <a href="">DELETE</a></div>';
+    	}
     	 
     	return $out;
     }
