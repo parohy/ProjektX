@@ -68,7 +68,7 @@ class ProductDisplay
     	$out .= '<div class="product-description">';
     	$out .= '<hr class="product-line">';
     	$out .= '<h3 class="product-name">'.substr($product->name,0,40).'</h3>';
-    	$out .= '<span class="price">'.$product->price.'</span>';
+    	$out .= '<span class="price"><i class="fa fa-eur"></i>'.$product->price.'</span>';
     	$out .= $this->productButtons($product->id,$product->name,$product->price);
     	//$out .= '<a href="controllers/addToCart.php?productid='.$product->id.'&name='.$product->name.'&price='.$product->price.'" class="addToCart">Add to Cart</a>';
     	$out .= '</div></div>';
