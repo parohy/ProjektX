@@ -5,18 +5,22 @@
  * Date: 14.1.2016
  * Time: 9:04
  */
-?>
 
-<form action="" method="post" class="addProductForm">
+$path = $_SERVER['DOCUMENT_ROOT'];
+$path .= 'ProjektX/'; 
+
+?>
+<form action="controllers/admin/AddProduct.php" method="post" class="addProductForm">
+    <input type="hidden" name="productid" value="NULL">
     <ul>
         <li>
             <div class=" group categories">
                 <div class="category">
                     <label for="name">Category</label>
-                    <select>
-                        <option value="">TV,Audio</option>
-                        <option value="">PC,Tablets</option>
-                        <option value="">Mobile phones</option>
+                    <select name="categoryid" id="categoryid">
+                        <option value="2">TV,Audio</option>
+                        <option value="4">PC,Tablets</option>
+                        <option value="6">Mobile phones</option>
                     </select>
                 </div>
 
@@ -32,11 +36,15 @@
 
         </li>
         <li>
-            <label for="name">Name</label>      <input type="text" name="email" id="name" >
+            <label for="name">Name</label>      <input type="text" name="name" id="name" >
         </li>
 
         <li>
             <label for="amount">Amount</label>  <input type="text" name="amount" id="amount" >
+        </li>
+        
+        <li>
+            <label for="brandid">Brandid</label>  <input type="text" name="brandid" id="brandid" >
         </li>
 
         <li>
@@ -48,7 +56,7 @@
         </li>
 
         <li>
-            <button type="button" class="submit-button">Add</button>
+            <input type="submit" class="submit-button" value="Add"></button>
 
         </li>
     </ul>
