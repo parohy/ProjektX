@@ -69,7 +69,8 @@
 }
 
 .users li:nth-child(2n), .users li:nth-child(2n) .page-link>i {
-    background: #DCDCDC;
+    color: #fff;
+    background: #34A994;
 }
 
 .username {
