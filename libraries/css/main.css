@@ -485,6 +485,18 @@ body {
 	margin-left: 30px;
 	vertical-align: top;
 }
+.admin-buttons{
+    width: 110px;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left:-25% ;
+}
+.admin-buttons a{
+    color: #34a994;
+    padding: 10px;
+}
 
 .search-content{
 	margin-left: 5px;
