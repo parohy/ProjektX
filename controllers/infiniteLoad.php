@@ -35,6 +35,11 @@ var load = 2;
 			}
 		});
 
+		$('.messages').click(function(){
+			$('html, body').animate({scrollTop : 0},600);
+			return false;
+		});
+
 		function adjustThumbnail()
 		{
 		    $(".thumbnailImage").each(function(){
