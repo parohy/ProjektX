@@ -9,27 +9,62 @@
 $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= 'ProjektX/'; 
 
+include_once ($path . 'API/Category.php');
+
+$catHandler = new Category();
+$categories = $catHandler->getCategories();
+$subCategories = array();
+//echo var_dump($categories);
+//$cat = new Category($categories[1]['id']);
+//echo var_dump($cat->alldescendants);
+$i = 0;
+foreach($categories as $currentCat){
+	echo $i++ . $currentCat['category'].' ###<br>';
+	if(isset($currentCat['subcategory'])){
+		echo var_dump($currentCat['subcategory']);
+		for($subIndex=0;$subIndex<count($currentCat['subcategory']);$subIndex++){
+			$subCategories[$i][$subIndex] = $currentCat['subcategory'][$subIndex];
+		}
+	}	
+}
 ?>
 <form action="controllers/admin/AddProduct.php" method="post" class="addProductForm">
     <input type="hidden" name="productid" value="NULL">
     <ul>
         <li>
+        	<script type="text/javascript">
+        		function loadSubc(){
+            		var listVal = document.getElementById('categoryid').value;            		
+            		alert(listVal);
+        		}
+        	</script>
             <div class=" group categories">
                 <div class="category">
                     <label for="name">Category</label>
-                    <select name="categoryid" id="categoryid">
-                        <option value="2">TV,Audio</option>
+                    <select name="categoryid" id="categoryid" onChange="loadSubc()">
+                    <?php
+                    	foreach($categories as $currentCat){
+                    		echo '<option value="'.$currentCat['id'].'">'.$currentCat['category'].'</option>';                  		
+                    	}
+                    ?>
+                  <!--  <option value="2">TV,Audio</option>
                         <option value="4">PC,Tablets</option>
-                        <option value="6">Mobile phones</option>
+                        <option value="6">Mobile phones</option>-->
                     </select>
                 </div>
-
+				
+				
                 <div class="subcategory">
                     <label for="name">Subcategory</label>
-                    <select>
-                        <option value="">TV,Audio</option>
+                    <select name="subcat">
+                    <?php
+                    	foreach($categories as $currentSubCat){
+                    		echo '<option value="'.$currentSubCat['id'].'">'.$currentSubCat['name'].'</option>';
+                    	}
+                    ?>
+                   <!-- <option value="">TV,Audio</option>
                         <option value="">PC,Tablets</option>
-                        <option value="">Mobile phones</option>
+                        <option value="">Mobile phones</option>-->
                     </select>
                 </div>
             </div>

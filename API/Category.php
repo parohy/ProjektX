@@ -98,4 +98,34 @@ class Category{
                 }
             }         
         }
+        
+        public function getCategories(){
+        	$this->handlerDB->query('SELECT * FROM categories');
+        	$result = $this->handlerDB->resultSet();
+        	$categories = array();
+        	
+        	$i = 0;
+        	foreach($result as $res) { // GET MAIN CATEGORIES
+        		if($res['parent'] == 1) {
+        			$categories[$i]['id'] = $res['categoryid'];
+        			$categories[$i]['category'] = $res['name'];
+        			$categories[$i]['parent'] = $res['parent'];
+        			$i++;
+        		}
+        	}
+        	
+        	$k = 0;
+        	for($i = 0; $i < sizeof($categories); $i++) { // GET SUBCATEGORIES
+        		for($j = 0; $j < sizeof($result); $j++) {
+        			if($result[$j]['parent'] == $categories[$i]['id']) {
+        				$categories[$i]['subcategory'][$k]['id'] = $result[$j]['categoryid'];
+        				$categories[$i]['subcategory'][$k]['name'] = $result[$j]['name'];
+        				$categories[$i]['subcategory'][$k]['parent'] = $result[$j]['parent'];
+        				$categories[$i]['subcategory'][$k]['subcategory'] = array();
+        				$k++;
+        			}
+        		}
+        	}
+        	return $categories;
+        }
 }
