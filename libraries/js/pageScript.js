@@ -51,6 +51,7 @@ $(function() {
         $(".best-selling").addClass("activeTab");        
         adjustThumbnail();
         load = 2;
+        $(".messages").html("");
     });
 
     $(".top-ratedButton").click(function(){
@@ -61,6 +62,7 @@ $(function() {
         $(".top-rated").addClass("activeTab");        
         adjustThumbnail();
         load = 2;
+        $(".messages").html("");
     });
 
     $(".new-arrivalsButton").click(function(){
@@ -71,8 +73,8 @@ $(function() {
         $(".new-arrivals").addClass("activeTab");        
         adjustThumbnail();
         load = 2;
+        $(".messages").html("");
     });
-
    
 
     /*
@@ -86,43 +88,49 @@ $(function() {
     /*
     * Prduct items
     */
-    $(window).ready(function()
+       
+});
+
+$(window).ready(function()
+{
+    $(window).resize(function()
     {
         adjustThumbnail();
-
-        $(window).resize(function()
-        {
-            adjustThumbnail();
-        });
-    });    
-});
+    });
+}); 
 
 function adjustThumbnail()
 {
     $(".thumbnailImage").each(function(){
-        var maxWidth = $(this).parent().parent().width() - 20;
-        var maxHeight = $(this).parent().parent().height() - 20;
+        adjustOneThumbnail($(this));
+    });
+}
 
-        var ratio;
-        var width = $(this).width();
-        var height = $(this).height();
+function adjustOneThumbnail(img)
+{
+    var maxWidth = img.parent().parent().width() - 20;
+    var maxHeight = img.parent().parent().height() - 20;
 
-        ratio = maxWidth / width;
-        $(this).css("width", maxWidth);
-        $(this).css("height", height * ratio);
+    var ratio;
+    var width = img.width();
+    var height = img.height();
+
+    ratio = maxWidth / width;
+    img.css("width", maxWidth);
+    img.css("height", height * ratio);
+    height *= ratio;
+    width *= ratio;
+
+    if(height > maxHeight){
+        ratio = maxHeight / height;
+        img.css("height", maxHeight);
+        img.css("width", width * ratio);
         height *= ratio;
         width *= ratio;
+    }
 
-        if(height > maxHeight){
-            ratio = maxHeight / height;
-            $(this).css("height", maxHeight);
-            $(this).css("width", width * ratio);
-            height *= ratio;
-            width *= ratio;
-        }
-
-        var marginTop = ((maxHeight+20) - height) / 2;
-        var marginLeft = ((maxWidth+20) - width) / 2;
-        $(this).css({"margin-top":marginTop+"px","margin-left":marginLeft+"px"});
-    });
+    var marginTop = ((maxHeight+20) - height) / 2;
+    var marginLeft = ((maxWidth+20) - width) / 2;
+    img.css({"margin-top":marginTop+"px","margin-left":marginLeft+"px"});
+    img.removeClass("notLoaded");
 }

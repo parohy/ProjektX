@@ -37,7 +37,8 @@ class ProductDisplay
 
              echo "
                         <div class=\"product-photo\">
-                            <a href=\"?page=productPreview&product=" . $res . "\"><img class=\"thumbnailImage\" src=\"libraries/img/products/" . $res . "/" . $res . "a.jpg\" width=\"" . $size[0] . "\" height=\"" . $size[1] . "\" style=\"margin:" . $margin[1] . "px " . $margin[0] . "px;\" alt=\"product photo\"></a>
+                            <img class=\"loader\" src=\"libraries/img/loader.gif\" alt=\"loading...\">
+                            <a href=\"?page=productPreview&product=" . $res . "\"><img class=\"thumbnailImage notLoaded\" src=\"libraries/img/products/" . $res . "/" . $res . "a.jpg\" width=\"" . $size[0] . "\" height=\"" . $size[1] . "\" style=\"margin:" . $margin[1] . "px " . $margin[0] . "px;\" alt=\"product photo\"></a>
                         </div>
                         <div class=\"product-description\">
                             <hr class=\"product-line\">
@@ -64,7 +65,7 @@ class ProductDisplay
     	 
     	 
     	$out .= '<div class="product-item">';
-    	$out .= '<div class="product-photo"><a href="?page=productPreview&product='.$product->id.'"><img alt="product-photo" src="libraries/img/products/'.$product->id.'/'.$product->id.'a.jpg" class="thumbnailImage"></a></div>';
+    	$out .= '<div class="product-photo"><img class="loader" src="libraries/img/loader.gif" alt="loading..."><a href="?page=productPreview&product='.$product->id.'"><img alt="product-photo" src="libraries/img/products/'.$product->id.'/'.$product->id.'a.jpg" class="thumbnailImage notLoaded"></a></div>';
     	$out .= '<div class="product-description">';
     	$out .= '<hr class="product-line">';
     	$out .= '<h3 class="product-name">'.substr($product->name,0,40).'</h3>';

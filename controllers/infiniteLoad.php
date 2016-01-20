@@ -13,6 +13,7 @@ $total = $tempProduct->getTotalProducts();?>
 ?>
 <script>
 var load = 2;
+var loadMore = true;
 	$(document).ready(function(){
 		var max = "<?php echo $total;?>";
 
@@ -21,19 +22,32 @@ var load = 2;
 			{
 				if(load * 4 > max)
 				{
+					enableLoad();
 					$(".messages").html("Back to Top");
 					adjustThumbnail();
 				}
-				else
+				else if(loadMore)
 				{
 					$.post("controllers/infiniteLoadAjax.php",{load:load},function(data){
 						$('.activeTab').append(data);
-						adjustThumbnail();
+						$(".thumbnailImage").one('load', function() {
+					        adjustOneThumbnail($(this));       
+					    });
 					});
 					load++;
+					if(load % 3 === 0 && load * 4 < max)
+					{
+						disableLoad();
+					}					
 				}
 			}
 		});
+
+		function disableLoad()
+		{
+			$(".loadMore").show();
+			loadMore = false;
+		}
 
 		$('.messages').click(function(){
 			$('html, body').animate({scrollTop : 0},600);
@@ -43,31 +57,43 @@ var load = 2;
 		function adjustThumbnail()
 		{
 		    $(".thumbnailImage").each(function(){
-		        var maxWidth = $(this).parent().parent().width() - 20;
-		        var maxHeight = $(this).parent().parent().height() - 20;
-
-		        var ratio;
-		        var width = $(this).width();
-		        var height = $(this).height();
-
-		        ratio = maxWidth / width;
-		        $(this).css("width", maxWidth);
-		        $(this).css("height", height * ratio);
-		        height *= ratio;
-		        width *= ratio;
-
-		        if(height > maxHeight){
-		            ratio = maxHeight / height;
-		            $(this).css("height", maxHeight);
-		            $(this).css("width", width * ratio);
-		            height *= ratio;
-		            width *= ratio;
-		        }
-
-		        var marginTop = ((maxHeight+20) - height) / 2;
-		        var marginLeft = ((maxWidth+20) - width) / 2;
-		        $(this).css({"margin-top":marginTop+"px","margin-left":marginLeft+"px"});
+		        adjustOneThumbnail($(this));
 		    });
 		}
+
+		function adjustOneThumbnail(img)
+		{
+		    var maxWidth = img.parent().parent().width() - 20;
+		    var maxHeight = img.parent().parent().height() - 20;
+
+		    var ratio;
+		    var width = img.width();
+		    var height = img.height();
+
+		    ratio = maxWidth / width;
+		    img.css("width", maxWidth);
+		    img.css("height", height * ratio);
+		    height *= ratio;
+		    width *= ratio;
+
+		    if(height > maxHeight){
+		        ratio = maxHeight / height;
+		        img.css("height", maxHeight);
+		        img.css("width", width * ratio);
+		        height *= ratio;
+		        width *= ratio;
+		    }
+
+		    var marginTop = ((maxHeight+20) - height) / 2;
+		    var marginLeft = ((maxWidth+20) - width) / 2;
+		    img.css({"margin-top":marginTop+"px","margin-left":marginLeft+"px"});
+		    img.removeClass("notLoaded");
+		}
 	});
+
+function enableLoad()
+{
+	$(".loadMore").hide();
+	loadMore = true;
+}
 </script>

@@ -234,4 +234,5 @@ $filter = new Filter();
         </div>
     </div>
     <a href="#" class="messages welcome-buttons"></a>
+    <input onclick="enableLoad()" type="button" class="loadMore welcome-buttons" value="+ LOAD MORE PRODUCTS"></input>
 </div>
