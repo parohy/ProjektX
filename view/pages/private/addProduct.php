@@ -16,19 +16,19 @@ include_once ($path . 'API/Product.php');
 $catHandler = new Category();
 $categories = $catHandler->getCategories();
 $product = NULL;
-
-
+$id = NULL;
+if(isset($_GET['productid'])){
+	$id = $_GET['productid'];
+	$product = new Product($id);
+	echo $product->categoryid;
+}
 
 ?>
 <form action="controllers/admin/AddProduct.php" method="post" class="addProductForm">
-	<?php 
-		$id = NULL;
-		if(isset($_GET['productid'])){
-			$id = $_GET['productid'];
-			$product = new Product($id);
-		}
+	<?php 		
 		echo '<input type="hidden" name="productid" value="'.$id.'">';
 	?>
+	<input type="hidden" name="productid" value="<?php echo $id;?>">
     <ul>
         <li>
             <div class=" group categories">

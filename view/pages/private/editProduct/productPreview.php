@@ -8,10 +8,14 @@
 $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= 'ProjektX/';
 include_once ($path.'API/Product.php');
+include_once ($path.'API/Category.php');
 include_once ($path.'API/Brand.php');
 
 if(isset($_GET['productid'])){
 	$product = new Product($_GET['productid']);
+	
+	
+	
 	$brandHan = new Brand();
 	$brands = $brandHan->getAllBrands();
 	$brand = "Uknown brand ID!";
@@ -21,10 +25,31 @@ if(isset($_GET['productid'])){
 			break;
 		}
 	}
+	
+	$catHan = new Category();
+	$categories = $catHan->getCategories();	
+	$category = "Uknown category ID!";
+	for($i=0;$i<count($categories);$i++){
+		if($categories[$i]['id'] == $product->categoryid){
+			$category = $categories[$i]['category'];
+			///echo $category . '<br>';
+			break;
+		}
+		if(isset($categories[$i]['subcategory'])){		
+			for($j=0;$j<count($categories[$i]['subcategory']);$j++){
+				//echo $product->categoryid . ' '.$categories[$i]['subcategory'][$j]['id'].'<br>';
+				if($categories[$i]['subcategory'][$j]['id'] == $product->categoryid){					
+					$category = $categories[$i]['subcategory'][$j]['name'];
+					break;
+				}				
+			}
+		}
+	}
 
 	echo '<ul class="userView">';
 	echo '<li class="view"><b>Name:</b> '.$product->name.'</li>';
 	echo '<li class="view"><b>Brand:</b> '.$brand.'</li>';
+	echo '<li class="view"><b>Category:</b> '.$category.'</li>';
 	echo '<li class="view"><b>Amount:</b> '.$product->amount.'</li>';
 	echo '<li class="view"><b>Price:</b> '.$product->price.'</li>';
 	echo '<li class="view"><b>Discription:</b> '.$product->description.'</li>';
