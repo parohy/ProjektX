@@ -37,12 +37,13 @@ $product = $productController->getProduct($_GET['product']);
     </div>
 	
 	
-    
     <div id="about-product" class="group">
         
-        <div class="product-name">
+		<div class="product-name">
             <p><?php echo strtoupper($product['name']);?></p>
         </div>
+    
+        <div class="aftername1">
                   
         <div class="product-brand">
             <?php
@@ -105,7 +106,7 @@ $product = $productController->getProduct($_GET['product']);
         			$index = 0;
         			while(file_exists('libraries/img/products/' . $product['productid'] . '/' . $product['productid'] . $alpha[$index] . '.jpg')){
         				$localPath = 'libraries/img/products/' . $product['productid'] . '/' . $product['productid'] . $alpha[$index] . '.jpg';
-        				$width = $height = 50;
+        				$width = $height = 100;
         				$alt = $product['productid'] . $alpha[$index] . '.jpg';
         				//echo '<td><a href="?page=productPreview&product=' . $product['productid'] . '&index='. $alpha[$index] . '" onclick="changePic('.$alpha[$index].')"><img class="image-album" src="' . $localPath . '" alt="' . $alt . '" width="' . $width . '" height="' . $height . '"></a></td>';
         				echo '<td><img class="image-album" src="' . $localPath . '" alt="' . $alt . '" width="' . $width . '" height="' . $height . '" onclick="changePic(\''.$alpha[$index].'\',\''.$product['productid'].'\')"></td>';
@@ -129,14 +130,10 @@ $product = $productController->getProduct($_GET['product']);
                 </div>
             </form>
         
-		
-
-
-    </div>
-		
-    <div class="desc">
+		</div>
+		<div class="desc">
         <div class="description-title">
-            <h2> DESCRIPTION</h2>
+            <p> DESCRIPTION</p>
             
         </div>
         	
@@ -149,5 +146,9 @@ $product = $productController->getProduct($_GET['product']);
         
     </div>
 
+
+    </div>
+		
+    
 
 </div>

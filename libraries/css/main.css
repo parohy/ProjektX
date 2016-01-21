@@ -489,10 +489,13 @@ body {
     text-decoration: none;
     position: relative;
     bottom: 0px;
-    left: 45%;
+    left: 46%;
     color:#484848;
-    font-size: 20px;
-    font-size: 1.2vw;
+    font-size: 17px;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 400;
+    cursor: pointer;
+    
 }
 .messages:hover {
     color: #34A994;
@@ -501,13 +504,15 @@ body {
     text-decoration: none;
     position: relative;
     bottom: 0px;
-    left: 39%;
+    left: 24.5%;
     color:#484848;
-    font-size: 16px;
-    font-size: 0.9vw;
+    font-size: 17px;
+	font-family: 'Source Sans Pro', sans-serif;
+    width: 50%;
+	margin-top: 10px;
     border: none;
     background: none;
-    font-weight: 200;
+    font-weight: 400;
     cursor: pointer;
 }
 .loadMore:hover {
