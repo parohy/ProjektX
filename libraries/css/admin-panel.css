@@ -66,6 +66,7 @@
 .items li {
     width: 100%;
     padding: 10px 10px 10px 60px;
+	height: 44px;
 }
 
 .items li:nth-child(2n), .items li:nth-child(2n) .page-link>i {
@@ -75,12 +76,18 @@
 
 .username {
     float: left;
+	width: 350px;
+	text-align: left;
+}
+
+.prodname {
+    float: left;
 }
 
 .email {
     display: inline-block;
     width: 300px;
-    text-align: right;
+    text-align: left;
 }
 
 .user-controls {
