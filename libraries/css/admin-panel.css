@@ -56,19 +56,19 @@
     margin-top: 30px;
 }
 
-.users {
+.items {
     width: 100%;
     height: 100%;
     padding-top: 30px;
     list-style-type: none;
 }
 
-.users li {
+.items li {
     width: 100%;
     padding: 10px 10px 10px 60px;
 }
 
-.users li:nth-child(2n), .users li:nth-child(2n) .page-link>i {
+.items li:nth-child(2n), .items li:nth-child(2n) .page-link>i {
     color: #fff;
     background: #34A994;
 }

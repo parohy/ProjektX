@@ -31,8 +31,7 @@ class ProductEditorController{
 			$total++;
 		}
 		 
-		//echo count($users)/5;
-		echo '<ul class="users">';
+		echo '<ul class="items">';
 	
 		for($i = $displayFrom; $i <= $displayTo; $i++) {
 			echo '<li>';
