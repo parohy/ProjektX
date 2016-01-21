@@ -10,7 +10,7 @@ include_once ($path.'controllers/ProductDisplay.php');
 
 $tempProduct = new Product(); 
 $total = $tempProduct->getTotalProducts();?>
-?>
+
 <script>
 var load = 2;
 var loadMore = true;
