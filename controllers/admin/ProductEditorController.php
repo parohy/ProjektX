@@ -35,8 +35,7 @@ class ProductEditorController{
 	
 		for($i = $displayFrom; $i <= $displayTo; $i++) {
 			echo '<li>';
-			echo '<span class="username">' . $products[$i]['name'] . '</span>';
-			echo '<span class="email">' . $products[$i]['price'] . '</span>';
+			echo '<span class="prodname">' . $products[$i]['name'] . '</span>';
 			echo '<span class="user-controls"><a class="page-link" href="?page=private/pageSettings&settings=editProduct/productPreview&productid=' . $products[$i]['productid'] . '"><i class="fa fa-search-plus fa-2x"></i></a>
             	                              <a class="page-link" href="?page=private/pageSettings&settings=addProduct&productid=' . $products[$i]['productid'] . '"><i class="fa fa-pencil-square-o fa-2x"></i></a>
             				                  <a class="page-link" href="?page=private/pageSettings&settings=editProduct/deleteProduct&productid=' . $products[$i]['productid'] . '"><i class="fa fa-times fa-2x"></i></a></span>';
