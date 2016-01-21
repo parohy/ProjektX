@@ -114,8 +114,9 @@ class Category{
         		}
         	}
         	
-        	$k = 0;
+        	
         	for($i = 0; $i < sizeof($categories); $i++) { // GET SUBCATEGORIES
+        		$k = 0;
         		for($j = 0; $j < sizeof($result); $j++) {
         			if($result[$j]['parent'] == $categories[$i]['id']) {
         				$categories[$i]['subcategory'][$k]['id'] = $result[$j]['categoryid'];

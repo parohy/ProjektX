@@ -24,6 +24,7 @@ class Product{
         public $datecreated="";
         public $numofratings=0;
         public $sumofratings=0;
+        public $saved=false;
 
 	/**
 	 * Creates an ProductHandler instance with optional $id parameter
@@ -95,6 +96,7 @@ class Product{
             $this->handlerDB->bind(':numofratings', $this->numofratings);
             $this->handlerDB->bind(':sumofratings', $this->sumofratings);
             $this->handlerDB->execute();
+            $this->saved = true;
         }
 	
         /**

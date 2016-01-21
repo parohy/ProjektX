@@ -19,10 +19,30 @@ if($id=="NULL")
 }
 
 $product= new Product($id);
-$product->categoryid=$_POST["categoryid"];
+if($_POST['subcatid'] == 0){
+	$product->categoryid=$_POST["categoryid"];
+}
+else if($_POST['subcatid'] == '+'){
+	$product->categoryid=$_POST["categoryid"];
+}
+else{
+	$product->categoryid=$_POST["subcatid"];
+}
+
 $product->amount=$_POST["amount"];
 $product->name=$_POST["name"];
 $product->price=$_POST["price"];
-$product->brandid=$_POST["brandid"];
+if($_POST['brand'] == '+'){
+	//add new brand
+	$product->brandid=$_POST["brand"];
+}
+else{
+	$product->brandid=$_POST["brand"];
+}
+
 $product->description=$_POST["description"];
 $product->save();
+if($product->saved){
+	//header('Location: ../?page=private/pageSettings&settings=addProduct');
+}
+

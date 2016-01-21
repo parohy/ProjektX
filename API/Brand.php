@@ -77,4 +77,15 @@ class Brand{
             }
             $this->handlerDB->execute();   
         }
+        
+        public function getAllBrands(){
+        	$this->handlerDB->query("SELECT * FROM brands");
+        	$result = $this->handlerDB->resultSet();
+        	$brands = array();
+        	$i = 0;
+        	foreach($result as $temp){
+        		$brands[$i++] = $temp;
+        	}
+        	return $result;
+        }
 }
