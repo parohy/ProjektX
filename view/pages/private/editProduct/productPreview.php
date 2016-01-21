@@ -31,5 +31,5 @@ if(isset($_GET['productid'])){
 	echo '<li class="view"><b>Stored since:</b> '.$product->datecreated.'</li>';
 	echo '</ul>';
 	echo '<span class="view"><a class="view-controls" href="?page=private/pageSettings&settings=addProduct&productid=' . $product->id . '"><i class="fa fa-pencil-square-o fa-2x"></i></a>
-			                          <a class="view-controls" href="?page=private/pageSettings&settings=editProduct/deleteProduct&userid=' . $product->id . '"><i class="fa fa-times fa-2x"></i></a></span>';
+			                          <a class="view-controls" href="?page=private/pageSettings&settings=editProduct/deleteProduct&productid=' . $product->id . '"><i class="fa fa-times fa-2x"></i></a></span>';
 }

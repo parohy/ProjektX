@@ -83,7 +83,7 @@ class ProductDisplay
     		$out = '<a href="controllers/addToCart.php?productid='.$id.'&name='.$name.'&price='.$price.'" class="addToCart">Add to Cart</a>'; 
     	}
     	else if(isset($_SESSION['username']) && $_SESSION['username'] == "admin"){
- 			$out = '<div class="admin-buttons"><a href=""><i class="fa fa-pencil-square-o fa-2x"></i></a> <a href=""><i class="fa fa-times fa-2x"></i></a></div>';
+ 			$out = '<div class="admin-buttons"><a href="?page=private/pageSettings&settings=addProduct&productid='.$id.'"><i class="fa fa-pencil-square-o fa-2x"></i></a> <a href="?page=private/editProduct/deleteProduct&productid='.$id.'"><i class="fa fa-times fa-2x"></i></a></div>';
     	}
     	 
     	return $out;

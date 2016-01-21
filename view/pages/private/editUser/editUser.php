@@ -48,7 +48,7 @@ else if(isset($_SESSION['userrole']) && $_SESSION['userrole'] == 1 ){
 
             <li>
 
-                <input class="edit-input" type="text" name="mobile" value="" placeholder="MOBILE PHONE">
+                <input class="edit-input" type="text" name="phone" value="<?php if($editUser != NULL) echo $editUser->getData('phone');?>" placeholder="MOBILE PHONE">
             </li>
 
             <li>
