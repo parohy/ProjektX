@@ -2,7 +2,6 @@
    /* position: relative;*/
     display: inline-block;
     width: 200px;
-    height: 600px;
     margin: 20px 0;
 	margin-left: 20px;
     border: 1px solid #cacaca;
@@ -36,10 +35,6 @@
     border-bottom: 1px solid #cacaca;
 }
 
-.lastForm {
-    border-bottom: 0 !important;
-}
-
 input[type="number"] {
     width: 60px;
 }
@@ -47,12 +42,11 @@ input[type="number"] {
 input[type="checkbox"] {
 }
 .filterButton {
-    /*position: absolute;*/
     bottom: 0;
     display: block;
     width: 85%;
     padding: 10px;
-    margin: 0% 7.5% 7.5% 7.5%;
+    margin: 7.5%;
     color: #fff;
     text-align: center;
     background: #34A994;
@@ -62,7 +56,6 @@ input[type="checkbox"] {
 /*@media screen and (max-width: 768px) {
     .sorting-table {
         width: 160px;
-        height: 550px;
         margin: 20px 0;
         border: 1px solid #cacaca;
         font-size: 2vw;
