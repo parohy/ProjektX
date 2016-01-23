@@ -68,7 +68,7 @@ body {
 #page-header {
     position: relative;
     width: 1120px;
-    height: 180px;
+    height: 200px;
     color: #605f5f;
     margin: auto;
     border-bottom: 3px solid #34A994;
@@ -76,6 +76,7 @@ body {
 }
 .greenBar {
     position: absolute;
+    border-radius: 5px;
     top: 0;
     left: 0;
     height: 40px;
@@ -86,7 +87,7 @@ body {
 .top {
     position: absolute;
     width: 100%;
-    height: 90px;
+    height: 150px;
     z-index: 100;
     padding-top: 5px;
 }
@@ -112,6 +113,7 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 400;
     vertical-align: middle;
+    color: white;
     line-height: 21px;
 }
 .welcome-label img {
@@ -125,18 +127,18 @@ body {
     width: 360px;
     margin: auto;
     float: left;
-    margin-top: 50px;
+    margin-top: 66px;
 }
 
 .welcome-buttons{
     font-size: 13px;
 }
 .welcome-buttons a {
-    color:#484848;
-    text-decoration: none;
+    color: white;
+    text-decoration: underline;
 }
 .welcome-buttons a:hover {
-    color: #34A994;
+    text-decoration: none;
 }
 .login-frame {
     visibility: hidden;
@@ -185,9 +187,13 @@ body {
     
 }
 
+.replace-header{
+    margin-top: 32px;
+}
+
 .search {
     width: 33.3%;
-    height: 100%;
+    height: 100px;
     float: right;
     font-size: 14px;
     text-align: right;
@@ -195,7 +201,7 @@ body {
     letter-spacing: 0.5px;
 }
 .search input[type="search"] {
-    width: 287px;
+    width: 275px;
     font-size: 12px;
     letter-spacing: 1.4px;
     color: #605f5f;
@@ -222,13 +228,15 @@ body {
     font-size: 20px;
 }
 .search-bar{
+    float: left;
     height: 40px;
     padding-left: 10px;
-    margin-top: 30px;
+    margin-top: 10px;
     border: 1px solid #cccccc;
     background:#fbfbfb;
     font-size: 12px;
     letter-spacing: 1.4px;
+    border-radius: 5px;
     color: #605f5f;
 }
 #search::-webkit-search-cancel-button{
@@ -248,9 +256,14 @@ body {
 .cart {
     float: right;
     margin-right: 20px;
+    margin-top: 1px;
 }
 .shopicon{
     margin-right: 10px;
+    margin-top: 3px;
+    height: 25px;
+    width: 20px;
+    
 }
 
 .cart-title {
@@ -267,16 +280,16 @@ body {
 }
 
 .cart-title a {
-    color: #484848;
+    color: white;
     text-decoration: none;
     padding-right: 0px;
 }
 .cart-title:hover {
-    text-decoration: underline;
+    
 }
 
 .amount {
-    color: #2ba08b;
+    color: white;
 }
 
 .euro{
@@ -289,6 +302,8 @@ body {
     float: left;
     padding-top: 10px;
     cursor: pointer;
+    margin-right: 14px;
+    
 }
 #fa-2x {
     font-size: 1.5em;

@@ -59,7 +59,7 @@
             <div class="cart-title" href="?page=cart">
                 <ul>
                     <li>
-                        <a href="?page=cart" class="cartbutton">SHOPPING CART:</a><span class="amount">';
+                        <a href="?page=cart" class="cartbutton">SHOPPING CART: </a><span class="amount">';
                             
                             if(isset($_SESSION['cart'])) {
                                 $cartContent = $_SESSION['cart'];
@@ -82,6 +82,9 @@
             </div>
         </div>';
     	}
+        else{
+          echo '<p class="replace-header">';
+        }
     	?>
         
         <form action="controllers/searchController.php" method="GET" id="searchForm">
