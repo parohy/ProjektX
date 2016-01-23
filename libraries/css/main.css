@@ -66,20 +66,37 @@ body {
 }
 /************************ HEADER ***************************/
 #page-header {
+    position: relative;
     width: 1120px;
-    height: 130px;
+    height: 180px;
     color: #605f5f;
     margin: auto;
     border-bottom: 3px solid #34A994;
     padding-bottom: 0px;
 }
+.greenBar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 40px;
+    background-color: #34A994;
+    z-index: 2;
+    width: 100%;
+}
 .top {
+    position: absolute;
+    width: 100%;
     height: 90px;
+    z-index: 100;
+    padding-top: 5px;
 }
 .bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
     display:block;
     width: 100%;
-    height: 40px;
+    height: 30px;
     vertical-align: top;
 }
 .welcome {
@@ -89,8 +106,8 @@ body {
     font-size: 13px;
     letter-spacing: 1.4px;
     color: #605f5f;
+    padding: 5px 0px 0px 10px;
 }
-
 .welcome-label{
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 400;
@@ -108,7 +125,7 @@ body {
     width: 360px;
     margin: auto;
     float: left;
-    margin-top: 10px;
+    margin-top: 50px;
 }
 
 .welcome-buttons{
@@ -126,10 +143,10 @@ body {
     position: relative;
     width: 355px;
     height: 106px;
-    background: #fbfbfb;
-    margin: 0;
+    background-color: transparent;
+    margin-top: 9px;
     border: 1px solid #cccccc;
-    
+    border-top: 0px solid #cccccc;
 }
 
 .login-frame form ul {
@@ -171,7 +188,7 @@ body {
 .search {
     width: 33.3%;
     height: 100%;
-    float: left;
+    float: right;
     font-size: 14px;
     text-align: right;
     padding-top: 0px;
@@ -207,7 +224,7 @@ body {
 .search-bar{
     height: 40px;
     padding-left: 10px;
-    margin-top: 8px;
+    margin-top: 30px;
     border: 1px solid #cccccc;
     background:#fbfbfb;
     font-size: 12px;
@@ -230,10 +247,10 @@ body {
 }
 .cart {
     float: right;
-    margin-right: 8px;
+    margin-right: 20px;
 }
 .shopicon{
-    margin-right: 8px;
+    margin-right: 10px;
 }
 
 .cart-title {
