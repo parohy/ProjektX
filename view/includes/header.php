@@ -13,6 +13,7 @@
 		$email = $_GET['logmail'];
 	}
 ?>
+<div class="greenBar"></div>
 <div class="group top">
     <div class="welcome">
         <?php

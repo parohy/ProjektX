@@ -11,7 +11,49 @@ include_once ('controllers/ProductDisplay.php');
 $filter = new Filter();
 $display = new ProductDisplay();
 
+echo $_GET['minCost'];
 $filter->category = $_GET['catid'];
 $results = $filter->getResults();
 $display->displayResults($results, 3);
 ?>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
