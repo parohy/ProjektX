@@ -13,7 +13,7 @@
 		$email = $_GET['logmail'];
 	}
 ?>
-<div class="group top">
+<div class="group green-top">
     <div class="welcome">
         <?php
         if(isset($_SESSION['loggedin']) && isset($_SESSION['username'])) {
@@ -37,7 +37,7 @@
             <form action="API/Relog.php?register=login" method="POST">
                 <ul>
                     <li><input type="email" name="usermail" placeholder="email@email.com" required></li>
-                    <li><input type="password" name="password" placeholder="password" required></li>                    
+                    <li><input type="password" name="password" placeholder="password" required></li>
                     <li><input type="submit" value="Login"></li>
                     <li class="forgotpass"><a href="?page=private/editUser/passRecover&password=recover">Forgot password?</a></li>
                 </ul>
@@ -45,44 +45,54 @@
         </div>
     </div>
 
-    <a class="title" href="?page=main-page">
-        <img class="viatechlogo" src="libraries/img/header/logo.png" width="360px" height="62px">
-    </a>
-    
-    <div class="search">
-        
-    	<?php
-    	if((isset($_SESSION['username']) && $_SESSION['username'] != "admin") || !isset($_SESSION['username'])){
-    		echo '<img class="shopicon" src="libraries/img/icons/cart-icon.png">';
-    		echo '<div class="cart">
+    <div class="shopping-cart">
+        <?php
+        if((isset($_SESSION['username']) && $_SESSION['username'] != "admin") || !isset($_SESSION['username'])){
+            echo '<img class="shopicon" src="libraries/img/icons/cart-icon.png">';
+            echo '<div class="cart">
             <div class="cart-title" href="?page=cart">
                 <ul>
                     <li>
                         <a href="?page=cart" class="cartbutton">SHOPPING CART:</a><span class="amount">';
-                            
-                            if(isset($_SESSION['cart'])) {
-                                $cartContent = $_SESSION['cart'];
-                                $totalCost = 0;
 
-                                foreach($cartContent as $cart) {
-                                    $temp = floatval($cart['price']);
-                                    $temp *= $cart['count'];
-                                    $totalCost += $temp;
-                                }
+            if(isset($_SESSION['cart'])) {
+                $cartContent = $_SESSION['cart'];
+                $totalCost = 0;
 
-                                echo $totalCost;
-                            } else {
-                                echo "0";
-                            }
-                            
-             echo        ' <a class="euro">&#8364;</a> </span>
+                foreach($cartContent as $cart) {
+                    $temp = floatval($cart['price']);
+                    $temp *= $cart['count'];
+                    $totalCost += $temp;
+                }
+
+                echo $totalCost;
+            } else {
+                echo "0";
+            }
+
+            echo        ' <a class="euro">&#8364;</a> </span>
                     </li>
                 </ul>
             </div>
         </div>';
-    	}
-    	?>
-        
+        }
+        ?>
+
+    </div>
+
+
+</div>
+
+
+
+<div class="group top">
+    <div class="title">
+        <a href="?page=main-page">
+            <img class="viatechlogo" src="libraries/img/header/logo.png" width="360px" height="62px">
+        </a>
+    </div>
+    
+    <div class="search">
         <form action="controllers/searchController.php" method="GET" id="searchForm">
            <div class="group search-bar">
                <input type="search" name="search" placeholder="SEARCH" id="search" list="suggestions">
