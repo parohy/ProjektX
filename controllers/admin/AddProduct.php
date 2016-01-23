@@ -19,14 +19,14 @@ if($id=="NULL")
 }
 
 $product= new Product($id);
-if($_POST['subcatid'] == 0){
+if($_POST['subcategory'] == 0){
 	$product->categoryid=$_POST["categoryid"];
 }
-else if($_POST['subcatid'] == '+'){
+else if($_POST['subcategory'] == '+'){
 	$product->categoryid=$_POST["categoryid"];
 }
 else{
-	$product->categoryid=$_POST["subcatid"];
+	$product->categoryid=$_POST["subcategory"];
 }
 
 $product->amount=$_POST["amount"];

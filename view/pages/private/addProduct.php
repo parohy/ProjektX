@@ -20,54 +20,136 @@ $id = NULL;
 if(isset($_GET['productid'])){
 	$id = $_GET['productid'];
 	$product = new Product($id);
-	echo $product->categoryid;
 }
 
+$arrayOfSubs = $catHandler->createSubs();
+//echo var_dump($arrayOfSubs);
+
 ?>
+<script type="text/javascript">
+    var indexing = 1;
+    var subs = <?php echo json_encode($arrayOfSubs);?>;
+    var current = <?php echo json_encode($product->categoryid)?>;
+
+    function generateSub(){
+        clearSubs();
+
+        var index = document.getElementById('categoryid').value;
+        if(subs[index] != null){
+            var parent = document.getElementById('subcategory');
+            var label = document.createElement('label');
+            label.setAttribute('for','name');
+            label.innerHTML = 'Subcategory';
+            parent.appendChild(label);
+            var select = document.createElement('select');
+            select.setAttribute('id','subcategory'+indexing);
+            select.setAttribute('name','subcategory');
+
+            var first = document.createElement('option');
+            first.setAttribute('value','0');
+            first.innerHTML = 'None';
+            select.appendChild(first);
+
+            var i = 0;
+            for(i;i<subs[index].length;i++){
+                var option = document.createElement('option');
+                option.setAttribute('value',subs[index][i]['categoryid']);
+                if(subs[index][i]['categoryid'] == current){
+                    option.selected = true;
+                }
+                option.innerHTML = subs[index][i]['name'];
+                select.appendChild(option);
+            }
+
+            var last = document.createElement('option');
+            last.setAttribute('value','+');
+            last.innerHTML = 'New...';
+            select.appendChild(last);
+
+            select.setAttribute('onchange','generateNextSub('+(indexing++)+')');
+            parent.appendChild(select);
+        }
+    }
+
+
+    function generateNextSub(val){
+        //clearSpecSubs('subcategory'+(parseInt(val)+1));
+        var index = document.getElementById('subcategory'+val).value;
+
+        if(subs[index] != null){
+            var parent = document.getElementById('subcategory');
+            var select = document.createElement('select');
+            select.setAttribute('id','subcategory'+indexing);
+            select.setAttribute('name','subcategory');
+
+            var first = document.createElement('option');
+            first.setAttribute('value','0');
+            first.innerHTML = 'None';
+            select.appendChild(first);
+
+            var i = 0;
+            for(i;i<subs[index].length;i++){
+                var option = document.createElement('option');
+                option.setAttribute('value',subs[index][i]['categoryid']);
+                if(subs[index][i]['categoryid'] == current){
+                    option.selected = true;
+                }
+                option.innerHTML = subs[index][i]['name'];
+                select.appendChild(option);
+            }
+
+            var last = document.createElement('option');
+            last.setAttribute('value','+');
+            last.innerHTML = 'New...';
+            select.appendChild(last);
+
+            select.setAttribute('onchange','generateNextSub('+(indexing++)+')');
+            parent.appendChild(select);
+        }
+    }
+
+    function clearSubs(){
+        var node = document.getElementById('subcategory');
+        while (node.firstChild) {
+            node.removeChild(node.firstChild);
+        }
+    }
+
+    function clearSpecSubs(namespace){
+        var node = document.getElementById('subcategory');
+        node.removeChild(document.getElementById(namespace));
+    }
+</script>
+
 <form action="controllers/admin/AddProduct.php" method="post" class="addProductForm">
-	<?php 		
-		echo '<input type="hidden" name="productid" value="'.$id.'">';
-	?>
 	<input type="hidden" name="productid" value="<?php echo $id;?>">
     <ul>
         <li>
             <div class=" group categories">
                 <div class="category">
                     <label for="name">Category</label>
-                    <select name="categoryid" id="categoryid">
-                    <?php
-                    	foreach($categories as $currentCat){
-                    		echo '<option value="'.$currentCat['id'].'" ';  
-                    		if($product != NULL && $product->categoryid == $currentCat['id']){
-                    			echo 'selected';
-                    		}
-                    		echo '>'.$currentCat['category'].'</option>';
-                    	}
-                    ?>
+                    <select name="categoryid" id="categoryid" onchange="generateSub()">
+                        <?php
+                        foreach($categories as $currentCat){
+                            echo '<option value="'.$currentCat['id'].'" ';
+                            if($product != NULL && $product->categoryid == $currentCat['id']){
+                                echo 'selected';
+                            }
+                            echo '>'.$currentCat['category'].'</option>';
+                        }
+                        ?>
                     	<option value="0">New...</option>
                     </select>
                 </div>
 				
 				
-                <div class="subcategory">
-                    <label for="name">Subcategory</label>
-                    <select name="subcatid">
+                <div class="subcategory" id="subcategory">
+                    <!--<label for="name">Subcategory</label>
+                    <select name="categoryid1" id="categoryid1" onchange="generateNextSub()">
                     	<option value="0">None</option>
-                    <?php
-						foreach($categories as $currentCat){	
-							if(isset($currentCat['subcategory']) && count($currentCat['subcategory']) > 0){
-								for($i=0;$i<count($currentCat['subcategory']);$i++){
-									echo '<option value="'.$currentCat['subcategory'][$i]['id'].'" ';
-									if($product != NULL && $product->categoryid == $currentCat['subcategory'][$i]['id']){
-										echo 'selected';
-									}
-									echo '>'.$currentCat['subcategory'][$i]['name'].'</option>';
-								}
-							}	
-						}						
-                    ?>
+
                     	<option value="+">New...</option>
-                    </select>
+                    </select> -->
                 </div>
             </div>
 

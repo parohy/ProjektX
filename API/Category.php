@@ -93,12 +93,34 @@ class Category{
             if(count($categories>=1)){
                     foreach($categories as $cat){
                     $this->alldescendants[]=$cat['categoryid'];
-                   
+
                     $this->getDescendants($cat['categoryid']);
                 }
-            }         
+            }
         }
-        
+
+        private function getAllCategories(){
+            $this->handlerDB->query("SELECT * FROM categories");
+            return $this->handlerDB->resultSet();
+        }
+
+        public function createSubs(){
+             $arrayOfSubs = array();
+             $categories = $this->getAllCategories();
+             for($i=0;$i<count($categories);$i++){
+                 $arrayOfSubs[$i] = NULL;
+             }
+             foreach($categories as $tempCat){
+             if($tempCat['parent'] > 1){
+                if($arrayOfSubs[$tempCat['parent']] == NULL){
+                    $arrayOfSubs[$tempCat['parent']] = array();
+                }
+                 $arrayOfSubs[$tempCat['parent']][] = $tempCat;
+             }
+        }
+        return $arrayOfSubs;
+    }
+
         public function getCategories(){
         	$this->handlerDB->query('SELECT * FROM categories');
         	$result = $this->handlerDB->resultSet();
