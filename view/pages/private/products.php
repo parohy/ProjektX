@@ -3,27 +3,25 @@
  * @author Tomas Paronai
  */
 
+
+
+
 $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= 'ProjektX/';
 include ($path . 'controllers/admin/ProductEditorController.php');
 
-$userEditor = new ProductEditorController();
+$productEditor = new ProductEditorController();
 
-$products = $userEditor->getProducts();
-$max = count($products);
-$from = 1;
+$products = $productEditor->getProducts();
+$pagination = 1;
+$display = 5;
 
-if($max > 5){
-	$max = 6;
+if(isset($_GET['display'])){
+	$display = $_GET['display'];
 }
 
-if(isset($_GET['to'])){
-	$max = $_GET['to'];
+if(isset($_GET['pagination'])){
+	$pagination = $_GET['pagination'];
 }
 
-if(isset($_GET['from'])){
-	$from = $_GET['from'];
-}
-
-
-$userEditor->displayProducts($products,$from,$max-1);
+$productEditor->displayProducts($products, $pagination, $display);

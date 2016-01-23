@@ -3,6 +3,10 @@
  * @author Tomas Paronai
  */
 
+
+
+
+
 $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= 'ProjektX/';
 include_once ($path . 'API/Database.php');
@@ -24,16 +28,21 @@ class ProductEditorController{
 		return $results;
 	}
 	
-	public function displayProducts($products, $displayFrom, $displayTo) {
+	public function displayProducts($products, $pagination, $display) {
 	
-		$total = (count($products)-1)/5;
-		if((count($products))%5 != 0){
-			$total++;
-		}
+		$max = count($products);
+		if($pagination * $display > $max)
+        {
+            $amount = $max;
+        }
+        else
+        {
+            $amount = $pagination * $display;
+        }
 		 
 		echo '<ul class="items">';
 	
-		for($i = $displayFrom; $i <= $displayTo; $i++) {
+		for($i = ($pagination - 1) * $display; $i < $amount; $i++) {
 			echo '<li>';
 			echo '<span class="prodname">' . $products[$i]['name'] . '</span>';
 			echo '<span class="user-controls"><a class="page-link" href="?page=private/pageSettings&settings=editProduct/productPreview&productid=' . $products[$i]['productid'] . '"><i class="fa fa-search-plus fa-2x"></i></a>
@@ -45,23 +54,25 @@ class ProductEditorController{
 		echo '</ul>';
 		echo '<a class="page-link" class="user-controls" href="?page=private/pageSettings&settings=addProduct"><i class="fa fa-plus-circle fa-2x"></i></a>';
 	
-		echo '<span class="paging">';
-		$start = 1;
-		$end = 6;
-		for($i=1;$i<=$total;$i++){			
-			if($i != 1){
-				$start += 5;
-				$end += 5;
-			}
-			 
-			if($end > count($products)-1){
-				$temp = $end - count($products);
-				$end -= $temp;
-			}
-			echo '<a class="page" href="?page=private/pageSettings&settings=products&from='.$start.'&to='.$end.'">'.$i.'</a>';
-			//echo '<a class="page" href="'.$path.'?current='.$i.'">'.$i.'</a>';
+		echo '<div class="paging">';
+		echo '<div class="displayAmount">';
+        echo '<a class="page" href="?page=private/pageSettings&settings=products&display=5&pagination=1">5</a>';
+        echo '<a class="page" href="?page=private/pageSettings&settings=products&display=10&pagination=1">10</a>';
+        echo '<a class="page" href="?page=private/pageSettings&settings=products&display=20&pagination=1">20</a>';
+        echo '<a class="page" href="?page=private/pageSettings&settings=products&display=50&pagination=1">50</a>';
+        echo '</div>';
+
+		
+		$pages = count($products) / $display;
+        if(count($products) % $display != 0)
+        {
+            $pages++;
+        }
+
+		for($i=1; $i<=$pages; $i++)
+		{
+			echo '<a class="page" href="?page=private/pageSettings&settings=products&display='.$display.'&pagination='.$i.'">'.$i.'</a>';
 		}
-		echo '</span>';
-	}
-	
+		echo '</div>';
+	}	
 }
