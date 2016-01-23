@@ -118,6 +118,9 @@
     text-align:center;
     margin-top:20px;
 }
+.displayAmount {
+    float: left;
+}
 
 .page{
     padding-right:10px;

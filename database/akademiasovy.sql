@@ -277,7 +277,19 @@ INSERT INTO `users` (`userid`, `email`, `name`, `surname`, `password`, `address`
 (4, 'marek.sss@gmail.com', 'Marek', 'Velký', 'iamlegend', 'Bernolákova 1', 'Košice', '04001', '0941598623', '0000-00-00 00:00:00', 1),
 (5, 'ottoman787@azet.sk', 'Otto', 'Markus', '55ottis', 'Kuzmányho', 'Košice', '04001', '0948555877', '0000-00-00 00:00:00', 1),
 (6, 'serusky44@azet.sk', 'Martha', 'Big', 'yesyes22', 'Hlavná 55', 'Košice', '04001', '0910632200', '0000-00-00 00:00:00', 1),
-(7, 'mymail@gmail.com', 'Ice', 'Blaze', '12345', '', '', '', '', '2016-01-05 13:42:24', 1);
+(7, 'mymail@gmail.com', 'Ice', 'Blaze', '12345', '', '', '', '', '2016-01-05 13:42:24', 1),
+(8, 'david991@gmail.com', 'David', 'Kostra', 'transformers55', 'Trieda SNP 50', 'Košice', '04001', '0902645125', '0000-00-00 00:00:00', 1),
+(9, 'jozo198981@gmail.com', 'Jozef', 'Samuraj', 'jablko', 'Šafárikova 11', 'Košice', '04011', '0911584778', '0000-00-00 00:00:00', 1),
+(10, 'marek.sss1@gmail.com', 'Marek', 'Velký', 'iamlegend', 'Bernolákova 1', 'Košice', '04001', '0941598623', '0000-00-00 00:00:00', 1),
+(11, 'ottoman7871@azet.sk', 'Otto', 'Markus', '55ottis', 'Kuzmányho', 'Košice', '04001', '0948555877', '0000-00-00 00:00:00', 1),
+(12, 'serusky441@azet.sk', 'Martha', 'Big', 'yesyes22', 'Hlavná 55', 'Košice', '04001', '0910632200', '0000-00-00 00:00:00', 1),
+(13, 'mymail1@gmail.com', 'Ice', 'Blaze', '12345', '', '', '', '', '2016-01-05 13:42:24', 1),
+(14, 'david992@gmail.com', 'David', 'Kostra', 'transformers55', 'Trieda SNP 50', 'Košice', '04001', '0902645125', '0000-00-00 00:00:00', 1),
+(15, 'jozo198982@gmail.com', 'Jozef', 'Samuraj', 'jablko', 'Šafárikova 11', 'Košice', '04011', '0911584778', '0000-00-00 00:00:00', 1),
+(16, 'marek.sss2@gmail.com', 'Marek', 'Velký', 'iamlegend', 'Bernolákova 1', 'Košice', '04001', '0941598623', '0000-00-00 00:00:00', 1),
+(17, 'ottoman7872@azet.sk', 'Otto', 'Markus', '55ottis', 'Kuzmányho', 'Košice', '04001', '0948555877', '0000-00-00 00:00:00', 1),
+(18, 'serusky442@azet.sk', 'Martha', 'Big', 'yesyes22', 'Hlavná 55', 'Košice', '04001', '0910632200', '0000-00-00 00:00:00', 1),
+(19, 'mymail22@gmail.com', 'Ice', 'Blaze', '12345', '', '', '', '', '2016-01-05 13:42:24', 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
