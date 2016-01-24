@@ -6,7 +6,6 @@
 
 function filterSearch()
 {
-	//price
 	var minCost, maxCost;
 	if (typeof $('input[name=price]:checked', '#priceRangeForm').val() === "undefined")
 	{
@@ -44,27 +43,15 @@ function filterSearch()
 		var sortType = $('input[name=sort]:checked', '#sortForm').val()
 	}
 
-	var brands = [];
+	var brands = "";
 	$('#brandsForm input:checked').each(function() {
-	    brands.push($(this).val());
+		brands += "&brands%5B%5D=" + $(this).val();
+	    //brands.push($(this).val());
 	});
 
-	alert(minCost);
+	var url = window.location.href
+    url = url.split("&");
+    url = url[0] + "&" + url[1];
 
-	var request = $.ajax({
-		url: "controllers/displayCategory.php",
-		type: "GET",
-		data: { "minCost": minCost, "maxCost": maxCost, "sortType": sortType, "brands[]": brands },
-		success: function(data){
-		    alert("data");
-		},
-		error: function (xhr, ajaxOptions, thrownError) {
-	        alert("Error: " + xhr.responseText + " " + ajaxOptions.responseText + " " + thrownError.responseText);
-	    }
-	});
-
-	/*$.get("controllers/displayCategory.php", { "minCost": minCost, 
-											   "maxCost": maxCost, 
-											   "sortType": sortType, 
-											   "brands[]": brands });*/
+	window.location.replace(url + "&minCost=" + minCost + "&maxCost=" + maxCost + "&sortType=" + sortType + brands);
 }

@@ -17,29 +17,27 @@ var loadMore = true;
 	$(document).ready(function(){
 		var max = "<?php echo $total;?>";
 
-		$(window).scroll(function(){
-			if($(window).scrollTop() == $(document).height() - $(window).height())
+		$(window).scroll(function()
+		{
+			if(load * 4 > max)
 			{
-				if(load * 4 > max)
+				enableLoad();
+				$(".messages").html("Back to Top");
+				adjustThumbnail();
+			}
+			else if(loadMore)
+			{
+				$.post("controllers/infiniteLoadAjax.php",{load:load},function(data){
+					$('.activeTab').append(data);
+					$(".thumbnailImage").one('load', function() {
+				        adjustOneThumbnail($(this));       
+				    });
+				});
+				load++;
+				if(load % 3 === 0 && load * 4 < max)
 				{
-					enableLoad();
-					$(".messages").html("Back to Top");
-					adjustThumbnail();
-				}
-				else if(loadMore)
-				{
-					$.post("controllers/infiniteLoadAjax.php",{load:load},function(data){
-						$('.activeTab').append(data);
-						$(".thumbnailImage").one('load', function() {
-					        adjustOneThumbnail($(this));       
-					    });
-					});
-					load++;
-					if(load % 3 === 0 && load * 4 < max)
-					{
-						disableLoad();
-					}					
-				}
+					disableLoad();
+				}					
 			}
 		});
 
