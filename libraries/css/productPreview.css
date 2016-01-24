@@ -41,6 +41,8 @@
 
 .pictable td{
     border: 1px solid #d0d0d0;
+    width: 100px;
+    height: 100px;
 }
 
 #propic {
