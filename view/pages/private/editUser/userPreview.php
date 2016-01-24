@@ -19,14 +19,14 @@ if(isset($_GET['userid'])){
 	}
 	
 	echo '<ul class="userView">';
-		echo '<li class="view"><b>Name:</b> '.$user->getData('name').'</li>';
-		echo '<li class="view"><b>Surname:</b> '.$user->getData('surname').'</li>';
-		echo '<li class="view"><b>Email:</b> '.$user->getData('email').'</li>';
-		echo '<li class="view"><b>Street:</b> '.$user->getData('address').'</li>';
-		echo '<li class="view"><b>City:</b> '.$user->getData('city').'</li>';
-		echo '<li class="view"><b>Postcode:</b> '.$user->getData('postcode').'</li>';
-		echo '<li class="view"><b>Registered since:</b> '.$user->getData('datejoined').'</li>';
-		echo '<li class="view"><b>User role:</b> '.$role.'</li>';
+		echo '<li class="view"><div class="inputName">Name:</div><div class="edit-input">'.$user->getData('name').'</div></li>';
+		echo '<li class="view"><div class="inputName">Surname:</div><div class="edit-input">'.$user->getData('surname').'</div></li>';
+		echo '<li class="view"><div class="inputName">Email:</div><div class="edit-input">'.$user->getData('email').'</div></li>';
+		echo '<li class="view"><div class="inputName">Street:</div><div class="edit-input">'.$user->getData('address').'</div></li>';
+		echo '<li class="view"><div class="inputName">City:</div><div class="edit-input">'.$user->getData('city').'</div></li>';
+		echo '<li class="view"><div class="inputName">Postcode:</div><div class="edit-input">'.$user->getData('postcode').'</div></li>';
+		echo '<li class="view"><div class="inputName">Registered since:</div><div class="edit-input">'.$user->getData('datejoined').'</div></li>';
+		echo '<li class="view"><div class="inputName">User role:</div><div class="edit-input">'.$role.'</div></li>';
 	echo '</ul>';
 	echo '<span class="view"><a class="view-controls" href="?page=private/pageSettings&settings=editUser/editUser&userid=' . $user->getId() . '"><i class="fa fa-pencil-square-o fa-2x"></i></a>
 			                          <a class="view-controls" href="?page=private/pageSettings&settings=editUser/deleteUser&userid=' . $user->getId() . '"><i class="fa fa-times fa-2x"></i></a></span>';
@@ -41,14 +41,14 @@ else if(isset($_SESSION['userid'])){
 	}
 	
 	echo '<ul class="userView">';
-	echo '<li class="view"><b>Name:</b> '.$user->getData('name').'</li>';
-	echo '<li class="view"><b>Surname:</b> '.$user->getData('surname').'</li>';
-	echo '<li class="view"><b>Email:</b> '.$user->getData('email').'</li>';
-	echo '<li class="view"><b>Street:</b> '.$user->getData('address').'</li>';
-	echo '<li class="view"><b>City:</b> '.$user->getData('city').'</li>';
-	echo '<li class="view"><b>Postcode:</b> '.$user->getData('postcode').'</li>';
-	echo '<li class="view"><b>Registered since:</b> '.$user->getData('datejoined').'</li>';
-	echo '<li class="view"><b>User role:</b> '.$role.'</li>';
+		echo '<li class="view"><div class="inputName">Name:</div><div class="edit-input">'.$user->getData('name').'</div></li>';
+		echo '<li class="view"><div class="inputName">Surname:</div><div class="edit-input">'.$user->getData('surname').'</div></li>';
+		echo '<li class="view"><div class="inputName">Email:</div><div class="edit-input">'.$user->getData('email').'</div></li>';
+		echo '<li class="view"><div class="inputName">Street:</div><div class="edit-input">'.$user->getData('address').'</div></li>';
+		echo '<li class="view"><div class="inputName">City:</div><div class="edit-input">'.$user->getData('city').'</div></li>';
+		echo '<li class="view"><div class="inputName">Postcode:</div><div class="edit-input">'.$user->getData('postcode').'</div></li>';
+		echo '<li class="view"><div class="inputName">Registered since:</div><div class="edit-input">'.$user->getData('datejoined').'</div></li>';
+		echo '<li class="view"><div class="inputName">User role:</div><div class="edit-input">'.$role.'</div></li>';
 	echo '</ul>';
 }
 
