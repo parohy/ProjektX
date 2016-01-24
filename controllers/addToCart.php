@@ -48,8 +48,6 @@ if(isset($_GET['productid']) && isset($_GET['name']) && isset($_GET['price'])) {
 
         $_SESSION['cart'] = $cartContent;
 
-        $location = "Location:../?page=cart";
-        header($location);
         exit();
     }
     else {
@@ -61,8 +59,6 @@ if(isset($_GET['productid']) && isset($_GET['name']) && isset($_GET['price'])) {
         ));
         $_SESSION['cart'] = $cartContent;
 
-        $location = "Location:../?page=cart";
-        header($location);
         exit();
     }
 }
