@@ -552,9 +552,9 @@ body {
 }
 .product-display{
     display: inline-block;
-	width: 890px;
-	margin-left: 30px;
-	vertical-align: top;
+    width: 855px;
+    margin-left: 30px;
+    vertical-align: top;
 }
 
 .price i{
