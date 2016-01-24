@@ -22,8 +22,8 @@
         <ul>
             <li><span class="table-header">SORT</span></li>
             <li><input type="radio" name="sort" value="0"> Rating</li>
-            <li><input type="radio" name="sort" value="4"> Price: Low to High</li>
-            <li><input type="radio" name="sort" value="3"> Price: High to Low</li>
+            <li><input type="radio" name="sort" value="3"> Price: Low to High</li>
+            <li><input type="radio" name="sort" value="4"> Price: High to Low</li>
             <li><input type="radio" name="sort" value="5"> Alphabetical: A-Z</li>
             <li><input type="radio" name="sort" value="6"> Alphabetical: Z-A</li>
         </ul>
@@ -32,7 +32,7 @@
         <ul>
             <li><span class="table-header">BRAND</span></li>
             <!-- Generate brands from DB -->
-            <li>
+            <!--<li>
                 <select>
                     <option value="1" name="sony"> SONY</option>
                     <option value="2" name="panasonic"> PANASONIC</option>
@@ -41,14 +41,13 @@
                     <option value="12" name="lenovo"> LENOVO</option>
                     <option value="15" name="samsung"> SAMSUNG</option>
                 </select>
-            </li>
-            <!--
+            </li>-->
             <li><input type="checkbox" value="1" name="sony"> SONY</li>
             <li><input type="checkbox" value="2" name="panasonic"> PANASONIC</li>
             <li><input type="checkbox" value="10" name="asus"> ASUS</li>
             <li><input type="checkbox" value="11" name="apple"> APPLE</li>
             <li><input type="checkbox" value="12" name="lenovo"> LENOVO</li>
-            <li><input type="checkbox" value="15" name="samsung"> SAMSUNG</li>-->
+            <li><input type="checkbox" value="15" name="samsung"> SAMSUNG</li>
         </ul>
     </form>    
     <button class="filterButton" onClick="filterSearch()">Search</button>
