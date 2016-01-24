@@ -114,10 +114,10 @@ class Filter{
         }
         foreach($brands as $id){
                  if($brandquery!=""){
-                     $brandquery.=", ".$id['brandid'];
+                     $brandquery.=", ".$id;
                  }
                  else{
-                     $brandquery.="(brandid IN (".$id['brandid'];
+                     $brandquery.="(brandid IN (".$id;
                  }
              } 
              $brandquery.="))";
