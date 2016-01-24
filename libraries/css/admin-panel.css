@@ -193,6 +193,10 @@
     float: left;
     margin-left: 20px;
 }
+#subcategory1{
+ margin-left: 150px;
+    margin-top: 5px;
+}
 .subcategory select{
     width: 100px;
     height: 35px;

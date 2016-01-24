@@ -172,16 +172,17 @@ function generateSub($id,$categories){
                     	<option value="0">New...</option>
                     </select>
 
-				
-				
-                <div class="subcategory" id="subcategory">
-                    <?php
-                    $index = 0;
-                    if($pIndex >= 0){
-                        generateSub($categoryPath[$pIndex], $arrayOfSubs);
-                    }
-                    ?>
-                </div>
+        </li>
+				<li>
+                    <label class="inputName" for="name">Subcategory</label>
+                        <div class="" id="subcategory">
+                            <?php
+                            $index = 0;
+                            if($pIndex >= 0){
+                                generateSub($categoryPath[$pIndex], $arrayOfSubs);
+                            }
+                            ?>
+                         </div>
 
 
         </li>
