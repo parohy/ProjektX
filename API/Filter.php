@@ -107,10 +107,12 @@ class Filter{
         }
         else{
             $this->handlerDB->query("SELECT brandid FROM brands");
-            $brands = $this->handlerDB->resultSet();
+            $results = $this->handlerDB->resultSet();
+            foreach($results as $result){
+                $brands[]=$result['brandid'];
+            }
         }
-        foreach($brands as $id)
-             {
+        foreach($brands as $id){
                  if($brandquery!=""){
                      $brandquery.=", ".$id['brandid'];
                  }
