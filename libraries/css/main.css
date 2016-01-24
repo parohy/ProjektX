@@ -597,12 +597,16 @@ body {
 /************************ FOOTER ***************************/
 .footer {
     color: white;
+    display: block;
     background:#34A994;
     margin-top: 30px;
     width: 1140px;
     border-top: 1px solid #ccc;
-    padding-top: 20px;
-    height: 100px;
+   
+    border-radius: 5px;
+    height: 40px;
+    
+    
 }
 .text {
     font-size: 19px;
@@ -647,11 +651,19 @@ body {
     font-size: 20px;
     text-align: center;
     float: right;
+    height: 40px;
     padding-right: 2.5%
+}
+.social-icons ul{
+    display: inline-block;
+    
+    vertical-align: middle;
 }
 .social-icons ul li{
     display: inline-block;
     margin: 0 10PX;
+    vertical-align: middle;
+    padding-top: 3px;
 }
 .social-icons a {
    display: block;
@@ -673,18 +685,27 @@ body {
 
 .footerInformationList {
     width: 80%;
-
-    padding-top: 16px;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
     padding-left: 60px;
     float: left;
+    
 }
 
 .footerInformationList li {
     display: inline;
     padding: 0% 1% 0% 1%;
+    text-decoration: none;
+    color: white;
+}
+
+.footerInformationList li a{
+    text-decoration: none;
+    color: white;
 }
 .footerInformationList li a:hover{
-    color: #484848;
+    text-decoration: underline;
 }
 
 

@@ -6,15 +6,15 @@
  * Time: 14:23
  */
 ?>
-<div class="contact-us">
+
 
 
     <ul class="footerInformationList">
-        <li ><a href="/ProjektX/">Viashop</a></li>
+        <li ><a href="/ProjektX/">ViaTech</a></li>
         <li ><a target="_blank" href="https://goo.gl/maps/dL9vTMNTK9w">Dneperska 1, Kosice, Slovakia</a></li>
         <li>+421 902 095 588</li>
 
-        <li><a class="mail" href="mailto:viashopsk@gmail.com">viashopsk@gmail.com</a></li>
+        <li><a class="mail" href="mailto:viatech@gmail.com">viatech@gmail.com</a></li>
         <li><a href="?page=faq">FAQ</a>/<a href="?page=aboutus">About us</a></li>
     </ul>
     <div class="social-icons">
