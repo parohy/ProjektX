@@ -28,9 +28,6 @@ if(isset($_GET['productid'])){
 }
 
 
-//echo var_dump($catHandler->getCatPath('12'));
-//echo var_dump($arrayOfSubs);
-
 function generateSub($id,$categories){
     if($GLOBALS['pIndex'] >= 0){
         $merge = false;
@@ -49,7 +46,7 @@ function generateSub($id,$categories){
                 echo '>'.$array[$i]['name'] . '</option>';
             }
             echo '<option value="+" '.'>New...</option>';
-            echo '<//select>';
+            echo '</sel'.'ect>';
         }
         if($merge === true && $GLOBALS['pIndex'] >= 0){
             generateSub($GLOBALS['categoryPath'][$GLOBALS['pIndex']],$categories);
@@ -61,7 +58,7 @@ function generateSub($id,$categories){
 <script type="text/javascript">
     var indexing = 1;
     var subs = <?php if($arrayOfSubs != NULL) echo json_encode($arrayOfSubs); else echo 'null';?>;
-    var current = <?php if($product != NULL) echo json_encode($product->categoryid); else echo 'null'?>;
+    var current = <?php if($product != NULL) echo json_encode($product->categoryid); else echo 'null';?>;
 
 
     function generateSub(){
@@ -178,10 +175,10 @@ function generateSub($id,$categories){
 				
 				
                 <div class="subcategory" id="subcategory">
-                    <?
+                    <?php
                     $index = 0;
                     if($pIndex >= 0){
-                        genenerateSub($categoryPath[$pIndex], $arrayOfSubs);
+                        generateSub($categoryPath[$pIndex], $arrayOfSubs);
                     }
                     ?>
                 </div>
