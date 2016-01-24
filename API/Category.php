@@ -119,7 +119,23 @@ class Category{
              }
         }
         return $arrayOfSubs;
-    }
+        }
+
+        public function getCatPath($id){
+            $categories = $this->getAllCategories();
+            $path = array();
+            $path[] = $id;
+            for($i=0;$i<count($categories);$i++){
+               // echo $id . ' - ' . $categories[$i]['categoryid'] . ' ' . $categories[$i]['parent'] . '<br>';
+                if($categories[$i]['categoryid'] == $id && $categories[$i]['parent'] > 1){
+                   // echo '##';
+                    $result = array_merge($path, $this->getCatPath($categories[$i]['parent']));
+                    $path = $result;
+                }
+            }
+            return $path;
+        }
+
 
         public function getCategories(){
         	$this->handlerDB->query('SELECT * FROM categories');

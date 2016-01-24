@@ -44,5 +44,12 @@ $product->description=$_POST["description"];
 $product->save();
 if($product->saved){
 	//header('Location: ../?page=private/pageSettings&settings=addProduct');
+	if(headers_sent()){
+		$url = '../index.php?page=private/pageSettings&settings=products';
+		//die('Redirect failed. Please click on <a href="'.$url.'">this</a> to try again.');
+	}
+	else{
+		//exit(header('Location: ../' . $url));
+	}
 }
 
