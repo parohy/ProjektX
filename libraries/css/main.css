@@ -597,7 +597,7 @@ body {
 /************************ FOOTER ***************************/
 .footer {
     color: white;
-    display: block;
+    display: inline-block;
     background:#34A994;
     margin-top: 30px;
     width: 1140px;

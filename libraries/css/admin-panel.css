@@ -89,6 +89,9 @@
     width: 300px;
     text-align: left;
 }
+.control-icons{
+    color: green;
+}
 
 .user-controls {
     float: right;
@@ -96,6 +99,11 @@
 
 .user-controls a {
     margin: 0 10px;
+}
+.edit-view{
+    text-align: left;
+    margin-top: 10px;
+    margin-left: 210px;
 }
 
 .view{
@@ -105,6 +113,7 @@
 
 .view-controls{
     margin-right: 10px;
+    color: #34A994;
 }
 
 .paging{
