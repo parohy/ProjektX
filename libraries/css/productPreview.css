@@ -72,13 +72,12 @@
     visibility: hidden;
     color: black;
     text-decoration: none;
-    width: 200px;
-    height: 200px;
+    max-width: 300px;
 }
 
 td:hover .bigpic{
     visibility: visible;
-    width: 200px;
+    
     top: 450px;
     left: 900px;
 }
