@@ -142,7 +142,7 @@ $(document).ready(function()
                 				$localPath = 'libraries/img/products/' . $product['productid'] . '/' . $product['productid'] . $alpha[$index] . '.jpg';
                 				$alt = $product['productid'] . $alpha[$index] . '.jpg';
                 				//echo '<td><a href="?page=productPreview&product=' . $product['productid'] . '&index='. $alpha[$index] . '" onclick="changePic('.$alpha[$index].')"><img class="image-album" src="' . $localPath . '" alt="' . $alt . '" width="' . $width . '" height="' . $height . '"></a></td>';
-                				echo '<td><img class="image-album" src="' . $localPath . '" alt="' . $alt . '" width="100" onclick="changePic(\''.$alpha[$index].'\',\''.$product['productid'].'\')"></td>';
+                				echo '<td><img class="image-album" src="' . $localPath . '" alt="' . $alt . '" width="100" onclick="changePic(\''.$alpha[$index].'\',\''.$product['productid'].'\')"><span class="bigpic"><img src="' . $localPath . '" width="200px" height="200px"></span></td>';
                 				$index++;
                 			}
                 		?>

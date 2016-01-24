@@ -59,6 +59,30 @@
     box-shadow: 0px 6px 9px 0px rgba(94,102,99,1);
 }
 
+.bigpic{
+    position: absolute;
+    background-color: #e5e5e5;
+    padding: 0px;
+    /* left: -1000px; */
+    border: 1px solid #d0d0d0;
+
+    -webkit-box-shadow: 0px 6px 9px 0px rgba(94,102,99,1);
+    -moz-box-shadow: 0px 6px 9px 0px rgba(94,102,99,1);
+    box-shadow: 0px 6px 9px 0px rgba(94,102,99,1);
+    visibility: hidden;
+    color: black;
+    text-decoration: none;
+    width: 200px;
+    height: 200px;
+}
+
+td:hover .bigpic{
+    visibility: visible;
+    width: 200px;
+    top: 450px;
+    left: 900px;
+}
+
 .product-slider{
     position: relative;
     border: 0;
