@@ -17,19 +17,52 @@ $catHandler = new Category();
 $categories = $catHandler->getCategories();
 $product = NULL;
 $id = NULL;
+$pIndex = 0;
+$categoryPath = NULL;
+$arrayOfSubs = $catHandler->createSubs();
 if(isset($_GET['productid'])){
 	$id = $_GET['productid'];
 	$product = new Product($id);
+    $categoryPath = $catHandler->getCatPath($product->categoryid);
+    $pIndex = count($categoryPath)-1;
 }
 
-$arrayOfSubs = $catHandler->createSubs();
+
+//echo var_dump($catHandler->getCatPath('12'));
 //echo var_dump($arrayOfSubs);
+
+function generateSub($id,$categories){
+    if($GLOBALS['pIndex'] >= 0){
+        $merge = false;
+        $pointer = $GLOBALS['categoryPath'][$GLOBALS['pIndex']+1];
+        $array = $categories[$pointer];
+        if(count($array) > 0){
+            echo '<select id="subcategory' . $GLOBALS['index']++ . '" name="subcategory">';
+            echo '<option value="0" '.'>None</option>';
+            for($i=0;$i<count($array);$i++){
+                echo '<option value="'.$array[$i]['categoryid'].'" ';
+                if($array[$i]['categoryid'] == $id){
+                    echo 'selected';
+                    $GLOBALS['pIndex']--;
+                    $merge = true;
+                }
+                echo '>'.$array[$i]['name'] . '</option>';
+            }
+            echo '<option value="+" '.'>New...</option>';
+            echo '<//select>';
+        }
+        if($merge === true && $GLOBALS['pIndex'] >= 0){
+            generateSub($GLOBALS['categoryPath'][$GLOBALS['pIndex']],$categories);
+        }
+    }
+}
 
 ?>
 <script type="text/javascript">
     var indexing = 1;
-    var subs = <?php echo json_encode($arrayOfSubs);?>;
-    var current = <?php echo json_encode($product->categoryid)?>;
+    var subs = <?php if($arrayOfSubs != NULL) echo json_encode($arrayOfSubs); else echo 'null';?>;
+    var current = <?php if($product != NULL) echo json_encode($product->categoryid); else echo 'null'?>;
+
 
     function generateSub(){
         clearSubs();
@@ -132,8 +165,9 @@ $arrayOfSubs = $catHandler->createSubs();
                         <?php
                         foreach($categories as $currentCat){
                             echo '<option value="'.$currentCat['id'].'" ';
-                            if($product != NULL && $product->categoryid == $currentCat['id']){
+                            if($pIndex >= 0 && $categoryPath[$pIndex] == $currentCat['id']){
                                 echo 'selected';
+                                $pIndex--;
                             }
                             echo '>'.$currentCat['category'].'</option>';
                         }
@@ -144,12 +178,12 @@ $arrayOfSubs = $catHandler->createSubs();
 				
 				
                 <div class="subcategory" id="subcategory">
-                    <!--<label for="name">Subcategory</label>
-                    <select name="categoryid1" id="categoryid1" onchange="generateNextSub()">
-                    	<option value="0">None</option>
-
-                    	<option value="+">New...</option>
-                    </select> -->
+                    <?
+                    $index = 0;
+                    if($pIndex >= 0){
+                        genenerateSub($categoryPath[$pIndex], $arrayOfSubs);
+                    }
+                    ?>
                 </div>
             </div>
 
