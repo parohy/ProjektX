@@ -52,6 +52,7 @@
     right: 0;
     margin: auto;
     max-width: 310px;
+	max-height: 310px;
     border: 1px solid #d0d0d0;
 
     -webkit-box-shadow: 0px 6px 9px 0px rgba(94,102,99,1);
@@ -78,8 +79,8 @@
 td:hover .bigpic{
     visibility: visible;
     
-    top: 450px;
-    left: 900px;
+    top: 530px;
+    left: 800px;
 }
 
 .product-slider{
