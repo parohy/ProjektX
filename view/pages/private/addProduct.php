@@ -34,7 +34,7 @@ function generateSub($id,$categories){
         $pointer = $GLOBALS['categoryPath'][$GLOBALS['pIndex']+1];
         $array = $categories[$pointer];
         if(count($array) > 0){
-            echo '<select id="subcategory' . $GLOBALS['index']++ . '" name="subcategory">';
+            echo '<select id="subcategory' . $GLOBALS['index'] . '" name="subcategory" onchange="generateNextSub('.$GLOBALS['index']++.')">';
             echo '<option value="0" '.'>None</option>';
             for($i=0;$i<count($array);$i++){
                 echo '<option value="'.$array[$i]['categoryid'].'" ';
@@ -67,10 +67,15 @@ function generateSub($id,$categories){
         var index = document.getElementById('categoryid').value;
         if(subs[index] != null){
             var parent = document.getElementById('subcategory');
-           /* var label = document.createElement('label');
+
+            var labelPar = document.getElementById('sub-title');
+            var label = document.createElement('label');
             label.setAttribute('for','name');
+            label.setAttribute('id','sublabel');
+            label.setAttribute('class','inputName');
             label.innerHTML = 'Subcategory';
-            parent.appendChild(label);*/
+            labelPar.appendChild(label);
+
             var select = document.createElement('select');
             select.setAttribute('id','subcategory'+indexing);
             select.setAttribute('name','subcategory');
@@ -103,7 +108,7 @@ function generateSub($id,$categories){
 
 
     function generateNextSub(val){
-        //clearSpecSubs('subcategory'+(parseInt(val)+1));
+        clearSpecSubs('subcategory'+(parseInt(val)+1));
         var index = document.getElementById('subcategory'+val).value;
 
         if(subs[index] != null){
@@ -143,11 +148,20 @@ function generateSub($id,$categories){
         while (node.firstChild) {
             node.removeChild(node.firstChild);
         }
+        var labelPar = document.getElementById('sub-title');
+        var label = document.getElementById('sublabel');
+        if(label != null){
+            labelPar.removeChild(label);
+        }
     }
 
     function clearSpecSubs(namespace){
         var node = document.getElementById('subcategory');
-        node.removeChild(document.getElementById(namespace));
+        var child = document.getElementById(namespace);
+        if(child != null && node != null){
+            node.removeChild(child);
+        }
+
     }
 </script>
 
@@ -173,17 +187,22 @@ function generateSub($id,$categories){
                     </select>
 
         </li>
-				<li>
-                    <label class="inputName" for="name">Subcategory</label>
+				<li id="sub-title">
+                    <?php
+                    if($pIndex >= 0){
+                        echo '<label id="sublabel"'.' class="inputName"'.' for="name">'.'Subcategory</'.'label>';
+                    }
+                    ?>
+                    <!--<label class="inputName" for="name">Subcategory</label>-->
                             <div id="subcategory">
-                                <div class="subcategory-choice">
+                                <!--<div class="subcategory-choice">-->
                                     <?php
                                     $index = 0;
                                     if($pIndex >= 0){
                                         generateSub($categoryPath[$pIndex], $arrayOfSubs);
                                     }
                                     ?>
-                                 </div>
+                                <!--</div>-->
                             </div>
         </li>
         <li>
