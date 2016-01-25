@@ -23,13 +23,17 @@ $check = new Recheck();
 	
 /*Executes registration algorithm*/
 if($_GET['register'] == 'registration'){
+
+    if(isset($_POST['g-recaptcha-response']))
+        $captcha=$_POST['g-recaptcha-response'];
+
 	$_SESSION['registerErr']=false;
 	$name = $check->dumpSpecialChars($_POST['name']);
 	$surname = $check->dumpSpecialChars($_POST['last-name']);
 	$email = $check->dumpSpecialChars($_POST['mail']);
 	$password = $check->dumpSpecialChars($_POST['password']);
 	
-	if(!isset($_SESSION['captcha']) || $_SESSION['captcha'] != intval($_POST['captcha'])){
+	if(!$captcha){
 		$_SESSION['registerErr'] = "Wrong captcha.";		
 		header('Location:  ../?page=reg-acc&name='.$name.'&surname='.$surname.'&email='.$email);
 		exit();

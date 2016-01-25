@@ -63,7 +63,9 @@ $_SESSION['captcha'] = $a + $b;
             <div class="inputName">Retype password: </div>
             <input class="input" type="password" placeholder="password" name="password" id="pass2">
         </li>
-        <li><?php echo $a.' + '.$b.' = ';?><input class="input" type="number" placeholder="I am not a robot" name="captcha" id="captcha"></li>
+        <li>
+            <div class="g-recaptcha" data-sitekey="6LcphBUTAAAAAHX2M6Wj4gtZlaLXTjL16dGF18tu"></div>
+        </li>
         <li><input type="submit" class="submit-button" value="REGISTER"></li>
     </ul>
 </form>
