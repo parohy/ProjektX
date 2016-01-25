@@ -159,6 +159,9 @@
 .group{
     *zoom:1 ;
 }
+.g-recaptcha {
+    margin-left: 80px;
+}
 /*MEDIA QUERY*/
 @media screen and (min-width: 1250px){
     .title-page span{

@@ -25,8 +25,8 @@ $(document).ready(function()
 
     function adjustOneThumbnail(img)
     {
-        var maxWidth = img.parent().width() - 5;
-        var maxHeight = img.parent().height() - 5;
+        var maxWidth = img.parent().width();
+        var maxHeight = img.parent().height();
 
         var ratio;
         var width = img.width();
@@ -46,8 +46,8 @@ $(document).ready(function()
             width *= ratio;
         }
 
-        var marginTop = ((maxHeight+5) - height) / 2;
-        var marginLeft = ((maxWidth+5) - width) / 2;
+        var marginTop = ((maxHeight) - height) / 2;
+        var marginLeft = ((maxWidth) - width) / 2;
         img.css({"margin-top":marginTop+"px","margin-left":marginLeft+"px"});
         img.removeClass("notLoaded");
     }

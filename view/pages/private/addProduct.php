@@ -67,10 +67,10 @@ function generateSub($id,$categories){
         var index = document.getElementById('categoryid').value;
         if(subs[index] != null){
             var parent = document.getElementById('subcategory');
-            var label = document.createElement('label');
+           /* var label = document.createElement('label');
             label.setAttribute('for','name');
             label.innerHTML = 'Subcategory';
-            parent.appendChild(label);
+            parent.appendChild(label);*/
             var select = document.createElement('select');
             select.setAttribute('id','subcategory'+indexing);
             select.setAttribute('name','subcategory');
