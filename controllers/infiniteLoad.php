@@ -95,3 +95,4 @@ function enableLoad()
 	loadMore = true;
 }
 </script>
+<script src="libraries/js/cart.js"></script>

@@ -25,21 +25,10 @@ $_SESSION['captcha'] = $a + $b;
 <link rel="stylesheet" type="text/css" href="libraries/css/reg-acc.css">
 <script src="libraries/js/regScript.js"></script>
 
-
-
-
-
-<!--<link rel="stylesheet" href="tab2.css">-->
-
-<!--<div id="tab"> -->
 <div class="title-page">
     <span>REGISTRATION</span>
 </div>
-<!--  <div id="formulars"class="group"> -->
 
-
-<!--  <div id="all-tab">-->
-<!-- <div id="tab1" class="tab-content">-->
 <form class="form" action='API/Relog.php?register=registration' onSubmit="return isPassEqual()" method="POST">
     <ul class="registrationForm">
         <li>
@@ -69,18 +58,4 @@ $_SESSION['captcha'] = $a + $b;
         <li><input type="submit" class="submit-button" value="REGISTER"></li>
     </ul>
 </form>
-<!--</div>-->
 
-<!-- <div id="tab2" class="tab-content">
-
-    <form class="form" action="" method="POST">
-        <ul>
-            <li><input class="input" type="email" placeholder="email" name="name"> </li>
-            <li><input type="submit" class="submit-button" value="RECOVER"></li>
-        </ul>
-    </form>
-
-</div> -->
-<!--    </div>
-     </div>
-</div> -->
