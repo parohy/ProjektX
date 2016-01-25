@@ -189,18 +189,24 @@
     width: 100px;
     height: 35px;
 }
-.subcategory{
-    float: left;
-    margin-left: 20px;
+.subcategory-choice{
+    display: inline-block;
+    margin-top: 5px;
+    width: 250px;
 }
-#subcategory1{
- margin-left: 150px;
+.subcategory-choice select{
+    width: 250px;
+    display: block;
     margin-top: 5px;
 }
-.subcategory select{
+/*#subcategory1{
+ margin-left: 150px;
+    margin-top: 5px;
+}*/
+/*.subcategory select{
     width: 100px;
     height: 35px;
-}
+}*/
 
 .page-link>i{
     line-height: 15px;
