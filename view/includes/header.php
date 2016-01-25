@@ -13,6 +13,7 @@
 		$email = $_GET['logmail'];
 	}
 ?>
+<div class="greenBar"></div>
 <div class="group top">
     <div class="welcome">
         <?php
@@ -50,13 +51,16 @@
     </a>
     
     <div class="search">
-        <img class="shopicon" src="libraries/img/icons/cart-icon.png">
-        <div class="cart">
+        
+    	<?php
+    	if((isset($_SESSION['username']) && $_SESSION['username'] != "admin") || !isset($_SESSION['username'])){
+    		echo '<img class="shopicon" src="libraries/img/icons/cart-icon.png">';
+    		echo '<div class="cart">
             <div class="cart-title" href="?page=cart">
                 <ul>
                     <li>
-                        <a href="?page=cart" class="cartbutton">SHOPPING CART:</a><span class="amount">
-                            <?php
+                        <a href="?page=cart" class="cartbutton">SHOPPING CART: </a><span class="amount">';
+                            
                             if(isset($_SESSION['cart'])) {
                                 $cartContent = $_SESSION['cart'];
                                 $totalCost = 0;
@@ -71,12 +75,17 @@
                             } else {
                                 echo "0";
                             }
-                            ?>
-                            <a class="euro">&#8364;</a> </span>
+                            
+             echo        ' </span><a class="euro">&#8364;</a>
                     </li>
                 </ul>
             </div>
-        </div>
+        </div>';
+    	}
+        else{
+          echo '<p class="replace-header">';
+        }
+    	?>
         
         <form action="controllers/searchController.php" method="GET" id="searchForm">
            <div class="group search-bar">

@@ -27,7 +27,7 @@ body {
     color: #595959;
     font-family: 'Source Sans Pro', sans-serif;
     font-style: normal;
-    background: url("../img/photography.png");
+    background: url("../img/photographyc.png");
     /*
     background: no-repeat;
     background-image: -webkit-gradient(
@@ -66,20 +66,38 @@ body {
 }
 /************************ HEADER ***************************/
 #page-header {
+    position: relative;
     width: 1120px;
-    height: 130px;
+    height: 200px;
     color: #605f5f;
     margin: auto;
     border-bottom: 3px solid #34A994;
     padding-bottom: 0px;
 }
+.greenBar {
+    position: absolute;
+    border-radius: 5px;
+    top: 0;
+    left: 0;
+    height: 40px;
+    background-color: #34A994;
+    z-index: 2;
+    width: 100%;
+}
 .top {
-    height: 90px;
+    position: absolute;
+    width: 100%;
+    height: 150px;
+    z-index: 100;
+    padding-top: 5px;
 }
 .bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
     display:block;
     width: 100%;
-    height: 40px;
+    height: 30px;
     vertical-align: top;
 }
 .welcome {
@@ -89,12 +107,13 @@ body {
     font-size: 13px;
     letter-spacing: 1.4px;
     color: #605f5f;
+    padding: 5px 0px 0px 10px;
 }
-
 .welcome-label{
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 400;
     vertical-align: middle;
+    color: white;
     line-height: 21px;
 }
 .welcome-label img {
@@ -108,28 +127,28 @@ body {
     width: 360px;
     margin: auto;
     float: left;
-    margin-top: 10px;
+    margin-top: 66px;
 }
 
 .welcome-buttons{
     font-size: 13px;
 }
 .welcome-buttons a {
-    color:#484848;
-    text-decoration: none;
+    color: white;
+    text-decoration: underline;
 }
 .welcome-buttons a:hover {
-    color: #34A994;
+    text-decoration: none;
 }
 .login-frame {
     visibility: hidden;
     position: relative;
     width: 355px;
     height: 106px;
-    background: #fbfbfb;
-    margin: 0;
+    background-color: transparent;
+    margin-top: 9px;
     border: 1px solid #cccccc;
-    
+    border-top: 0px solid #cccccc;
 }
 
 .login-frame form ul {
@@ -168,17 +187,21 @@ body {
     
 }
 
+.replace-header{
+    margin-top: 32px;
+}
+
 .search {
     width: 33.3%;
-    height: 100%;
-    float: left;
+    height: 100px;
+    float: right;
     font-size: 14px;
     text-align: right;
     padding-top: 0px;
     letter-spacing: 0.5px;
 }
 .search input[type="search"] {
-    width: 287px;
+    width: 275px;
     font-size: 12px;
     letter-spacing: 1.4px;
     color: #605f5f;
@@ -205,13 +228,15 @@ body {
     font-size: 20px;
 }
 .search-bar{
+    float: left;
     height: 40px;
     padding-left: 10px;
-    margin-top: 8px;
+    margin-top: 10px;
     border: 1px solid #cccccc;
     background:#fbfbfb;
     font-size: 12px;
     letter-spacing: 1.4px;
+    border-radius: 5px;
     color: #605f5f;
 }
 #search::-webkit-search-cancel-button{
@@ -230,10 +255,15 @@ body {
 }
 .cart {
     float: right;
-    margin-right: 8px;
+    margin-right: 20px;
+    margin-top: 1px;
 }
 .shopicon{
-    margin-right: 8px;
+    margin-right: 10px;
+    margin-top: 3px;
+    height: 25px;
+    width: 20px;
+    
 }
 
 .cart-title {
@@ -250,16 +280,16 @@ body {
 }
 
 .cart-title a {
-    color: #484848;
+    color: white;
     text-decoration: none;
     padding-right: 0px;
 }
 .cart-title:hover {
-    text-decoration: underline;
+    
 }
 
 .amount {
-    color: #2ba08b;
+    color: white;
 }
 
 .euro{
@@ -272,6 +302,8 @@ body {
     float: left;
     padding-top: 10px;
     cursor: pointer;
+    margin-right: 14px;
+    
 }
 #fa-2x {
     font-size: 1.5em;
@@ -370,8 +402,8 @@ body {
 }
 
 .link:hover{
-    font-weight: 600;
-    color: #605f5f;
+
+    color: #34A994;
 }
 .arrow {
     display: inline-block;
@@ -417,12 +449,12 @@ body {
 .product-item {
     position: relative;
     display: inline-block;
-    width: 22.85%; /*1225.48 35.138*/
+    width: 240px; /*1225.48 35.138*/
     height: 100%;
     background: #cccccc;
     margin-bottom: 55px;
     overflow: hidden;
-    margin-right: 2.86%;
+    margin-right: 27px;
     border: 1px solid #cacaca;
     vertical-align: top;
 }
@@ -430,9 +462,25 @@ body {
     margin-right: 0;
 }
 .product-photo {
-    width: 100%;
-    height: 55%;
+    position: relative;
+    width: 238px;
+    height: 238px;
     background: #fff;
+}
+.thumbnailImage {
+    position: absolute;
+    top: 0;
+    left: 0;    
+}
+.notLoaded {
+    visibility: hidden;
+}
+.loader {
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    top: 40%;
+    left: 40%;
 }
 .product-description {
     width: 100%;
@@ -450,6 +498,9 @@ body {
     margin: auto;
     margin-top: 20px;
     width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .product-body:hover .product-name{ 
     font-weight: normal; 
@@ -470,20 +521,60 @@ body {
     text-decoration: none;
     position: relative;
     bottom: 0px;
-    left: 45%;
+    left: 46%;
     color:#484848;
-    font-size: 18px;
-    font-size: 1.2vw;
+    font-size: 17px;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 400;
+    cursor: pointer;
+    
 }
 .messages:hover {
     color: #34A994;
 }
+.loadMore {
+    text-decoration: none;
+    position: relative;
+    bottom: 0px;
+    left: 24.5%;
+    color:#484848;
+    font-size: 17px;
+	font-family: 'Source Sans Pro', sans-serif;
+    width: 50%;
+	margin-top: 10px;
+    border: none;
+    background: none;
+    font-weight: 400;
+    cursor: pointer;
+}
+.loadMore:hover {
+    color: #34A994;
+}
 .product-display{
     display: inline-block;
-	width: 890px;
-	
-	margin-left: 30px;
-	vertical-align: top;
+    width: 855px;
+    margin-left: 30px;
+    vertical-align: top;
+}
+
+.price i{
+    font-weight: 100;
+    padding: 5px;
+    padding-top: 10px;
+    color: #605f5f;
+}
+.admin-buttons{
+	margin-bottom:40px;
+    width: 160px;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    
+    margin-left:-108px;
+}
+.admin-buttons a{
+    color: #34a994;
+    padding: 20px;
 }
 
 .search-content{
@@ -505,17 +596,23 @@ body {
 */
 /************************ FOOTER ***************************/
 .footer {
-    background: white;
-    position: fixed;
+    color: white;
+    display: inline-block;
+    background:#34A994;
+    margin-top: 30px;
     width: 1140px;
-    bottom: 0;
     border-top: 1px solid #ccc;
+   
+    border-radius: 5px;
+    height: 40px;
+    
+    
 }
 .text {
     font-size: 19px;
     margin-top: 10px;
     margin-bottom: 10px;
-    color: #484848;
+    /*color: #484848;*/
     font-weight: bold;
 }
 #footerWrap {
@@ -524,6 +621,7 @@ body {
 .contact-us {
     width: 100%;
     display: inline;
+    color: white;
 }
 .contact-us ul li:first-child {
     margin-top: 10px;
@@ -534,43 +632,44 @@ body {
     line-height: 22px;
     list-style: none;
 }
+.contact-us ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+}
 .mail{
     text-decoration: none;
-    color:  #484848;
+    /*color:  #484848;*/
     font-weight: 600;
+
 }
 .mail:hover{
-    font-weight: bold;
+    color:  #484848;
 }
 .social-icons {
     width: 20%;
     font-size: 20px;
     text-align: center;
     float: right;
+    height: 40px;
     padding-right: 2.5%
+}
+.social-icons ul{
+    display: inline-block;
+    
+    vertical-align: middle;
 }
 .social-icons ul li{
     display: inline-block;
+    margin: 0 10PX;
+    vertical-align: middle;
+    padding-top: 3px;
 }
 .social-icons a {
-    display: block;
-    color: white;
-    background: #595959;
-    font-size: 25px;
-    height: 27px;
-    width: 40px;
-    text-align: center;
-    border-radius: 5px;
-    padding-top: 2px;
-
+   display: block;
 
 }
-.social-icons a:hover{
-    border: none;
-    color:   #595959;
-    background: white;
-    border-radius: 5px;
-}
+
 .social-icons li:nth-child(n+2) {
     margin-left: 10px;
 }
@@ -584,17 +683,29 @@ body {
     clear: both;
 }
 
-#footerInformationList {
+.footerInformationList {
     width: 80%;
-    padding: 10px 0% 10px 10%;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 60px;
     float: left;
+    
 }
 
-#footerInformationList li {
+.footerInformationList li {
     display: inline;
     padding: 0% 1% 0% 1%;
+    text-decoration: none;
+    color: white;
+}
+
+.footerInformationList li a{
+    text-decoration: none;
+    color: white;
+}
+.footerInformationList li a:hover{
+    text-decoration: underline;
 }
 
 

@@ -37,14 +37,15 @@ class ProductDisplay
 
              echo "
                         <div class=\"product-photo\">
-                            <a href=\"?page=productPreview&product=" . $res . "\"><img class=\"thumbnailImage\" src=\"libraries/img/products/" . $res . "/" . $res . "a.jpg\" width=\"" . $size[0] . "\" height=\"" . $size[1] . "\" style=\"margin:" . $margin[1] . "px " . $margin[0] . "px;\" alt=\"product photo\"></a>
+                            <img class=\"loader\" src=\"libraries/img/loader.gif\" alt=\"loading...\">
+                            <a href=\"?page=productPreview&product=" . $res . "\"><img class=\"thumbnailImage notLoaded\" src=\"libraries/img/products/" . $res . "/" . $res . "a.jpg\" width=\"" . $size[0] . "\" height=\"" . $size[1] . "\" style=\"margin:" . $margin[1] . "px " . $margin[0] . "px;\" alt=\"product photo\"></a>
                         </div>
                         <div class=\"product-description\">
                             <hr class=\"product-line\">
                             <h3 class=\"product-name\">" . substr($product->name,0,40) . "</h3>
-                            <span class=\"price\">€ ".$product->price."</span>
-                            <a href=\"controllers/addToCart.php?productid=".$res."&name=".$product->name."&price=".$product->price."\" class=\"addToCart\">Add to Cart</a>
-                        </div>
+                            <span class=\"price\">€ ".$product->price."</span>";
+                            echo $this->productButtons($res,$product->name,$product->price);//<a href=\"controllers/addToCart.php?productid=".$res."&name=".$product->name."&price=".$product->price."\" class=\"addToCart\">Add to Cart</a>
+                   echo     "</div>
                   </div>
                  ";
 
@@ -64,13 +65,26 @@ class ProductDisplay
     	 
     	 
     	$out .= '<div class="product-item">';
-    	$out .= '<div class="product-photo"><a href="?page=productPreview&product='.$product->id.'"><img alt="product-photo" src="libraries/img/products/'.$product->id.'/'.$product->id.'a.jpg" class="thumbnailImage"></a></div>';
+    	$out .= '<div class="product-photo"><img class="loader" src="libraries/img/loader.gif" alt="loading..."><a href="?page=productPreview&product='.$product->id.'"><img alt="product-photo" src="libraries/img/products/'.$product->id.'/'.$product->id.'a.jpg" class="thumbnailImage notLoaded"></a></div>';
     	$out .= '<div class="product-description">';
     	$out .= '<hr class="product-line">';
     	$out .= '<h3 class="product-name">'.substr($product->name,0,40).'</h3>';
-    	$out .= '<span class="price">'.$product->price.'</span>';
-    	$out .= '<a href="controllers/addToCart.php?productid='.$product->id.'&name='.$product->name.'&price='.$product->price.'" class="addToCart">Add to Cart</a>';
+    	$out .= '<span class="price"><i class="fa fa-eur"></i>'.$product->price.'</span>';
+    	$out .= $this->productButtons($product->id,$product->name,$product->price);
+    	//$out .= '<a href="controllers/addToCart.php?productid='.$product->id.'&name='.$product->name.'&price='.$product->price.'" class="addToCart">Add to Cart</a>';
     	$out .= '</div></div>';
+    	 
+    	return $out;
+    }
+    
+    private function productButtons($id, $name, $price){
+    	$out = "";
+    	if((isset($_SESSION['username']) && $_SESSION['username'] != "admin") || !isset($_SESSION['username'])){
+    		$out = "<a href='controllers/addToCart.php?productid=".$id."&name=".$name."&price=".$price."' class='addToCart'>Add to Cart</a>";
+    	}
+    	else if(isset($_SESSION['username']) && $_SESSION['username'] == "admin"){
+ 			$out = '<div class="admin-buttons"><a href="?page=private/pageSettings&settings=addProduct&productid='.$id.'"><i class="fa fa-pencil-square-o fa-2x"></i></a> <a href="?page=private/editProduct/deleteProduct&productid='.$id.'"><i class="fa fa-times fa-2x"></i></a></div>';
+    	}
     	 
     	return $out;
     }

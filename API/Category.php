@@ -93,9 +93,78 @@ class Category{
             if(count($categories>=1)){
                     foreach($categories as $cat){
                     $this->alldescendants[]=$cat['categoryid'];
-                   
+
                     $this->getDescendants($cat['categoryid']);
                 }
-            }         
+            }
+        }
+
+        private function getAllCategories(){
+            $this->handlerDB->query("SELECT * FROM categories");
+            return $this->handlerDB->resultSet();
+        }
+
+        public function createSubs(){
+             $arrayOfSubs = array();
+             $categories = $this->getAllCategories();
+             for($i=0;$i<count($categories);$i++){
+                 $arrayOfSubs[$i] = NULL;
+             }
+             foreach($categories as $tempCat){
+             if($tempCat['parent'] > 1){
+                if($arrayOfSubs[$tempCat['parent']] == NULL){
+                    $arrayOfSubs[$tempCat['parent']] = array();
+                }
+                 $arrayOfSubs[$tempCat['parent']][] = $tempCat;
+             }
+        }
+        return $arrayOfSubs;
+        }
+
+        public function getCatPath($id){
+            $categories = $this->getAllCategories();
+            $path = array();
+            $path[] = $id;
+            for($i=0;$i<count($categories);$i++){
+               // echo $id . ' - ' . $categories[$i]['categoryid'] . ' ' . $categories[$i]['parent'] . '<br>';
+                if($categories[$i]['categoryid'] == $id && $categories[$i]['parent'] > 1){
+                   // echo '##';
+                    $result = array_merge($path, $this->getCatPath($categories[$i]['parent']));
+                    $path = $result;
+                }
+            }
+            return $path;
+        }
+
+
+        public function getCategories(){
+        	$this->handlerDB->query('SELECT * FROM categories');
+        	$result = $this->handlerDB->resultSet();
+        	$categories = array();
+        	
+        	$i = 0;
+        	foreach($result as $res) { // GET MAIN CATEGORIES
+        		if($res['parent'] == 1) {
+        			$categories[$i]['id'] = $res['categoryid'];
+        			$categories[$i]['category'] = $res['name'];
+        			$categories[$i]['parent'] = $res['parent'];
+        			$i++;
+        		}
+        	}
+        	
+        	
+        	for($i = 0; $i < sizeof($categories); $i++) { // GET SUBCATEGORIES
+        		$k = 0;
+        		for($j = 0; $j < sizeof($result); $j++) {
+        			if($result[$j]['parent'] == $categories[$i]['id']) {
+        				$categories[$i]['subcategory'][$k]['id'] = $result[$j]['categoryid'];
+        				$categories[$i]['subcategory'][$k]['name'] = $result[$j]['name'];
+        				$categories[$i]['subcategory'][$k]['parent'] = $result[$j]['parent'];
+        				$categories[$i]['subcategory'][$k]['subcategory'] = array();
+        				$k++;
+        			}
+        		}
+        	}
+        	return $categories;
         }
 }

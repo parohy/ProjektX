@@ -8,6 +8,7 @@
 $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= 'ProjektX/';
 include_once ($path . 'API/Database.php');
+include_once ($path . 'API/Category.php');
 
 class NavigationController {
     private $handlerDB;
@@ -19,7 +20,7 @@ class NavigationController {
         $this->result = $this->handlerDB->resultSet();
     }
 
-    private function getCategories() {
+    /*private function getCategories() {
         $categories = array();
 
         $i = 0;
@@ -58,11 +59,12 @@ class NavigationController {
             }
         }
         */
-        return $categories;
-    }
+    /*    return $categories;
+    }*/
 
     public function displayNavigation() {
-        $categories = $this->getCategories();
+    	$catHandler = new Category();
+        $categories = $catHandler->getCategories();
 
         echo "<ul class=\"nav\">";
 

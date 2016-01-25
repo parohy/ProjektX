@@ -22,24 +22,28 @@ class UserEditorController
 
     public function getUsers() {
         $this->handlerDB->beginTransaction();
-        $this->handlerDB->query('SELECT * FROM users');
+        $this->handlerDB->query('SELECT * FROM users WHERE role=1');
         $results = $this->handlerDB->resultSet();
         $this->handlerDB->endTransaction();
 
         return $results;
     }
 
-    public function displayUsers($users, $displayFrom, $displayTo) {
-		
-    	$total = (count($users)-1)/5;
-    	if((count($users))%5 != 0){
-    		$total++;
-    	}
-    	
-    	//echo count($users)/5;
-        echo '<ul class="users">';
+    public function displayUsers($users, $pagination, $display) {
 
-        for($i = $displayFrom; $i <= $displayTo; $i++) {
+        $max = count($users);
+        if($pagination * $display > $max)
+        {
+            $amount = $max;
+        }
+        else
+        {
+            $amount = $pagination * $display;
+        }
+
+        echo '<ul class="items">';
+
+        for($i = ($pagination - 1) * $display; $i < $amount; $i++) {
             echo '<li>';
             echo '<span class="username">' . $users[$i]['name'] . ' ' . $users[$i]['surname'] . '</span>';
             echo '<span class="email">' . $users[$i]['email'] . '</span>';
@@ -52,22 +56,25 @@ class UserEditorController
         echo '</ul>';
         echo '<a class="page-link" class="user-controls" href="?page=private/pageSettings&settings=editUser/editUser"><i class="fa fa-plus-circle fa-2x"></i></a>';
         
-        echo '<span class="paging">';
-        for($i=1;$i<=$total;$i++){
-        	$start = 1;
-        	$end = 6;
-        	if($i != 1){
-        		$start += 5;
-        		$end += 5;
-        	}
-        	
-        	if($end > count($users)-1){
-        		$temp = $end - count($users);
-        		$end -= $temp;
-        	}
-        	echo '<a class="page" href="?page=private/pageSettings&settings=users&from='.$start.'&to='.$end.'">'.$i.'</a>';
-        	//echo '<a class="page" href="'.$path.'?current='.$i.'">'.$i.'</a>';
+        echo '<div class="paging">';
+        echo '<div class="displayAmount">';
+        echo '<a class="page" href="?page=private/pageSettings&settings=users&display=5&pagination=1">5</a>';
+        echo '<a class="page" href="?page=private/pageSettings&settings=users&display=10&pagination=1">10</a>';
+        echo '<a class="page" href="?page=private/pageSettings&settings=users&display=20&pagination=1">20</a>';
+        echo '<a class="page" href="?page=private/pageSettings&settings=users&display=50&pagination=1">50</a>';
+        echo '</div>';
+
+        
+        $pages = count($users) / $display;
+        if(count($users) % $display != 0)
+        {
+            $pages++;
         }
-        echo '</span>';
+        
+        for($i=1; $i<=$pages; $i++)
+        {
+            echo '<a class="page" href="?page=private/pageSettings&settings=users&display='.$display.'&pagination='.$i.'">'.$i.'</a>';     	
+        }
+        echo '</div>';
     }
 }

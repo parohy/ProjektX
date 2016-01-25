@@ -14,16 +14,17 @@ class Product{
 	public $id;
 	private $handlerDB;
         public $error=null;
-        public $categoryid="";
+        public $categoryid=1;
         public $amount="";
         public $name="";
         public $price="";
         public $brandid="";
         public $description="";
-        public $viewamount="";
+        public $viewamount=0;
         public $datecreated="";
-        public $numofratings="";
-        public $sumofratings="";
+        public $numofratings=0;
+        public $sumofratings=0;
+        public $saved=false;
 
 	/**
 	 * Creates an ProductHandler instance with optional $id parameter
@@ -95,6 +96,7 @@ class Product{
             $this->handlerDB->bind(':numofratings', $this->numofratings);
             $this->handlerDB->bind(':sumofratings', $this->sumofratings);
             $this->handlerDB->execute();
+            $this->saved = true;
         }
 	
         /**

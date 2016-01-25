@@ -31,38 +31,38 @@ else if(isset($_SESSION['userrole']) && $_SESSION['userrole'] == 1 ){
         <legend>EDIT PROFILE</legend>
         <ul>
             <li>
-
+                <div class="inputName">Name: </div>
                 <input class="edit-input" type="text" name="name" value="<?php if($editUser != NULL) echo $editUser->getData('name');?>" placeholder="NAME">
             </li>
 
             <li>
-
+                <div class="inputName">Surname: </div>
                 <input class="edit-input" type="text" name="surname" value="<?php if($editUser != NULL) echo $editUser->getData('surname');?>" placeholder="SURNAME">
             </li>
 
             <li>
-
+                <div class="inputName">E-mail: </div>
                 <input class="edit-input" type="email" name="email" value="<?php if($editUser != NULL) echo $editUser->getData('email');?>" placeholder="EMAIL">
             </li>
 
 
             <li>
-
-                <input class="edit-input" type="text" name="mobile" value="" placeholder="MOBILE PHONE">
+                <div class="inputName">Phone: </div>
+                <input class="edit-input" type="text" name="phone" value="<?php if($editUser != NULL) echo $editUser->getData('phone');?>" placeholder="MOBILE PHONE">
             </li>
 
             <li>
-
+                <div class="inputName">Address: </div>
                 <input class="edit-input" type="text" name="address"value="<?php if($editUser != NULL) echo $editUser->getData('address');?>" placeholder="ADRESS">
             </li>
 
             <li>
-
+                <div class="inputName">City: </div>
                 <input class="edit-input"  type="text" name="city"  value="<?php if($editUser != NULL) echo $editUser->getData('city');?>" placeholder="CITY">
             </li>
 
             <li>
-
+                <div class="inputName">Postcode: </div>
                 <input class="edit-input" type="text" name="postcode" value="<?php if($editUser != NULL) echo $editUser->getData('postcode');?>" placeholder="POSTCODE">
             </li>
 			<?php

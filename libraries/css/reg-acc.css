@@ -79,15 +79,15 @@
 .form ul li{
     display: block;
     text-align: center;
-    width: 50%;
     margin: 0 auto;
     margin-top: 25px;
+    width: 60%;
 }
 
 .input{
     max-width: 380px;
     min-width: 145px;
-    width: 100%;
+    width: 300px;
     height: 35px;
     background-color: #fbfbfb;
     border: 1px solid #ccc;
@@ -95,6 +95,13 @@
     padding-left: 10px;
     font-size: 1em;
     font-weight: 200;
+}
+.inputName {
+    width: 150px;
+    float: left;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size:20px;
+    padding-top: 5px;
 }
 .submit-button{
     background: white;
@@ -118,7 +125,9 @@
     outline: none;
     cursor: pointer; cursor: hand;
 }
-
+.registrationForm li{
+    width: 40% !important;
+}
 /*switching*/
 /*
 .tab-content {
@@ -149,6 +158,9 @@
 }
 .group{
     *zoom:1 ;
+}
+.g-recaptcha {
+    margin-left: 80px;
 }
 /*MEDIA QUERY*/
 @media screen and (min-width: 1250px){

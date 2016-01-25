@@ -60,6 +60,12 @@ function proceed($check,$editUser){
 	
 	}
 	//mobile
+	if(isset($_POST['phone'])){
+		$value = $check->dumpSpecialChars($_POST['phone']);
+		if($check->checkInput($_POST['phone'],50)){
+			$editUser->saveData('phone', ucfirst($value));
+		}
+	}
 	
 	//address
 	if(isset($_POST['address'])){

@@ -15,15 +15,17 @@ legend{
 }
 #edit-profile ul{
     list-style: none;
+    padding-left: 30%;
 }
 
 #edit-profile ul li{
     display: block;
     margin: 8px;;
+    width: 50%;
 }
 
 .edit-input{
-    width: 30%;
+    width: 200px;
     height: 27px;
     font-family: 'Source Sans Pro', sans-serif;
     font-size:18px;
@@ -41,4 +43,10 @@ legend{
 }
 #edit-profile-submit:hover{
     color: #34A994;
+}
+.inputName {
+    width: 100px;
+    float: left;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size:20px;
 }

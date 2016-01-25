@@ -14,10 +14,10 @@ if($_SESSION['username'] != "admin") {
 <nav class="admin-nav">
     <ul>
         <li><a href="?page=private/pageSettings&settings=users">Users</a></li>
-        <li><a href="?page=private/pageSettings&settings=statistics">Statistics</a></li>
-        <li><a href="?page=private/pageSettings&settings=addProduct">Add product</a></li>
+        <li><a href="?page=private/pageSettings&settings=products">Products</a></li>
         <li><a href="?page=private/pageSettings&settings=sliderSettings">Slider settings</a></li>
-    </ul>
+		<li><a href="?page=private/pageSettings&settings=statistics">Statistics</a></li>
+	</ul>
 </nav>
 </aside>
 <div class="admin-panel">
