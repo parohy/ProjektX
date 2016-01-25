@@ -38,7 +38,16 @@ if($_GET['register'] == 'registration'){
 		header('Location:  ../?page=reg-acc&name='.$name.'&surname='.$surname.'&email='.$email);
 		exit();
 	}
-	
+
+    $response=json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LcphBUTAAAAANmZJWIx-fRUQnmBKsEk_7ITZc5L&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']), true);
+
+    if($response['success'] == false)
+    {
+        $_SESSION['registerErr'] = "You are spammer ! Get the @$%K out";
+        header('Location:  ../?page=reg-acc&name='.$name.'&surname='.$surname.'&email='.$email);
+        exit();
+    }
+
 	if(errorControl($name, $surname, $email, $password)){
 		/*handle for saving user information into the database*/
 		$user = User::newUser($name, $surname, $email, $password);
