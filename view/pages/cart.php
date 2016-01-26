@@ -37,7 +37,7 @@
 				      <span class="namespan"><a href="?page=productPreview&product=' . $cart['id'] . '">' . $cart['name'] . '</a></span>
 			          </div>';
                 echo '<div class="product-price">
-				        ' . $cart['price'] . ' <a class="euro">€</a>
+				        ' . $cart['price'] . ' <i class="fa fa-eur" style="font-size: 20px"></i>
 			          </div>';
                 echo '<div class="product-qty">
 				        <input class="input" type="number" name="qty" min="1" max="99" value="' . $cart['count'] . '">
