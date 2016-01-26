@@ -81,7 +81,7 @@ class Filter{
                     $categoryquery.=", ".$id;
                 }
                 else{
-                    $categoryquery="(categoryid IN (".$id;
+                    $categoryquery="(categoryid IN (".$this->category.", ".$id;
                 }
             }
             $categoryquery.="))";            
