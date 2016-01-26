@@ -19,8 +19,9 @@ class OrderFilter{
     
     
     /**
-     * Creates Filter handler and sets default values
+     * Creates orderfilter handler and sets default values
      */
+    
     public function __construct(){
         $this->handlerDB = new DBHandler();
     }
@@ -130,8 +131,7 @@ class OrderFilter{
     }
     
     /**
-     * Gets results from a database as an array of productids of products from the table
-     * change $this->minprice and $this->max price in order to set the price range
+     * Gets results from a database as an array of orferids of orders from the table
      * results are filtered, sorted and ready to use
      */
     public function getResults() {
@@ -139,7 +139,6 @@ class OrderFilter{
         $nameQuery=$this->nameQuery();
         $surnameQuery=$this->surnameQuery();
         $shippedQuery=$this->shippedQuery();
-        echo "SELECT orderid FROM orders".$useridQuery.$nameQuery.$surnameQuery.$shippedQuery." ORDER BY orderid DESC";
         $this->handlerDB->query("SELECT orderid FROM orders ".$useridQuery.$nameQuery.$surnameQuery.$shippedQuery." ORDER BY orderid DESC");
         $results = $this->handlerDB->resultSet();
         $this->handlerDB->execute();   
@@ -150,10 +149,3 @@ class OrderFilter{
         return $array;
     }   
 }
- $oF= new OrderFilter;
- $oF->name[]="anton";
- $oF->name[]="peter";
- //$oF->userid[]="12";
- $oF->surmname[]="jupi";
- $oF->shipped="1";
- print_r($oF->getResults());
