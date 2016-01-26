@@ -30,14 +30,14 @@
 
 
                 echo '<div class="product-body">';
-                echo '<div class="product-img">
-				        <img src="libraries/img/products/' . $cart['id'] . '/' . $cart['id'] . 'a.jpg" alt="product blank icon" width="100" height="100">
+                echo '<div class="product-img"><a href="?page=productPreview&product=' . $cart['id'] . '">
+				        <img src="libraries/img/products/' . $cart['id'] . '/' . $cart['id'] . 'a.jpg" alt="product blank icon" width="100" height="100"></a>
 			          </div>';
                 echo '<div class="product-name">
 				      <span class="namespan"><a href="?page=productPreview&product=' . $cart['id'] . '">' . $cart['name'] . '</a></span>
 			          </div>';
                 echo '<div class="product-price">
-				        ' . $cart['price'] . ' EUR
+				        ' . $cart['price'] . ' <a class="euro">€</a>
 			          </div>';
                 echo '<div class="product-qty">
 				        <input class="input" type="number" name="qty" min="1" max="99" value="' . $cart['count'] . '">

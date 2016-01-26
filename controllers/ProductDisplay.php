@@ -43,7 +43,7 @@ class ProductDisplay
                         <div class=\"product-description\">
                             <hr class=\"product-line\">
                             <h3 class=\"product-name\">" . substr($product->name,0,40) . "</h3>
-                            <span class=\"price\">€ ".$product->price."</span>";
+                            <span class=\"price\">".$product->price."<i class=\"fa fa-eur\"></i></span>";
                             echo $this->productButtons($res,$product->name,$product->price);//<a href=\"controllers/addToCart.php?productid=".$res."&name=".$product->name."&price=".$product->price."\" class=\"addToCart\">Add to Cart</a>
                    echo     "</div>
                   </div>
@@ -69,7 +69,7 @@ class ProductDisplay
     	$out .= '<div class="product-description">';
     	$out .= '<hr class="product-line">';
     	$out .= '<h3 class="product-name">'.substr($product->name,0,40).'</h3>';
-    	$out .= '<span class="price"><i class="fa fa-eur"></i>'.$product->price.'</span>';
+    	$out .= '<span class="price">'.$product->price.'<i class="fa fa-eur"></i></span>';
     	$out .= $this->productButtons($product->id,$product->name,$product->price);
     	//$out .= '<a href="controllers/addToCart.php?productid='.$product->id.'&name='.$product->name.'&price='.$product->price.'" class="addToCart">Add to Cart</a>';
     	$out .= '</div></div>';

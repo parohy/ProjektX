@@ -231,7 +231,7 @@ body {
     float: left;
     height: 40px;
     padding-left: 10px;
-    margin-top: 10px;
+    margin-top: 45px;
     border: 1px solid #cccccc;
     background:#fbfbfb;
     font-size: 12px;
@@ -458,6 +458,15 @@ body {
     border: 1px solid #cacaca;
     vertical-align: top;
 }
+
+.product-item:hover{
+    
+    
+ -webkit-box-shadow: 0px 0px 15px 0px rgba(52, 169, 148, 1);
+-moz-box-shadow:    0px 0px 15px 0px rgba(52, 169, 148, 1);
+box-shadow:         0px 0px 15px 0px rgba(52, 169, 148, 1);
+}
+
 .row .product-item:nth-child(4){
     margin-right: 0;
 }
@@ -559,8 +568,9 @@ body {
 
 .price i{
     font-weight: 100;
-    padding: 5px;
+    padding: 2px;
     padding-top: 10px;
+    padding-bottom: 0px;
     color: #605f5f;
 }
 .admin-buttons{
@@ -600,11 +610,13 @@ body {
     display: inline-block;
     background:#34A994;
     margin-top: 30px;
-    width: 1140px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 1120px;
     border-top: 1px solid #ccc;
    
     border-radius: 5px;
-    height: 40px;
+    height: 60px;
     
     
 }
@@ -651,19 +663,19 @@ body {
     font-size: 20px;
     text-align: center;
     float: right;
-    height: 40px;
+    height: 60px;
     padding-right: 2.5%
 }
 .social-icons ul{
     display: inline-block;
-    
+    height: 60px;
     vertical-align: middle;
 }
 .social-icons ul li{
     display: inline-block;
     margin: 0 10PX;
     vertical-align: middle;
-    padding-top: 3px;
+    padding-top: 13px;
 }
 .social-icons a {
    display: block;
@@ -686,8 +698,8 @@ body {
 .footerInformationList {
     width: 80%;
     display: inline-block;
-    height: 40px;
-    line-height: 40px;
+    height: 60px;
+    line-height: 60px;
     padding-left: 60px;
     float: left;
     
