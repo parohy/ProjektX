@@ -17,8 +17,9 @@ include_once 'Database.php';
 class Login{
 	
 	private $handlerDB;
-	private $name;
-	private $id;
+	private $userName;
+	private $userId;
+    private $user;
 	
 	function __construct(){
 		$this->handlerDB = new DBHandler();
@@ -32,21 +33,19 @@ class Login{
 	 * @return false - email or password not matching
 	 * @return true - login correct
 	 */
+
 	public function checkLogin($email, $password){
-			$this->handlerDB->query('SELECT email,password,name,userid,role FROM users');
-			
-			$users = array();
-			$users = $this->handlerDB->resultSet();
-			$count = count($users);
-			
-			for($i=0;$i<$count;$i++){
-				if($users[$i]['email'] == $email && password_verify($password,$users[$i]['password'])){
-					$this->name = $users[$i]['name'];
-					$this->id = $users[$i]['userid'];
-					$_SESSION['userrole'] = $users[$i]['role'];
-					return true;
-				}
-			}
+
+        if($this->userExists($email)) {
+            if($this->user['delete'] == 0 && password_verify($password,$this->user['password'])) {
+                $this->userName = $this->user['name'];
+                $this->userId = $this->user['userid'];
+                $_SESSION['userrole'] = $this->user['role'];
+
+                return true;
+            }
+        }
+
 		return false;
 	}
 	
@@ -56,7 +55,7 @@ class Login{
 	 * @return $this->name - the name of the logged in user.
 	 */
 	public function getName(){
-		return $this->name;
+		return $this->userName;
 	}
 	
 	/**
@@ -64,8 +63,21 @@ class Login{
 	 * @return $this->id - the id of the logged in user.
 	 */
 	public function getUserId(){
-		return $this->id;
+		return $this->userId;
 	}
-}
 
-?>
+    /**
+     * @author Matus Kacmar
+     */
+    private function userExists($mail) {
+        $this->handlerDB->query('SELECT email,password,name,userid,role FROM users WHERE email=:mail');
+        $this->handlerDB->bind(":mail",$mail);
+        $this->user = $this->handlerDB->singleRecord();
+
+        if($this->user != null) {
+            return true;
+        }
+
+        return false;
+    }
+}
