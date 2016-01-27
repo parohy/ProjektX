@@ -143,6 +143,7 @@
     width: 500px;
 }
 .addProductForm ul li label{
+    text-align: right;
 }
 .addProductForm ul li input,textarea,select{
     width: 50%;

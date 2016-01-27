@@ -2,14 +2,11 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,600,700,900&subset=latin,latin-ext);
 
 #edit-profile{
-    height: 370px;
     text-align: center;
     margin-top: 20px;
     margin-left: 30px;
-    border: 1px solid #cacaca;
-
 }
-legend{
+/*legend{
     TEXT-ALIGN: left;
     margin-left: 24px;
 }
@@ -18,17 +15,14 @@ legend{
     padding-left: 30%;
 }
 
-#edit-profile ul li{
-    display: block;
-    margin: 8px;;
-    width: 50%;
-}
+
 
 .edit-input{
     width: 200px;
     height: 27px;
     font-family: 'Source Sans Pro', sans-serif;
     font-size:18px;
+    padding-bottom: 5px;
     padding-left: 10px;
 
 }
@@ -43,10 +37,62 @@ legend{
 }
 #edit-profile-submit:hover{
     color: #34A994;
+}*/
+
+.input{
+    max-width: 380px;
+    min-width: 145px;
+    width: 300px;
+    height: 35px;
+    background-color: #fbfbfb;
+    border: 1px solid #ccc;
+    font-family: 'Source Sans Pro', sans-serif;
+    padding-left: 10px;
+    font-size: 1em;
+    font-weight: 200;
+}
+.password{
+    margin-left: 150px;
 }
 .inputName {
-    width: 100px;
+    width: 150px;
     float: left;
     font-family: 'Source Sans Pro', sans-serif;
     font-size:20px;
+    padding-top: 5px;
+    text-align: right;
+}
+.submit-button{
+    background: white;
+    font-size: 20px;
+    width: 200px;
+    font-weight: bold;
+    color: white;
+    height: 55px;
+    margin-bottom: 10px;
+    background: #34A994;
+    padding:15px 25px;
+    border-style: none;
+    color: white;
+    outline: none;
+    border: 3px solid #fbfbfb;
+    cursor: pointer; cursor: hand;
+}
+.submit-button:hover{
+    background-color: #fbfbfb;
+    border: 3px solid #34A994;
+    color: #34A994;
+    outline: none;
+    cursor: pointer; cursor: hand;
+}
+
+#edit-profile ul li{
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 25px;
+    width: 60%;
+}
+#pass-err{
+    margin-left: 110px;
 }
