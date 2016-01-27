@@ -81,7 +81,16 @@ if($_GET['register'] == 'registration'){
 
         $mail = new Mail();
         $mail->addRecipient($email);
-        $mail->composeMail("Activation","<p>Activation email</p>","Activation email");
+
+        $mail->composeMail("Activation",'
+        <h1>Welcome you are one step away from becoming full user</h1>
+        <p>
+        Click this link for your account activation <a href="http://www.cassomedia.sk/">http://www.cassomedia.sk/</a>
+        </p>
+        ',"
+        Welcome you are one step away from becoming full user
+        Visit this link for your account activation http://www.cassomedia.sk/
+        ");
 
         $mailResponse = $mail->sendMail();
         if($mailResponse != "success") {

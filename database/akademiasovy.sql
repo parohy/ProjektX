@@ -2,10 +2,10 @@
 -- version 4.1.14
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 18, 2016 at 01:58 PM
--- Server version: 5.6.17
--- PHP Version: 5.5.12
+-- Hostiteľ: 127.0.0.1
+-- Čas generovania: St 27.Jan 2016, 13:45
+-- Verzia serveru: 5.6.17
+-- Verzia PHP: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `akademiasovy`
+-- Databáza: `akademiasovy`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `brands`
+-- Štruktúra tabuľky pre tabuľku `brands`
 --
 
 CREATE TABLE IF NOT EXISTS `brands` (
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `brands` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=30 ;
 
 --
--- Dumping data for table `brands`
+-- Sťahujem dáta pre tabuľku `brands`
 --
 
 INSERT INTO `brands` (`brandid`, `name`) VALUES
@@ -70,7 +70,7 @@ INSERT INTO `brands` (`brandid`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categories`
+-- Štruktúra tabuľky pre tabuľku `categories`
 --
 
 CREATE TABLE IF NOT EXISTS `categories` (
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=32 ;
 
 --
--- Dumping data for table `categories`
+-- Sťahujem dáta pre tabuľku `categories`
 --
 
 INSERT INTO `categories` (`categoryid`, `name`, `parent`) VALUES
@@ -112,7 +112,7 @@ INSERT INTO `categories` (`categoryid`, `name`, `parent`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orderdetails`
+-- Štruktúra tabuľky pre tabuľku `orderdetails`
 --
 
 CREATE TABLE IF NOT EXISTS `orderdetails` (
@@ -127,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `orderdetails` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders`
+-- Štruktúra tabuľky pre tabuľku `orders`
 --
 
 CREATE TABLE IF NOT EXISTS `orders` (
@@ -147,7 +147,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=12 ;
 
 --
--- Dumping data for table `orders`
+-- Sťahujem dáta pre tabuľku `orders`
 --
 
 INSERT INTO `orders` (`orderid`, `userid`, `name`, `surname`, `email`, `phone`, `address`, `city`, `postcode`, `datecreated`, `shipped`, `orderprice`) VALUES
@@ -166,7 +166,7 @@ INSERT INTO `orders` (`orderid`, `userid`, `name`, `surname`, `email`, `phone`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Štruktúra tabuľky pre tabuľku `products`
 --
 
 CREATE TABLE IF NOT EXISTS `products` (
@@ -185,7 +185,7 @@ CREATE TABLE IF NOT EXISTS `products` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=56 ;
 
 --
--- Dumping data for table `products`
+-- Sťahujem dáta pre tabuľku `products`
 --
 
 INSERT INTO `products` (`productid`, `categoryid`, `amount`, `name`, `price`, `brandid`, `description`, `viewamount`, `datecreated`, `numofratings`, `sumofratings`) VALUES
@@ -248,7 +248,7 @@ INSERT INTO `products` (`productid`, `categoryid`, `amount`, `name`, `price`, `b
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Štruktúra tabuľky pre tabuľku `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -256,7 +256,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(50) COLLATE utf8_slovak_ci NOT NULL,
   `name` varchar(50) COLLATE utf8_slovak_ci NOT NULL,
   `surname` varchar(50) COLLATE utf8_slovak_ci NOT NULL,
-  `password` varchar(50) COLLATE utf8_slovak_ci NOT NULL,
+  `password` varchar(60) COLLATE utf8_slovak_ci NOT NULL,
   `address` varchar(50) COLLATE utf8_slovak_ci NOT NULL,
   `city` varchar(50) COLLATE utf8_slovak_ci NOT NULL,
   `postcode` varchar(5) COLLATE utf8_slovak_ci NOT NULL,
@@ -264,32 +264,32 @@ CREATE TABLE IF NOT EXISTS `users` (
   `datejoined` datetime NOT NULL,
   `role` int(11) NOT NULL,
   PRIMARY KEY (`userid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=20 ;
 
 --
--- Dumping data for table `users`
+-- Sťahujem dáta pre tabuľku `users`
 --
 
 INSERT INTO `users` (`userid`, `email`, `name`, `surname`, `password`, `address`, `city`, `postcode`, `phone`, `datejoined`, `role`) VALUES
-(1, 'admin@admin.com', 'admin', '', 'admin2015', '', '', '', '', '0000-00-00 00:00:00', 2),
-(2, 'david99@gmail.com', 'David', 'Kostra', 'transformers55', 'Trieda SNP 50', 'Košice', '04001', '0902645125', '0000-00-00 00:00:00', 1),
-(3, 'jozo19898@gmail.com', 'Jozef', 'Samuraj', 'jablko', 'Šafárikova 11', 'Košice', '04011', '0911584778', '0000-00-00 00:00:00', 1),
-(4, 'marek.sss@gmail.com', 'Marek', 'Velký', 'iamlegend', 'Bernolákova 1', 'Košice', '04001', '0941598623', '0000-00-00 00:00:00', 1),
-(5, 'ottoman787@azet.sk', 'Otto', 'Markus', '55ottis', 'Kuzmányho', 'Košice', '04001', '0948555877', '0000-00-00 00:00:00', 1),
-(6, 'serusky44@azet.sk', 'Martha', 'Big', 'yesyes22', 'Hlavná 55', 'Košice', '04001', '0910632200', '0000-00-00 00:00:00', 1),
-(7, 'mymail@gmail.com', 'Ice', 'Blaze', '12345', '', '', '', '', '2016-01-05 13:42:24', 1),
-(8, 'david991@gmail.com', 'David', 'Kostra', 'transformers55', 'Trieda SNP 50', 'Košice', '04001', '0902645125', '0000-00-00 00:00:00', 1),
-(9, 'jozo198981@gmail.com', 'Jozef', 'Samuraj', 'jablko', 'Šafárikova 11', 'Košice', '04011', '0911584778', '0000-00-00 00:00:00', 1),
-(10, 'marek.sss1@gmail.com', 'Marek', 'Velký', 'iamlegend', 'Bernolákova 1', 'Košice', '04001', '0941598623', '0000-00-00 00:00:00', 1),
-(11, 'ottoman7871@azet.sk', 'Otto', 'Markus', '55ottis', 'Kuzmányho', 'Košice', '04001', '0948555877', '0000-00-00 00:00:00', 1),
-(12, 'serusky441@azet.sk', 'Martha', 'Big', 'yesyes22', 'Hlavná 55', 'Košice', '04001', '0910632200', '0000-00-00 00:00:00', 1),
-(13, 'mymail1@gmail.com', 'Ice', 'Blaze', '12345', '', '', '', '', '2016-01-05 13:42:24', 1),
-(14, 'david992@gmail.com', 'David', 'Kostra', 'transformers55', 'Trieda SNP 50', 'Košice', '04001', '0902645125', '0000-00-00 00:00:00', 1),
-(15, 'jozo198982@gmail.com', 'Jozef', 'Samuraj', 'jablko', 'Šafárikova 11', 'Košice', '04011', '0911584778', '0000-00-00 00:00:00', 1),
-(16, 'marek.sss2@gmail.com', 'Marek', 'Velký', 'iamlegend', 'Bernolákova 1', 'Košice', '04001', '0941598623', '0000-00-00 00:00:00', 1),
-(17, 'ottoman7872@azet.sk', 'Otto', 'Markus', '55ottis', 'Kuzmányho', 'Košice', '04001', '0948555877', '0000-00-00 00:00:00', 1),
-(18, 'serusky442@azet.sk', 'Martha', 'Big', 'yesyes22', 'Hlavná 55', 'Košice', '04001', '0910632200', '0000-00-00 00:00:00', 1),
-(19, 'mymail22@gmail.com', 'Ice', 'Blaze', '12345', '', '', '', '', '2016-01-05 13:42:24', 1);
+(1, 'admin@admin.com', 'admin', '', '$2y$12$faeJ3j5oLaI1mdKvXSYT4ut.Aaf9GvroSn0MTIzYyKXu2Coq5QQrO', '', '', '', '', '0000-00-00 00:00:00', 2),
+(2, 'david99@gmail.com', 'David', 'Kostra', '$2y$12$HGrES3Xdz.itWUqrZl6rc.a6eUGj0hgpO0CxmO2wwhPGZL0rDAJqa', 'Trieda SNP 50', 'Košice', '04001', '0902645125', '0000-00-00 00:00:00', 1),
+(3, 'jozo19898@gmail.com', 'Jozef', 'Samuraj', '$2y$12$D0dfu9in16iBOE5pYtfnEeAQasD6.yTIGu2bAozoyUFgBEc0kP3pS', 'Šafárikova 11', 'Košice', '04011', '0911584778', '0000-00-00 00:00:00', 1),
+(4, 'marek.sss@gmail.com', 'Marek', 'Velký', '$2y$12$Ur2llKvzQiH5Blk5uQD8ou.qLg7frY.Ui1n3Kte86sj7qJSbfPWMC', 'Bernolákova 1', 'Košice', '04001', '0941598623', '0000-00-00 00:00:00', 1),
+(5, 'ottoman787@azet.sk', 'Otto', 'Markus', '$2y$12$rG4bhpjNNBmMvnpiVZretOPDSwaF/lyNFur9Sd7n4H4gBvW7XsXgC', 'Kuzmányho', 'Košice', '04001', '0948555877', '0000-00-00 00:00:00', 1),
+(6, 'serusky44@azet.sk', 'Martha', 'Big', '$2y$12$.z8BN9K4/Bs.qYuLTfvDAuLJAoL0RKnO.VGedaL2gj63GdnouKNLu', 'Hlavná 55', 'Košice', '04001', '0910632200', '0000-00-00 00:00:00', 1),
+(7, 'mymail@gmail.com', 'Ice', 'Blaze', '$2y$12$DtrM1MAfA/i3YRSAEyM/heD8foy63ZaggmmIuD74jIUByu9ucHWHi', '', '', '', '', '2016-01-05 13:42:24', 1),
+(8, 'david991@gmail.com', 'David', 'Kostra', '$2y$12$IF/Hil5MKQDHRNVuC61JXuVYfEXauBcFL96.lJWZYbMHMXg17.iBy', 'Trieda SNP 50', 'Košice', '04001', '0902645125', '0000-00-00 00:00:00', 1),
+(9, 'jozo198981@gmail.com', 'Jozef', 'Samuraj', '$2y$12$r4VtvSsgXgg2rrZqi7g70e5NnPpfxcDbOY5ki2K3Jzb9D3WSgtATa', 'Šafárikova 11', 'Košice', '04011', '0911584778', '0000-00-00 00:00:00', 1),
+(10, 'marek.sss1@gmail.com', 'Marek', 'Velký', '$2y$12$yXVAfYRmtOhTDnyEvfBFbOSqHDB2yCyJJ7k3nbSEQeZOJLqQKtG6C', 'Bernolákova 1', 'Košice', '04001', '0941598623', '0000-00-00 00:00:00', 1),
+(11, 'ottoman7871@azet.sk', 'Otto', 'Markus', '$2y$12$.PW8Xw4ppX.Ty2dEGAACCOiI8u.mKGZnLZyzsGfISNXf9fTuZl.eG', 'Kuzmányho', 'Košice', '04001', '0948555877', '0000-00-00 00:00:00', 1),
+(12, 'serusky441@azet.sk', 'Martha', 'Big', '$2y$12$ZdCrSxCchJHolEHw/dgzMO2DowXULHv.zJxfmaDHTtHDruNFBQEYS', 'Hlavná 55', 'Košice', '04001', '0910632200', '0000-00-00 00:00:00', 1),
+(13, 'mymail1@gmail.com', 'Ice', 'Blaze', '$2y$12$kdwqKsP.Ni8mzONlu.ZsG.mC9VY1rYt8lBZA.QZoQ.Dq0i3ub00fe', '', '', '', '', '2016-01-05 13:42:24', 1),
+(14, 'david992@gmail.com', 'David', 'Kostra', '$2y$12$g/tqdAmXAQa0MGT57NY.dejYXsMJrdmph8UDaimJgV8lgRQAcDGZ.', 'Trieda SNP 50', 'Košice', '04001', '0902645125', '0000-00-00 00:00:00', 1),
+(15, 'jozo198982@gmail.com', 'Jozef', 'Samuraj', '$2y$12$fpvgnjDn4sM3pTzNia39huhlEBKPxa7pNIBkNzXRI8q/r/PlSr56q', 'Šafárikova 11', 'Košice', '04011', '0911584778', '0000-00-00 00:00:00', 1),
+(16, 'marek.sss2@gmail.com', 'Marek', 'Velký', '$2y$12$dSk8QjTdyTFDxqegsGDdz.9ooyrzvWE6ZlFl5Nn5/GFpNi1G2fBca', 'Bernolákova 1', 'Košice', '04001', '0941598623', '0000-00-00 00:00:00', 1),
+(17, 'ottoman7872@azet.sk', 'Otto', 'Markus', '$2y$12$XQD0zSinSYqlmqz/7r3HqOMVZEA5ronpB3i7F83HYOXI8Lvsq6sVK', 'Kuzmányho', 'Košice', '04001', '0948555877', '0000-00-00 00:00:00', 1),
+(18, 'serusky442@azet.sk', 'Martha', 'Big', '$2y$12$wkx3gWPElFt8tuYS5DsDhOhhgC0aUEi6cEe3VzXaU0wKCrfv5OEl2', 'Hlavná 55', 'Košice', '04001', '0910632200', '0000-00-00 00:00:00', 1),
+(19, 'mymail22@gmail.com', 'Ice', 'Blaze', '$2y$12$pFLKzqpXXsn7uOgsnEH7IeazcBJoATHbUNfk1PCgRkwCKPZ.qmPWq', '', '', '', '', '2016-01-05 13:42:24', 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

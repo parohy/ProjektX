@@ -40,7 +40,7 @@ class Login{
 			$count = count($users);
 			
 			for($i=0;$i<$count;$i++){
-				if($users[$i]['email'] == $email && $users[$i]['password'] == $password){
+				if($users[$i]['email'] == $email && password_verify($password,$users[$i]['password'])){
 					$this->name = $users[$i]['name'];
 					$this->id = $users[$i]['userid'];
 					$_SESSION['userrole'] = $users[$i]['role'];

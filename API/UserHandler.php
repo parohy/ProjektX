@@ -38,10 +38,13 @@ class User{
 		 $instance->id = $instance->getValidId();
 		 	
 		 if($instance->id != null && $instance->id != 0){
-		 $instance->saveData('surname', ucfirst($surname));
-		 $instance->saveData('email', $email);
-		 $instance->saveData('password', $password);
-		 $instance->saveData('role', '1');
+		     $instance->saveData('surname', ucfirst($surname));
+		     $instance->saveData('email', $email);
+
+             $hashedPass = password_hash($password,PASSWORD_DEFAULT,['cost' => 12]);
+             $instance->saveData('password', $hashedPass);
+
+		     $instance->saveData('role', '1');
 		 }
 		 
 		 return $instance;
