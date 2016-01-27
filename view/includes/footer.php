@@ -19,9 +19,9 @@
     </ul>
     <div class="social-icons">
         <ul>
-        <li><a href="https://www.facebook.com"> <img src="libraries/img/footer/fb.png." alt="Facebook"> </a></li>
-        <li><a href="https://plus.google.com/"> <img src="libraries/img/footer/g+.png." alt="Google+"></a></li>
+        <li><a href="https://www.facebook.com"> <i class="fa fa-facebook "></i> </a></li>
+        <li><a href="https://plus.google.com/"> <i class="fa fa-google-plus "></i></a></li>
 
-        <li><a class="twiter" href="https://twitter.com/"> <img src="libraries/img/footer/twit.png." alt="Twitter"></a></li>
+        <li><a class="twiter" href="https://twitter.com/"> <i class="fa fa-twitter "></i></a></li>
         </ul>
     </div>
