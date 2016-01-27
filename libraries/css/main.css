@@ -68,7 +68,7 @@ body {
 #page-header {
     position: relative;
     width: 1120px;
-    height: 200px;
+    height: 220px;
     color: #605f5f;
     margin: auto;
     border-bottom: 3px solid #34A994;
@@ -99,6 +99,7 @@ body {
     width: 100%;
     height: 30px;
     vertical-align: top;
+    margin-bottom: 10px;
 }
 .welcome {
     width: 33.3%;
@@ -329,8 +330,8 @@ body {
 .nav li a {
     display: block;
     text-decoration: none;
-    font-weight: 900;
-    font-size: 15px;
+    font-weight: 500;
+    font-size: 22px;
     letter-spacing: 1.4px;
     color: #605f5f;
     height: 30px;
@@ -338,7 +339,7 @@ body {
 	
 }
 .nav li a:hover{
-    font-weight: 900;
+   /* font-weight: 900;*/
     color: #34A994;
 
 }
@@ -395,7 +396,7 @@ body {
 }
 .link {
     font-weight: lighter;
-    font-size: 46px;
+    font-size: 38px;
     font-weight: 200;
     color: #484848;
     text-decoration: none;
