@@ -25,6 +25,7 @@ class Order{
         public $datecreated="";
         public $shipped="";
         public $orderprice="";
+        public $alldetails=array();
 
 	/**
 	 * Creates an OrderHandler instance with optional $id parameter
@@ -34,7 +35,7 @@ class Order{
         public function __construct($id=null){
             $this->handlerDB = new DBHandler();
             $this->id=$id;
-
+            $this->alldetails=getDetails();
             $this->load();
 	}
 
@@ -110,5 +111,24 @@ class Order{
                 $this->handlerDB->query("DELETE FROM orders WHERE orderid LIKE '%".$this->id."%'");
             }
             $this->handlerDB->execute();   
+        }
+        
+        /**
+	 * Gets all orderdetails for an order
+	 * @author Matus Kokoska
+	 */
+        
+        private function getDetails(){            
+            $details=array();
+            if($this->id != null){
+                $this->handlerDB->query("SELECT detailid FROM orderdetails where orderid=:id");
+                $this->handlerDB->bind(":id", $this->id);
+                $results = $this->handlerDB->resultSet();
+
+                foreach($results as $detail){
+                    $details[]=$detail('detailid');        
+                }  
+            }
+            return $details;
         }
 }
