@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Hostiteľ: 127.0.0.1
--- Čas generovania: St 27.Jan 2016, 13:45
+-- Čas generovania: St 27.Jan 2016, 20:17
 -- Verzia serveru: 5.6.17
 -- Verzia PHP: 5.5.12
 
@@ -78,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `name` varchar(100) COLLATE utf8_slovak_ci NOT NULL,
   `parent` int(11) DEFAULT NULL,
   PRIMARY KEY (`categoryid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=32 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=24 ;
 
 --
 -- Sťahujem dáta pre tabuľku `categories`
@@ -263,6 +263,8 @@ CREATE TABLE IF NOT EXISTS `users` (
   `phone` varchar(50) COLLATE utf8_slovak_ci NOT NULL,
   `datejoined` datetime NOT NULL,
   `role` int(11) NOT NULL,
+  `deleted` int(11) NOT NULL,
+  `activated` int(11) NOT NULL,
   PRIMARY KEY (`userid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=20 ;
 
@@ -270,26 +272,26 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Sťahujem dáta pre tabuľku `users`
 --
 
-INSERT INTO `users` (`userid`, `email`, `name`, `surname`, `password`, `address`, `city`, `postcode`, `phone`, `datejoined`, `role`) VALUES
-(1, 'admin@admin.com', 'admin', '', '$2y$12$faeJ3j5oLaI1mdKvXSYT4ut.Aaf9GvroSn0MTIzYyKXu2Coq5QQrO', '', '', '', '', '0000-00-00 00:00:00', 2),
-(2, 'david99@gmail.com', 'David', 'Kostra', '$2y$12$HGrES3Xdz.itWUqrZl6rc.a6eUGj0hgpO0CxmO2wwhPGZL0rDAJqa', 'Trieda SNP 50', 'Košice', '04001', '0902645125', '0000-00-00 00:00:00', 1),
-(3, 'jozo19898@gmail.com', 'Jozef', 'Samuraj', '$2y$12$D0dfu9in16iBOE5pYtfnEeAQasD6.yTIGu2bAozoyUFgBEc0kP3pS', 'Šafárikova 11', 'Košice', '04011', '0911584778', '0000-00-00 00:00:00', 1),
-(4, 'marek.sss@gmail.com', 'Marek', 'Velký', '$2y$12$Ur2llKvzQiH5Blk5uQD8ou.qLg7frY.Ui1n3Kte86sj7qJSbfPWMC', 'Bernolákova 1', 'Košice', '04001', '0941598623', '0000-00-00 00:00:00', 1),
-(5, 'ottoman787@azet.sk', 'Otto', 'Markus', '$2y$12$rG4bhpjNNBmMvnpiVZretOPDSwaF/lyNFur9Sd7n4H4gBvW7XsXgC', 'Kuzmányho', 'Košice', '04001', '0948555877', '0000-00-00 00:00:00', 1),
-(6, 'serusky44@azet.sk', 'Martha', 'Big', '$2y$12$.z8BN9K4/Bs.qYuLTfvDAuLJAoL0RKnO.VGedaL2gj63GdnouKNLu', 'Hlavná 55', 'Košice', '04001', '0910632200', '0000-00-00 00:00:00', 1),
-(7, 'mymail@gmail.com', 'Ice', 'Blaze', '$2y$12$DtrM1MAfA/i3YRSAEyM/heD8foy63ZaggmmIuD74jIUByu9ucHWHi', '', '', '', '', '2016-01-05 13:42:24', 1),
-(8, 'david991@gmail.com', 'David', 'Kostra', '$2y$12$IF/Hil5MKQDHRNVuC61JXuVYfEXauBcFL96.lJWZYbMHMXg17.iBy', 'Trieda SNP 50', 'Košice', '04001', '0902645125', '0000-00-00 00:00:00', 1),
-(9, 'jozo198981@gmail.com', 'Jozef', 'Samuraj', '$2y$12$r4VtvSsgXgg2rrZqi7g70e5NnPpfxcDbOY5ki2K3Jzb9D3WSgtATa', 'Šafárikova 11', 'Košice', '04011', '0911584778', '0000-00-00 00:00:00', 1),
-(10, 'marek.sss1@gmail.com', 'Marek', 'Velký', '$2y$12$yXVAfYRmtOhTDnyEvfBFbOSqHDB2yCyJJ7k3nbSEQeZOJLqQKtG6C', 'Bernolákova 1', 'Košice', '04001', '0941598623', '0000-00-00 00:00:00', 1),
-(11, 'ottoman7871@azet.sk', 'Otto', 'Markus', '$2y$12$.PW8Xw4ppX.Ty2dEGAACCOiI8u.mKGZnLZyzsGfISNXf9fTuZl.eG', 'Kuzmányho', 'Košice', '04001', '0948555877', '0000-00-00 00:00:00', 1),
-(12, 'serusky441@azet.sk', 'Martha', 'Big', '$2y$12$ZdCrSxCchJHolEHw/dgzMO2DowXULHv.zJxfmaDHTtHDruNFBQEYS', 'Hlavná 55', 'Košice', '04001', '0910632200', '0000-00-00 00:00:00', 1),
-(13, 'mymail1@gmail.com', 'Ice', 'Blaze', '$2y$12$kdwqKsP.Ni8mzONlu.ZsG.mC9VY1rYt8lBZA.QZoQ.Dq0i3ub00fe', '', '', '', '', '2016-01-05 13:42:24', 1),
-(14, 'david992@gmail.com', 'David', 'Kostra', '$2y$12$g/tqdAmXAQa0MGT57NY.dejYXsMJrdmph8UDaimJgV8lgRQAcDGZ.', 'Trieda SNP 50', 'Košice', '04001', '0902645125', '0000-00-00 00:00:00', 1),
-(15, 'jozo198982@gmail.com', 'Jozef', 'Samuraj', '$2y$12$fpvgnjDn4sM3pTzNia39huhlEBKPxa7pNIBkNzXRI8q/r/PlSr56q', 'Šafárikova 11', 'Košice', '04011', '0911584778', '0000-00-00 00:00:00', 1),
-(16, 'marek.sss2@gmail.com', 'Marek', 'Velký', '$2y$12$dSk8QjTdyTFDxqegsGDdz.9ooyrzvWE6ZlFl5Nn5/GFpNi1G2fBca', 'Bernolákova 1', 'Košice', '04001', '0941598623', '0000-00-00 00:00:00', 1),
-(17, 'ottoman7872@azet.sk', 'Otto', 'Markus', '$2y$12$XQD0zSinSYqlmqz/7r3HqOMVZEA5ronpB3i7F83HYOXI8Lvsq6sVK', 'Kuzmányho', 'Košice', '04001', '0948555877', '0000-00-00 00:00:00', 1),
-(18, 'serusky442@azet.sk', 'Martha', 'Big', '$2y$12$wkx3gWPElFt8tuYS5DsDhOhhgC0aUEi6cEe3VzXaU0wKCrfv5OEl2', 'Hlavná 55', 'Košice', '04001', '0910632200', '0000-00-00 00:00:00', 1),
-(19, 'mymail22@gmail.com', 'Ice', 'Blaze', '$2y$12$pFLKzqpXXsn7uOgsnEH7IeazcBJoATHbUNfk1PCgRkwCKPZ.qmPWq', '', '', '', '', '2016-01-05 13:42:24', 1);
+INSERT INTO `users` (`userid`, `email`, `name`, `surname`, `password`, `address`, `city`, `postcode`, `phone`, `datejoined`, `role`, `deleted`, `activated`) VALUES
+(1, 'admin@admin.com', 'admin', '', '$2y$12$faeJ3j5oLaI1mdKvXSYT4ut.Aaf9GvroSn0MTIzYyKXu2Coq5QQrO', '', '', '', '', '0000-00-00 00:00:00', 2, 0, 1),
+(2, 'david99@gmail.com', 'David', 'Kostra', '$2y$12$HGrES3Xdz.itWUqrZl6rc.a6eUGj0hgpO0CxmO2wwhPGZL0rDAJqa', 'Trieda SNP 50', 'Košice', '04001', '0902645125', '0000-00-00 00:00:00', 1, 0, 1),
+(3, 'jozo19898@gmail.com', 'Jozef', 'Samuraj', '$2y$12$D0dfu9in16iBOE5pYtfnEeAQasD6.yTIGu2bAozoyUFgBEc0kP3pS', 'Šafárikova 11', 'Košice', '04011', '0911584778', '0000-00-00 00:00:00', 1, 0, 1),
+(4, 'marek.sss@gmail.com', 'Marek', 'Velký', '$2y$12$Ur2llKvzQiH5Blk5uQD8ou.qLg7frY.Ui1n3Kte86sj7qJSbfPWMC', 'Bernolákova 1', 'Košice', '04001', '0941598623', '0000-00-00 00:00:00', 1, 0, 1),
+(5, 'ottoman787@azet.sk', 'Otto', 'Markus', '$2y$12$rG4bhpjNNBmMvnpiVZretOPDSwaF/lyNFur9Sd7n4H4gBvW7XsXgC', 'Kuzmányho', 'Košice', '04001', '0948555877', '0000-00-00 00:00:00', 1, 0, 1),
+(6, 'serusky44@azet.sk', 'Martha', 'Big', '$2y$12$.z8BN9K4/Bs.qYuLTfvDAuLJAoL0RKnO.VGedaL2gj63GdnouKNLu', 'Hlavná 55', 'Košice', '04001', '0910632200', '0000-00-00 00:00:00', 1, 0, 1),
+(7, 'mymail@gmail.com', 'Ice', 'Blaze', '$2y$12$DtrM1MAfA/i3YRSAEyM/heD8foy63ZaggmmIuD74jIUByu9ucHWHi', '', '', '', '', '2016-01-05 13:42:24', 1, 0, 1),
+(8, 'david991@gmail.com', 'David', 'Kostra', '$2y$12$IF/Hil5MKQDHRNVuC61JXuVYfEXauBcFL96.lJWZYbMHMXg17.iBy', 'Trieda SNP 50', 'Košice', '04001', '0902645125', '0000-00-00 00:00:00', 1, 0, 1),
+(9, 'jozo198981@gmail.com', 'Jozef', 'Samuraj', '$2y$12$r4VtvSsgXgg2rrZqi7g70e5NnPpfxcDbOY5ki2K3Jzb9D3WSgtATa', 'Šafárikova 11', 'Košice', '04011', '0911584778', '0000-00-00 00:00:00', 1, 0, 1),
+(10, 'marek.sss1@gmail.com', 'Marek', 'Velký', '$2y$12$yXVAfYRmtOhTDnyEvfBFbOSqHDB2yCyJJ7k3nbSEQeZOJLqQKtG6C', 'Bernolákova 1', 'Košice', '04001', '0941598623', '0000-00-00 00:00:00', 1, 0, 1),
+(11, 'ottoman7871@azet.sk', 'Otto', 'Markus', '$2y$12$.PW8Xw4ppX.Ty2dEGAACCOiI8u.mKGZnLZyzsGfISNXf9fTuZl.eG', 'Kuzmányho', 'Košice', '04001', '0948555877', '0000-00-00 00:00:00', 1, 0, 1),
+(12, 'serusky441@azet.sk', 'Martha', 'Big', '$2y$12$ZdCrSxCchJHolEHw/dgzMO2DowXULHv.zJxfmaDHTtHDruNFBQEYS', 'Hlavná 55', 'Košice', '04001', '0910632200', '0000-00-00 00:00:00', 1, 0, 1),
+(13, 'mymail1@gmail.com', 'Ice', 'Blaze', '$2y$12$kdwqKsP.Ni8mzONlu.ZsG.mC9VY1rYt8lBZA.QZoQ.Dq0i3ub00fe', '', '', '', '', '2016-01-05 13:42:24', 1, 0, 1),
+(14, 'david992@gmail.com', 'David', 'Kostra', '$2y$12$g/tqdAmXAQa0MGT57NY.dejYXsMJrdmph8UDaimJgV8lgRQAcDGZ.', 'Trieda SNP 50', 'Košice', '04001', '0902645125', '0000-00-00 00:00:00', 1, 0, 1),
+(15, 'jozo198982@gmail.com', 'Jozef', 'Samuraj', '$2y$12$fpvgnjDn4sM3pTzNia39huhlEBKPxa7pNIBkNzXRI8q/r/PlSr56q', 'Šafárikova 11', 'Košice', '04011', '0911584778', '0000-00-00 00:00:00', 1, 0, 1),
+(16, 'marek.sss2@gmail.com', 'Marek', 'Velký', '$2y$12$dSk8QjTdyTFDxqegsGDdz.9ooyrzvWE6ZlFl5Nn5/GFpNi1G2fBca', 'Bernolákova 1', 'Košice', '04001', '0941598623', '0000-00-00 00:00:00', 1, 0, 1),
+(17, 'ottoman7872@azet.sk', 'Otto', 'Markus', '$2y$12$XQD0zSinSYqlmqz/7r3HqOMVZEA5ronpB3i7F83HYOXI8Lvsq6sVK', 'Kuzmányho', 'Košice', '04001', '0948555877', '0000-00-00 00:00:00', 1, 0, 1),
+(18, 'serusky442@azet.sk', 'Martha', 'Big', '$2y$12$wkx3gWPElFt8tuYS5DsDhOhhgC0aUEi6cEe3VzXaU0wKCrfv5OEl2', 'Hlavná 55', 'Košice', '04001', '0910632200', '0000-00-00 00:00:00', 1, 0, 1),
+(19, 'mymail22@gmail.com', 'Ice', 'Blaze', '$2y$12$pFLKzqpXXsn7uOgsnEH7IeazcBJoATHbUNfk1PCgRkwCKPZ.qmPWq', '', '', '', '', '2016-01-05 13:42:24', 1, 0, 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
