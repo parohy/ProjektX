@@ -7,19 +7,28 @@ $(function () {
 
         var destination = $(this).attr("href");
 
-        var popup = confirm("Do you want to continue shopping ?");
+        $.getScript('libraries/js/popup.js', function () {
+            popup("ACTION CONFIRMATION",
+                "<h1>DO YOU WANT TO CONTINUE SHOPPING ?</h1>" +
+                "<button id='confirm'>YES</button><button id='decline'>NO</button>", 400, 200);
 
-        if(popup == true) {
-            $.get(destination, function(data,status) {
-                $(".amount").innerHTML = "";
-                $(".amount").html(data);
+            $("#confirm").click(function(){
+                $.get(destination, function (data, status) {
+                    $(".amount").innerHTML = "";
+                    $(".amount").html(data);
+                });
+
+                $(".popupContainer").remove();
             });
-        }
-        else {
-            $.get(destination, function(data,status) {
-                window.location = "/ProjektX/?page=cart";
+
+            $("#decline").click(function () {
+                $.get(destination, function (data, status) {
+                    window.location = "/ProjektX/?page=cart";
+                });
+                return false;
             });
-        }
-        return false;
+
+            return false;
+        });
     });
 });
