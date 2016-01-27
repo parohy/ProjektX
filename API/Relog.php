@@ -11,6 +11,7 @@ include_once ('InputRecheck.php');
 include_once ('UserHandler.php');
 include_once ('Login.php');
 include_once ('Database.php');
+//include_once ('Mail.php');
 
 $tempDB = new DBHandler();
 $tempDB->query('SELECT * FROM users');
