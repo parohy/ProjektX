@@ -6,14 +6,13 @@
  * Time: 7:57
  */
 
-include_once ('mail/class.phpmailer.php');
-include_once ('mail/class.smtp.php');
+require ('mail/PHPMailerAutoload.php');
 
 class Mail {
 
     private $mail;
-    private $host = 'smtp.cassomedia.sk';
-    private $user = 'info@cassomedia.sk';
+    private $host = 'smtp.gmail.com';
+    private $user = 'viatechcassomedia@gmail.com';
     private $password = 'pr0jektX';
 
     // initialize phpmailer
@@ -24,8 +23,8 @@ class Mail {
         $this->mail->SMTPAuth = true;
         $this->mail->Username = $this->user;
         $this->mail->Password = $this->password;
-        $this->mail->SMTPSecure = "tls";
-        $this->mail->Port = 587;
+        $this->mail->SMTPSecure = "ssl";
+        $this->mail->Port = 465;
         $this->mail->setFrom($this->user);
     }
 

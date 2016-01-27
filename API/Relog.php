@@ -11,7 +11,7 @@ include_once ('InputRecheck.php');
 include_once ('UserHandler.php');
 include_once ('Login.php');
 include_once ('Database.php');
-//include_once ('Mail.php');
+include_once ('Mail.php');
 
 $tempDB = new DBHandler();
 $tempDB->query('SELECT * FROM users');
@@ -73,12 +73,25 @@ if($_GET['register'] == 'registration'){
 		
 		/*login after registration*/
 		$_SESSION['loggedin'] = true;
-		if(isset($user)){
-			$_SESSION['username'] = $user->getData('name');
-			$_SESSION['userid'] = $user->getId();
-			$_SESSION['userrole'] = $user->getData('role');
-		}	
-		header('Location:  ../index.php');
+		if(isset($user)) {
+            $_SESSION['username'] = $user->getData('name');
+            $_SESSION['userid'] = $user->getId();
+            $_SESSION['userrole'] = $user->getData('role');
+        }
+
+        $mail = new Mail();
+        $mail->addRecipient($email);
+        $mail->composeMail("Activation","<p>Activation email</p>","Activation email");
+
+        $mailResponse = $mail->sendMail();
+        if($mailResponse != "success") {
+            die("HOOOPS EMAIL NOT SENT ".$mailResponse);
+        }
+        else {
+            header('Location:  ../index.php');
+            exit();
+        }
+
 		exit();
 	}
 }
