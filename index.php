@@ -60,6 +60,7 @@ if(isset($_GET['login']) && $_GET['login'] == 'false') {
     <link rel="icon" type="image/png" href="libraries/img/icons/logoV-16.png" sizes="16x16" />
     <link rel="stylesheet" type="text/css" href="libraries/css/main.css">
     <link rel="stylesheet" type="text/css" href="libraries/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="libraries/css/popup.css">
     <script src="libraries/js/jquery-1.11.3.min.js"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <!--<script src="libraries/js/cart.js"></script>-->
