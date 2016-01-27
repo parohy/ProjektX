@@ -11,6 +11,7 @@ include_once ('InputRecheck.php');
 include_once ('UserHandler.php');
 include_once ('Login.php');
 include_once ('Database.php');
+include_once ('Mail.php');
 
 $tempDB = new DBHandler();
 $tempDB->query('SELECT * FROM users');
@@ -23,18 +24,31 @@ $check = new Recheck();
 	
 /*Executes registration algorithm*/
 if($_GET['register'] == 'registration'){
+
+    if(isset($_POST['g-recaptcha-response']))
+        $captcha=$_POST['g-recaptcha-response'];
+
 	$_SESSION['registerErr']=false;
 	$name = $check->dumpSpecialChars($_POST['name']);
 	$surname = $check->dumpSpecialChars($_POST['last-name']);
 	$email = $check->dumpSpecialChars($_POST['mail']);
 	$password = $check->dumpSpecialChars($_POST['password']);
 	
-	if(!isset($_SESSION['captcha']) || $_SESSION['captcha'] != intval($_POST['captcha'])){
+	if(!$captcha){
 		$_SESSION['registerErr'] = "Wrong captcha.";		
 		header('Location:  ../?page=reg-acc&name='.$name.'&surname='.$surname.'&email='.$email);
 		exit();
 	}
-	
+
+    $response=json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LcphBUTAAAAANmZJWIx-fRUQnmBKsEk_7ITZc5L&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']), true);
+
+    if($response['success'] == false)
+    {
+        $_SESSION['registerErr'] = "You are spammer ! Get the @$%K out";
+        header('Location:  ../?page=reg-acc&name='.$name.'&surname='.$surname.'&email='.$email);
+        exit();
+    }
+
 	if(errorControl($name, $surname, $email, $password)){
 		/*handle for saving user information into the database*/
 		$user = User::newUser($name, $surname, $email, $password);
@@ -59,12 +73,34 @@ if($_GET['register'] == 'registration'){
 		
 		/*login after registration*/
 		$_SESSION['loggedin'] = true;
-		if(isset($user)){
-			$_SESSION['username'] = $user->getData('name');
-			$_SESSION['userid'] = $user->getId();
-			$_SESSION['userrole'] = $user->getData('role');
-		}	
-		header('Location:  ../index.php');
+		if(isset($user)) {
+            $_SESSION['username'] = $user->getData('name');
+            $_SESSION['userid'] = $user->getId();
+            $_SESSION['userrole'] = $user->getData('role');
+        }
+
+        $mail = new Mail();
+        $mail->addRecipient($email);
+
+        $mail->composeMail("Activation",'
+        <h1>Welcome you are one step away from becoming full user</h1>
+        <p>
+        Click this link for your account activation <a href="http://www.cassomedia.sk/">http://www.cassomedia.sk/</a>
+        </p>
+        ',"
+        Welcome you are one step away from becoming full user
+        Visit this link for your account activation http://www.cassomedia.sk/
+        ");
+
+        $mailResponse = $mail->sendMail();
+        if($mailResponse != "success") {
+            die("HOOOPS EMAIL NOT SENT ".$mailResponse);
+        }
+        else {
+            header('Location:  ../index.php');
+            exit();
+        }
+
 		exit();
 	}
 }

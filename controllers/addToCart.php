@@ -47,10 +47,6 @@ if(isset($_GET['productid']) && isset($_GET['name']) && isset($_GET['price'])) {
         }
 
         $_SESSION['cart'] = $cartContent;
-
-        $location = "Location:../?page=cart";
-        header($location);
-        exit();
     }
     else {
         $cartContent = array(0=>array(
@@ -60,9 +56,24 @@ if(isset($_GET['productid']) && isset($_GET['name']) && isset($_GET['price'])) {
             'price'=>$_GET['price']
         ));
         $_SESSION['cart'] = $cartContent;
+    }
 
-        $location = "Location:../?page=cart";
-        header($location);
+    $totalCost = 0;
+    $numOfItems = 0;
+
+    $i = 0;
+
+    foreach($cartContent as $cart) {
+        $numOfItems += $cart['count'];
+        $temp = floatval($cart['price']);
+        $temp *= $cart['count'];
+        $totalCost += $temp;
+    }
+
+    echo $totalCost;
+
+    if(isset($_GET['destination'])) {
+        header("Location:../?page=cart");
         exit();
     }
 }

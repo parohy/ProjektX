@@ -20,7 +20,7 @@
         } else {
             echo '<div class="slide">';
             echo '<div class="sliderImage"><img src="'. $slidesPath . $slide .'"/></div>';
-            echo '<div class="sliderImageControlls"><a href="#">X</a></div>';
+            echo '<div class="sliderImageControlls"><a href="'. $slidesPath . $slide .'" class="delete">X</a></div>';
             echo '</div>';
         }
     }
@@ -30,7 +30,8 @@
 <div class="addImage">
     <h4>Add new slides:</h4>
 
-    <div class="dragNdrop">
+    <div id="dragNdrop">
         <h3>Drag and Drop images you want to upload here</h3>
     </div>
 </div>
+<script src="libraries/js/sliderSettings.js"></script>

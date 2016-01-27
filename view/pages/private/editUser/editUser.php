@@ -27,57 +27,56 @@ else if(isset($_SESSION['userrole']) && $_SESSION['userrole'] == 1 ){
 
 <form id="profile" action="<?php echo $scriptPath;?>" method="POST" data-ajax="false">
 
-    <fieldset id="edit-profile">
-        <legend>EDIT PROFILE</legend>
+    <div id="edit-profile">
         <ul>
             <li>
                 <div class="inputName">Name: </div>
-                <input class="edit-input" type="text" name="name" value="<?php if($editUser != NULL) echo $editUser->getData('name');?>" placeholder="NAME">
+                <input class="input" type="text" name="name" value="<?php if($editUser != NULL) echo $editUser->getData('name');?>" placeholder="NAME">
             </li>
 
             <li>
                 <div class="inputName">Surname: </div>
-                <input class="edit-input" type="text" name="surname" value="<?php if($editUser != NULL) echo $editUser->getData('surname');?>" placeholder="SURNAME">
+                <input class="input" type="text" name="surname" value="<?php if($editUser != NULL) echo $editUser->getData('surname');?>" placeholder="SURNAME">
             </li>
 
             <li>
                 <div class="inputName">E-mail: </div>
-                <input class="edit-input" type="email" name="email" value="<?php if($editUser != NULL) echo $editUser->getData('email');?>" placeholder="EMAIL">
+                <input class="input" type="email" name="email" value="<?php if($editUser != NULL) echo $editUser->getData('email');?>" placeholder="EMAIL">
             </li>
 
 
             <li>
                 <div class="inputName">Phone: </div>
-                <input class="edit-input" type="text" name="phone" value="<?php if($editUser != NULL) echo $editUser->getData('phone');?>" placeholder="MOBILE PHONE">
+                <input class="input" type="text" name="phone" value="<?php if($editUser != NULL) echo $editUser->getData('phone');?>" placeholder="MOBILE PHONE">
             </li>
 
             <li>
                 <div class="inputName">Address: </div>
-                <input class="edit-input" type="text" name="address"value="<?php if($editUser != NULL) echo $editUser->getData('address');?>" placeholder="ADRESS">
+                <input class="input" type="text" name="address"value="<?php if($editUser != NULL) echo $editUser->getData('address');?>" placeholder="ADRESS">
             </li>
 
             <li>
                 <div class="inputName">City: </div>
-                <input class="edit-input"  type="text" name="city"  value="<?php if($editUser != NULL) echo $editUser->getData('city');?>" placeholder="CITY">
+                <input class="input"  type="text" name="city"  value="<?php if($editUser != NULL) echo $editUser->getData('city');?>" placeholder="CITY">
             </li>
 
             <li>
                 <div class="inputName">Postcode: </div>
-                <input class="edit-input" type="text" name="postcode" value="<?php if($editUser != NULL) echo $editUser->getData('postcode');?>" placeholder="POSTCODE">
+                <input class="input" type="text" name="postcode" value="<?php if($editUser != NULL) echo $editUser->getData('postcode');?>" placeholder="POSTCODE">
             </li>
 			<?php
 				if(isset($_SESSION['userrole']) && $_SESSION['userrole'] == 1 ){
 					echo '<li>';
-						echo 'Type password to continue:<span id="pass-err"></span>';
+						echo '<span id="pass-err">Type password to continue:</span>';
 					echo '</li>';
 					echo '<li>';
-						echo '<input class="edit-input" type="password" name="password" placeholder="PASSWORD">';
+						echo '<input class="password input" type="password" name="password" placeholder="PASSWORD">';
 					echo '</li>';
 				}
 			?>
             <li>
-                <input id="edit-profile-submit" type="submit" value="SAVE CHANGE">
+                <input class="submit-button" type="submit" value="SAVE CHANGE">
             </li>
         </ul>
-    </fieldset>
+    </div>
 </form>

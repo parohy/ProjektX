@@ -11,15 +11,18 @@
 .title-page{
     text-align: center;
     font-family: 'Source Sans Pro', sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     font-style: normal;
     color: #595959;
-    border-bottom: 1px solid #ccc;
+    
     padding: 25px;
 }
 
 .cart-body{
 	border-bottom: 1px solid #ccc;
+        border-top: 1px solid #ccc;
+        width: 1000px;
+        margin: auto;
 	padding-top: 20px;
 	padding-bottom: 20px;
 }
@@ -37,6 +40,10 @@
 
 .product-img{
 	display:inline-block;
+	
+    -webkit-box-shadow: 0px 6px 9px 0px rgba(94,102,99,1);
+    -moz-box-shadow: 0px 6px 9px 0px rgba(94,102,99,1);
+    box-shadow: 0px 6px 9px 0px rgba(94,102,99,1);
 	vertical-align:middle;
 	width:100px;
 	height:100px;
@@ -46,8 +53,8 @@
 
 .product-name {
 	font-family: 'Source Sans Pro', sans-serif;
-    font-size: 28px;
-    font-style: normal;
+        font-size: 24px;
+        font-style: normal;
 	font-weight: 200;
 	color: #595959;
 	display: inline-block;
@@ -72,7 +79,7 @@
 .kus{
 	display: inline-block;
 	font-family: 'Source Sans Pro', sans-serif;
-    font-size: 28px;
+    font-size: 24px;
     font-style: normal;
 	font-weight: 200;
 	margin-left: auto;
@@ -85,12 +92,12 @@
 .removeItem{
 	display: inline-block;
 	font-family: 'Source Sans Pro', sans-serif;
-    font-size: 28px;
-    font-style: normal;
+        font-size: 28px;
+        font-style: normal;
 	font-weight: 200;
 	margin-left: 1%;
 	margin-right: auto;
-	margin-top:0;
+	margin-top:9px;
 	margin-bottom: 0;
 	vertical-align:middle;
 	text-decoration: none;
@@ -114,8 +121,8 @@
 	vertical-align:middle;
 	text-align: center;
 	font-family: 'Source Sans Pro', sans-serif;
-    font-size: 30px;
-    font-style: normal;
+        font-size: 24px;
+        font-style: normal;
 	font-weight: 700;
 	color: #595959;
 }
@@ -133,7 +140,7 @@ input[type="number"]{
 	display: inline-block;
 	width: 100%;
 	font-family: 'Source Sans Pro', sans-serif;
-	font-size: 28px;
+	font-size: 24px;
 	font-weight: 200;
 }
 
@@ -147,14 +154,15 @@ input[type="number"]{
 	margin-top: 25px;
 	margin-bottom: 25px;
 	font-family: 'Source Sans Pro', sans-serif;
-    font-size: 36px;
-    font-style: normal;
+        font-size: 24px;
+        font-style: normal;
 	font-weight: 200;
 	color: #595959;
 }
 
 .bold{
 	font-weight: 700;
+        font-size: 24px;
 }
 
 .pro-button{
@@ -162,11 +170,11 @@ input[type="number"]{
     width: 20%;
     margin-left: auto;
 	margin-right: auto;
-    margin-top: 40px;
+    margin-top: 0px;
 	margin-bottom: 40px;
     padding: 20px;
     display: block;
-    font-size: 1.8vw;
+    font-size: 16px;
     font-weight: 600;
     text-align: center;
     background-color: #34A994;
@@ -187,7 +195,7 @@ input[type="number"]{
 
 .empty {
     display: block;
-    font-size: 25px;
+    font-size: 16px;
     text-align: center;
     font-weight: bold;
 }

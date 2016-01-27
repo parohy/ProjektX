@@ -76,7 +76,7 @@
                                 echo "0";
                             }
                             
-             echo        ' <a class="euro">&#8364;</a> </span>
+             echo        ' </span><a class="euro">&#8364;</a>
                     </li>
                 </ul>
             </div>

@@ -108,8 +108,8 @@ function adjustThumbnail()
 
 function adjustOneThumbnail(img)
 {
-    var maxWidth = img.parent().parent().width() - 20;
-    var maxHeight = img.parent().parent().height() - 20;
+    var maxWidth = img.parent().parent().width();
+    var maxHeight = img.parent().parent().height();
 
     var ratio;
     var width = img.width();
@@ -129,8 +129,8 @@ function adjustOneThumbnail(img)
         width *= ratio;
     }
 
-    var marginTop = ((maxHeight+20) - height) / 2;
-    var marginLeft = ((maxWidth+20) - width) / 2;
+    var marginTop = ((maxHeight) - height) / 2;
+    var marginLeft = ((maxWidth) - width) / 2;
     img.css({"margin-top":marginTop+"px","margin-left":marginLeft+"px"});
     img.removeClass("notLoaded");
 }

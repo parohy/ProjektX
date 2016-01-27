@@ -89,6 +89,9 @@
     width: 300px;
     text-align: left;
 }
+.control-icons{
+    color: green;
+}
 
 .user-controls {
     float: right;
@@ -96,6 +99,11 @@
 
 .user-controls a {
     margin: 0 10px;
+}
+.edit-view{
+    text-align: left;
+    margin-top: 10px;
+    margin-left: 210px;
 }
 
 .view{
@@ -105,6 +113,7 @@
 
 .view-controls{
     margin-right: 10px;
+    color: #34A994;
 }
 
 .paging{
@@ -122,17 +131,27 @@
     padding-right:10px;
 }
 /*ADD PRODUCT CSS*/
+.addProductForm{
+    width: 600px;
+    margin: 0 auto;
+}
 
 .addProductForm ul li{
     list-style: none;
     margin-top: 15px;
+    display: inline-block;
+    width: 500px;
 }
 .addProductForm ul li label{
-    display: block;
+    text-align: right;
 }
-.addProductForm ul li input,textarea{
+.addProductForm ul li input,textarea,select{
     width: 50%;
     max-width: 250px;
+    height: 35px;
+}
+
+.addProductForm ul li select{
     height: 35px;
 }
 .addProductForm ul li textarea{
@@ -146,12 +165,12 @@
     height: 35px;
     font-size: 20px;
     font-weight: bold;
-    color: white;
+    margin-left: 150px;
     background: #34A994;
     border-style: none;
     color: white;
     outline: none;
-    cursor: pointer; cursor: hand;
+    cursor: pointer;
 }
 .submit-button:hover{
     background-color: #fbfbfb;
@@ -171,14 +190,32 @@
     width: 100px;
     height: 35px;
 }
-.subcategory{
-    float: left;
-    margin-left: 20px;
+#subcategory{
+    display: inline-block;
+    width: 250px;
 }
-.subcategory select{
+#subcategory select{
+    width: 250px;
+    display: block;
+    margin-top: 5px;
+}
+/*.subcategory-choice{
+    display: inline-block;
+    margin-top: 5px;
+    width: 250px;
+    height: 50px;
+}
+.subcategory-choice select{
+
+}*/
+/*#subcategory1{
+ margin-left: 150px;
+    margin-top: 5px;
+}*/
+/*.subcategory select{
     width: 100px;
     height: 35px;
-}
+}*/
 
 .page-link>i{
     line-height: 15px;
@@ -205,6 +242,7 @@
     font-size:20px;
     padding-top: 5px;
 }
+
 .edit-input{
     width: 400px;
     height: 27px;

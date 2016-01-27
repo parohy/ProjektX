@@ -25,8 +25,8 @@ $(document).ready(function()
 
     function adjustOneThumbnail(img)
     {
-        var maxWidth = img.parent().width() - 5;
-        var maxHeight = img.parent().height() - 5;
+        var maxWidth = img.parent().width();
+        var maxHeight = img.parent().height();
 
         var ratio;
         var width = img.width();
@@ -46,8 +46,8 @@ $(document).ready(function()
             width *= ratio;
         }
 
-        var marginTop = ((maxHeight+5) - height) / 2;
-        var marginLeft = ((maxWidth+5) - width) / 2;
+        var marginTop = ((maxHeight) - height) / 2;
+        var marginLeft = ((maxWidth) - width) / 2;
         img.css({"margin-top":marginTop+"px","margin-left":marginLeft+"px"});
         img.removeClass("notLoaded");
     }
@@ -142,7 +142,7 @@ $(document).ready(function()
                 				$localPath = 'libraries/img/products/' . $product['productid'] . '/' . $product['productid'] . $alpha[$index] . '.jpg';
                 				$alt = $product['productid'] . $alpha[$index] . '.jpg';
                 				//echo '<td><a href="?page=productPreview&product=' . $product['productid'] . '&index='. $alpha[$index] . '" onclick="changePic('.$alpha[$index].')"><img class="image-album" src="' . $localPath . '" alt="' . $alt . '" width="' . $width . '" height="' . $height . '"></a></td>';
-                				echo '<td><img class="image-album" src="' . $localPath . '" alt="' . $alt . '" width="100" onclick="changePic(\''.$alpha[$index].'\',\''.$product['productid'].'\')"><span class="bigpic"><img src="' . $localPath . '" width="200px" height="200px"></span></td>';
+                				echo '<td><img class="image-album" src="' . $localPath . '" alt="' . $alt . '" width="100" onclick="changePic(\''.$alpha[$index].'\',\''.$product['productid'].'\')"><span class="bigpic"><img src="' . $localPath . '" width="300px"></span></td>';
                 				$index++;
                 			}
                 		?>
@@ -154,14 +154,14 @@ $(document).ready(function()
                 <?php echo substr($product['description'],0,200);?>
                 </span>-->
 
-            <form class="cost-form" action="controllers/addToCart.php?productid=<?php echo $product['productid'] ?>&name=<?php echo $product['name'] ?>&price=<?php echo $product['price'] ?>" method="POST">
+            <form class="cost-form" action="controllers/addToCart.php?productid=<?php echo $product['productid'] ?>&name=<?php echo $product['name'] ?>&price=<?php echo $product['price'] ?>&destination=cart" method="POST">
                 <span class="cost">
                     <?php echo $product['price'] . ' €';?>
                 </span>
                 <div class="submit-input">
                     <input type="submit" value="BUY" name="BUY">
                 </div>
-            </form>            
+            </form>
     	</div>
     	<div class="desc">
             <div class="description-title">
