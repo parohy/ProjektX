@@ -64,6 +64,7 @@ if(isset($_GET['login']) && $_GET['login'] == 'false') {
     <script src="libraries/js/jquery-1.11.3.min.js"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <!--<script src="libraries/js/cart.js"></script>-->
+   
 </head>
 <body>
 

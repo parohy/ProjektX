@@ -9,7 +9,7 @@
 
 .product-name{
     font-size: 30px;
-    width: 700px;
+    width: 600px;
 	font-weight: 700;
     text-align: left;
     display: inline-block;
@@ -20,10 +20,10 @@
 }
 
 .aftername1{
-	width: 335px;
+	width: 220px;
 	padding-right: 0px;
 	display: inline-block;
-	
+	margin-left: 40px;
 }
 
 .product-brand{
@@ -35,11 +35,15 @@
 
 .pictable{
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: top;
+    width: 115px;
+    height: 350px;
+    margin-top: 23px;
+    margin-left: 20px;
     
 }
 
-.pictable td{
+.pictable tr{
     border: 1px solid #d0d0d0;
     width: 100px;
     height: 100px;
@@ -55,9 +59,6 @@
 	max-height: 350px;
     border: 1px solid #d0d0d0;
 
-    -webkit-box-shadow: 0px 6px 9px 0px rgba(94,102,99,1);
-    -moz-box-shadow: 0px 6px 9px 0px rgba(94,102,99,1);
-    box-shadow: 0px 6px 9px 0px rgba(94,102,99,1);
 }
 
 .bigpic{
@@ -87,7 +88,7 @@ td:hover .bigpic{
     position: relative;
     border: 0;
     margin: 2%;
-    margin-left: 4%;
+    margin-left: 0px;
 	margin-right: 0px;
     vertical-align: middle;
     display: inline-block;
@@ -98,8 +99,7 @@ td:hover .bigpic{
 }
 
 #about-product{
-	width: 700px;
-    
+    width: 600px;
     vertical-align: top;
     display: inline-block;
     margin-left: 25px;
@@ -109,15 +109,22 @@ td:hover .bigpic{
 .product-ranking{
     margin-bottom: 5px;
 	margin-left: 0;
+        margin-top: 5px;
+        margin-right: 73px;
+        float: right;
 }
 
 .product-ranking img {
-    width: 35px;
-    height: 35px;
+    width: 50px;
+    height: 50px;
 }
 
+
 .image-album{
-	cursor: pointer; cursor: hand;
+    border: 1px solid #d0d0d0;
+    cursor: pointer; cursor: hand;
+    width: 115px;
+    height: 115px;   
 }
 
 .cost-form{
@@ -173,20 +180,20 @@ td:hover .bigpic{
 .desc{
 	
     
-    width: 360px;
+    width: 600px;
 	
     vertical-align: top;
     text-align: center;
 	
     padding-top: 10px;
-    margin-bottom: 100px;
+    margin-bottom: 30px;
     display: inline-block;
 }
 
 .description-title{
     text-align: left;
     margin-bottom: 10px;
-    margin-left: 18px;
+    margin-left: 0px;
 	font-weight: 600;
 	font-size: 20px;
     
@@ -197,7 +204,7 @@ td:hover .bigpic{
     text-justify: inter-word;
     vertical-align: middle;
     display: inline-block;
-    width: 90%;
+    width: 600px;
     
 }
 

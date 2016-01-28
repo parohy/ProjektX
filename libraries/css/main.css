@@ -68,7 +68,7 @@ body {
 #page-header {
     position: relative;
     width: 1120px;
-    height: 220px;
+    height: 200px;
     color: #605f5f;
     margin: auto;
     border-bottom: 3px solid #34A994;
@@ -99,7 +99,7 @@ body {
     width: 100%;
     height: 30px;
     vertical-align: top;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 .welcome {
     width: 33.3%;
@@ -231,7 +231,7 @@ body {
 .search-bar{
     float: left;
     height: 40px;
-    padding-left: 10px;
+    padding-left: 19px;
     margin-top: 45px;
     border: 1px solid #cccccc;
     background:#fbfbfb;
@@ -303,7 +303,7 @@ body {
     float: left;
     padding-top: 10px;
     cursor: pointer;
-    margin-right: 14px;
+    margin-right: 12px;
     
 }
 #fa-2x {
@@ -331,7 +331,9 @@ body {
     display: block;
     text-decoration: none;
     font-weight: 500;
-    font-size: 22px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-size: 16px;
     letter-spacing: 1.4px;
     color: #605f5f;
     height: 30px;
@@ -417,6 +419,7 @@ body {
     width: 100%;
     height: 100%;
     padding: 20px;
+    padding-top: 0px;
 }
 .tab-content p {
     font-size: 16px;

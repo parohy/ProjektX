@@ -16,6 +16,7 @@ $product = $productController->getProduct($_GET['product']);
 ?>
 
 <link rel="stylesheet" type="text/css" href="libraries/css/productPreview.css">
+
 <script>
 $(document).ready(function()
 {
@@ -33,8 +34,8 @@ $(document).ready(function()
         var height = img.height();
 
         ratio = maxWidth / width;
-        img.css("width", maxWidth);
-        img.css("height", height * ratio);
+        img.css("width", 114);
+        img.css("height", 114);
         height *= ratio;
         width *= ratio;
 
@@ -48,12 +49,34 @@ $(document).ready(function()
 
         var marginTop = ((maxHeight) - height) / 2;
         var marginLeft = ((maxWidth) - width) / 2;
-        img.css({"margin-top":marginTop+"px","margin-left":marginLeft+"px"});
+        img.css({"margin-top":"0px","margin-left":marginLeft+"px"});
         img.removeClass("notLoaded");
     }
 });
+
 </script>
+
 <div id="product-prewiew">    
+    <!-- album of pictures
+            @author Tomas Paronai-->
+            <script src="libraries/js/albumScript.js"></script>
+            <div class="pictable">
+                <table>
+                	
+                		<?php
+                			$alpha = range('a','z');
+                			$index = 0;
+                			while(file_exists('libraries/img/products/' . $product['productid'] . '/' . $product['productid'] . $alpha[$index] . '.jpg')){
+                				$localPath = 'libraries/img/products/' . $product['productid'] . '/' . $product['productid'] . $alpha[$index] . '.jpg';
+                				$alt = $product['productid'] . $alpha[$index] . '.jpg';
+                				//echo '<td><a href="?page=productPreview&product=' . $product['productid'] . '&index='. $alpha[$index] . '" onclick="changePic('.$alpha[$index].')"><img class="image-album" src="' . $localPath . '" alt="' . $alt . '" width="' . $width . '" height="' . $height . '"></a></td>';
+                				echo '<tr><img class="image-album" src="' . $localPath . '" alt="' . $alt . '" width="114" height="114" onclick="changePic(\''.$alpha[$index].'\',\''.$product['productid'].'\')"></tr><span class="bigpic"><img src="' . $localPath . '" width="300px"></span>';
+                				$index++;
+                			}
+                		?>
+                	
+                </table>
+            </div>
     <div class="product-slider">
             <?php
                 $scaling = new ImageScaling();
@@ -64,7 +87,7 @@ $(document).ready(function()
                 }
                 else{
                 	$size = $scaling->productPreviewImage($product['productid']);
-                	echo '<img id="propic" src="libraries/img/products/' . $product['productid'] . '/' . $product['productid'] . 'a.jpg" width="' . $size[0] . '" height="' . $size[1] . '">';
+                	echo '<a class="highslide" href="libraries/img/products/' . $product['productid'] . '/' . $product['productid'] . 'a.jpg" onclick="return hs.expand(this)"><img id="propic" src="libraries/img/products/' . $product['productid'] . '/' . $product['productid'] . 'a.jpg" width="' . $size[0] . '" height="' . $size[1] . '"></a>';
                 }            
             ?>
     </div>
@@ -73,17 +96,17 @@ $(document).ready(function()
 		<div class="product-name">
             <p><?php echo strtoupper($product['name']);?></p>
         </div>
-    
-        <div class="aftername1">
-                  
-            <div class="product-brand">
-                <?php
-                    $brand = $productController->getProductBrand($product['brandid']);
-                    echo strtoupper($brand['name']);
-                ?>
-            </div>
-                
-            <div class="product-ranking">
+        
+        <div class="desc">
+            <div class="description-title">
+                <p> DESCRIPTION</p>                
+            </div>            	
+            <div class="description-text">
+                <?php echo $product['description'];?>
+            </div>       
+        </div>
+        
+        <div class="product-ranking">
             <?php
                 if($product['numofratings'] > 0) {
                     $rating = $product['sumofratings'] / $product['numofratings'];
@@ -128,27 +151,19 @@ $(document).ready(function()
                 }
             ?>
             </div>
+    
+        <div class="aftername1">
+                  
+            <!--<div class="product-brand">
+                <?php
+                    $brand = $productController->getProductBrand($product['brandid']);
+                    echo strtoupper($brand['name']);
+                ?>
+            </div>-->
+                
+            
 
-                <!-- album of pictures
-            @author Tomas Paronai-->
-            <script src="libraries/js/albumScript.js"></script>
-            <div class="pictable">
-                <table>
-                	<tr>
-                		<?php
-                			$alpha = range('a','z');
-                			$index = 0;
-                			while(file_exists('libraries/img/products/' . $product['productid'] . '/' . $product['productid'] . $alpha[$index] . '.jpg')){
-                				$localPath = 'libraries/img/products/' . $product['productid'] . '/' . $product['productid'] . $alpha[$index] . '.jpg';
-                				$alt = $product['productid'] . $alpha[$index] . '.jpg';
-                				//echo '<td><a href="?page=productPreview&product=' . $product['productid'] . '&index='. $alpha[$index] . '" onclick="changePic('.$alpha[$index].')"><img class="image-album" src="' . $localPath . '" alt="' . $alt . '" width="' . $width . '" height="' . $height . '"></a></td>';
-                				echo '<td><img class="image-album" src="' . $localPath . '" alt="' . $alt . '" width="100" onclick="changePic(\''.$alpha[$index].'\',\''.$product['productid'].'\')"><span class="bigpic"><img src="' . $localPath . '" width="300px"></span></td>';
-                				$index++;
-                			}
-                		?>
-                	</tr>
-                </table>
-            </div>
+                
 
                 <!--<span class="short-describtion">
                 <?php echo substr($product['description'],0,200);?>
@@ -163,13 +178,6 @@ $(document).ready(function()
                 </div>
             </form>
     	</div>
-    	<div class="desc">
-            <div class="description-title">
-                <p> DESCRIPTION</p>                
-            </div>            	
-            <div class="description-text">
-                <?php echo $product['description'];?>
-            </div>       
-        </div>
+    	
     </div>
 </div>
