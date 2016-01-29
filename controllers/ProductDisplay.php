@@ -10,11 +10,17 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= 'ProjektX/';
 include_once ($path . 'API/ImageScaling.php');
 include_once ($path.'API/Product.php');
+?>
+
+
+
+<?php
 
 class ProductDisplay
 {
     public function displayResults($searchResult, $maxInRow) { // Display results on page
-        echo "<div class=\"filters\"></div>";
+        echo "<div class=\"filters\"><div class=\"pricefilter\">Price:<div id=\"sss\"></div></div></div>";
+        
         echo "<div class=\"search-content\">";
 
         $scaling = new ImageScaling();

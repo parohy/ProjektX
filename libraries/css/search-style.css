@@ -1,7 +1,8 @@
 .filters {
     border: 1px solid #ccc;
     width: 1029px;
-    height: 200px;
+    height: 100px;
+    padding: 10px;
     margin-left: 56px;
     margin-top: 20px;
 }
