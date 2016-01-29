@@ -98,13 +98,13 @@ $filter = new Filter();
             </style>
 
 
-            <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 1100px; height: 367px; overflow: hidden; visibility: hidden;">
+            <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 1120px; height: 373px; overflow: hidden; visibility: hidden;">
                 <!-- Loading Screen -->
                 <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
                     <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
                     <div style="position:absolute;display:block;background:url('libraries/img/slider/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
                 </div>
-                <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1100px; height: 367px; overflow: hidden;">
+                <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1120px; height: 373px; overflow: hidden;">
                     <?php
                     $slidesPath = "libraries/img/slider/slides/";
                     $slides = scandir($slidesPath,1);

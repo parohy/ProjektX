@@ -10,7 +10,7 @@ $path .= 'ProjektX/';
 ?>
 
 <link rel="stylesheet" type="text/css" href="libraries/css/categories.css">
-
+<link rel="stylesheet" type="text/css" href="libraries/css/search-style.css">
 <?php	
 	include ($path . 'view/pages/sortingTable.php');
 ?>
