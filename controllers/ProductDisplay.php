@@ -14,7 +14,7 @@ include_once ($path.'API/Product.php');
 class ProductDisplay
 {
     public function displayResults($searchResult, $maxInRow) { // Display results on page
-
+        echo "<div class=\"filters\"></div>";
         echo "<div class=\"search-content\">";
 
         $scaling = new ImageScaling();
@@ -38,7 +38,7 @@ class ProductDisplay
              echo "
                         <div class=\"product-photo\">
                             <img class=\"loader\" src=\"libraries/img/loader.gif\" alt=\"loading...\">
-                            <a href=\"?page=productPreview&product=" . $res . "\"><img class=\"thumbnailImage notLoaded\" src=\"libraries/img/products/" . $res . "/" . $res . "a.jpg\" width=\"" . $size[0] . "\" height=\"" . $size[1] . "\" style=\"margin:" . $margin[1] . "px " . $margin[0] . "px;\" alt=\"product photo\"></a>
+                            <a href=\"?page=productPreview&product=" . $res . "\"><img class=\"thumbnailImage notLoaded\" src=\"libraries/img/products/" . $res . "/" . $res . "a.jpg\" alt=\"product photo\"></a>
                         </div>
                         <div class=\"product-description\">
                             <hr class=\"product-line\">

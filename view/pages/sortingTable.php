@@ -5,7 +5,7 @@
  * Date: 8. 12. 2015
  * Time: 22:15
  */
-?>
+?><!--
 <div class="sorting-table">
     <form id="priceRangeForm" action="" method="GET">
         <ul>
@@ -41,7 +41,7 @@
                     <option value="12" name="lenovo"> LENOVO</option>
                     <option value="15" name="samsung"> SAMSUNG</option>
                 </select>
-            </li>-->
+            </li>
             <li><input type="checkbox" value="1" name="sony"> SONY</li>
             <li><input type="checkbox" value="2" name="panasonic"> PANASONIC</li>
             <li><input type="checkbox" value="10" name="asus"> ASUS</li>
@@ -51,5 +51,5 @@
         </ul>
     </form>    
     <button class="filterButton" onClick="filterSearch()">Search</button>
-</div>
+</div>-->
 <script src="libraries/js/filterRequestScript.js"></script>

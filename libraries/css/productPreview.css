@@ -208,6 +208,16 @@ td:hover .bigpic{
     
 }
 
+.Similar{
+    width: 1120px;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 26px;
+    text-align: center;
+    border-top: 1px solid #d0d0d0;
+}
+
 .group:before,
 .group:after {
     content: " ";

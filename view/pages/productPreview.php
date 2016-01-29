@@ -70,7 +70,7 @@ $(document).ready(function()
                 				$localPath = 'libraries/img/products/' . $product['productid'] . '/' . $product['productid'] . $alpha[$index] . '.jpg';
                 				$alt = $product['productid'] . $alpha[$index] . '.jpg';
                 				//echo '<td><a href="?page=productPreview&product=' . $product['productid'] . '&index='. $alpha[$index] . '" onclick="changePic('.$alpha[$index].')"><img class="image-album" src="' . $localPath . '" alt="' . $alt . '" width="' . $width . '" height="' . $height . '"></a></td>';
-                				echo '<tr><img class="image-album" src="' . $localPath . '" alt="' . $alt . '" width="114" height="114" onclick="changePic(\''.$alpha[$index].'\',\''.$product['productid'].'\')"></tr><span class="bigpic"><img src="' . $localPath . '" width="300px"></span>';
+                				echo '<tr><img class="image-album" src="' . $localPath . '" alt="' . $alt . '" width="114" height="114" onclick="changePic(\''.$alpha[$index].'\',\''.$product['productid'].'\')"></tr>';
                 				$index++;
                 			}
                 		?>
@@ -180,4 +180,8 @@ $(document).ready(function()
     	</div>
     	
     </div>
+    
+</div>
+<div class="Similar">
+        <h2>Similar Products</h2>
 </div>

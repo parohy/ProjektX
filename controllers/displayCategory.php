@@ -35,5 +35,5 @@ if(isset($_GET['catid']))
 }
 
 $results = $filter->getResults();
-$display->displayResults($results, 3);
+$display->displayResults($results, 4);
 ?>
