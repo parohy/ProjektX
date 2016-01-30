@@ -43,7 +43,7 @@ $(function() {
     /*
      * TABS
      */
-    $(".best-sellingButton").click(function(){
+    $(".best-sellingButton").click(function(e){
         $(".activeTab").removeClass("activeTab");
         $(".top-rated").hide();
         $(".new-arrivals").hide();
@@ -52,9 +52,10 @@ $(function() {
         adjustThumbnail();
         load = 2;
         $(".messages").html("");
+        e.preventDefault();
     });
 
-    $(".top-ratedButton").click(function(){
+    $(".top-ratedButton").click(function(e){
         $(".activeTab").removeClass("activeTab");
         $(".best-selling").hide();
         $(".new-arrivals").hide();
@@ -63,9 +64,10 @@ $(function() {
         adjustThumbnail();
         load = 2;
         $(".messages").html("");
+        e.preventDefault();
     });
 
-    $(".new-arrivalsButton").click(function(){
+    $(".new-arrivalsButton").click(function(e){
         $(".activeTab").removeClass("activeTab");
         $(".best-selling").hide();
         $(".top-rated").hide();
@@ -74,6 +76,7 @@ $(function() {
         adjustThumbnail();
         load = 2;
         $(".messages").html("");
+        e.preventDefault();
     });
    
 
