@@ -462,6 +462,7 @@ body {
     margin-left: 10px;
     border: 1px solid #cacaca;
     vertical-align: top;
+    cursor: pointer;
 }
 
 .product-item:hover{

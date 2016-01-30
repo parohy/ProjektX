@@ -17,8 +17,8 @@ if(isset($_GET['productid'])){
 }
 
 if(headers_sent()){
-	die('Redirect failed. Please click on <a href="?page=private/pageSettings&settings=products">this</a> to try again.');
+	die('Redirect failed. Please click on <a href="?page=private/pageSettings&settings=products&display=20&pagination=1">this</a> to try again.');
 }
 else{
-	exit(header('Location: ?page=private/pageSettings&settings=products'));
+	exit(header('Location: ?page=private/pageSettings&settings=products&display=20&pagination=1'));
 }

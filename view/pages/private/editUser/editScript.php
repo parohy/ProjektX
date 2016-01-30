@@ -26,7 +26,7 @@ if(isset($_SESSION['userrole']) && $_SESSION['userrole'] == 1){
 	}
 }
 else{
-	$exitTo .= 'private/pageSettings&settings=users';
+	$exitTo .= 'private/pageSettings&settings=users&display=20&pagination=1';
 	proceed($check,$editUser);
 }
 

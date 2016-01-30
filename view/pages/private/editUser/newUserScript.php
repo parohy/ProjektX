@@ -34,7 +34,7 @@ if($name != "" && $surname != "" && $email != "" && $check->checkEmail($email, 5
 
 if($newUser != null && $newUser->isSaved()){
 	$_SESSION['editErr'] = "Saved.";
-	$exitTo .= '&settings=users';
+	$exitTo .= '&settings=users&display=20&pagination=1';
 }
 else{
 	$_SESSION['editErr'] = "Name, surname and email is required!";

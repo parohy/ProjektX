@@ -70,8 +70,7 @@
 }
 
 .items li:nth-child(2n), .items li:nth-child(2n) .page-link>i {
-    color: #fff;
-    background: #34A994;
+    background: #d8f3ed;
 }
 
 .username {

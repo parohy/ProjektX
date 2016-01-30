@@ -14,6 +14,6 @@ $editUser;
 if(isset($_GET['userid'])){
 	$editUser = User::editUser($_GET['userid']);
 	$editUser->delete();
-	header('Location: ?page=private/pageSettings&settings=users');
+	header('Location: ?page=private/pageSettings&settings=users&display=20&pagination=1');
 	exit();
 }

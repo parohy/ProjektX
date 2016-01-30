@@ -13,8 +13,8 @@ if($_SESSION['username'] != "admin") {
 <aside class="side-nav">
 <nav class="admin-nav">
     <ul>
-        <li><a href="?page=private/pageSettings&settings=users">Users</a></li>
-        <li><a href="?page=private/pageSettings&settings=products">Products</a></li>
+        <li><a href="?page=private/pageSettings&settings=users&display=20&pagination=1">Users</a></li>
+        <li><a href="?page=private/pageSettings&settings=products&display=20&pagination=1">Products</a></li>
         <li><a href="?page=private/pageSettings&settings=sliderSettings">Slider settings</a></li>
 		<li><a href="?page=private/pageSettings&settings=statistics">Statistics</a></li>
 	</ul>

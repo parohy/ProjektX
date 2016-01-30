@@ -45,7 +45,7 @@ $product->save();
 if($product->saved){
 	//header('Location: ../?page=private/pageSettings&settings=addProduct');
 	if(headers_sent()){
-		$url = '../index.php?page=private/pageSettings&settings=products';
+		$url = '../index.php?page=private/pageSettings&settings=products&display=20&pagination=1';
 		//die('Redirect failed. Please click on <a href="'.$url.'">this</a> to try again.');
 	}
 	else{

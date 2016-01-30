@@ -56,10 +56,10 @@ class ProductEditorController{
 	
 		echo '<div class="paging">';
 		echo '<div class="displayAmount">';
-        echo '<a class="page" href="?page=private/pageSettings&settings=products&display=5&pagination=1">5</a>';
         echo '<a class="page" href="?page=private/pageSettings&settings=products&display=10&pagination=1">10</a>';
         echo '<a class="page" href="?page=private/pageSettings&settings=products&display=20&pagination=1">20</a>';
         echo '<a class="page" href="?page=private/pageSettings&settings=products&display=50&pagination=1">50</a>';
+        echo '<a class="page" href="?page=private/pageSettings&settings=products&display=100&pagination=1">100</a>';
         echo '</div>';
 
 		
