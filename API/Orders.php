@@ -23,8 +23,8 @@ class Order{
         public $city="";
         public $postcode="";
         public $datecreated="";
-        public $shipped="";
-        public $orderprice="";
+        public $shipped=0;
+        public $orderprice=0;
         public $alldetails=array();
 
 	/**
@@ -35,7 +35,7 @@ class Order{
         public function __construct($id=null){
             $this->handlerDB = new DBHandler();
             $this->id=$id;
-            $this->alldetails=getDetails();
+            $this->alldetails=$this->getDetails();
             $this->load();
 	}
 
@@ -98,7 +98,9 @@ class Order{
             $this->handlerDB->bind(':datecreated', $this->datecreated);
             $this->handlerDB->bind(':shipped', $this->shipped);
             $this->handlerDB->bind(':orderprice', $this->orderprice);
+            $id=1+$this->handlerDB->lastInsertId();
             $this->handlerDB->execute();
+            return $id;
         }
 	
         /**
