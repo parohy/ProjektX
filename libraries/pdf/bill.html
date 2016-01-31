@@ -2,49 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../css/billpdf.css">
     <title></title>
 </head>
 <body>
     <!-- HEAD -->
-    <h1 align="left">Bill - tax document</h1> <!-- -->
-    <h3 align="right">c0061601012</h3> <!-- pdf file num 006-userid | 1601-2016 01 | 012-orderid -->
-    <hr>
-
-    <!-- ADDRESS -->
-    <table align="center" width="600">
-        <tr>
-            <td align="left">
-                <b>contractor</b>
-                <ul>
-                    <li>VIATECH s.r.o.</li>
+    <h1>VIATECH s.r.o.</h1> <!-- -->
+    <div class="invoice">INVOICE</div>
+    <div class="comp">
+    <ul>
                     <li>Dneperska 1</li>
-                    <li>040 12 Kosice</li>
+                    <li>040 01 Kosice</li>
                     <li>IC: xxxxxxxxx</li>
                     <li>DIC: xxxxxxxxxxxxx</li>
-                </ul>
-
-            </td>
-
-            <td align="right">
-                <b>customer</b>
+    </ul></div>
+    <div class="cust">
+    <div class="customer">Customer details</div>
                 <ul>
                     <li>Joe Ananas</li>
                     <li>Komenskeho 4</li>
                     <li>080 01 Presov</li>
-                </ul>
-            </td>
+                </ul></div>
+    <br/>
+    <h3>Order NO.: c0061601012</h3> <!-- pdf file num 006-userid | 1601-2016 01 | 012-orderid -->
+    <h3>Order date: 15.12.2014</h3>
+    <br/>
+    <hr>
+    <br/>
+    <table>
+        <tr>
+            <td>Description</td>
+            <td>Rate</td>
+            <td>Quantity</td>
+            <td>Gross</td>
+        </tr>
+        <tr>
+            <td>Sony sracka na usi</td>
+            <td>199.99 eur</td>
+            <td>2</td>
+            <td>399.98 eur</td>
+        </tr>
+        <tr>
+            <td>Adidas topanky s wifi</td>
+            <td>99.99 eur</td>
+            <td>1</td>
+            <td>99.99 eur</td>
         </tr>
     </table>
-    <hr>
 
-    <!-- BODY -->
-    <ol>
-        <li><div align="left">Sony sracka na usi</div><div align="center">2x</div><div align="right">199.98 eur</div></li>
-        <li><div align="left">Adidas topanky s wifi</div><div align="center">1x</div><div align="right">99.99 eur</div></li>
-    </ol>
-    <div align="right">Sum: 299.97 eur</div>
-    <hr>
-
+    <div class="summ">Gross Total: </div><div class="price">499.97 eur</div></div>
+    <br/>   <br/><hr>
+    
 <!-- FOOTER-->
     <div align="bottom">ViaTech Dneperska 1, Kosice, Slovakia +421 902 095 588 viatech@gmail.com</div>
 
