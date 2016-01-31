@@ -128,7 +128,7 @@ class Order{
                 $results = $this->handlerDB->resultSet();
 
                 foreach($results as $detail){
-                    $details[]=$detail('detailid');        
+                    $details[]=$detail['detailid'];
                 }  
             }
             return $details;

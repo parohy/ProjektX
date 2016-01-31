@@ -8,6 +8,7 @@ session_start();
 $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= 'ProjektX/';
 include_once ($path.'API/Orders.php');
+include_once ($path.'API/PDFGen.php');
 
 $order = new Order();
 
@@ -28,11 +29,15 @@ if(isset($_SESSION['userid']))
 }
 else
 {
-	echo $_SESSION['userid'];
+	//echo $_SESSION['userid'];
 	$order->userid="";
 }
 
-$order->save();
+//$order->save();
+$tempId = $order->save();
+$pdfBill = new pdfFile(12);
+$pdfBill->buildPDF();
+echo $pdfBill->getPath();
 
-header('Location:  ../index.php?page=endline');
+header('Location:  ../index.php?page=endline&filepath='.$pdfBill->getPath().'');
 ?>
