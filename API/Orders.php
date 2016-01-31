@@ -98,8 +98,11 @@ class Order{
             $this->handlerDB->bind(':datecreated', $this->datecreated);
             $this->handlerDB->bind(':shipped', $this->shipped);
             $this->handlerDB->bind(':orderprice', $this->orderprice);
-            $id=1+$this->handlerDB->lastInsertId();
             $this->handlerDB->execute();
+            //$id=1+$this->handlerDB->lastInsertId();
+            $this->handlerDB->query("SELECT orderid FROM orders");
+            $result = $this->handlerDB->resultSet();
+            $id = $result[count($result)-1]['orderid'];
             return $id;
         }
 	

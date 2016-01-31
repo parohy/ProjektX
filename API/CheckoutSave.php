@@ -24,7 +24,7 @@ $order->shipped=0;
 
 if(isset($_SESSION['userid']))
 {
-	echo $_SESSION['userid'];
+	//echo $_SESSION['userid'];
 	$order->userid=$_SESSION['userid'];
 }
 else
@@ -33,11 +33,9 @@ else
 	$order->userid="";
 }
 
-//$order->save();
-$tempId = $order->save();
-$pdfBill = new pdfFile(12);
+$pdfBill = new pdfFile($order->save());
 $pdfBill->buildPDF();
-echo $pdfBill->getPath();
+$_SESSION['filepath'] = $pdfBill->getPath();
 
-header('Location:  ../index.php?page=endline&filepath='.$pdfBill->getPath().'');
+header('Location:  ../index.php?page=endline');
 ?>
