@@ -81,6 +81,12 @@
 
 .prodname {
     float: left;
+    float: left;
+    text-align: left;
+    width: 670px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .email {
