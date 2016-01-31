@@ -38,106 +38,16 @@ class pdfFile{
     }
 
     private function createStyle(){
-	$this->htmlOut .= '<style>';
-	$this->htmlOut .= '
-            body{
-   width: 678px;
-   height: 100%;
-   padding-left: 50px;
-   padding-right: 50px;
-   padding-top: 30px;
-   margin: auto;
-   border-left: 1px solid black;
-   border-right: 1px solid black;
-   border-top: 1px solid black; 
-}
-
-h1{
-   
-    font-size: 30px;
-    width:50%;
-    
-    margin-bottom: 0px;
-}
-
-ul{
-    list-style-type: none;
-}
-
-.invoice{
-   text-decoration: underline;
-   font-size: 36px;
-   text-align: right;
-   
-}
-
-.comp{
-    
-    width: 30%;
-    
-}
-
-.customer{
-   font-weight: 700;
-}
-
-.cust{
-    padding-top: 30px;
-    padding-right: 50px;
-    
-    text-align: right;
-    
-    vertical-align: bottom;
-}
-
-h3{
-    margin-bottom: 0px;
-    margin-top: 0px;
-}
-
-table{
-    border: 1px solid black; 
-    width: 100%;
-    text-align: right;
-}
-
-tr:nth-child(1){
-    background-color: black;
-    color: white;
-    text-align: left;
-}
-
-td:nth-child(1){
-    text-align: left;
-}
-
-td{
-    padding: 5px;
-}
-
-.summ{
-    font-size: 24px;
-    padding: 20px;
-    padding-right: 50px;
-    text-align: right;
-   
-    
-}
-
-.price{
-    padding-right: 0px;
-    font-size: 24px;
-    text-align: right;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-}
-        ';
-	$this->htmlOut .= '</style>';
+        $stylesheet = file_get_contents('../libraries/css/bill.css');
+        $this->pdfFile->WriteHTML($stylesheet,1);
     }
 
     private function createHead(){
-        $this->htmlOut .= '
-            <h1>VIATECH s.r.o.</h1> <!-- -->
+        $this->htmlOut .= ' <h1>VIATECH s.r.o.</h1> ';
+    }
+
+    private function createAddress(){
+        $this->htmlOut .= '<!-- -->
             <div class="invoice">INVOICE</div>
             <div class="comp">
             <ul>
@@ -155,16 +65,11 @@ td{
                         </ul></div>
             <br/>
             <h3>Order NO.: '.$this->pdfID.'</h3> <!-- pdf file num 006-userid | 1601-2016 01 | 012-orderid -->
-            <h3>Order date: 15.12.2014</h3>
+            <h3>Order date: '.substr($this->order->datecreated,0,10).'</h3>
             <br/>
             <hr>
             <br/>
         ';
-        
-    }
-
-    private function createAddress(){
-        
     }
 
     private function createSum(){
