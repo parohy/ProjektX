@@ -4,6 +4,7 @@
     position: fixed;
     background-color: #595959;
     background-color: rgba(50,50,50,0.6);
+    z-index: 100;
     top: 0;
     left: 0;
 }
