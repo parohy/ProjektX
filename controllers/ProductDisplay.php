@@ -19,7 +19,28 @@ include_once ($path.'API/Product.php');
 class ProductDisplay
 {
     public function displayResults($searchResult, $maxInRow) { // Display results on page
-        echo "<div class=\"filters\"><div class=\"pricefilter\">Price:<div id=\"sss\"></div></div></div>";
+        echo "
+            <div class=\"filters\">
+                <div class=\"pricefilter\">Price:
+                    <div id=\"noUiSlider\" style=\"display: inline-block; margin-left: 20px\"></div>
+                    <div class=\"pricelimits\">
+                        <div id=\"pricehand1\">0</div>
+                        <div id=\"pricehand2\">0</div>
+                    </div>
+                </div>
+                <div class=\"sortby\">Sort by: </div>
+                <div class=\"styled-select\">
+                    <select>
+                      <option value=\"az\">A-Z</option>
+                      <option value=\"za\">Z-A</option>
+                      <option value=\"high\">Price: High to Low</option>
+                      <option value=\"low\">Price: Low to High</option>
+                      <option value=\"popular\">Most popular</option>
+                    </select>
+                </div>
+                <div class=\"brands\">Brands: </div>
+            </div>
+        ";
         
         echo "<div class=\"search-content\">";
 
@@ -96,3 +117,4 @@ class ProductDisplay
     }
 }
 ?>
+

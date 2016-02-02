@@ -1,9 +1,73 @@
 .filters {
-    border: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
     width: 1029px;
-    height: 100px;
+    height: 62px;
     padding: 10px;
     margin-left: 56px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
+.pricefilter{
+    width: 300px;
+    margin-right: 0px;
+    display: inline-block;
+    margin-top: 4px;
+}
+
+#price{
+    width: 45px;
+    display: inline-block;
+}
+
+#showlimits{
+    
+    margin-left: 56px;
+    width: 400px;
+}
+
+.pricelimits{
+    display: block;
+    margin-left: 56px;
+}
+
+#pricehand1{
+    width: 45px;
+    display: inline-block;
+}
+
+#pricehand2{
+    width: 45px;
+    display: inline-block;
+    margin-left: 136px;
+}
+
+.styled-select{
+    width: 150px;
+    height: 30px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 26px;
+   
+}
+
+.styled-select select {
+   background: transparent;
+   width: 150px;
+   padding: 5px;
+   font-size: 14px;
+   color: #595959;
+   font-family: 'Source Sans Pro', sans-serif;
+   font-style: normal;
+   
+   border: 1px solid #595959;
+   border-radius: 0px;
+   height: 30px;
+   
+   }
+
+   .sortby, .brands{
+       display: inline-block;
+       width: 60px;
+       vertical-align: top;
+       margin-top: 4px;
+   }
