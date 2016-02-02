@@ -37,7 +37,8 @@ class Login{
 	public function checkLogin($email, $password){
 
         if($this->userExists($email)) {
-            if($this->user['delete'] == 0 && password_verify($password,$this->user['password'])) {
+
+            if($this->user['deleted'] == 0 && $this->user['activated'] == 1 && password_verify($password,$this->user['password'])) {
                 $this->userName = $this->user['name'];
                 $this->userId = $this->user['userid'];
                 $_SESSION['userrole'] = $this->user['role'];
@@ -70,7 +71,7 @@ class Login{
      * @author Matus Kacmar
      */
     private function userExists($mail) {
-        $this->handlerDB->query('SELECT email,password,name,userid,role FROM users WHERE email=:mail');
+        $this->handlerDB->query('SELECT email,password,name,userid,role,deleted,activated FROM users WHERE email=:mail');
         $this->handlerDB->bind(":mail",$mail);
         $this->user = $this->handlerDB->singleRecord();
 

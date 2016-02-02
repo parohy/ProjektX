@@ -24,7 +24,7 @@ else{
     	<?php if(isset($_GET['profile']) && $_GET['profile']=='editUser') echo '<li><a href="?page=accountSettings&profile=userPreview">Profile</a></li>'; else echo '<li><a href="?page=accountSettings&profile=editUser">Change profile</a></li>'?>
     	<li><a href="?page=accountSettings&profile=passRecover&password=new">Change password</a></li>        
         <li><a href="">Orders</a></li>
-        <li><a href="" id="deleteAccount">Delete account</a></li>
+        <li><a href="controllers/deleteUserController.php?user=<?php echo $_SESSION['userid']?>" id="deleteAccount">Delete account</a></li>
     </ul>
 </nav>
 </aside>
@@ -50,8 +50,14 @@ else{
                     "<h1>ARE YOU SURE ?</h1>" +
                     "<button id='confirm'>YES</button><button id='decline'>NO</button>",400,200);
 
-                $("#confirm").click({
-                    //$.get("controllers/deleteUserController.php?user=");
+                $("#confirm").click(function(){
+
+                    var path = $("#deleteAccount").attr("href");
+                    $.get(path,function(data){});
+                    $(".popupContainer").remove();
+
+                    document.location.href= "?login=false";
+                    return false;
                 });
 
                 $("#decline").click(function(){
