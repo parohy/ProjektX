@@ -9,9 +9,9 @@ $(function () {
 
         $.getScript('libraries/js/popup.js', function () {
             popup("ACTION CONFIRMATION",
-                "<h1>DO YOU WANT TO CONTINUE SHOPPING ?</h1>" +
-                "<button id='confirm'>YES</button><button id='decline'>NO</button>", 400, 200);
-
+                "<h1 class=\"textinpopup\">Do you want to continue shopping?</h1>" +
+                "<button id='confirm'>Yes, please.</button><button id='decline'>No, thanks.</button>", 400, 180);
+            
             $("#confirm").click(function(){
                 $.get(destination, function (data, status) {
                     $(".amount").innerHTML = "";

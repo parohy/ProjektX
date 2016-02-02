@@ -1,11 +1,14 @@
 .popupContainer {
     width: 100%;
-    height: 768px;
+    height: 100%;
     position: fixed;
+    background-color: #595959;
+    background-color: rgba(50,50,50,0.6);
     top: 0;
     left: 0;
 }
 .popupFrame {
+    background-color: rgba(50,50,50,0);
     width: 200px;
     height: 200px;
     position: absolute;
@@ -13,15 +16,21 @@
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
-    background: #e5e5e5;
+    background: white;
+    border: 1px solid #898989;
+    -webkit-box-shadow: 10px 10px 25px -6px rgba(0,0,0,0.63);
+    -moz-box-shadow: 10px 10px 25px -6px rgba(0,0,0,0.63);
+    box-shadow: 10px 10px 25px -6px rgba(0,0,0,0.63);
 }
 .popupTitle {
     width: 100%;
     height: 25px;
     color: #fff;
     padding: 2px;
-    padding-left: 10px;
+    padding-left: 111px;
     background: #34A994;
+    font-weight: 300;
+    letter-spacing: 1px;
 }
 .popupBody {
     width: 100%;
@@ -31,20 +40,32 @@
 
 .popupBody button {
     height: 35px;
+    width: 100px;
     padding: 10px;
     color: #fff;
     border: none;
     background: #34A994;
     margin: 10px;
+    cursor: pointer;
+}
+
+.popupBody button:active{
+    background: #298776;
 }
 
 #closePopup {
     display: block;
     float: right;
     height: 100%;
-    font-weight: bold;
+    font-weight: 400;
     color: #fff;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 16px;
     margin: 0 10px 0 0;
+}
+
+.textinpopup{
+    font-size: 28px;
+    font-weight: 300;
+    margin-bottom: 5px;
 }
