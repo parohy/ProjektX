@@ -71,26 +71,26 @@ if($_GET['register'] == 'registration'){
 	if($_SESSION['registerErr']==true){
 		$_SESSION['registerErr'] = "User registered.";
 		
-		/*login after registration*/
+		/*login after registration
 		$_SESSION['loggedin'] = true;
 		if(isset($user)) {
             $_SESSION['username'] = $user->getData('name');
             $_SESSION['userid'] = $user->getId();
             $_SESSION['userrole'] = $user->getData('role');
-        }
+        }*/
 
         $mail = new Mail();
         $mail->addRecipient($email);
 
-        $mail->composeMail("Activation",'
-        <h1>Welcome you are one step away from becoming full user</h1>
+        $htmMail = '<h1>Welcome you are one step away from becoming full user</h1>
         <p>
-        Click this link for your account activation <a href="http://www.cassomedia.sk/">http://www.cassomedia.sk/</a>
-        </p>
-        ',"
+        Click this link for your account activation <a href="http://www.cassomedia.sk/controllers/activate.php?user='.$user->getId().'">http://www.cassomedia.sk/controllers/activate.php?user='.$user->getId().'</a>
+        </p>';
+
+        $mail->composeMail("Activation",$htmMail,"
         Welcome you are one step away from becoming full user
-        Visit this link for your account activation http://www.cassomedia.sk/
-        ");
+        Visit this link for your account activation http://www.cassomedia.sk/controllers/activate.php?user=".$user->getId().
+            "");
 
         $mailResponse = $mail->sendMail();
         if($mailResponse != "success") {
