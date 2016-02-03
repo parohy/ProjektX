@@ -106,7 +106,7 @@ class ProductDisplay
     
     private function productButtons($id, $name, $price){
     	$out = "";
-    	if((isset($_SESSION['username']) && $_SESSION['username'] != "admin") || !isset($_SESSION['username'])){
+    	if((isset($_SESSION['userrole']) && $_SESSION['userrole'] != "2") || !isset($_SESSION['username'])){
     		$out = "<a href='controllers/addToCart.php?productid=".$id."&name=".$name."&price=".$price."' class='addToCart'>Add to Cart</a>";
     	}
     	else if(isset($_SESSION['username']) && $_SESSION['username'] == "admin"){

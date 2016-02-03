@@ -174,15 +174,17 @@ $filter = new Filter();
                 <?php
                 $products = $filter->getResults();
 
+                $counter = 0;
+                $display = new ProductDisplay();
                 for($i=0;$i<$max;$i++){
-                    $product = new Product($products[$i]);
+                    //$product = new Product($products[$i]);
                     $counter++;
 
                     if($counter == 1) {
                         echo '<div class="row">';
                     }
-
-                    echo '<div class="product-item">';
+                    echo $display->displayProduct($products[$i]);
+                    /*echo '<div class="product-item">';
 
                     echo '<div class="product-photo"><a href="?page=productPreview&product='.$product->id.'"><img alt="product-photo" src="libraries/img/products/'.$product->id.'/'.$product->id.'a.jpg" class="thumbnailImage"></a></div>';
                     echo '<div class="product-description">';
@@ -190,7 +192,7 @@ $filter = new Filter();
                     echo '<h3 class="product-name">'.substr($product->name,0,40).'</h3>';
                     echo '<span class="price">'.$product->price.'<i class="fa fa-eur"></i></span>';
                     echo '<a href="controllers/addToCart.php?productid='.$product->id.'&name='.$product->name.'&price='.$product->price.'" class="addToCart">Add to Cart</a>';
-                    echo '</div></div>';
+                    echo '</div></div>';*/
 
                     if($counter == 4) {
                         echo '</div>';
@@ -206,15 +208,17 @@ $filter = new Filter();
                 $filter->categoryQuery();
                 $products = $filter->getResults();
 
+                $counter = 0;
+                $display = new ProductDisplay();
                 for($i=0;$i<$max;$i++){
-                    $product = new Product($products[$i]);
+                    //$product = new Product($products[$i]);
                     $counter++;
 
                     if($counter == 1) {
                         echo '<div class="row">';
                     }
-
-                    echo '<div class="product-item">';
+                    echo $display->displayProduct($products[$i]);
+                    /*echo '<div class="product-item">';
 
                     echo '<div class="product-photo"><a href="?page=productPreview&product='.$product->id.'"><img alt="product-photo" src="libraries/img/products/'.$product->id.'/'.$product->id.'a.jpg" class="thumbnailImage"></a></div>';
                     echo '<div class="product-description">';
@@ -222,7 +226,7 @@ $filter = new Filter();
                     echo '<h3 class="product-name">'.substr($product->name,0,40).'</h3>';
                     echo '<span class="price">'.$product->price.'<i class="fa fa-eur"></i></span>';
                     echo '<a href="controllers/addToCart.php?productid='.$product->id.'&name='.$product->name.'&price='.$product->price.'" class="addToCart">Add to Cart</a>';
-                    echo '</div></div>';
+                    echo '</div></div>';*/
 
                     if($counter == 4) {
                         echo '</div>';

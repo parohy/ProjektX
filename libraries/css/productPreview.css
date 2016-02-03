@@ -230,6 +230,11 @@ td:hover .bigpic{
     *zoom:1 ;
 }
 
+.adminbutts a{
+    color: #34a994;
+    padding: 20px;
+}
+
 /*@media screen and (max-width: 1415px) {
     #about-product{
         width: 45%;

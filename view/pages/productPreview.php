@@ -174,7 +174,15 @@ $(document).ready(function()
                     <?php echo $product['price'] . ' €';?>
                 </span>
                 <div class="submit-input">
-                    <input type="submit" value="BUY" name="BUY">
+                    <?php
+                    if((isset($_SESSION['userrole']) && $_SESSION['userrole'] != "2") || !isset($_SESSION['username'])){
+                        echo '<input type="submit" value="BUY" name="BUY">';
+                    }
+                    else{
+                        echo '<div class="adminbutts"><a href="?page=private/pageSettings&settings=addProduct&productid='.$id.'"><i class="fa fa-pencil-square-o fa-2x"></i></a> <a href="?page=private/editProduct/deleteProduct&productid='.$id.'"><i class="fa fa-times fa-2x"></i></a></div>';
+                    }
+                    ?>
+
                 </div>
             </form>
     	</div>
