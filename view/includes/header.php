@@ -17,9 +17,9 @@
 <div class="group top">
     <div class="welcome">
         <?php
-        if(isset($_SESSION['loggedin']) && isset($_SESSION['username'])) {
+        if(isset($_SESSION['loggedin']) && isset($_SESSION['userrole'])) {
             if($_SESSION['loggedin'] == "true") {
-                if($_SESSION['username'] == "admin") {
+                if($_SESSION['userrole'] == "2") {
                     echo '<span class="welcome-label"><img src="libraries/img/icons/user icon.png"><strong class="welcome-buttons"><a href="?page=private/pageSettings">PAGE SETTINGS</a></strong> / <strong class="welcome-buttons"><a href="?login=false">LOG OUT</a></strong></span>';
                 }
                 else {
@@ -53,7 +53,7 @@
     <div class="search">
         
     	<?php
-    	if((isset($_SESSION['username']) && $_SESSION['username'] != "admin") || !isset($_SESSION['username'])){
+    	if((isset($_SESSION['userrole']) && $_SESSION['userrole'] != "2") || !isset($_SESSION['username'])){
     		echo '<img class="shopicon" src="libraries/img/icons/cart-icon.png">';
     		echo '<div class="cart">
             <div class="cart-title" href="?page=cart">
