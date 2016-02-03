@@ -99,11 +99,13 @@ class Order{
             $this->handlerDB->bind(':shipped', $this->shipped);
             $this->handlerDB->bind(':orderprice', $this->orderprice);
             $this->handlerDB->execute();
-            //$id=1+$this->handlerDB->lastInsertId();
-            $this->handlerDB->query("SELECT orderid FROM orders");
-            $result = $this->handlerDB->resultSet();
-            $id = $result[count($result)-1]['orderid'];
-            return $id;
+            if($this->id==null){
+                //$this->handlerDB = new DBHandler();
+                $this->handlerDB->query("SELECT orderid FROM orders ORDER BY orderid DESC LIMIT 1 ");
+                $result = $this->handlerDB->resultSet();
+                $this->id=$result[0]['orderid'];       
+            }
+            
         }
 	
         /**

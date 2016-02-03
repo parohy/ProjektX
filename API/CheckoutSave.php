@@ -9,6 +9,7 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= 'ProjektX/';
 include_once ($path.'API/Orders.php');
 include_once ($path.'API/PDFGen.php');
+include_once ($path.'API/OrderDetails.php');
 
 $order = new Order();
 
@@ -20,7 +21,29 @@ $order->address=$_POST['address'];
 $order->city=$_POST['city'];
 $order->postcode=$_POST['psc'];
 $order->shipped=0;
-//TODO: price
+
+$cartContent = $_SESSION['cart'];
+$totalprice=0;
+
+foreach($cartContent as $item)
+{
+        $totalprice+=$item['price'];
+}
+$order->orderprice=$totalprice;
+
+$order->save();
+echo $id=$order->id;
+
+foreach($cartContent as $item)
+{
+        $detail=new OrderDetail;
+        $detail->productid=$item['id'];
+        $detail->orderid=$id;
+        $detail->quantity=$item['count'];
+        $detail->detailprice=$item['price'];
+        $totalprice+=$item['price'];
+        $detail->save();
+}
 
 if(isset($_SESSION['userid']))
 {
@@ -33,7 +56,7 @@ else
 	$order->userid="";
 }
 
-$pdfBill = new pdfFile($order->save());
+$pdfBill = new pdfFile($id);
 $pdfBill->buildPDF();
 $_SESSION['filepath'] = $pdfBill->getPath();
 
