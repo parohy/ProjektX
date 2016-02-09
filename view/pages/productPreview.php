@@ -16,6 +16,7 @@ $product = $productController->getProduct($_GET['product']);
 ?>
 
 <link rel="stylesheet" type="text/css" href="libraries/css/productPreview.css">
+<link rel="stylesheet" type="text/css" href="libraries/css/imagePopup.css">
 
 <script>
 $(document).ready(function()
@@ -70,7 +71,7 @@ $(document).ready(function()
                 				$localPath = 'libraries/img/products/' . $product['productid'] . '/' . $product['productid'] . $alpha[$index] . '.jpg';
                 				$alt = $product['productid'] . $alpha[$index] . '.jpg';
                 				//echo '<td><a href="?page=productPreview&product=' . $product['productid'] . '&index='. $alpha[$index] . '" onclick="changePic('.$alpha[$index].')"><img class="image-album" src="' . $localPath . '" alt="' . $alt . '" width="' . $width . '" height="' . $height . '"></a></td>';
-                				echo '<tr><img class="image-album" src="' . $localPath . '" alt="' . $alt . '" width="114" height="114" onclick="changePic(\''.$alpha[$index].'\',\''.$product['productid'].'\')"></tr>';
+                				echo '<tr><img class="image-album" src="' . $localPath . '" alt="' . $alt . '" width="114" height="114"></tr>';
                 				$index++;
                 			}
                 		?>
