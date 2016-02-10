@@ -62,7 +62,7 @@
             echo '<a class="pro-button disabled" href="#">Proceed to checkout</a>';
         }
         else {
-            echo '<a class="pro-button" href="?page=checkout&numOfItems=<?php echo $numOfItems;?>&totalCost=<?php echo $totalCost;?>">Proceed to checkout</a>';
+            echo '<a class="pro-button" href="?page=checkout&numOfItems='.$numOfItems.'&totalCost='.$totalCost.'">Proceed to checkout</a>';
         }
     ?>
 	
