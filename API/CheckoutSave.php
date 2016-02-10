@@ -64,7 +64,7 @@ $_SESSION['filepath'] = $pdfPath;
 
 $mail = new Mail();
 $mail->addRecipient($order->email);
-$mail->composeMail("Bill","<p>Thank you for your purchase here is your bill in pdf></p>","Thank you for your purchase here is your bill in pdf");
+$mail->composeMail("Bill","<p>Thank you for your purchase here is your bill in pdf</p>","Thank you for your purchase here is your bill in pdf");
 $mail->attachement($path.$pdfPath,"Bill.pdf");
 $mail->sendMail();
 
