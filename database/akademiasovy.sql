@@ -2,10 +2,10 @@
 -- version 4.1.14
 -- http://www.phpmyadmin.net
 --
--- Hostiteľ: 127.0.0.1
--- Čas generovania: St 27.Jan 2016, 20:17
--- Verzia serveru: 5.6.17
--- Verzia PHP: 5.5.12
+-- Host: 127.0.0.1
+-- Generation Time: Feb 09, 2016 at 09:45 PM
+-- Server version: 5.6.17
+-- PHP Version: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Databáza: `akademiasovy`
+-- Database: `akademiasovy`
 --
 
 -- --------------------------------------------------------
 
 --
--- Štruktúra tabuľky pre tabuľku `brands`
+-- Table structure for table `brands`
 --
 
 CREATE TABLE IF NOT EXISTS `brands` (
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `brands` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=30 ;
 
 --
--- Sťahujem dáta pre tabuľku `brands`
+-- Dumping data for table `brands`
 --
 
 INSERT INTO `brands` (`brandid`, `name`) VALUES
@@ -70,7 +70,7 @@ INSERT INTO `brands` (`brandid`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Štruktúra tabuľky pre tabuľku `categories`
+-- Table structure for table `categories`
 --
 
 CREATE TABLE IF NOT EXISTS `categories` (
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=24 ;
 
 --
--- Sťahujem dáta pre tabuľku `categories`
+-- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`categoryid`, `name`, `parent`) VALUES
@@ -112,7 +112,7 @@ INSERT INTO `categories` (`categoryid`, `name`, `parent`) VALUES
 -- --------------------------------------------------------
 
 --
--- Štruktúra tabuľky pre tabuľku `orderdetails`
+-- Table structure for table `orderdetails`
 --
 
 CREATE TABLE IF NOT EXISTS `orderdetails` (
@@ -127,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `orderdetails` (
 -- --------------------------------------------------------
 
 --
--- Štruktúra tabuľky pre tabuľku `orders`
+-- Table structure for table `orders`
 --
 
 CREATE TABLE IF NOT EXISTS `orders` (
@@ -147,7 +147,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=12 ;
 
 --
--- Sťahujem dáta pre tabuľku `orders`
+-- Dumping data for table `orders`
 --
 
 INSERT INTO `orders` (`orderid`, `userid`, `name`, `surname`, `email`, `phone`, `address`, `city`, `postcode`, `datecreated`, `shipped`, `orderprice`) VALUES
@@ -166,7 +166,7 @@ INSERT INTO `orders` (`orderid`, `userid`, `name`, `surname`, `email`, `phone`, 
 -- --------------------------------------------------------
 
 --
--- Štruktúra tabuľky pre tabuľku `products`
+-- Table structure for table `products`
 --
 
 CREATE TABLE IF NOT EXISTS `products` (
@@ -185,7 +185,7 @@ CREATE TABLE IF NOT EXISTS `products` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=56 ;
 
 --
--- Sťahujem dáta pre tabuľku `products`
+-- Dumping data for table `products`
 --
 
 INSERT INTO `products` (`productid`, `categoryid`, `amount`, `name`, `price`, `brandid`, `description`, `viewamount`, `datecreated`, `numofratings`, `sumofratings`) VALUES
@@ -194,11 +194,11 @@ INSERT INTO `products` (`productid`, `categoryid`, `amount`, `name`, `price`, `b
 (3, 11, 35, 'Sony MDREX10LP/BLK In-Ear Headphones', 14.99, 1, '9mm driver unit, neodymium magnet, hybrid silicone earbuds (S/M/L), 1.2m Y-Type cord\r\nWide range of colours to choose from\r\nPowerful bass and high resolution treble\r\nSecure fit hybrid silicone earbuds', 1, '2015-11-20 23:29:44', 1, 1),
 (4, 11, 10, 'Bose SoundTrue In-Ear Headphones, Cranberry', 79.99, 3, 'Bose SoundTrue In-Ear Headphones have the audio quality and sophisticated style your busy life demands. They deliver deep, clear sound for the music you love. The StayHear tips keep the headphones comfortably in place for hours of listening. They are engineered and tested for lasting quality and durability, and include a matching carrying case. And you''ll look good wearing them. SoundTrue In-Ear Headphones come in three colors to fit your style: Black, White and Cranberry. What''s in the box: SoundTrue In-Ear Headphones, 3-pairs StayHear tips (S, M, L), Carry case and Clothing clip.', 1, '2015-11-20 23:31:21', 2, 5),
 (5, 11, 32, 'Sennheiser CX 300 II Precision Enhanced Bass Earbuds (Black)', 32.99, 4, 'Offering a powerful, bass-driven stereo sound with greater clarity and improved dynamics over standard earbuds are the Sennheiser CX 300-II in-ear headphones. The various sizes of ear adapters (S/M/L sizes) provided in the package allow for a customized fit as well as exceptional noise blocking capability. A convenient carrying pouch is also included for easy storage.', 1, '2015-11-20 23:33:00', 1, 1),
-(6, 12, 0, 'Beats Solo2 Wireless On-Ear Headphones - Black', 199.99, 5, 'Beats Solo2 Wireless. Designed for sound, tuned for emotion, now wireless.', 1, '2015-11-20 23:34:36', 1, 1),
+(6, 12, 0, 'Beats Solo2 Wireless On-Ear Headphones - Black', 199.99, 5, 'Beats Solo2 Wireless. Designed for sound, tuned for emotion, now wireless. Pair and Play with your Bluetooth® device with 30'' range. Fine-tuned acoustics for clarity, breadth and balance. 12 hour rechargeable battery with Fuel Gauge.', 1, '2015-11-20 23:34:36', 1, 1),
 (7, 12, 75, 'Skullcandy Uprock Headphones with Mic', 29.99, 6, 'The people at Skullcandy firmly believe that everyone has the right to have access to face-melting sound, which is why they made the Uprock Headphones with Mic with the quality everyone deserves, at a price anyone can afford. Supreme Sound drivers pump attacking bass and precision highs straight to your dome, while the cushy ear pillows keep you comfortable for hours of listening pleasure.', 1, '2015-11-20 23:39:22', 1, 1),
 (8, 12, 51, 'Sony MDR-ZX330BT/B Bluetooth Wireless On-Ear Headphones', 59.99, 1, 'So easy-lightweight, compact listening with added wireless freedom. Enjoy your favorite beats with cord-free convenience via Bluetooth with Near Field Communications (NFC) technology. Envelope yourself in full, balanced sound and tight beats with 30mm drivers and easily swivel and stow away when done.', 1, '2015-11-20 23:41:09', 1, 1),
 (9, 8, 12, 'Acoustic Audio AA5170 Home Theater 5.1', 89.99, 7, 'This 6 piece, 700 watt system includes one powered subwoofer and five satellite speakers as well as all the necessary cables and instructions needed for simple integration into any multimedia configuration. This compact, yet powerful speaker package makes for an excellent addition to any home theater system, personal computer or laptop, gaming system, digital media player, "i" device or any other audio/video device that that can be connected via Bluetooth, RCA or 3.5mm auxiliary interface. The included powered subwoofer is housed in a digitally tuned, bass enhancing enclosure made of durable MDF for increased bass response while the full range satellite speakers feature magnetic shielding for worry-free use near televisions and computer monitors.', 1, '2015-11-20 23:42:47', 1, 1),
-(10, 8, 3, 'Orb Audio Mini 5.1 Home Theater Speaker System', 599.99, 8, 'Exclusive to Amazon - a custom 5.1 home theater surround sound system that will blow your mind without blowing your budget. Great for both movies and music, this system includes five state of the art Mod1X satellite speakers and the ultra compact subMINI powered subwoofer. You also get 100 feet of USA made speaker wire and a subwoofer cable - everything you need to connect the speakers to a receiver quickly and easily. Orb Audio is known for systems designed to produce big sound from small, attractive speakers and this system is sure to please. Don''t miss out on this exceptional limited time offer! It''s a great chance to bring high quality sound to your room without filling it up with speakers made from plastic or fake wood. Audiophile sound, outstanding looks and a fantastic sale price. This system has it all, so try it today!', 1, '2015-11-20 23:44:17', 2, 5),
+(10, 8, 3, 'Orb Audio Mini 5.1 Home Theater Speaker System', 599.99, 8, 'A custom 5.1 home theater surround sound system that will blow your mind without blowing your budget. Great for both movies and music, this system includes five state of the art Mod1X satellite speakers and the ultra compact subMINI powered subwoofer. It''s a great chance to bring high quality sound to your room without filling it up with speakers made from plastic or fake wood. Audiophile sound, outstanding looks and a fantastic sale price.', 1, '2015-11-20 23:44:17', 2, 5),
 (11, 13, 15, 'Dell Inspiron i7559-763BLK 15.6" ', 729.99, 9, 'Intel i5-6300HQ 2.3 GHz Quad-Core (6M Cache, Turbo up to 3.2 GHz)\r\nNVIDIA GeForce GTX 960M 4GB GDDR5\r\n8 GB DDR3L / 256 GB Solid-State Drive\r\n15.6-Inch FHD IPS, Wide-Angle, Anti Glare Screen', 1, '2015-11-20 23:48:11', 1, 1),
 (12, 13, 22, 'ASUS Zenbook UX305LA 13.3-Inch Laptop (Intel Core i5, 8GB, 256 GB SSD, Titanium Gold) with Windows 10', 709.99, 10, '13.3-Inch Full-HD IPS Anti-Glare Matte Display with an Ultra-wide 170° Viewing Angle.\r\nPowerful 5th-generation Intel Core i5-5200U 2.2GHz (Turbo up to 2.7GHz) Broadwell.\r\n8 GB RAM/ 256 GB Solid State Drive; 10-Hours Battery Life. 1.2 MP High Definition Webcam.\r\nDesigned to be ultra-slim with an all-aluminum body. The unit weighs only 2.86 lbs, is less than .6-inch thin.', 1, '2015-11-20 23:49:49', 2, 2),
 (13, 13, 42, 'ASUS Chromebook Flip 10.1-Inch Convertible 2 in 1 Touchscreen (Rockchip, 4 GB, 16GB SSD, Silver)', 249.99, 10, 'Rockchip 1.8 GHz Processor\r\n4 GB DDR3 RAM\r\nCan open/edit MS Office files using free embedded QuickOffice editor or Google Docs, and can download Microsoft Office Online (an online version of Microsoft Office) for free. Cannot install standard MS Office software.\r\nStorage : 16GB Solid State Storage; No CD or DVD drive\r\n10.1 inches 1280*800 pixels LED-lit Screen\r\nChrome Operating System; Silver Chassis', 1, '2015-11-20 23:51:35', 1, 1),
@@ -227,10 +227,10 @@ INSERT INTO `products` (`productid`, `categoryid`, `amount`, `name`, `price`, `b
 (36, 19, 120, 'Google Nexus 6P', 689.99, 18, 'For the first time in Google''s Nexus line history, Huawei managed to join the exclusive club of poster child Android makers. Being the more premium (and more expensive) of the two 2015 Nexus phones, the 6P comes clad in a metal chassis, with 5.7" WQHD display, stereo speakers at the front, and a round finger scanner on the back. The Nexus phones usually don''t come with a premium build, great camera and large battery, but the new Nexus 6P shatters all stereotypes here.', 1, '2015-11-21 15:01:22', 1, 1),
 (37, 19, 23, 'OnePlus X', 559.99, 21, 'The external appearance is undoubtedly one of the main selling points for the new OnePlus X. The phone will be offered in two versions - Onyx and a limited Ceramic edition. The phone has a 5-inch display with 1080p resolution and 441ppi. The real eyebrow-raiser with the OnePlus X is its quad-core Snapdragon 801 chipset. Not that this silicon is not powerful enough to run the new Oxygen interface on top of Android 5.1.1 Lollipop, but it is somewhat aging in the sense that it is not a 64-bit endeavor. Other than that, OnePlus equipped the X with a generous 3 GB RAM amount, and 16 GB of storage, expandable via a microSD card, the slot for which is housed in the dual SIM card tray, so it''s either two nano SIMs, or one SIM and one memory card, bummer. The OnePlus X comes with a 13 MP rear camera, and a hearty 8 MP selfie-taker.', 1, '2015-11-21 15:03:14', 1, 1),
 (38, 19, 22, 'Xiaomi Mi 4c\r\n', 559.99, 22, 'The Xiaomi Mi 4c features a 5-inch, 1080 x 1920 resolution screen. That works out to a pixel density of 441ppi. Under the hood is the Snapdragon 808 SoC carrying a hexa-core 1.8GHz CPU, and the Adreno 418 GPU. A 13MP camera is on back along with a 5MP front-facing shooter. Keeping the lights on is a 3080mAh juicer, and Android 5.1 is pre-installed with MIUI 7 running on top. The Mi 4c not only comes with a Type-C USB port, it also comes with an infrared port to be used for security, not for connectivity.', 1, '2015-11-21 15:05:12', 1, 1),
-(39, 18, 12, 'LG KF750', 79.99, 16, 'GSM 900 / 1800 / 1900\r\nSlimmest five mega pixel camera on 11.8 mm profile\r\nMusic, photos, M-Toy, document, FM radio - all five functions are at your fingertips with the Touch Media.\r\nAuto Luminance Control automatically adjusts screen brightness according to ambient brightness.\r\nSecret''s display technology offers easy screen size adjustment and horizontal or vertical rotation of the screen depending on hand movement.\r\nThis cell phone may not include a US warranty as some manufacturers do not honor warranties for international version phones. Please contact the seller for specific warranty information.', 1, '2015-11-21 15:09:44', 1, 1),
+(39, 18, 12, 'LG KF750', 79.99, 16, 'Slimmest five mega pixel camera on 11.8 mm profile. Music, photos, M-Toy, document, FM radio - all five functions are at your fingertips with the Touch Media.\r\nAuto Luminance Control automatically adjusts screen brightness according to ambient brightness.\r\nSecret''s display technology offers easy screen size adjustment and horizontal or vertical rotation of the screen depending on hand movement.\r\nThis cell phone may not include a US warranty as some manufacturers do not honor warranties for international version phones. Please contact the seller for specific warranty information.', 1, '2015-11-21 15:09:44', 1, 1),
 (40, 18, 29, 'Sony Ericsson C905a', 129.99, 23, '3G-enabled Cybershot camera phone with 8.1-megapixel lens, flash, 16x digital zoom, image stabilizer, sharing with blogs and Facebook\r\nBluetooth stereo music; digital audio player; M2 memory expansion; access to personal email and instant messaging\r\nUp to 3.5 hours of talk time, up to 350 hours (14.6 days) of standby time\r\nUnlocked cell phones are compatible with GSM carriers such as AT&T and T-Mobile, but are not compatible with CDMA carriers such as Verizon and Sprint.\r\nQuad-band GSM cell phone compatible with 850/900/1800/1900 frequencies and International 3G compatibility via 2100 UMTS/HSDPA plus GPRS/EDGE capabilities\r\nSlider phone with 2.4-inch screen and accelerometer for auto-rotate; 8-megapixel autofocus camera with xenon flash; GPS for navigation and image geotagging\r\nWi-Fi networking; Bluetooth stereo music streaming; Memory Stick Micro (M2) expansion; access to personal email and instant messaging', 1, '2015-11-21 15:11:25', 1, 1),
 (41, 18, 30, 'Nokia N82 Unlocked Phone', 109.99, 24, 'Unlocked cell phones are compatible with GSM carriers such as AT&T and T-Mobile, but are not compatible with CDMA carriers such as Verizon and Sprint.\r\nQuad-band GSM cell phone compatible with 850/900/1800/1900 frequencies and International 3G compatibility via 2100 UMTS plus GPRS/EDGE capabilities\r\n5-megapixel digital camera with Carl Zeiss Optics, autofocus, digital zoom; DVD-quality video capture (640 x 480 pixels at 30 fps)\r\nWi-Fi connectivity (802.11b/g); Bluetooth stereo music; MicroSD expansion; digital audio player; FM radio; access to email\r\nUp to 4.3 hours of talk time, up to 9.5 days) of standby time', 1, '2015-11-21 15:16:47', 1, 1),
-(42, 21, 26, 'Pro Sport Armband', 24.99, 25, 'END YOUR EXERCISE BOREDOM NOW!!! Listen to your favorite music, audio book or use a fitness app as you workout wearing your cool, stylish AARATEK SPORT ARMBAND. Can be used for many different sports, gym and general activities - not just for running!\r\nMade from ADVANCED FORMULA PREMIUM NEOPRENE rather than Lycra, it is sweat resistant and strong yet incredibly flexible and expandable - an iPhone will fit in it with a slim case still on! No need for additional bulky pockets either as you can even keep cash, a credit card, ID card or swipe card behind your device too!\r\nFULLY ADJUSTABLE for a custom fit with two fastenings for small and large upper arms measuring approx. 9-1/4 ~ 16-1/2 inches (23.5cm ~ 42cm) in circumference [measurements taken with a device in the armband - other brands simply list the armband''s strap size rather than fitting size]. SECURELY FASTENED using reinforced stitched velcro and the AARATEK SUPERIOR GRIP SYSTEM.', 1, '2015-11-21 15:24:52', 1, 1),
+(42, 21, 26, 'Pro Sport Armband', 24.99, 25, 'END YOUR EXERCISE BOREDOM NOW!!! Listen to your favorite music, audio book or use a fitness app as you workout wearing your cool, stylish AARATEK SPORT ARMBAND. Can be used for many different sports, gym and general activities - not just for running!\r\nMade from ADVANCED FORMULA PREMIUM NEOPRENE rather than Lycra, it is sweat resistant and strong yet incredibly flexible and expandable - an iPhone will fit in it with a slim case still on! No need for additional bulky pockets either as you can even keep cash, a credit card, ID card or swipe card behind your device too!\r\n', 1, '2015-11-21 15:24:52', 1, 1),
 (43, 21, 15, 'Armband for iPhone 6 and iPhone 6S', 12.99, 26, 'Fits iPhone 6 / iPhone 6S with an OtterBox Commuter, LifeProof fre or LifeProof nuud case.\r\nFits Samsung Galaxy S6/S5 with a slim case such as Spigen Tough Armor.\r\nFits Samsung Galaxy S4/S3 and S4 Active with an OtterBox Defender/Commuter Case, Note 3 / 2 without a case, and more (see Product Description below.)\r\nSuper comfortable neoprene armband protects and stabilizes device without slipping or constricting. Controls / stores earphone cord; Full touch screen control; Excellent quality; Washable.', 1, '2015-11-21 15:26:29', 1, 1),
 (44, 20, 19, 'Samsung Original Standard Battery 2100mA ', 7.99, 15, 'OEM Part Numbers - EB-L1G6LLA, EB-L1G6LLU, EB-L1G6LLZ\r\nSamsung original battery for Galaxy S3 in Bulk Packaging\r\nThis battery is equipped with an NFC antenna, allowing your handset to communicate with other devices and accessories equipped with NFC technology.\r\n2100mAh battery allows you to store power necessary to keep your device charged throughout the day', 1, '2015-11-21 15:32:52', 1, 1),
 (45, 20, 19, 'LG LGIP-520B', 2.99, 16, 'LG SBPL0086903 Standard Li Ion Battery For 8350 1000mAh', 1, '2015-11-21 15:33:51', 1, 1),
@@ -239,8 +239,8 @@ INSERT INTO `products` (`productid`, `categoryid`, `amount`, `name`, `price`, `b
 (48, 23, 30, 'Sony SWR50 SmartWatch 3 Transflective Display Black Watch', 159.99, 1, 'Black Classic Band, Water Protected, IP68 rated : "up to 2 days normal use"\r\nSensors: Ambient light sensors, Accelerometer, Compass, Gyro, GPS\r\nNotifications, Voice Commands, Lifelong, Impressive stand-alone functions\r\nPowered By Android Wear - Useful information when you need it, Apps for everything\r\nTell the Smartwatch 3 SWR50 what you want and it will do it, Search, Command, Find\r\nWaterproof. IP58 Rated.', 1, '2015-11-21 15:40:19', 1, 1),
 (49, 23, 30, 'LG Electronics G Watch', 135.99, 16, 'Compatible with most devices with an Android 4.3 or later operating system\r\nVoice activated\r\nPowered by Android Wear\r\nMobile notifications\r\n1.2GHz Qualcomm processor', 1, '2015-11-21 15:41:20', 1, 1),
 (50, 23, 25, 'Samsung Gear 2 Neo Smartwatch', 199.99, 15, 'Smart Notification: Samsung Gear 2 Neo allows you to make and receive calls and read more on a large sAMOLED display making communication smooth and seamless.\r\nInstant Notification: Samsung Gear 2 enables you to receive instant notifications from your phone and apps plus a variety of 3rd party apps which you can view clearly on a sAMOLED screen.\r\nPersonalized Fitness Motivator: Samsung Gear 2, with its built-in Heart Rate Sensor, S Health features, and pedometer, track your daily pattern of exercise to give you customized real time coaching to help you achieve your goals.', 1, '2015-11-21 15:42:17', 1, 1),
-(51, 2, 12, 'Sony Bravia KDL-48W705C ', 555, 1, 'Televízor SMART LED, uhlopriečka 121cm, Motionflow XR 200Hz, FullHD 1920x1080, DVB-S2 / S / T2 / T / C, 4x HDMI, 2x USB, Scart, LAN, CI +, MHL, DLNA, WiFi, HbbTV, webový prehliadač, energ. trieda A++', 1, '2015-11-30 21:55:59', 0, 0),
-(52, 2, 22, 'LG 58UF8307 ', 999, 16, 'Televízor SMART LED TV, uhlopriečka 147cm , 4K Ultra HD 3840x2160 , 4K Upscaler , DVB -S2/T2/C ,H.265 , 3x HDMI , 3x USB , Scart , CI+ , LAN, WiFi, Miracast , DLNA , MHL , HbbTV , webový prehliadač, webOS 2.0 , repro 2x10W , magický ovládač MR15 , energ . trieda A+', 0, '2015-11-30 21:55:59', 0, 0),
+(51, 2, 12, 'Sony Bravia KDL-48W705C ', 555, 1, 'TV SMART LED, diameter 121cm, Motionflow XR 200Hz, FullHD 1920x1080, DVB-S2 / S / T2 / T / C, 4x HDMI, 2x USB, Scart, LAN, CI +, MHL, DLNA, WiFi, HbbTV, web browser', 1, '2015-11-30 21:55:59', 0, 0),
+(52, 2, 22, 'LG 58UF8307 ', 999, 16, 'SMART LED TV, diameter 147cm , 4K Ultra HD 3840x2160 , 4K Upscaler , DVB -S2/T2/C ,H.265 , 3x HDMI , 3x USB , Scart , CI+ , LAN, WiFi, Miracast , DLNA , MHL , HbbTV ,  webOS 2.0', 0, '2015-11-30 21:55:59', 0, 0),
 (53, 2, 4, 'Panasonic TX-65CX700E ', 2499, 2, 'Televízor 3D SMART LED, uhlopriečka 165cm, 4K Ultra HD 3840x2160, 800Hz BMR, DVB-T2 / C, H.265 (HEVC Decoder), lokálne stmievanie, Studio Master Colour, Firefox OS, 3x HDMI 2.0, 3x USB, CI +, SCART, WiFi, USB / HDD nahrávanie, my Home Screen 2.0, webový prehliadač, Netflix, Miracast, HbbTV, Quad-Core PRO, aktívne 3D, vyrobené v ČR, energ. trieda A', 0, '2015-11-30 21:58:28', 0, 0),
 (54, 2, 70, 'Samsung UE55J6302 ', 1149, 15, 'Televízor prehnutá, SMART LED, uhlopriečka 138cm, PQI 800, Full HD (1920 x 1080), DVB-T2 / C, 4x HDMI, 3x USB, CI +, DLNA, LAN, Micro Dimming Pro, WiFi, Webový prehliadač, Wireless, Mirroring, Quad Core, filmový mód, repro 2x 10W, energ. trieda A +', 0, '2015-11-30 21:58:28', 0, 0),
 (55, 2, 2, 'Philips 55PFK7509 ', 899, 29, 'Televízor 3D SMART LED, Ambilight 3, 800Hz PMR, Pixel Precise HD, uhlopriečka 140cm, 400cd / m2, FullHD 1920x1080p, DVB-T / C / S / S2, 4x HDMI, CI +, Scart, 2x USB, LAN, HbbTV, WiFi, Miracast, Micro Dimming Pro, Dual Core, Multiroom, 4x 3D okuliare pasívny, VESA 400x400, energ. trieda A++', 0, '2015-11-30 21:59:32', 0, 0);
@@ -248,7 +248,7 @@ INSERT INTO `products` (`productid`, `categoryid`, `amount`, `name`, `price`, `b
 -- --------------------------------------------------------
 
 --
--- Štruktúra tabuľky pre tabuľku `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -269,7 +269,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=20 ;
 
 --
--- Sťahujem dáta pre tabuľku `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`userid`, `email`, `name`, `surname`, `password`, `address`, `city`, `postcode`, `phone`, `datejoined`, `role`, `deleted`, `activated`) VALUES
