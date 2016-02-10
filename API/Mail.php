@@ -34,8 +34,8 @@ class Mail {
     }
 
     // add attachment to mail
-    public function attachement($path) {
-        $this->mail->addAtachement($path);
+    public function attachement($path,$name) {
+        $this->mail->AddAttachment($path,$name);
     }
 
     // compose email parameters are subject body od the mail and alternative body

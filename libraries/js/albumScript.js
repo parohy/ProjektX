@@ -21,8 +21,8 @@ $(function(){
 
         var imageWidth = $(".popupImage").width();
         var imageHeight = $(".popupImage").height();
-        imageHeight += 200;
-        imageWidth += 200;
+        imageHeight += 50;
+        imageWidth += 50;
 
         $(".popupImage").css({"width":imageWidth+"px","height":imageHeight+"px"});
         $(".popupContainer").click(function(){ $(".popupContainer").remove() });
