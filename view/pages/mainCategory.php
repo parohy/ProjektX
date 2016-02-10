@@ -49,5 +49,19 @@ Slider.noUiSlider.on('update', function( values, handle ) {
 });
 
 </script>
+<script>
+    $('.MoreBrands').click(function() {
+    $('.AddBrandsWindow').css({
+        'visibility': 'visible'
+        
+    });
+});
 
+$('.AddBrandsWindowClose').click(function() {
+    $('.AddBrandsWindow').css({
+        'visibility': 'hidden'
+        
+    });
+});
+</script>
 </div>

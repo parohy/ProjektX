@@ -16,6 +16,7 @@ include_once ($path.'API/Product.php');
 
 <?php
 
+
 class ProductDisplay
 {
     public function displayResults($searchResult, $maxInRow) { // Display results on page
@@ -39,6 +40,47 @@ class ProductDisplay
                     </select>
                 </div>
                 <div class=\"brands\">Brands: </div>
+                <div class=\"BrandChoices\">
+                    <div class=\"BrandSelect\">
+                        <input type=\"checkbox\" name=\"brand\" value=\"brandname\">
+                        <div class=\"BrandName\">Brand.1</div>
+                    </div>
+                    <div class=\"BrandSelect\">
+                        <input type=\"checkbox\" name=\"brand\" value=\"brandname\">
+                        <div class=\"BrandName\">Brand.2</div>
+                    </div>
+                    <div class=\"BrandSelect\">
+                        <input type=\"checkbox\" name=\"brand\" value=\"brandname\">
+                        <div class=\"BrandName\">Brand.3</div>
+                    </div>
+                    <div class=\"MoreBrands\">
+                        +More
+                    </div>
+                    
+                </div>
+                <div class=\"ApplyBrandChoice\">Apply filter</div>
+                <div class=\"AddBrandsWindow\">
+                    <div class=\"AddBrandsWindowHeader\">
+                        <div class=\"AddBrandsWindowClose\">Close</div>
+                    </div>
+                    <div class=\"AddBrandsWindowBody\">
+                        <div class=\"BrandSelect\">
+                            <input type=\"checkbox\" name=\"brand\" value=\"brandname\">
+                            <div class=\"BrandName\">Brand.4</div>
+                        </div>
+                        <div class=\"BrandSelect\">
+                            <input type=\"checkbox\" name=\"brand\" value=\"brandname\">
+                            <div class=\"BrandName\">Brand.5</div>
+                        </div>
+                        <div class=\"BrandSelect\">
+                            <input type=\"checkbox\" name=\"brand\" value=\"brandname\">
+                            <div class=\"BrandName\">Brand.6</div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
             </div>
         ";
         

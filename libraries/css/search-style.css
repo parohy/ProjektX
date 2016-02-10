@@ -71,3 +71,123 @@
        vertical-align: top;
        margin-top: 4px;
    }
+
+   .BrandChoices{
+       width: 315px;
+       height: 30px;
+       padding: 0px;
+       font-size: 14px;
+       display: inline-block;
+       font-family: 'Source Sans Pro', sans-serif;
+       font-style: normal;
+       vertical-align: top;
+       
+   }
+   
+   .BrandSelect{
+       height: 30px;
+       
+       font-size: 14px;
+       display: inline-block;
+       font-family: 'Source Sans Pro', sans-serif;
+       font-style: normal;
+       vertical-align: middle;
+       margin-right: 10px;
+   }
+   
+   .BrandSelect input[type="checkbox"]{
+       margin-top: 9px;
+   }
+   
+   .BrandName{
+       height: 30px;
+       font-size: 14px;
+       display: inline-block;
+       font-family: 'Source Sans Pro', sans-serif;
+       font-style: normal;
+       vertical-align: middle;
+       margin-top: 3px;
+   }
+   
+   .MoreBrands{
+       height: 30px;
+       font-size: 14px;
+       display: inline-block;
+       font-family: 'Source Sans Pro', sans-serif;
+       font-style: normal;
+       vertical-align: top;
+       margin-top: 5px;
+       text-decoration: underline;
+       cursor: pointer;
+   }
+   
+   .MoreBrands:hover{
+       color: #34A994;
+   }
+   
+   .AddBrandsWindow{
+       visibility: hidden;
+       z-index: 1;
+       position: relative;
+       padding: 10px;
+       width: 300px;
+       
+       margin-top: 0px;
+       margin-left: 610px;
+       font-size: 14px;
+       font-family: 'Source Sans Pro', sans-serif;
+       font-style: normal;
+       background-color: #FBFBFB;
+       -webkit-box-shadow: 0px 0px 20px 3px rgba(125,125,125,1);
+       -moz-box-shadow: 0px 0px 20px 3px rgba(125,125,125,1);
+       box-shadow: 0px 0px 20px 3px rgba(125,125,125,1);
+       border: 1px solid #cacaca;
+       
+   }
+   
+   .AddBrandsWindowHeader{
+       height: 30px;
+       border-bottom: 1px solid #cacaca;
+   }
+   
+   .AddBrandsWindowClose{
+       text-align: right;
+       text-decoration: underline;
+       cursor: pointer;
+   }
+   
+   .AddBrandsWindowClose:hover{
+       color: #34A994;
+   }
+   
+   .AddBrandsWindowBody{
+       
+       padding: 10px;
+   }
+   
+   .AddBrandsWindowBody .BrandSelect{
+       display: block;
+   }
+   
+   .ApplyBrandChoice{
+       height: 30px;
+       width: 81px;
+       text-align: center;
+       color: #fbfbfb;
+       font-size: 14px;
+       padding: 5px;
+       background-color: #34A994;
+       display: inline-block;
+       font-family: 'Source Sans Pro', sans-serif;
+       font-style: normal;
+       vertical-align: top;
+       margin-top: 0px;
+       text-decoration: none;
+       cursor: pointer;
+   }
+   
+   .ApplyBrandChoice:active{
+       background-color: #298776;
+   }
+   
+   
