@@ -6,9 +6,9 @@
  * Time: 10:24
  */
 
-include_once ('../API/Mail.php');
-include_once ('../API/Database.php');
-include_once ('../API/UserHandler.php');
+require_once ('../API/Mail.php');
+require_once ('../API/Database.php');
+require_once ('../API/UserHandler.php');
 
 if(isset($_POST['email'])) {
     $dbhandler = new DBHandler();
@@ -18,7 +18,7 @@ if(isset($_POST['email'])) {
 
     $mail = new Mail();
     $mail->addRecipient($_POST['email']);
-    $mail->composeMail("Password recovery",'<p>You can change your password <a href="/?page=passwordRecovery&userid='.$result['userid'].'">here</a></p>',"You can change your password here");
+    $mail->composeMail("Password recovery",'<p>You can change your password <a href="www.cassomedia.sk/?page=passwordRecovery&userid='.$result['userid'].'">here</a></p>',"You can change your password here");
     $mail->sendMail();
     header("Location:/?page=main-page");
 }

@@ -6,13 +6,13 @@
  * Time: 7:57
  */
 
-require ('mail/PHPMailerAutoload.php');
+require_once ('mail/PHPMailerAutoload.php');
 
 class Mail {
 
     private $mail;
-    private $host = 'smtp.gmail.com';
-    private $user = 'viatechcassomedia@gmail.com';
+    private $host = 'smtp.cassomedia.sk';
+    private $user = 'info@cassomedia.sk';
     private $password = 'pr0jektX';
 
     // initialize phpmailer
