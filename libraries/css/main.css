@@ -141,6 +141,13 @@ body {
 .welcome-buttons a:hover {
     text-decoration: none;
 }
+.headerErrorMessage {
+    margin-top: 13px;
+}
+.headerMessage {
+    padding-left: 30px;
+    color: red;
+}
 .login-frame {
     visibility: hidden;
     position: relative;

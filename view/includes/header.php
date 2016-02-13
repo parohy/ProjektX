@@ -27,13 +27,17 @@
                 }
             } else {
                 echo '<span class="welcome-label"><img src="libraries/img/icons/user icon.png">WELCOME USER, YOU CAN <strong class="welcome-buttons"><a href="#" id="login">LOGIN</a></strong> OR <strong class="welcome-buttons"><a href="?page=reg-acc">REGISTER</a></strong></span>';
+                echo '<div class="headerErrorMessage"><span class="headerMessage">echo pizza</span></div>';
             }
         }
         else {
+            echo 'pizza';
             echo '<span class="welcome-label"><img src="libraries/img/icons/user icon.png">WELCOME USER, YOU CAN <strong class="welcome-buttons"><a href="#" id="login">LOGIN</a></strong> OR <strong class="welcome-buttons"><a href="?page=reg-acc">REGISTER</a></strong></span>';
         }
         ?>
-
+        <!--<div class="headerErrorMessage">
+            <span class="headerMessage"></span>
+        </div>-->
         <div class="login-frame">
             <form action="API/Relog.php?register=login" method="POST">
                 <ul>
@@ -97,8 +101,8 @@
         </form>
     </div>
 </div>
-   <div class="bottom">
-    <?php
-    include_once ($path.'view/includes/navigation.php');
-    ?>
-   </div>
+<div class="bottom">
+<?php
+include_once ($path.'view/includes/navigation.php');
+?>
+</div>
