@@ -28,11 +28,12 @@ $path .= 'ProjektX/';
 <script type="text/javascript">
     var Slider = document.getElementById('noUiSlider');
 
+    //also change in searchResults.php
     noUiSlider.create(Slider, {
-            start: [ 400, 1600 ],
+            start: [ 0, 4000 ],
             range: {
                     'min': [  0 ],
-                    'max': [ 2000 ]
+                    'max': [ 4000 ]
             },
             connect: true
     });

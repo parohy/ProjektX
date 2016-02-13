@@ -104,6 +104,7 @@ if(isset($_GET['login']) && $_GET['login'] == 'false') {
         ?>
     </footer>
     <script src="libraries/js/pageScript.js"></script>
+    <script src="libraries/js/filterRequestScript.js"></script>
     <script>adjustThumbnail();</script>
 </div>
 </body>

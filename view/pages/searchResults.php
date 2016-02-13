@@ -32,13 +32,14 @@ if(isset($_SESSION['results'])) {
 <script type="text/javascript">
     var Slider = document.getElementById('noUiSlider');
 
+    //also change in mainCategory.php
     noUiSlider.create(Slider, {
-            start: [ 400, 1600 ],
-            range: {
-                    'min': [  0 ],
-                    'max': [ 2000 ]
-            },
-            connect: true
+        start: [0, 4000 ],
+        range: {
+                'min': [  0 ],
+                'max': [ 4000 ]
+        },
+        connect: true
     });
 </script>
 <script>

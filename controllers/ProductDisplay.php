@@ -31,56 +31,53 @@ class ProductDisplay
                 </div>
                 <div class=\"sortby\">Sort by: </div>
                 <div class=\"styled-select\">
-                    <select>
-                      <option value=\"az\">A-Z</option>
-                      <option value=\"za\">Z-A</option>
-                      <option value=\"high\">Price: High to Low</option>
-                      <option value=\"low\">Price: Low to High</option>
-                      <option value=\"popular\">Most popular</option>
+                    <select id=\"sorting\">
+                        <option value=\"0\">Most popular</option>
+                        <option value=\"4\">Price: High to Low</option>
+                        <option value=\"3\">Price: Low to High</option>   
+                        <option value=\"5\">A-Z</option>
+                        <option value=\"6\">Z-A</option>                                           
                     </select>
                 </div>
                 <div class=\"brands\">Brands: </div>
                 <div class=\"BrandChoices\">
                     <div class=\"BrandSelect\">
-                        <input type=\"checkbox\" name=\"brand\" value=\"brandname\">
-                        <div class=\"BrandName\">Brand.1</div>
+                        <input type=\"checkbox\" name=\"brand\" value=\"10\">
+                        <div class=\"BrandName\">Asus</div>
                     </div>
                     <div class=\"BrandSelect\">
-                        <input type=\"checkbox\" name=\"brand\" value=\"brandname\">
-                        <div class=\"BrandName\">Brand.2</div>
+                        <input type=\"checkbox\" name=\"brand\" value=\"12\">
+                        <div class=\"BrandName\">Lenovo</div>
                     </div>
                     <div class=\"BrandSelect\">
-                        <input type=\"checkbox\" name=\"brand\" value=\"brandname\">
-                        <div class=\"BrandName\">Brand.3</div>
+                        <input type=\"checkbox\" name=\"brand\" value=\"14\">
+                        <div class=\"BrandName\">HP</div>
                     </div>
                     <div class=\"MoreBrands\">
                         +More
                     </div>
                     
                 </div>
-                <div class=\"ApplyBrandChoice\">Apply filter</div>
+                <div class=\"ApplyBrandChoice\" onclick=\"filterSearch()\">Filter</div>
                 <div class=\"AddBrandsWindow\">
                     <div class=\"AddBrandsWindowHeader\">
                         <div class=\"AddBrandsWindowClose\">Close</div>
                     </div>
                     <div class=\"AddBrandsWindowBody\">
                         <div class=\"BrandSelect\">
-                            <input type=\"checkbox\" name=\"brand\" value=\"brandname\">
-                            <div class=\"BrandName\">Brand.4</div>
+                            <input type=\"checkbox\" name=\"brand\" value=\"1\">
+                            <div class=\"BrandName\">Sony</div>
                         </div>
                         <div class=\"BrandSelect\">
-                            <input type=\"checkbox\" name=\"brand\" value=\"brandname\">
-                            <div class=\"BrandName\">Brand.5</div>
+                            <input type=\"checkbox\" name=\"brand\" value=\"15\">
+                            <div class=\"BrandName\">Samsung</div>
                         </div>
                         <div class=\"BrandSelect\">
-                            <input type=\"checkbox\" name=\"brand\" value=\"brandname\">
-                            <div class=\"BrandName\">Brand.6</div>
+                            <input type=\"checkbox\" name=\"brand\" value=\"16\">
+                            <div class=\"BrandName\">LG</div>
                         </div>
                     </div>
-                </div>
-                
-                
-                
+                </div>             
             </div>
         ";
         
