@@ -17,6 +17,7 @@ class Filter{
     public $maxprice;
     public $category=1;
     public $brand = array();
+    public $productArray = array(); //optional for filtering specific products
     private $handlerDB;
     
     
@@ -25,9 +26,20 @@ class Filter{
      */
     public function __construct(){
         $this->handlerDB = new DBHandler();
-        $this->handlerDB->query('SELECT MAX(price) as "max" FROM products');
+        $query="SELECT MAX(price) as \"max\" FROM products";
+        if(count($this->productArray)>0){
+            $query.=" WHERE productid IN(";
+            foreach ($this->productArray as $id) {
+                $query.=$id;
+                if($id!=$this->productArray[count($this->productArray)-1]){
+                    $selectedquery.=", ";
+                }
+            }
+            $query.=")";
+        }  
+        $this->handlerDB->query($query);
         $result = $this->handlerDB->resultSet();
-        $this->maxprice=$result[0]['max'];
+        $this->maxprice=ceil($result[0]['max']);
     }
     
     /**
@@ -124,6 +136,21 @@ class Filter{
              return $brandquery;
     }
     
+    private function selectedProductsQuery() {
+        $selectedquery="";
+        if(count($this->productArray)>0){
+            $selectedquery.=" and (productid IN(";
+            foreach ($this->productArray as $id) {
+                $selectedquery.=$id;
+                if($id!=$this->productArray[count($this->productArray)-1]){
+                    $selectedquery.=", ";
+                }
+            }
+            $selectedquery.="))";
+        }  
+        return $selectedquery;
+    }
+    
     /**
      * Gets results from a database as an array of productids of products from the table
      * change $this->minprice and $this->max price in order to set the price range
@@ -133,7 +160,8 @@ class Filter{
         $catQuery=$this->categoryQuery();
         $brandQuery=$this->brandQuery();
         $sortQuery=$this->sortQuery();
-        $this->handlerDB->query("SELECT productid FROM products WHERE price>=:minprice and price<=:maxprice and ".$catQuery." and ".$brandQuery." ORDER BY ".$sortQuery."");
+        $selectedQuery=$this->selectedProductsQuery();
+        $this->handlerDB->query("SELECT productid,brandid FROM products WHERE price>=:minprice and price<=:maxprice and ".$catQuery." and ".$brandQuery.$selectedQuery." ORDER BY ".$sortQuery."");
         $this->handlerDB->bind(':maxprice', $this->maxprice);
         $this->handlerDB->bind(':minprice', $this->minprice);
         $results = $this->handlerDB->resultSet();
@@ -143,5 +171,24 @@ class Filter{
             $array[]=$result['productid'];
         }
         return $array;
-    }   
+    } 
+    
+    public function getBrands(){
+        $catQuery=$this->categoryQuery();
+        $selectedQuery=$this->selectedProductsQuery();
+        $this->handlerDB->query("SELECT brandid FROM products WHERE ".$catQuery.$selectedQuery."");
+        $results = $this->handlerDB->resultSet();
+        $this->handlerDB->execute();   
+        $brand=array();
+        $brandUnique=array();
+        foreach($results as $result){
+            $brand[]=$result['brandid'];
+        }
+        if(count($this->brand)==0){
+            foreach (array_unique($brand) as $brandid){
+                $brandUnique[]=$brandid;
+            }
+        }
+        return $brandUnique;
+    }    
 }
