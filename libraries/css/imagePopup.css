@@ -4,10 +4,13 @@
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
+    
 }
 
 .popupImage {
     -webkit-box-shadow: 10px 10px 25px -6px rgba(0,0,0,0.63);
     -moz-box-shadow: 10px 10px 25px -6px rgba(0,0,0,0.63);
     box-shadow: 10px 10px 25px -6px rgba(0,0,0,0.63);
+    max-height: 768px;
+    max-width: 768px;
 }

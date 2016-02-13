@@ -10,6 +10,7 @@ $path .= 'ProjektX/';
 include_once ($path.'API/Orders.php');
 include_once ($path.'API/PDFGen.php');
 include_once ($path.'API/OrderDetails.php');
+include_once ($path.'API/Mail.php');
 
 $order = new Order();
 
@@ -58,7 +59,14 @@ else
 
 $pdfBill = new pdfFile($id);
 $pdfBill->buildPDF();
-$_SESSION['filepath'] = $pdfBill->getPath();
+$pdfPath = $pdfBill->getPath();
+$_SESSION['filepath'] = $pdfPath;
+
+$mail = new Mail();
+$mail->addRecipient($order->email);
+$mail->composeMail("Bill","<p>Thank you for your purchase here is your bill in pdf</p>","Thank you for your purchase here is your bill in pdf");
+$mail->attachement($path.$pdfPath,"Bill.pdf");
+$mail->sendMail();
 
 header('Location:  ../index.php?page=endline');
 ?>

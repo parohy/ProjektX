@@ -56,8 +56,11 @@
     right: 0;
     margin: auto;
     max-width: 350px;
-	max-height: 350px;
+    max-height: 350px;
     border: 1px solid #d0d0d0;
+    cursor: -moz-zoom-in; 
+    cursor: -webkit-zoom-in; 
+    cursor: zoom-in;
 
 }
 

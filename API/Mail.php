@@ -6,13 +6,13 @@
  * Time: 7:57
  */
 
-require ('mail/PHPMailerAutoload.php');
+require_once ('mail/PHPMailerAutoload.php');
 
 class Mail {
 
     private $mail;
-    private $host = 'smtp.gmail.com';
-    private $user = 'viatechcassomedia@gmail.com';
+    private $host = 'smtp.cassomedia.sk';
+    private $user = 'info@cassomedia.sk';
     private $password = 'pr0jektX';
 
     // initialize phpmailer
@@ -34,8 +34,8 @@ class Mail {
     }
 
     // add attachment to mail
-    public function attachement($path) {
-        $this->mail->addAtachement($path);
+    public function attachement($path,$name) {
+        $this->mail->AddAttachment($path,$name);
     }
 
     // compose email parameters are subject body od the mail and alternative body

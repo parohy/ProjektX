@@ -9,7 +9,6 @@ if(isset($_SESSION['filepath'])){
     $topdf = $_SESSION['filepath'];
     unset($_SESSION['filepath']);
 }
-
 ?>
 
 <link rel="stylesheet" type="text/css" href="libraries/css/endline.css">
