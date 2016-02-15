@@ -81,10 +81,14 @@
 }
 .form ul li{
     display: block;
-    text-align: center;
+
+    text-align: right;
     margin: 0 auto;
     margin-top: 25px;
     width: 60%;
+}
+.form ul li:last-child{
+    text-align: center;
 }
 
 .input{
@@ -113,6 +117,7 @@
     color: white;
     height: 55px;
     margin-bottom: 10px;
+    margin-left: 150px;
     background: #34A994;
     padding:15px 25px;
     border-style: none;
@@ -129,7 +134,7 @@
     cursor: pointer; cursor: hand;
 }
 .registrationForm li{
-    width: 40% !important;
+    width: 42% !important;
 }
 /*switching*/
 /*
@@ -163,10 +168,10 @@
     *zoom:1 ;
 }
 .g-recaptcha {
-    margin-left: 80px;
+    margin-left: 180px;
 }
 /*MEDIA QUERY*/
-@media screen and (min-width: 1250px){
+/*@media screen and (min-width: 1250px){
     .title-page span{
         font-size: 32px;
     }
@@ -183,4 +188,4 @@
         margin-top: 15px;
         margin-left: 0px;
     }
-}
+}*/
