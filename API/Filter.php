@@ -184,10 +184,8 @@ class Filter{
         foreach($results as $result){
             $brand[]=$result['brandid'];
         }
-        if(count($this->brand)==0){
-            foreach (array_unique($brand) as $brandid){
-                $brandUnique[]=$brandid;
-            }
+        foreach (array_unique($brand) as $brandid){
+            $brandUnique[]=$brandid;
         }
         $query="SELECT * FROM brands WHERE brandid IN(";
         foreach ($brandUnique as $brandid){
