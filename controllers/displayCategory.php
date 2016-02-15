@@ -22,6 +22,15 @@ $results = $filter->getResults();
 $filter->productArray = $results;
 $brands = $filter->getBrands();
 
+if(isset($_GET['brands']))
+{
+	$filter->brand = $_GET['brands'];
+}
+
+$results = $filter->getResults();
+$filter->productArray = $results;
+$ceilingPrice = $filter->getMaxPrice();
+
 if(isset($_GET['minCost']))
 {
 	$filter->minprice = $_GET['minCost'];
@@ -34,10 +43,7 @@ if(isset($_GET['sortType']))
 {
 	$filter->criteria = $filter->availableCriteria[$_GET['sortType']];
 }
-if(isset($_GET['brands']))
-{
-	$filter->brand = $_GET['brands'];
-}
+
 
 $results = $filter->getResults();
 $display->displayResults($results, 4, $brands);

@@ -27,13 +27,14 @@ $path .= 'ProjektX/';
 <script src="libraries/js/jquery.nouislider.js"></script>
 <script type="text/javascript">
     var Slider = document.getElementById('noUiSlider');
+    var ceiling = "<?php echo $ceilingPrice;?>";
 
     //also change in searchResults.php
     noUiSlider.create(Slider, {
-            start: [ 0, 4000 ],
+            start: [ 0, parseInt(ceiling) ],
             range: {
                     'min': [  0 ],
-                    'max': [ 4000 ]
+                    'max': [ parseInt(ceiling) ]
             },
             connect: true
     });
