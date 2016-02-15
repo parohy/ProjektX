@@ -8,13 +8,19 @@
 
 $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= 'ProjektX/';
+
+include_once ($path . 'API/Filter.php');
 include_once ($path . 'controllers/ProductDisplay.php');
+
+$filter = new Filter();
 
 if(isset($_SESSION['results'])) {
 
     $results = $_SESSION['results'];
+    $filter->productArray = $results;
+    $brands = $filter->getBrands();
     $product = new ProductDisplay();
-    $product->displayResults($results, 4);
+    $product->displayResults($results, 4, $brands);
 
 } else if(isset($_SESSION['noresults'])){
     echo $_SESSION['noresults'];
