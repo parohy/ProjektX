@@ -71,6 +71,9 @@ class Recheck{
 		if(strlen($input) > $size){
 			return "Input out of bounds.";
 		}
+		if(strlen($input) < 1){
+			return "Please fill all fields." . $input;
+		}
 		return true;
 	}
 	
