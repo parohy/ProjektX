@@ -189,6 +189,15 @@ class Filter{
                 $brandUnique[]=$brandid;
             }
         }
-        return $brandUnique;
+        $query="SELECT * FROM brands WHERE brandid IN(";
+        foreach ($brandUnique as $brandid){
+            $query.=$brandid;
+            if($brandid!=$brandUnique[count($brandUnique)-1]){
+                $query.=", ";
+            }            
+        }
+        $query.=")";
+        $this->handlerDB->query($query);
+        return $this->handlerDB->resultSet();
     }    
 }
