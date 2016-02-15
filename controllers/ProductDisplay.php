@@ -19,7 +19,7 @@ include_once ($path.'API/Product.php');
 
 class ProductDisplay
 {
-    public function displayResults($searchResult, $maxInRow) { // Display results on page
+    public function displayResults($searchResult, $maxInRow, $brands) { // Display results on page
         echo "
             <div class=\"filters\">
                 <div class=\"pricefilter\">Price:
@@ -40,46 +40,9 @@ class ProductDisplay
                     </select>
                 </div>
                 <div class=\"brands\">Brands: </div>
-                <div class=\"BrandChoices\">
-                    <div class=\"BrandSelect\">
-                        <input type=\"checkbox\" name=\"brand\" value=\"10\">
-                        <div class=\"BrandName\">Asus</div>
-                    </div>
-                    <div class=\"BrandSelect\">
-                        <input type=\"checkbox\" name=\"brand\" value=\"12\">
-                        <div class=\"BrandName\">Lenovo</div>
-                    </div>
-                    <div class=\"BrandSelect\">
-                        <input type=\"checkbox\" name=\"brand\" value=\"14\">
-                        <div class=\"BrandName\">HP</div>
-                    </div>
-                    <div class=\"MoreBrands\">
-                        +More
-                    </div>
-                    
-                </div>
-                <div class=\"ApplyBrandChoice\" onclick=\"filterSearch()\">Filter</div>
-                <div class=\"AddBrandsWindow\">
-                    <div class=\"AddBrandsWindowHeader\">
-                        <div class=\"AddBrandsWindowClose\">Close</div>
-                    </div>
-                    <div class=\"AddBrandsWindowBody\">
-                        <div class=\"BrandSelect\">
-                            <input type=\"checkbox\" name=\"brand\" value=\"1\">
-                            <div class=\"BrandName\">Sony</div>
-                        </div>
-                        <div class=\"BrandSelect\">
-                            <input type=\"checkbox\" name=\"brand\" value=\"15\">
-                            <div class=\"BrandName\">Samsung</div>
-                        </div>
-                        <div class=\"BrandSelect\">
-                            <input type=\"checkbox\" name=\"brand\" value=\"16\">
-                            <div class=\"BrandName\">LG</div>
-                        </div>
-                    </div>
-                </div>             
-            </div>
-        ";
+            ";
+            $this->productBrands($brands);             
+        echo "</div>";
         
         echo "<div class=\"search-content\">";
 
@@ -153,6 +116,56 @@ class ProductDisplay
     	}
     	 
     	return $out;
+    }
+
+    private function productBrands($brands){
+        $brandAmount = count($brands, 0);
+
+        if($brandAmount <= 3){
+            echo "<div class=\"BrandChoices\">";
+            for($i = 0; $i < $brandAmount; $i++){
+                $this->printBrandSelect($brands[$i][0], $brands[$i][1]);
+            }             
+            echo "
+                </div>
+                <div class=\"ApplyBrandChoice\" onclick=\"filterSearch()\">Filter</div>
+                ";
+        }
+        else {
+            echo "<div class=\"BrandChoices\">";
+            for($i = 0; $i < 3; $i++){
+                $this->printBrandSelect($brands[$i][0], $brands[$i][1]);
+            }             
+            echo "
+                    <div class=\"MoreBrands\">
+                        +More
+                    </div>  
+                </div>
+                <div class=\"ApplyBrandChoice\" onclick=\"filterSearch()\">Filter</div>
+                ";
+            echo "
+                <div class=\"AddBrandsWindow\">
+                    <div class=\"AddBrandsWindowHeader\">
+                        <div class=\"AddBrandsWindowClose\">Close</div>
+                    </div>
+                    <div class=\"AddBrandsWindowBody\">";
+                        for($i = 3; $i < $brandAmount; $i++){
+                            $this->printBrandSelect($brands[i]['brandid'], $brands[i]['name']);
+                        }       
+            echo "
+                    </div>
+                </div>
+                ";
+        }
+    }
+
+    private function printBrandSelect($brandId, $brandName){
+        echo "
+                <div class=\"BrandSelect\">
+                    <input type=\"checkbox\" name=\"brand\" value=\"".$brandId."\">
+                    <div class=\"BrandName\">".$brandName."</div>
+                </div>
+                ";
     }
 }
 ?>
