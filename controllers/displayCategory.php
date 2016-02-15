@@ -35,5 +35,7 @@ if(isset($_GET['catid']))
 }
 
 $results = $filter->getResults();
-$display->displayResults($results, 4);
+$filter->productArray = $results;
+$brands = $filter->getBrands();
+$display->displayResults($results, 4, $brands);
 ?>
