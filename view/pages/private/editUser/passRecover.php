@@ -8,8 +8,10 @@
 <?php 
 if(isset($_GET['password'])){
 	if($_GET['password'] == 'recover'){
-		echo '<form class="form" action="controllers/recoverPasswordController.php" method="POST">
+        echo '<script src="libraries/js/recoverPassword.js"></script>';
+		echo '<form class="form" action="controllers/recoverPasswordController.php" method="POST" id="recoverForm">
 				<ul class="registrationForm">
+				    <li><span id="email-err" class="error"></span></li>
 					<li><div class="inputName">E-mail: </div><input class="input" type="email" placeholder="email" name="email"></li>
 					<li><input type="submit" class="submit-button" value="RECOVER"></li>
 				</ul>
