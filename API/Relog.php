@@ -49,14 +49,14 @@ if($_GET['register'] == 'registration'){
         exit();
     }
 
-	if(errorControl($name, $surname, $email, $password)){
+	if(errorControl($name, $surname, $email, $password) === true){
 		/*handle for saving user information into the database*/
 		$user = User::newUser($name, $surname, $email, $password);
 		
 		$_SESSION['registerErr'] = $user->isSaved();
 	}
 	else{
-		$_SESSION['registerErr'] = "Registration failed.";
+		//$_SESSION['registerErr'] = "Registration failed.";
 		unset($_SESSION['username']);
 		unset($_SESSION['loggedin']);
 		unset($_SESSION['userid']);
@@ -126,7 +126,7 @@ else if($_GET['register'] == 'login'){
 		else{
 			echo "login bad"; //LOGIN NOT PASSED
 			$_SESSION['loggedin'] = false;
-			$_SESSION['loginErr'] = "Wrong email and password.";
+			$_SESSION['loginErr'] = "Wrong email or password.";
 			header('Location: ../index.php');
 			exit();
 		}
@@ -143,7 +143,7 @@ else if($_GET['register'] == 'edit' && isset($_SESSION['userid'])){
 			$value = $check->dumpSpecialChars($_POST['name']);
 			if($check->checkInput($_POST['name'],50)){
 				$editUser->saveData('name', ucfirst($value));
-			}		
+			}
 		}
 		
 		//surname

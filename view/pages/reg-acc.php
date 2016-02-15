@@ -5,7 +5,7 @@
  * Date: 5. 12. 2015
  */
 
-$name = $surname = $email = "";
+$regMsg = $name = $surname = $email = "";
 if(isset($_GET['name'])){
     $name = $_GET['name'];
 }
@@ -17,9 +17,11 @@ if(isset($_GET['surname'])){
 if(isset($_GET['email'])){
     $email = $_GET['email'];
 }
-$a = rand(1,9);
-$b = rand(1,9);
-$_SESSION['captcha'] = $a + $b;
+
+if(isset($_SESSION['registerErr'])){
+    $regMsg = $_SESSION['registerErr'];
+    unset($_SESSION['registerErr']);
+}
 ?>
 
 <link rel="stylesheet" type="text/css" href="libraries/css/reg-acc.css">
@@ -28,6 +30,7 @@ $_SESSION['captcha'] = $a + $b;
 <div class="title-page">
     <span>REGISTRATION</span>
 </div>
+<div class="headerErrorMessage"><span class="headerMessage"><?php echo $regMsg;?></span></div>
 
 <form class="form" action='API/Relog.php?register=registration' onSubmit="return isPassEqual()" method="POST">
     <ul class="registrationForm">
