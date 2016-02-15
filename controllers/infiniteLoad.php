@@ -32,7 +32,7 @@ function loadProducts()
 	}
 	else
 	{
-		$.post("controllers/infiniteLoadAjax.php",{load:load},function(data){
+		$.post("controllers/infiniteLoadAjax.php",{load:load, sort:currentTab},function(data){
 			$('.activeTab').append(data);
 			$(".thumbnailImage").one('load', function() {
 		        adjustOneThumbnail($(this));       
