@@ -124,7 +124,7 @@ class ProductDisplay
         if($brandAmount <= 3){
             echo "<div class=\"BrandChoices\">";
             for($i = 0; $i < $brandAmount; $i++){
-                $this->printBrandSelect($brands[$i][0], $brands[$i][1]);
+                $this->printBrandSelect($brands[$i]['brandid'], $brands[$i]['name']);
             }             
             echo "
                 </div>
@@ -134,7 +134,7 @@ class ProductDisplay
         else {
             echo "<div class=\"BrandChoices\">";
             for($i = 0; $i < 3; $i++){
-                $this->printBrandSelect($brands[$i][0], $brands[$i][1]);
+                $this->printBrandSelect($brands[$i]['brandid'], $brands[$i]['name']);
             }             
             echo "
                     <div class=\"MoreBrands\">
@@ -150,7 +150,7 @@ class ProductDisplay
                     </div>
                     <div class=\"AddBrandsWindowBody\">";
                         for($i = 3; $i < $brandAmount; $i++){
-                            $this->printBrandSelect($brands[i]['brandid'], $brands[i]['name']);
+                            $this->printBrandSelect($brands[$i]['brandid'], $brands[$i]['name']);
                         }       
             echo "
                     </div>
