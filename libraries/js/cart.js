@@ -2,7 +2,7 @@
  * Created by Matus on 11. 1. 2016.
  */
 $(function () {
-    $(".addToCart").click(function(e) {
+    $('body').on('click','.addToCart',function(e) {
         e.preventDefault();
 
         var destination = $(this).attr("href");
