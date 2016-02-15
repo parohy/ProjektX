@@ -149,7 +149,7 @@ $filter = new Filter();
                     $max = 8;
 
                     $criteria = $filter->availableCriteria;
-                    $filter->criteria = $criteria[0];
+                    $filter->criteria = $criteria[5];
                     $products = $filter->getResults();
 
                     $counter = 0;
