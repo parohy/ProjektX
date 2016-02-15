@@ -97,7 +97,7 @@ if($_GET['register'] == 'registration'){
             die("HOOOPS EMAIL NOT SENT ".$mailResponse);
         }
         else {
-            header('Location:  ../index.php');
+            header('Location:  ../?page=activate');
             exit();
         }
 

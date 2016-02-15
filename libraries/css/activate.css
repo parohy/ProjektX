@@ -1,0 +1,13 @@
+.activateWrapper {
+    width: 100%;
+
+    text-align: center;
+}
+
+.activateWrapper h1 {
+    margin-top: 200px;
+}
+
+.activateWrapper p {
+    margin-bottom: 200px;
+}
