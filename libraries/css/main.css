@@ -493,6 +493,7 @@ box-shadow:         0px 0px 15px 0px rgba(52, 169, 148, 1);
     position: absolute;
     top: 0;
     left: 0;    
+    z-index: 10;
 }
 .notLoaded {
     visibility: hidden;
@@ -503,6 +504,7 @@ box-shadow:         0px 0px 15px 0px rgba(52, 169, 148, 1);
     height: 20%;
     top: 40%;
     left: 40%;
+    z-index: 5;
 }
 .product-description {
     width: 100%;

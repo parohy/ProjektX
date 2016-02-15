@@ -146,93 +146,77 @@ $filter = new Filter();
         <div class="bottom-tab-content">
             <div class="best-selling activeTab">
                 <?php
-                if($tempProduct != NULL){
-                    $productsId = $tempProduct->getProductsId();
                     $max = 8;
 
-                    if($tempProduct->getTotalProducts() < $max){
-                        $max = $tempProduct->getTotalProducts();
-                    }
+                    $criteria = $filter->availableCriteria;
+                    $filter->criteria = $criteria[0];
+                    $products = $filter->getResults();
 
                     $counter = 0;
-					$display = new ProductDisplay();
+                    $display = new ProductDisplay();
                     for($i=0;$i<$max;$i++){
-                    	$counter++;
-                    	if($counter == 1){
-                    		echo '<div class="row">';
-                    	}
-                    	echo $display->displayProduct($productsId[$i]['productid']);
-                        if($counter == 4){
-                        	$counter = 0;
-                        	echo '</div>';
+                        $counter++;
+
+                        if($counter == 1) {
+                            echo '<div class="row">';
+                        }
+                        echo $display->displayProduct($products[$i]);
+
+                        if($counter == 4) {
+                            echo '</div>';
+                            $counter = 0;
                         }
                     }
-                }
                 ?>
             </div>
             <div class="top-rated">
                 <?php
-                $products = $filter->getResults();
+                    $max = 8;
 
-                $counter = 0;
-                $display = new ProductDisplay();
-                for($i=0;$i<$max;$i++){
-                    //$product = new Product($products[$i]);
-                    $counter++;
+                    $criteria = $filter->availableCriteria;
+                    $filter->criteria = $criteria[0];
+                    $products = $filter->getResults();
 
-                    if($counter == 1) {
-                        echo '<div class="row">';
+                    $counter = 0;
+                    $display = new ProductDisplay();
+                    for($i=0;$i<$max;$i++){
+                        $counter++;
+
+                        if($counter == 1) {
+                            echo '<div class="row">';
+                        }
+                        echo $display->displayProduct($products[$i]);
+
+                        if($counter == 4) {
+                            echo '</div>';
+                            $counter = 0;
+                        }
                     }
-                    echo $display->displayProduct($products[$i]);
-                    /*echo '<div class="product-item">';
-
-                    echo '<div class="product-photo"><a href="?page=productPreview&product='.$product->id.'"><img alt="product-photo" src="libraries/img/products/'.$product->id.'/'.$product->id.'a.jpg" class="thumbnailImage"></a></div>';
-                    echo '<div class="product-description">';
-                    echo '<hr class="product-line">';
-                    echo '<h3 class="product-name">'.substr($product->name,0,40).'</h3>';
-                    echo '<span class="price">'.$product->price.'<i class="fa fa-eur"></i></span>';
-                    echo '<a href="controllers/addToCart.php?productid='.$product->id.'&name='.$product->name.'&price='.$product->price.'" class="addToCart">Add to Cart</a>';
-                    echo '</div></div>';*/
-
-                    if($counter == 4) {
-                        echo '</div>';
-                        $counter = 0;
-                    }
-                }
                 ?>
             </div>
             <div class="new-arrivals">
                 <?php
-                $criteria = $filter->availableCriteria;
-                $filter->criteria = $criteria[2];
-                $filter->categoryQuery();
-                $products = $filter->getResults();
+                    $max = 8;
+                    
+                    $criteria = $filter->availableCriteria;
+                    $filter->criteria = $criteria[2];
+                    $products = $filter->getResults();
 
-                $counter = 0;
-                $display = new ProductDisplay();
-                for($i=0;$i<$max;$i++){
-                    //$product = new Product($products[$i]);
-                    $counter++;
+                    $counter = 0;
+                    $display = new ProductDisplay();
+                    for($i=0;$i<$max;$i++){
+                        $counter++;
 
-                    if($counter == 1) {
-                        echo '<div class="row">';
+                        if($counter == 1) {
+                            echo '<div class="row">';
+                        }
+                        echo $display->displayProduct($products[$i]);
+
+                        if($counter == 4) {
+                            echo '</div>';
+                            $counter = 0;
+                        }
                     }
-                    echo $display->displayProduct($products[$i]);
-                    /*echo '<div class="product-item">';
-
-                    echo '<div class="product-photo"><a href="?page=productPreview&product='.$product->id.'"><img alt="product-photo" src="libraries/img/products/'.$product->id.'/'.$product->id.'a.jpg" class="thumbnailImage"></a></div>';
-                    echo '<div class="product-description">';
-                    echo '<hr class="product-line">';
-                    echo '<h3 class="product-name">'.substr($product->name,0,40).'</h3>';
-                    echo '<span class="price">'.$product->price.'<i class="fa fa-eur"></i></span>';
-                    echo '<a href="controllers/addToCart.php?productid='.$product->id.'&name='.$product->name.'&price='.$product->price.'" class="addToCart">Add to Cart</a>';
-                    echo '</div></div>';*/
-
-                    if($counter == 4) {
-                        echo '</div>';
-                        $counter = 0;
-                    }
-                }
                 ?>
             </div>
         </div>
