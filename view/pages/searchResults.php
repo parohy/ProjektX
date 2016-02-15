@@ -12,20 +12,6 @@ $path .= 'ProjektX/';
 include_once ($path . 'API/Filter.php');
 include_once ($path . 'controllers/ProductDisplay.php');
 include_once ($path . 'controllers/displayCategory.php');
-
-$filter = new Filter();
-
-if(isset($_SESSION['results'])) {
-
-    $results = $_SESSION['results'];
-    $filter->productArray = $results;
-    $brands = $filter->getBrands();
-    $product = new ProductDisplay();
-    $product->displayResults($results, 4, $brands);
-
-} else if(isset($_SESSION['noresults'])){
-    echo $_SESSION['noresults'];
-}
 ?>
 <script src="libraries/js/pageScript.js"></script>
 
