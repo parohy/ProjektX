@@ -106,7 +106,7 @@ class Product{
         
         public function delete() {
             if($this->id!=null){
-                $this->handlerDB->query("DELETE FROM products WHERE productid LIKE '%".$this->id."%'");
+                $this->handlerDB->query("UPDATE products SET deleted='1' WHERE productid LIKE '%".$this->id."%'");
             }
             $this->handlerDB->execute();   
         }

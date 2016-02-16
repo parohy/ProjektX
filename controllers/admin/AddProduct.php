@@ -11,6 +11,8 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= 'ProjektX/'; 
 include_once ($path."API/Product.php");
 
+$exitTo = '?page=';
+
 //if adding product, create hidden input with value="NULL"
 $id=$_POST["productid"];
 if($id=="NULL")
@@ -43,13 +45,18 @@ else{
 $product->description=$_POST["description"];
 $product->save();
 if($product->saved){
-	//header('Location: ../?page=private/pageSettings&settings=addProduct');
-	if(headers_sent()){
-		$url = '../index.php?page=private/pageSettings&settings=products&display=20&pagination=1';
-		//die('Redirect failed. Please click on <a href="'.$url.'">this</a> to try again.');
-	}
-	else{
-		//exit(header('Location: ../' . $url));
-	}
+	$_SESSION['adminMsg'] = 'Product saved.';
+    $exitTo .= 'private/pageSettings&settings=products&display=20&pagination=1';
+}
+else{
+    $exitTo .= 'private/pageSettings&settings=addProduct';
+}
+
+if(headers_sent()){
+    $url = '../index.php?page=private/pageSettings&settings=products&display=20&pagination=1';
+    //die('Redirect failed. Please click on <a href="'.$url.'">this</a> to try again.');
+}
+else{
+    exit(header('Location: '. $url));
 }
 

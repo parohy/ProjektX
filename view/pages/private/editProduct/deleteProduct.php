@@ -14,6 +14,7 @@ $editProduct;
 if(isset($_GET['productid'])){
 	$editProduct = new Product($_GET['productid']);
 	$editProduct->delete();
+	$_SESSION['adminMsg'] = 'Product deleted.';
 }
 
 if(headers_sent()){

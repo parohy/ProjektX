@@ -44,6 +44,9 @@ class ProductEditorController{
 	
 		for($i = ($pagination - 1) * $display; $i < $amount; $i++) {
 			echo '<li>';
+			if($products[$i]['deleted'] != 0){
+				echo '<i class="fa fa-archive"></i>';
+			}
 			echo '<span class="prodname">' . $products[$i]['name'] . '</span>';
 			echo '<span class="user-controls"><a class="page-link" href="?page=private/pageSettings&settings=editProduct/productPreview&productid=' . $products[$i]['productid'] . '"><i class="fa fa-search-plus fa-2x"></i></a>
             	                              <a class="page-link" href="?page=private/pageSettings&settings=addProduct&productid=' . $products[$i]['productid'] . '"><i class="fa fa-pencil-square-o fa-2x"></i></a>
