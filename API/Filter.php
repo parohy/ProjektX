@@ -148,7 +148,7 @@ class Filter{
         $brandQuery=$this->brandQuery();
         $sortQuery=$this->sortQuery();
         $selectedQuery=$this->selectedProductsQuery();
-        $this->handlerDB->query("SELECT productid FROM products WHERE price>=:minprice and price<=:maxprice and ".$catQuery." and ".$brandQuery.$selectedQuery." ORDER BY ".$sortQuery."");
+        $this->handlerDB->query("SELECT productid FROM products WHERE price>=:minprice and price<=:maxprice and ".$catQuery." and ".$brandQuery.$selectedQuery."  and deleted != '1' ORDER BY ".$sortQuery."");
         $this->handlerDB->bind(':maxprice', $this->maxprice);
         $this->handlerDB->bind(':minprice', $this->minprice);
         $results = $this->handlerDB->resultSet();
