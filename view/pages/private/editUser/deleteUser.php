@@ -15,9 +15,11 @@ if(isset($_GET['userid'])){
 	$editUser = User::editUser($_GET['userid']);
 	if($editUser->getData('deleted') == 0){
 		$editUser->delete();
+        $_SESSION['adminMsg'] = 'User archived.';
 	}
 	else{
 		$editUser->restore();
+        $_SESSION['adminMsg'] = 'User restored.';
 	}
 
 	//header('Location: ?page=private/pageSettings&settings=users&display=20&pagination=1');

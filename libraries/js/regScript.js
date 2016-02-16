@@ -21,7 +21,8 @@ $(function(){
             var pass2 = document.getElementById('pass2');
 
             if(pass1.value == pass2.value){
-                return;
+                alert("ales good");
+                return true;
             }
             else {
                 $("#pass-err").html("Passwords does not match!");

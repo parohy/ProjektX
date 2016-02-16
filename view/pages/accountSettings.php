@@ -29,7 +29,13 @@ else{
 </nav>
 </aside>
 <div class="admin-panel">
-	<?php 
+	<?php
+    $profileMsg = "";
+    if(isset($_SESSION['profileMsg'])){
+        $profileMsg = $_SESSION['profileMsg'];
+        unset($_SESSION['profileMsg']);
+    }
+    echo '<div class="headerErrorMessage"><span class="headerMessage" id="msg">'.$profileMsg.'</span></div>';
 	if(isset($_GET['profile'])){
 		$profile = 'view/pages/private/editUser/'.$_GET['profile'].'.php';
 	}

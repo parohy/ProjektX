@@ -18,6 +18,7 @@ class User{
 	
 	private $id;	
 	private $handlerDB;
+	private $randomPass = "";
 	private $success = false;
 	
 	private function __construct(){
@@ -65,7 +66,9 @@ class User{
 		if($instance->id != null && $instance->id != 0){
 			$instance->saveData('surname', ucfirst($surname));
 			$instance->saveData('email', $email);
-			$instance->saveData('password', $instance->generatePassword());
+			$instance->randomPass = $instance->generatePassword();
+			$hashedPass = password_hash($instance->randomPass,PASSWORD_DEFAULT,['cost' => 12]);
+			$instance->saveData('password', $hashedPass);
 			$instance->saveData('role', '1');
 		}
 			
@@ -214,7 +217,7 @@ class User{
 	
 	private function generatePassword(){
 		$password = "";
-		$char;
+		$char = "";
 		for($i=1;$i<=6;$i++){
 			do{
 				$char = rand(48,122);
@@ -222,5 +225,9 @@ class User{
 			$password .= chr($char);
 		}
 		return $password;
+	}
+
+	public function getGenPassword(){
+		return $this->randomPass;
 	}
 }

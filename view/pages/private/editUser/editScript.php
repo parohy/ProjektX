@@ -15,18 +15,20 @@ if(isset($_SESSION['userrole']) && $_SESSION['userrole'] == 1){
 	$exitTo .= 'accountSettings';	
 	if(isset($_POST['password'])){
 		$value = $check->dumpSpecialChars($_POST['password']);		
-		if($check->checkInput($value, 50) && $editUser->getData('password') == $value && $editUser != null){
+		if($check->checkInput($value, 50) && $editUser != null && password_verify($value,$editUser->getData('password'))){
+            $_SESSION['profileMsg'] = 'Profile changed.';
 			proceed($check,$editUser);
 		}
 		else{
-			$_SESSION['editErr'] = "Wrong password.";
-			$exitTo .= '&profile=editUser';
+			//$exitTo .= '&profile=editUser';
+            $_SESSION['profileMsg'] = 'Wrong password.';
 			exitScript();
 		}
 	}
 }
 else{
 	$exitTo .= 'private/pageSettings&settings=users&display=20&pagination=1';
+    $_SESSION['adminMsg'] = 'User information changed.';
 	proceed($check,$editUser);
 }
 
@@ -95,11 +97,11 @@ function proceed($check,$editUser){
 	if(isset($_POST['new-password'])){
 		$value = $check->dumpSpecialChars($_POST['new-password']);
 		if($check->checkInput($_POST['new-password'],50)){
-			$editUser->saveData('password', $value);
+            $hashPassword = password_hash($value,PASSWORD_DEFAULT,['cost' => 12]);
+			$editUser->saveData('password', $hashPassword);
+            $_SESSION['profileMsg'] = 'Password changed.';
 		}
 	}
-	
-	$_SESSION['editErr'] = "Saved.";	
 	exitScript();
 }
 

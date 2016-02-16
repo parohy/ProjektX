@@ -134,7 +134,7 @@ else if($_GET['register'] == 'login'){
 }
 /*###############################*/
 /*Executes edit algorithm*/
-else if($_GET['register'] == 'edit' && isset($_SESSION['userid'])){
+/*else if($_GET['register'] == 'edit' && isset($_SESSION['userid'])){
 	$editUser = User::editUser($_SESSION['userid']);
 	if(isset($_POST['passwordorg']) && $_POST['passwordorg'] == $editUser->getData('password')){	
 		
@@ -196,7 +196,7 @@ else if($_GET['register'] == 'edit' && isset($_SESSION['userid'])){
 	else{
 		$_SESSION['editErr'] = "Wrong password.";
 	}
-}
+}*/
 
 /**
  * Validates user inputs for registration form.

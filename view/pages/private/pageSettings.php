@@ -47,6 +47,12 @@ if($_SESSION['username'] != "admin") {
 </aside>
 <div class="admin-panel">
     <?php
+    $adminMsg = "";
+    if(isset($_SESSION['adminMsg'])){
+        $adminMsg = $_SESSION['adminMsg'];
+        unset($_SESSION['adminMsg']);
+    }
+    echo '<div class="headerErrorMessage"><span class="headerMessage" id="msg">'.$adminMsg.'</span></div>';
     if(isset($_GET['settings'])) {
         $settings = $_GET['settings'];
     }
