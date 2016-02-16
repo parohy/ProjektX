@@ -5,7 +5,13 @@
 ?>
 <link rel="stylesheet" type="text/css" href="libraries/css/reg-acc.css">
 
-<?php 
+<?php
+$passMsg = "";
+if(isset($_SESSION['passMsg'])){
+	$passMsg = $_SESSION['passMsg'];
+	unset($_SESSION['passMsg']);
+}
+echo '<div class="headerErrorMessage"><span class="headerMessage" id="msg">'.$passMsg.'</span></div>';
 if(isset($_GET['password'])){
 	if($_GET['password'] == 'recover'){
         echo '<script src="libraries/js/recoverPassword.js"></script>';

@@ -14,6 +14,13 @@ $editUser;
 if(isset($_GET['userid'])){
 	$editUser = User::editUser($_GET['userid']);
 	$editUser->delete();
-	header('Location: ?page=private/pageSettings&settings=users&display=20&pagination=1');
-	exit();
+	//header('Location: ?page=private/pageSettings&settings=users&display=20&pagination=1');
+	//exit();
+
+	if(headers_sent()){
+		die('Redirect failed. Please click on <a href=?page=private/pageSettings&settings=users&display=20&pagination=1">this</a> to try again.');
+	}
+	else{
+		exit(header('Location: ?page=private/pageSettings&settings=users&display=20&pagination=1'));
+	}
 }

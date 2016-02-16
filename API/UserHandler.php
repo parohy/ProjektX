@@ -190,7 +190,7 @@ class User{
 	
 	public function delete(){
 		if($this->id != null){
-			$this->handlerDB->query("DELETE FROM users WHERE `userid`=(:userid)");
+			$this->handlerDB->query("UPDATE users SET deleted='1' WHERE `userid`=(:userid)");
 			$this->handlerDB->bind(":userid",$this->id);
 			try{
 				$this->handlerDB->execute();
