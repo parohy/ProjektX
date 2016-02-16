@@ -26,20 +26,7 @@ class Filter{
      */
     public function __construct(){
         $this->handlerDB = new DBHandler();
-        $query="SELECT MAX(price) as \"max\" FROM products";
-        if(count($this->productArray)>0){
-            $query.=" WHERE productid IN(";
-            foreach ($this->productArray as $id) {
-                $query.=$id;
-                if($id!=$this->productArray[count($this->productArray)-1]){
-                    $selectedquery.=", ";
-                }
-            }
-            $query.=")";
-        }  
-        $this->handlerDB->query($query);
-        $result = $this->handlerDB->resultSet();
-        $this->maxprice=ceil($result[0]['max']);
+        $this->maxprice=$this->getMaxPrice();
     }
     
     /**
@@ -161,7 +148,7 @@ class Filter{
         $brandQuery=$this->brandQuery();
         $sortQuery=$this->sortQuery();
         $selectedQuery=$this->selectedProductsQuery();
-        $this->handlerDB->query("SELECT productid,brandid FROM products WHERE price>=:minprice and price<=:maxprice and ".$catQuery." and ".$brandQuery.$selectedQuery." ORDER BY ".$sortQuery."");
+        $this->handlerDB->query("SELECT productid FROM products WHERE price>=:minprice and price<=:maxprice and ".$catQuery." and ".$brandQuery.$selectedQuery." ORDER BY ".$sortQuery."");
         $this->handlerDB->bind(':maxprice', $this->maxprice);
         $this->handlerDB->bind(':minprice', $this->minprice);
         $results = $this->handlerDB->resultSet();
@@ -172,6 +159,7 @@ class Filter{
         }
         return $array;
     } 
+    
     
     public function getBrands(){
         $catQuery=$this->categoryQuery();
@@ -198,4 +186,15 @@ class Filter{
         $this->handlerDB->query($query);
         return $this->handlerDB->resultSet();
     }    
+    
+    
+    public function getMaxPrice(){
+        $catQuery=$this->categoryQuery();
+        $brandQuery=$this->brandQuery();
+        $selectedQuery=$this->selectedProductsQuery();
+        $this->handlerDB->query("SELECT MAX(price) as \"max\" FROM products WHERE ".$catQuery." and ".$brandQuery.$selectedQuery."");
+        $result = $this->handlerDB->resultSet();
+        $maxprice=ceil($result[0]['max']);
+        return $maxprice;
+    }
 }

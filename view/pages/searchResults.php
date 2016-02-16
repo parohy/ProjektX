@@ -11,20 +11,7 @@ $path .= 'ProjektX/';
 
 include_once ($path . 'API/Filter.php');
 include_once ($path . 'controllers/ProductDisplay.php');
-
-$filter = new Filter();
-
-if(isset($_SESSION['results'])) {
-
-    $results = $_SESSION['results'];
-    $filter->productArray = $results;
-    $brands = $filter->getBrands();
-    $product = new ProductDisplay();
-    $product->displayResults($results, 4, $brands);
-
-} else if(isset($_SESSION['noresults'])){
-    echo $_SESSION['noresults'];
-}
+include_once ($path . 'controllers/displayCategory.php');
 ?>
 <script src="libraries/js/pageScript.js"></script>
 
@@ -37,13 +24,14 @@ if(isset($_SESSION['results'])) {
 <script src="libraries/js/jquery.nouislider.js"></script>
 <script type="text/javascript">
     var Slider = document.getElementById('noUiSlider');
+    var ceiling = "<?php echo $ceilingPrice;?>";
 
     //also change in mainCategory.php
     noUiSlider.create(Slider, {
-        start: [0, 4000 ],
+        start: [0, parseInt(ceiling) ],
         range: {
                 'min': [  0 ],
-                'max': [ 4000 ]
+                'max': [ parseInt(ceiling) ]
         },
         connect: true
     });

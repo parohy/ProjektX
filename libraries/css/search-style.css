@@ -127,7 +127,7 @@
    
    .AddBrandsWindow{
        visibility: hidden;
-       z-index: 1;
+       z-index: 20;
        position: relative;
        padding: 10px;
        width: 300px;

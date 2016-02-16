@@ -7,6 +7,8 @@
  *
  */
  ?>
-
-<h1>Activate your account before entering site...</h1>
-<p>Email has been sent to your email check your spam folder just to be sure...</p>
+<link rel="stylesheet" type="text/css" href="libraries/css/activate.css">
+<div class="activateWrapper">
+    <h1>Activate your account before logging in...</h1>
+    <p>Email has been sent to your email account check your spam folder just to be sure...</p>
+</div>
