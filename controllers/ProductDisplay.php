@@ -53,18 +53,20 @@ class ProductDisplay
 
             
 
-            if($itemCount == 0) {
-                echo "<div class=\"row\">";
-            }
+
 
             $product = new Product($res);
-            $size = $scaling->productItemTumbnail($res); // get scaled size of image to fit tumbnail
-            $margin = $scaling->productItemTumbnailMargin($size); // calculate margin after scale to center it in thumbnail
+            if($product->deleted === false){
+                if($itemCount == 0) {
+                    echo "<div class=\"row\">";
+                }
+                $size = $scaling->productItemTumbnail($res); // get scaled size of image to fit tumbnail
+                $margin = $scaling->productItemTumbnailMargin($size); // calculate margin after scale to center it in thumbnail
 
-            echo "<div class=\"product-item\">";
+                echo "<div class=\"product-item\">";
 
 
-             echo "
+                echo "
                         <div class=\"product-photo\">
                             <img class=\"loader\" src=\"libraries/img/loader.gif\" alt=\"loading...\">
                             <a href=\"?page=productPreview&product=" . $res . "\"><img class=\"thumbnailImage notLoaded\" src=\"libraries/img/products/" . $res . "/" . $res . "a.jpg\" alt=\"product photo\"></a>
@@ -73,17 +75,19 @@ class ProductDisplay
                             <hr class=\"product-line\">
                             <h3 class=\"product-name\">" . substr($product->name,0,40) . "</h3>
                             <span class=\"price\">".$product->price."<i class=\"fa fa-eur\"></i></span>";
-                            echo $this->productButtons($res,$product->name,$product->price);//<a href=\"controllers/addToCart.php?productid=".$res."&name=".$product->name."&price=".$product->price."\" class=\"addToCart\">Add to Cart</a>
-                   echo     "</div>
+                echo $this->productButtons($res,$product->name,$product->price);//<a href=\"controllers/addToCart.php?productid=".$res."&name=".$product->name."&price=".$product->price."\" class=\"addToCart\">Add to Cart</a>
+                echo     "</div>
                   </div>
                  ";
 
-            if($itemCount == $maxInRow - 1) {
-                echo "</div>";
-                $itemCount = -1;
+                if($itemCount == $maxInRow - 1) {
+                    echo "</div>";
+                    $itemCount = -1;
+                }
+
+                $itemCount++;
             }
 
-            $itemCount++;
         }
         echo "</div>";
     }
@@ -91,18 +95,18 @@ class ProductDisplay
     public function displayProduct($id){
     	$out = "";
     	$product = new Product($id);
-    	 
-    	 
-    	$out .= '<div class="product-item">';
-    	$out .= '<div class="product-photo"><img class="loader" src="libraries/img/loader.gif" alt="loading..."><a href="?page=productPreview&product='.$product->id.'"><img alt="product-photo" src="libraries/img/products/'.$product->id.'/'.$product->id.'a.jpg" class="thumbnailImage notLoaded"></a></div>';
-    	$out .= '<div class="product-description">';
-    	$out .= '<hr class="product-line">';
-    	$out .= '<h3 class="product-name">'.substr($product->name,0,40).'</h3>';
-    	$out .= '<span class="price">'.$product->price.'<i class="fa fa-eur"></i></span>';
-    	$out .= $this->productButtons($product->id,$product->name,$product->price);
-    	//$out .= '<a href="controllers/addToCart.php?productid='.$product->id.'&name='.$product->name.'&price='.$product->price.'" class="addToCart">Add to Cart</a>';
-    	$out .= '</div></div>';
-    	 
+        if($product->deleted === false){
+            $out .= '<div class="product-item">';
+            $out .= '<div class="product-photo"><img class="loader" src="libraries/img/loader.gif" alt="loading..."><a href="?page=productPreview&product='.$product->id.'"><img alt="product-photo" src="libraries/img/products/'.$product->id.'/'.$product->id.'a.jpg" class="thumbnailImage notLoaded"></a></div>';
+            $out .= '<div class="product-description">';
+            $out .= '<hr class="product-line">';
+            $out .= '<h3 class="product-name">'.substr($product->name,0,40).'</h3>';
+            $out .= '<span class="price">'.$product->price.'<i class="fa fa-eur"></i></span>';
+            $out .= $this->productButtons($product->id,$product->name,$product->price);
+            //$out .= '<a href="controllers/addToCart.php?productid='.$product->id.'&name='.$product->name.'&price='.$product->price.'" class="addToCart">Add to Cart</a>';
+            $out .= '</div></div>';
+        }
+
     	return $out;
     }
     

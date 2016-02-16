@@ -25,6 +25,7 @@ class Product{
         public $numofratings=0;
         public $sumofratings=0;
         public $saved=false;
+        public $deleted=false;
 
 	/**
 	 * Creates an ProductHandler instance with optional $id parameter
@@ -59,6 +60,7 @@ class Product{
                     $this->datecreated=$products[0]['datecreated'];
                     $this->numofratings=$products[0]['numofratings'];
                     $this->sumofratings=$products[0]['sumofratings'];
+                    if($products[0]['deleted'] != 0) $this->deleted = true;
                 }
                 else {
                     $error="Product not found.";
@@ -106,7 +108,14 @@ class Product{
         
         public function delete() {
             if($this->id!=null){
-                $this->handlerDB->query("UPDATE products SET deleted='1' WHERE productid LIKE '%".$this->id."%'");
+                if($this->deleted){
+                    $this->handlerDB->query("UPDATE products SET deleted='0' WHERE productid LIKE '%".$this->id."%'");
+                    $_SESSION['adminMsg'] = 'Product restored.';
+                }
+                else{
+                    $_SESSION['adminMsg'] = 'Product deleted.';
+                    $this->handlerDB->query("UPDATE products SET deleted='1' WHERE productid LIKE '%".$this->id."%'");
+                }
             }
             $this->handlerDB->execute();   
         }
