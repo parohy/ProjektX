@@ -43,7 +43,10 @@ if($tempProduct != NULL)
 	echo '<div class="row">';
     for($i=0;$i<$max;$i++)
     {
-    	echo $display->displayProduct($results[$i + $load]);
+        if($i + $load - $tempProduct->getTotalArchived()+1 < count($results)){
+            echo $display->displayProduct($results[$i + $load - $tempProduct->getTotalArchived()+1]);
+        }
+
     }
     echo '</div>';
 }
