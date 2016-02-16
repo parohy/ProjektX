@@ -35,18 +35,15 @@ if($tempProduct != NULL)
 	$productsId = $tempProduct->getProductsId();
 	$max = 4;
 
-	if(($tempProduct->getTotalProducts() - $load) < $max)
+	if((($tempProduct->getTotalProducts() - $tempProduct->getTotalArchived()) - $load) < $max)
 	{
-    	$max = $tempProduct->getTotalProducts() - $load;
+    	$max = ($tempProduct->getTotalProducts() - $tempProduct->getTotalArchived()) - $load;
     }
 
 	echo '<div class="row">';
     for($i=0;$i<$max;$i++)
     {
-        if($i + $load - $tempProduct->getTotalArchived()+1 < count($results)){
-            echo $display->displayProduct($results[$i + $load - $tempProduct->getTotalArchived()+1]);
-        }
-
+        echo $display->displayProduct($results[$i + $load]);
     }
     echo '</div>';
 }

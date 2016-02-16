@@ -9,7 +9,7 @@ include_once ($path.'API/Product.php');
 include_once ($path.'controllers/ProductDisplay.php');
 
 $tempProduct = new Product(); 
-$total = $tempProduct->getTotalProducts();?>
+$total = $tempProduct->getTotalProducts() - $tempProduct->getTotalArchived() - 1;?>
 
 <script>
 var load = 0;
@@ -25,6 +25,12 @@ function enableLoad()
 {
 	loadProducts();
 	loadProducts();
+    if(load * 4 > max)
+    {
+        $(".loadMore").hide();
+        $(".messages").html("Back to Top");
+        adjustThumbnail();
+    }
 }
 
 function loadProducts()
