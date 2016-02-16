@@ -12,9 +12,14 @@ $tempProduct = new Product();
 $total = $tempProduct->getTotalProducts();?>
 
 <script>
-var load = 2;
+var load = 0;
 var currentTab = 0;
 var max = "<?php echo $total;?>";
+
+$(window).ready(function()
+{
+    enableLoad();
+}); 
 
 function enableLoad()
 {

@@ -43,7 +43,7 @@ $(function() {
     /*
      * TABS
      */
-    var tabsLoad = [2,2,2];
+    var tabsLoad = [0,0,0];
 
     $(".best-sellingButton").click(function(e){
         $(".activeTab").removeClass("activeTab");
@@ -57,7 +57,7 @@ $(function() {
         load = tabsLoad[currentTab];
         $(".messages").html("");
         e.preventDefault();
-        adjustThumbnail();
+        enableLoad();
     });
 
     $(".top-ratedButton").click(function(e){
@@ -72,7 +72,7 @@ $(function() {
         load = tabsLoad[currentTab];
         $(".messages").html("");
         e.preventDefault();
-        adjustThumbnail();
+        enableLoad();
     });
 
     $(".new-arrivalsButton").click(function(e){
@@ -87,7 +87,7 @@ $(function() {
         load = tabsLoad[currentTab];
         $(".messages").html("");
         e.preventDefault();
-        adjustThumbnail();
+        enableLoad();
     });
    
 
@@ -124,7 +124,6 @@ function adjustThumbnail()
 
 function adjustOneThumbnail(img)
 {
-    alert("hola");
     var maxWidth = img.parent().parent().width();
     var maxHeight = img.parent().parent().height();
 

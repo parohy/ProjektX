@@ -145,7 +145,7 @@ $filter = new Filter();
         
         <div class="bottom-tab-content">
             <div class="best-selling activeTab">
-                <?php
+                <!--<?php
                     $max = 8;
 
                     $criteria = $filter->availableCriteria;
@@ -167,10 +167,10 @@ $filter = new Filter();
                             $counter = 0;
                         }
                     }
-                ?>
+                ?>-->
             </div>
             <div class="top-rated">
-                <?php
+                <!--<?php
                     $max = 8;
 
                     $criteria = $filter->availableCriteria;
@@ -192,10 +192,10 @@ $filter = new Filter();
                             $counter = 0;
                         }
                     }
-                ?>
+                ?>-->
             </div>
             <div class="new-arrivals">
-                <?php
+                <!--<?php
                     $max = 8;
                     
                     $criteria = $filter->availableCriteria;
@@ -217,7 +217,7 @@ $filter = new Filter();
                             $counter = 0;
                         }
                     }
-                ?>
+                ?>-->
             </div>
         </div>
     </div>
