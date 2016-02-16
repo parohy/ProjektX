@@ -13,7 +13,13 @@ include_once ($path.'API/UserHandler.php');
 $editUser;
 if(isset($_GET['userid'])){
 	$editUser = User::editUser($_GET['userid']);
-	$editUser->delete();
+	if($editUser->getData('deleted') == 0){
+		$editUser->delete();
+	}
+	else{
+		$editUser->restore();
+	}
+
 	//header('Location: ?page=private/pageSettings&settings=users&display=20&pagination=1');
 	//exit();
 

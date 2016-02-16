@@ -45,6 +45,9 @@ class UserEditorController
 
         for($i = ($pagination - 1) * $display; $i < $amount; $i++) {
             echo '<li>';
+            if($users[$i]['deleted'] != 0){
+                echo '<i class="fa fa-archive"></i>';
+            }
             echo '<span class="username">' . $users[$i]['name'] . ' ' . $users[$i]['surname'] . '</span>';
             echo '<span class="email">' . $users[$i]['email'] . '</span>';
             echo '<span class="user-controls"><a class="page-link" href="?page=private/pageSettings&settings=editUser/userPreview&userid=' . $users[$i]['userid'] . '"><i class="fa fa-search-plus fa-2x"></i></a>

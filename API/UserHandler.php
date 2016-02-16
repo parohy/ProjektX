@@ -199,6 +199,18 @@ class User{
 			}
 		}
 	}
+
+	public function restore(){
+		if($this->id != null){
+			$this->handlerDB->query("UPDATE users SET deleted='0' WHERE `userid`=(:userid)");
+			$this->handlerDB->bind(":userid",$this->id);
+			try{
+				$this->handlerDB->execute();
+			}catch(PDOException $e){
+				echo $e;
+			}
+		}
+	}
 	
 	private function generatePassword(){
 		$password = "";
