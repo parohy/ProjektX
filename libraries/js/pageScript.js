@@ -51,13 +51,13 @@ $(function() {
         $(".new-arrivals").hide();
         $(".best-selling").show();
         $(".best-selling").addClass("activeTab");    
-        $(".loadMore").show();    
-        adjustThumbnail();
+        $(".loadMore").show();        
         tabsLoad[currentTab] = load;
         currentTab = 0;
         load = tabsLoad[currentTab];
         $(".messages").html("");
         e.preventDefault();
+        adjustThumbnail();
     });
 
     $(".top-ratedButton").click(function(e){
@@ -67,12 +67,12 @@ $(function() {
         $(".top-rated").show();
         $(".top-rated").addClass("activeTab");        
         $(".loadMore").show();
-        adjustThumbnail();
         tabsLoad[currentTab] = load;
         currentTab = 1;
         load = tabsLoad[currentTab];
         $(".messages").html("");
         e.preventDefault();
+        adjustThumbnail();
     });
 
     $(".new-arrivalsButton").click(function(e){
@@ -82,12 +82,12 @@ $(function() {
         $(".new-arrivals").show();
         $(".new-arrivals").addClass("activeTab");     
         $(".loadMore").show();   
-        adjustThumbnail();
         tabsLoad[currentTab] = load;
         currentTab = 2;
         load = tabsLoad[currentTab];
         $(".messages").html("");
         e.preventDefault();
+        adjustThumbnail();
     });
    
 
@@ -107,6 +107,8 @@ $(function() {
 
 $(window).ready(function()
 {
+    adjustThumbnail();
+
     $(window).resize(function()
     {
         adjustThumbnail();
@@ -122,6 +124,7 @@ function adjustThumbnail()
 
 function adjustOneThumbnail(img)
 {
+    alert("hola");
     var maxWidth = img.parent().parent().width();
     var maxHeight = img.parent().parent().height();
 

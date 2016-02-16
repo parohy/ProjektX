@@ -49,6 +49,9 @@ class ProductDisplay
         $scaling = new ImageScaling();
         $itemCount = 0;
 
+        $date = new DateTime();
+        $timeStamp = $date->getTimestamp();
+
         foreach($searchResult as $res) {
 
             
@@ -69,7 +72,7 @@ class ProductDisplay
                 echo "
                         <div class=\"product-photo\">
                             <img class=\"loader\" src=\"libraries/img/loader.gif\" alt=\"loading...\">
-                            <a href=\"?page=productPreview&product=" . $res . "\"><img class=\"thumbnailImage notLoaded\" src=\"libraries/img/products/" . $res . "/" . $res . "a.jpg\" alt=\"product photo\"></a>
+                            <a href=\"?page=productPreview&product=" . $res . "\"><img class=\"thumbnailImage notLoaded\" src=\"libraries/img/products/" . $res . "/" . $res . "a.jpg?".$timeStamp."\" alt=\"product photo\"></a>
                         </div>
                         <div class=\"product-description\">
                             <hr class=\"product-line\">
@@ -93,11 +96,14 @@ class ProductDisplay
     }
     
     public function displayProduct($id){
+        $date = new DateTime();
+        $timeStamp = $date->getTimestamp();
+
     	$out = "";
     	$product = new Product($id);
         if($product->deleted === false){
             $out .= '<div class="product-item">';
-            $out .= '<div class="product-photo"><img class="loader" src="libraries/img/loader.gif" alt="loading..."><a href="?page=productPreview&product='.$product->id.'"><img alt="product-photo" src="libraries/img/products/'.$product->id.'/'.$product->id.'a.jpg" class="thumbnailImage notLoaded"></a></div>';
+            $out .= '<div class="product-photo"><img class="loader" src="libraries/img/loader.gif" alt="loading..."><a href="?page=productPreview&product='.$product->id.'"><img alt="product-photo" src="libraries/img/products/'.$product->id.'/'.$product->id.'a.jpg?'.$timeStamp.'" class="thumbnailImage notLoaded"></a></div>';
             $out .= '<div class="product-description">';
             $out .= '<hr class="product-line">';
             $out .= '<h3 class="product-name">'.substr($product->name,0,40).'</h3>';
