@@ -124,6 +124,11 @@ class Product{
         	$this->handlerDB->query("SELECT productid FROM products");
         	return count($this->handlerDB->resultSet());
         }
+
+        public function getTotalArchived(){
+            $this->handlerDB->query("SELECT productid FROM products WHERE deleted != '0'");
+            return count($this->handlerDB->resultSet());
+        }
         
         public function getProductsId(){
         	$this->handlerDB->query("SELECT productid FROM products");
