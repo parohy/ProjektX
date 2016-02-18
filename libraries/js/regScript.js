@@ -21,7 +21,6 @@ $(function(){
             var pass2 = document.getElementById('pass2');
 
             if(pass1.value == pass2.value){
-                alert("ales good");
                 return true;
             }
             else {
