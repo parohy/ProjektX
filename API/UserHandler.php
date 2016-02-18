@@ -70,6 +70,7 @@ class User{
 			$hashedPass = password_hash($instance->randomPass,PASSWORD_DEFAULT,['cost' => 12]);
 			$instance->saveData('password', $hashedPass);
 			$instance->saveData('role', '1');
+			$instance->saveData('activated', '1');
 		}
 			
 		return $instance;

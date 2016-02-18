@@ -46,7 +46,7 @@ if($newUser != null && $newUser->isSaved()){
 		die("HOOOPS EMAIL NOT SENT ".$mailResponse);
 	}
 	else{
-		$_SESSION['adminMsg'] = 'Email send failed!';
+		$_SESSION['adminMsg'] = 'Email send success!';
 	}
 }
 else{
