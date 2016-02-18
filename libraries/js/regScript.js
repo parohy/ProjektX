@@ -1,7 +1,9 @@
 /**
- * @author Tomas Paronai
+ * @author Matus Kacmar
  */
 $(function(){
+    $("li .error").hide();
+
     $("#regForm").submit(function(e) {
         var inputFields = $(".input");
         var isEmpty = false;
@@ -11,6 +13,7 @@ $(function(){
 
             if(input == null || input == "" || input == " ") {
                 $("#form-err").html("You left some fields empty...");
+                $("#form-err").slideDown("slow");
                 isEmpty = true;
                 return false;
             }
@@ -25,6 +28,7 @@ $(function(){
             }
             else {
                 $("#pass-err").html("Passwords does not match!");
+                $("#pass-err").slideDown("slow");
             }
         }
 

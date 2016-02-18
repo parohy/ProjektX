@@ -69,7 +69,7 @@ if($_GET['register'] == 'registration'){
 	}
 	
 	if($_SESSION['registerErr']==true){
-		$_SESSION['registerErr'] = "User registered.";
+		$_SESSION['registerMsg'] = "User registered.";
 		
 		/*login after registration
 		$_SESSION['loggedin'] = true;
@@ -117,7 +117,7 @@ else if($_GET['register'] == 'login'){
 		if($login->checkLogin($loginEmail, $loginPassword)){
 			echo "login OK"; //LOGIN PASSED
 			$_SESSION['loggedin'] = true;
-			$_SESSION['loginErr'] = "Login successful";
+			$_SESSION['loginMsg'] = "Login successful";
 			$_SESSION['username'] = $login->getName();
 			$_SESSION['userid'] = $login->getUserId();
 			header('Location:  ../index.php');

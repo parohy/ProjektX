@@ -13,19 +13,28 @@
 		$email = $_GET['logmail'];
 	}
 
-    $logMsg = "";
-    if(isset($_SESSION['loginErr'])){
-        $logMsg = $_SESSION['loginErr'];
-    }
+?>
+<div class="greenBar">
+    <?php
 
+    if(isset($_SESSION['loginMsg'])){
+        echo '<div class="headerErrorMessage"><span class="message">'.$_SESSION['loginMsg'].'</span></div>';
+        unset($_SESSION['loginMsg']);
+    }
+    if(isset($_SESSION['loginErr'])){
+        echo '<div class="headerErrorMessage"><span class="error">'.$_SESSION['loginErr'].'</span></div>';
+        unset($_SESSION['loginErr']);
+    }
+    if(isset($_SESSION['registerMsg'])){
+        echo '<div class="headerErrorMessage"><span class="message">'.$_SESSION['registerMsg'].'</span></div>';
+        unset($_SESSION['registerMsg']);
+    }
     if(isset($_SESSION['registerErr']) && !isset($_SESSION['loginErr']) && !isset($_GET['page'])){
-        $logMsg = $_SESSION['registerErr'];
+        echo '<div class="headerErrorMessage"><span class="error">'.$_SESSION['registerErr'].'</span></div>';
         unset($_SESSION['registerErr']);
     }
-    unset($_SESSION['loginErr']);
-
-?>
-<div class="greenBar"><?php echo '<div class="headerErrorMessage"><span class="headerMessage">'.$logMsg.'</span></div>'; ?></div>
+    ?>
+</div>
 <div class="group top">
     <div class="welcome">
         <?php
