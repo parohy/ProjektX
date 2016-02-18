@@ -8,13 +8,18 @@
 $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= 'ProjektX/';
 
-include_once($path.'API/Orders.php');
-include_once($path.'API/Database.php');
+include_once($path . 'API/Orders.php');
+include_once($path . 'API/Database.php');
 
 
 $DBHandler = new DBHandler();
-$DBHandler->query('SELECT * FROM orders WHERE userid=:userid');
-$DBHandler->bind(':userid',$_SESSION['userid']);
+if($_SESSION['userrole'] != 1){
+    $DBHandler->query('SELECT * FROM orders');
+}
+else{
+    $DBHandler->query('SELECT * FROM orders WHERE userid=:userid');
+    $DBHandler->bind(':userid',$_SESSION['userid']);
+}
 $array = $DBHandler->resultSet();
 
 

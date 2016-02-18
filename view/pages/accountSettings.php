@@ -23,7 +23,7 @@ else{
     <ul>
     	<?php if(isset($_GET['profile']) && $_GET['profile']=='editUser') echo '<li><a href="?page=accountSettings&profile=userPreview">Profile</a></li>'; else echo '<li><a href="?page=accountSettings&profile=editUser">Change profile</a></li>'?>
     	<li><a href="?page=accountSettings&profile=passRecover&password=new">Change password</a></li>        
-        <li><a href="?page=accountSettings&profile=userOrders">Orders</a></li>
+        <li><a href="?page=accountSettings&profile=orders">Orders</a></li>
         <li><a href="controllers/deleteUserController.php?user=<?php echo $_SESSION['userid']?>" id="deleteAccount">Delete account</a></li>
     </ul>
 </nav>
@@ -38,6 +38,9 @@ else{
     echo '<div class="headerErrorMessage"><span class="headerMessage" id="msg">'.$profileMsg.'</span></div>';
 	if(isset($_GET['profile'])){
 		$profile = 'view/pages/private/editUser/'.$_GET['profile'].'.php';
+        if($_GET['profile']=='orders'){
+            $profile = 'view/pages/private/orders.php';
+        }
 	}
 	else{
 		$profile = 'view/pages/private/editUser/userPreview.php';

@@ -16,6 +16,7 @@ if($_SESSION['username'] != "admin") {
     <ul>
         <li><a href="?page=private/pageSettings&settings=users&display=20&pagination=1">Users</a></li>
         <li><a href="?page=private/pageSettings&settings=products&display=20&pagination=1">Products</a></li>
+        <li><a href="?page=private/pageSettings&settings=orders&display=20&pagination=1">Orders</a></li>
         <li><a href="?page=private/pageSettings&settings=sliderSettings">Slider settings</a></li>
 		<li><a href="?page=private/pageSettings&settings=statistics">Statistics</a></li>
 
