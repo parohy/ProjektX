@@ -22,6 +22,16 @@ $order->address=$_POST['address'];
 $order->city=$_POST['city'];
 $order->postcode=$_POST['psc'];
 $order->shipped=0;
+if(isset($_SESSION['userid']))
+{
+        //echo $_SESSION['userid'];
+        $order->userid=$_SESSION['userid'];
+}
+else
+{
+        //echo $_SESSION['userid'];
+        $order->userid="";
+}
 
 $cartContent = $_SESSION['cart'];
 $totalprice=0;
@@ -46,16 +56,7 @@ foreach($cartContent as $item)
         $detail->save();
 }
 
-if(isset($_SESSION['userid']))
-{
-	//echo $_SESSION['userid'];
-	$order->userid=$_SESSION['userid'];
-}
-else
-{
-	//echo $_SESSION['userid'];
-	$order->userid="";
-}
+
 
 $pdfBill = new pdfFile($id);
 $pdfBill->buildPDF();
