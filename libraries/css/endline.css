@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
 
-.message{
+.endlineMessage{
 	margin-top: 10%;
 	text-align: center;
 }
@@ -8,5 +8,31 @@
 .links{
     margin-top: 30px;
 	text-align: center;
-	margin-bottom: 10%;  
+	margin-bottom: 20px;
+}
+
+.backToHome {
+    display: block;
+    width: 200px;
+    padding: 20px;
+    margin: 0 auto;
+    text-decoration: none;
+    background-color: #34A994;
+    font-weight: bold;
+    color: #fbfbfb;
+    font-size: 23px;
+    line-height: 45px;
+    vertical-align: middle;
+    text-align: center;
+    outline: none;
+    border: 3px solid #fbfbfb;
+    margin-bottom: 10%;
+}
+
+.backToHome:hover {
+    color:#34A994;
+    background-color: #fbfbfb;
+    cursor: pointer; cursor: hand;
+    border: 3px solid #34A994;
+    outline: none;
 }
