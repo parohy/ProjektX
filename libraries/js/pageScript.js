@@ -52,12 +52,7 @@ $(function() {
         $(".best-selling").show();
         $(".best-selling").addClass("activeTab");    
         $(".loadMore").show();        
-        tabsLoad[currentTab] = load;
-        currentTab = 0;
-        load = tabsLoad[currentTab];
-        $(".messages").html("");
-        e.preventDefault();
-        enableLoad();
+        tabSwitch(0);
     });
 
     $(".top-ratedButton").click(function(e){
@@ -67,12 +62,7 @@ $(function() {
         $(".top-rated").show();
         $(".top-rated").addClass("activeTab");        
         $(".loadMore").show();
-        tabsLoad[currentTab] = load;
-        currentTab = 1;
-        load = tabsLoad[currentTab];
-        $(".messages").html("");
-        e.preventDefault();
-        enableLoad();
+        tabSwitch(1);
     });
 
     $(".new-arrivalsButton").click(function(e){
@@ -82,12 +72,7 @@ $(function() {
         $(".new-arrivals").show();
         $(".new-arrivals").addClass("activeTab");     
         $(".loadMore").show();   
-        tabsLoad[currentTab] = load;
-        currentTab = 2;
-        load = tabsLoad[currentTab];
-        $(".messages").html("");
-        e.preventDefault();
-        enableLoad();
+        tabSwitch(2);
     });
    
 
@@ -99,9 +84,13 @@ $(function() {
 
     $(".slides").css({"width": sliderWidth + "px","height": sliderHeight + "px"});
 
-    /*
-    * Prduct items
-    */
+    function tabSwitch(tab){
+        tabsLoad[currentTab] = load;
+        currentTab = tab;
+        load = tabsLoad[currentTab];
+        $(".messages").html("");
+        enableLoad();
+    }
        
 });
 

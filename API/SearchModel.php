@@ -24,7 +24,6 @@ class SearchModel
     public  function getResults() { // get results related to search term from database
         $this->searchTerm = $this->prepare->dumpSpecialChars($this->searchTerm);
         $search = $this->searchTerm;
-        echo $search;
 
         $this->handlerDB->query("SELECT * FROM products WHERE name LIKE '%".$search."%'");
         $this->handlerDB->bind(':name',$search);
@@ -42,6 +41,7 @@ class SearchModel
         }
     }
 
+    /*
     public function productIdArray($results) { // change result array to productId array
         $size = sizeof($results);
 
@@ -52,5 +52,5 @@ class SearchModel
         }
         
         return $array;
-    }
+    }*/
 }

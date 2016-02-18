@@ -21,30 +21,37 @@ if(isset($_GET['catid']))
 $results = $filter->getResults();
 $filter->productArray = $results;
 $brands = $filter->getBrands();
-
-if(isset($_GET['brands']))
-{
-	$filter->brand = $_GET['brands'];
-}
-
-$results = $filter->getResults();
-$filter->productArray = $results;
 $ceilingPrice = $filter->getMaxPrice();
 
+$brandsChosen = null;
+$minPriceChosen = 0;
+$maxPriceChosen = $ceilingPrice;
+$sortChosen = $filter->availableCriteria[0];
+
+if(isset($_GET['name']))
+{
+	$filter->name = $_GET['name'];
+}
+if(isset($_GET['brands']))
+{
+	$brandsChosen = $_GET['brands'];
+	$filter->brand = $brandsChosen;
+}
 if(isset($_GET['minCost']))
 {
-	$filter->minprice = $_GET['minCost'];
+	$minPriceChosen = $_GET['minCost'];
+	$filter->minprice = $minPriceChosen;
 }
 if(isset($_GET['maxCost']) && $_GET['maxCost'] != 0)
 {
-	$filter->maxprice = $_GET['maxCost'];
+	$maxPriceChosen = $_GET['maxCost'];
+	$filter->maxprice = $maxPriceChosen;
 }
 if(isset($_GET['sortType']))
 {
-	$filter->criteria = $filter->availableCriteria[$_GET['sortType']];
+	$sortChosen = $_GET['sortType'];
+	$filter->criteria = $filter->availableCriteria[$sortChosen];
 }
 
-
 $results = $filter->getResults();
-$display->displayResults($results, 4, $brands);
-?>
+$display->displayResults($results, 4, $brands, $sortChosen, $brandsChosen);

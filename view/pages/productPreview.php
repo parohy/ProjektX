@@ -8,8 +8,9 @@
 
 $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= 'ProjektX/';
-include ($path .'controllers/ProductPreviewController.php');
-include ($path .'API/ImageScaling.php');
+include_once ($path .'controllers/ProductPreviewController.php');
+include_once ($path .'API/ImageScaling.php');
+include_once ($path .'controllers/ProductDisplay.php');
 
 $productController = new ProductPreviewController();
 $product = $productController->getProduct($_GET['product']);
@@ -192,5 +193,53 @@ $(document).ready(function()
     
 </div>
 <div class="Similar">
-        <h2>Similar Products</h2>
+    <h2>Similar Products</h2>
+    <?php
+    $date = new DateTime();
+    $timeStamp = $date->getTimestamp();
+    $similar = $productController->getSimilarProducts($_GET['product']);
+    $max = (count($similar, 0) > 4) ? 4 : count($similar, 0);
+
+    if($max > 0) {
+        echo "<div class=\"row\">";
+        for($i = 0; $i < $max; $i++){
+            $product = new Product($similar[$i]);
+            if($product->deleted === false){
+                $size = $scaling->productItemTumbnail($similar[$i]); // get scaled size of image to fit tumbnail
+                $margin = $scaling->productItemTumbnailMargin($size); // calculate margin after scale to center it in thumbnail
+
+                echo "<div class=\"product-item\">";
+
+                echo "
+                        <div class=\"product-photo\">
+                            <img class=\"loader\" src=\"libraries/img/loader.gif\" alt=\"loading...\">
+                            <a href=\"?page=productPreview&product=" . $similar[$i] . "\"><img class=\"thumbnailImage notLoaded\" src=\"libraries/img/products/" . $similar[$i] . "/" . $similar[$i] . "a.jpg?".$timeStamp."\" alt=\"product photo\"></a>
+                        </div>
+                        <div class=\"product-description\">
+                            <hr class=\"product-line\">
+                            <h3 class=\"similar-product-name\">" . substr($product->name,0,40) . "</h3>
+                            <span class=\"price\">".$product->price."<i class=\"fa fa-eur\"></i></span>";
+                echo productButtons($similar[$i],$product->name,$product->price);//<a href=\"controllers/addToCart.php?productid=".$res."&name=".$product->name."&price=".$product->price."\" class=\"addToCart\">Add to Cart</a>
+                echo     "</div>
+                  </div>
+                ";
+            }
+        }
+        echo "</div>";
+    } else {
+        echo "<h4>There are no similat products.</h4>";
+    }
+
+    function productButtons($id, $name, $price){
+        $out = "";
+        if((isset($_SESSION['userrole']) && $_SESSION['userrole'] != "2") || !isset($_SESSION['username'])){
+            $out = "<a href='controllers/addToCart.php?productid=".$id."&name=".$name."&price=".$price."' class='addToCart'>Add to Cart</a>";
+        }
+        else if(isset($_SESSION['username']) && $_SESSION['username'] == "admin"){
+            $out = '<div class="admin-buttons"><a href="?page=private/pageSettings&settings=addProduct&productid='.$id.'"><i class="fa fa-pencil-square-o fa-2x"></i></a> <a href="?page=private/editProduct/deleteProduct&productid='.$id.'"><i class="fa fa-times fa-2x"></i></a></div>';
+        }
+         
+        return $out;
+    }
+    ?>
 </div>

@@ -13,6 +13,7 @@ include_once ('Category.php');
 class Filter{
     public $availableCriteria = array("Rating","View count","Date added","Price ascending","Price descending","A-Z","Z-A");
     public $criteria="Rating";
+    public $name="??";
     public $minprice=0;
     public $maxprice;
     public $category=1;
@@ -29,6 +30,16 @@ class Filter{
         $this->maxprice=$this->getMaxPrice();
     }
     
+    private function nameQuery() {
+        if($this->name === "??"){
+            $nameQuery = "name LIKE '%'";
+        } else {
+            $nameQuery = "name LIKE '%".$this->name."%'";
+        }
+
+        return $nameQuery;
+    }
+
     /**
      * Prepares part of query needed for sorting results
      * Sorts by "Rating" on default
@@ -144,11 +155,12 @@ class Filter{
      * results are filtered, sorted and ready to use
      */
     public function getResults() {
+        $nameQuery=$this->nameQuery();
         $catQuery=$this->categoryQuery();
         $brandQuery=$this->brandQuery();
         $sortQuery=$this->sortQuery();
         $selectedQuery=$this->selectedProductsQuery();
-        $this->handlerDB->query("SELECT productid FROM products WHERE price>=:minprice and price<=:maxprice and ".$catQuery." and ".$brandQuery.$selectedQuery."  and deleted != '1' ORDER BY ".$sortQuery."");
+        $this->handlerDB->query("SELECT productid FROM products WHERE ".$nameQuery." and price>=:minprice and price<=:maxprice and ".$catQuery." and ".$brandQuery.$selectedQuery."  and deleted != '1' ORDER BY ".$sortQuery."");
         $this->handlerDB->bind(':maxprice', $this->maxprice);
         $this->handlerDB->bind(':minprice', $this->minprice);
         $results = $this->handlerDB->resultSet();
@@ -164,7 +176,7 @@ class Filter{
     public function getBrands(){
         $catQuery=$this->categoryQuery();
         $selectedQuery=$this->selectedProductsQuery();
-        $this->handlerDB->query("SELECT brandid FROM products WHERE ".$catQuery.$selectedQuery."");
+        $this->handlerDB->query("SELECT brandid FROM products WHERE  deleted != '1' and ".$catQuery.$selectedQuery."");
         $results = $this->handlerDB->resultSet();
         $this->handlerDB->execute();   
         $brand=array();
@@ -175,7 +187,9 @@ class Filter{
         foreach (array_unique($brand) as $brandid){
             $brandUnique[]=$brandid;
         }
-        $query="SELECT * FROM brands WHERE brandid IN(";
+        if(count($brandUnique)>0)
+        {
+          $query="SELECT * FROM brands WHERE brandid IN(";
         foreach ($brandUnique as $brandid){
             $query.=$brandid;
             if($brandid!=$brandUnique[count($brandUnique)-1]){
@@ -184,7 +198,11 @@ class Filter{
         }
         $query.=")";
         $this->handlerDB->query($query);
-        return $this->handlerDB->resultSet();
+        return $this->handlerDB->resultSet();  
+        }
+        else {
+            return null;
+        }
     }    
     
     
@@ -192,7 +210,7 @@ class Filter{
         $catQuery=$this->categoryQuery();
         $brandQuery=$this->brandQuery();
         $selectedQuery=$this->selectedProductsQuery();
-        $this->handlerDB->query("SELECT MAX(price) as \"max\" FROM products WHERE ".$catQuery." and ".$brandQuery.$selectedQuery."");
+        $this->handlerDB->query("SELECT MAX(price) as \"max\" FROM products WHERE ".$catQuery." and ".$brandQuery.$selectedQuery." and deleted != '1'");
         $result = $this->handlerDB->resultSet();
         $maxprice=ceil($result[0]['max']);
         return $maxprice;
