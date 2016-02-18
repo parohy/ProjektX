@@ -17,27 +17,10 @@ include_once ($path . 'controllers/displayCategory.php');
 
 
 <link rel="stylesheet" type="text/css" href="libraries/css/search-style.css">
-<link rel="stylesheet" type="text/css" href="libraries/css/nouislider.fox.css">
-<script type="text/javascript" src="libraries/js/jquery-1.9.1.js"></script>
-<script type="text/javascript" src="libraries/js/nouislider.js"></script>
-
-<script src="libraries/js/jquery.nouislider.js"></script>
-<script type="text/javascript">
-    var Slider = document.getElementById('noUiSlider');
-    var ceiling = "<?php echo $ceilingPrice;?>";
-    var minPriceChosen = "<?php echo $minPriceChosen;?>";
-    var maxPriceChosen = "<?php echo $maxPriceChosen;?>";
-
-    //also change in mainCategory.php
-    noUiSlider.create(Slider, {
-        start: [ minPriceChosen, maxPriceChosen ],
-        range: {
-                'min': [  0 ],
-                'max': [ parseInt(ceiling) ]
-        },
-        connect: true
-    });
-</script>
+<?php
+    include ($path . 'view/includes/filter.php');
+?>
+<!--
 <script>
 var snapValues = [
 	document.getElementById('pricehand1'),
@@ -49,4 +32,4 @@ Slider.noUiSlider.on('update', function( values, handle ) {
         snapValues[handle].innerHTML = Math.round(snapValues[handle].innerHTML);
 });
 
-</script>
+</script>-->
