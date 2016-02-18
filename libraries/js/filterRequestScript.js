@@ -18,7 +18,7 @@ function filterSearch()
 
 	var url = window.location.href
     url = url.split("&");
-    url = url[0] + "&" + url[1];
+    url = url[0] + "&" + url[1] + "&" + url[2];
 
 	window.location.replace(url + "&minCost=" + minCost + "&maxCost=" + maxCost + "&sortType=" + sortType + brands);
 }

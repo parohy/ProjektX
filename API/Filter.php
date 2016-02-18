@@ -13,6 +13,7 @@ include_once ('Category.php');
 class Filter{
     public $availableCriteria = array("Rating","View count","Date added","Price ascending","Price descending","A-Z","Z-A");
     public $criteria="Rating";
+    public $name="??";
     public $minprice=0;
     public $maxprice;
     public $category=1;
@@ -29,6 +30,16 @@ class Filter{
         $this->maxprice=$this->getMaxPrice();
     }
     
+    private function nameQuery() {
+        if($this->name === "??"){
+            $nameQuery = "name LIKE '%'";
+        } else {
+            $nameQuery = "name LIKE '%".$this->name."%'";
+        }
+
+        return $nameQuery;
+    }
+
     /**
      * Prepares part of query needed for sorting results
      * Sorts by "Rating" on default
@@ -144,11 +155,12 @@ class Filter{
      * results are filtered, sorted and ready to use
      */
     public function getResults() {
+        $nameQuery=$this->nameQuery();
         $catQuery=$this->categoryQuery();
         $brandQuery=$this->brandQuery();
         $sortQuery=$this->sortQuery();
         $selectedQuery=$this->selectedProductsQuery();
-        $this->handlerDB->query("SELECT productid FROM products WHERE price>=:minprice and price<=:maxprice and ".$catQuery." and ".$brandQuery.$selectedQuery."  and deleted != '1' ORDER BY ".$sortQuery."");
+        $this->handlerDB->query("SELECT productid FROM products WHERE ".$nameQuery." and price>=:minprice and price<=:maxprice and ".$catQuery." and ".$brandQuery.$selectedQuery."  and deleted != '1' ORDER BY ".$sortQuery."");
         $this->handlerDB->bind(':maxprice', $this->maxprice);
         $this->handlerDB->bind(':minprice', $this->minprice);
         $results = $this->handlerDB->resultSet();

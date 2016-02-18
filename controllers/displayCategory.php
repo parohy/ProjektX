@@ -28,6 +28,10 @@ $minPriceChosen = 0;
 $maxPriceChosen = $ceilingPrice;
 $sortChosen = $filter->availableCriteria[0];
 
+if(isset($_GET['name']))
+{
+	$filter->name = $_GET['name'];
+}
 if(isset($_GET['brands']))
 {
 	$brandsChosen = $_GET['brands'];

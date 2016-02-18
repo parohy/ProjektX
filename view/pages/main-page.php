@@ -144,81 +144,9 @@ $filter = new Filter();
     <div class="tab-content">
         
         <div class="bottom-tab-content">
-            <div class="best-selling activeTab">
-                <!--<?php
-                    $max = 8;
-
-                    $criteria = $filter->availableCriteria;
-                    $filter->criteria = $criteria[5];
-                    $products = $filter->getResults();
-
-                    $counter = 0;
-                    $display = new ProductDisplay();
-                    for($i=0;$i<$max;$i++){
-                        $counter++;
-
-                        if($counter == 1) {
-                            echo '<div class="row">';
-                        }
-                        echo $display->displayProduct($products[$i]);
-
-                        if($counter == 4) {
-                            echo '</div>';
-                            $counter = 0;
-                        }
-                    }
-                ?>-->
-            </div>
-            <div class="top-rated">
-                <!--<?php
-                    $max = 8;
-
-                    $criteria = $filter->availableCriteria;
-                    $filter->criteria = $criteria[0];
-                    $products = $filter->getResults();
-
-                    $counter = 0;
-                    $display = new ProductDisplay();
-                    for($i=0;$i<$max;$i++){
-                        $counter++;
-
-                        if($counter == 1) {
-                            echo '<div class="row">';
-                        }
-                        echo $display->displayProduct($products[$i]);
-
-                        if($counter == 4) {
-                            echo '</div>';
-                            $counter = 0;
-                        }
-                    }
-                ?>-->
-            </div>
-            <div class="new-arrivals">
-                <!--<?php
-                    $max = 8;
-                    
-                    $criteria = $filter->availableCriteria;
-                    $filter->criteria = $criteria[2];
-                    $products = $filter->getResults();
-
-                    $counter = 0;
-                    $display = new ProductDisplay();
-                    for($i=0;$i<$max;$i++){
-                        $counter++;
-
-                        if($counter == 1) {
-                            echo '<div class="row">';
-                        }
-                        echo $display->displayProduct($products[$i]);
-
-                        if($counter == 4) {
-                            echo '</div>';
-                            $counter = 0;
-                        }
-                    }
-                ?>-->
-            </div>
+            <div class="best-selling activeTab"></div>
+            <div class="top-rated"></div>
+            <div class="new-arrivals"></div>
         </div>
     </div>
     <a href="#" class="messages welcome-buttons"></a>
