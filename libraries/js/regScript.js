@@ -3,6 +3,7 @@
  */
 $(function(){
     $("li .error").hide();
+    $("#reg-err").show();
 
     $("#regForm").submit(function(e) {
         var inputFields = $(".input");

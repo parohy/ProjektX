@@ -12,8 +12,7 @@ $(function() {
     $(".new-arrivals").css("visibility","visible").hide();
 
     setTimeout(function() {
-        $(".error").fadeOut();
-        $(".message").fadeOut();
+        $(".headerErrorMessage").fadeOut();
     },3000);
 
     /*

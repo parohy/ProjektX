@@ -43,11 +43,14 @@ class Login{
                 $this->userId = $this->user['userid'];
                 $_SESSION['userrole'] = $this->user['role'];
 
-                return true;
+                return 1;
+            }
+            else if($this->user['deleted'] == 0 && $this->user['activated'] == 0 && password_verify($password,$this->user['password'])) {
+                return 2;
             }
         }
 
-		return false;
+		return 3;
 	}
 	
 	
