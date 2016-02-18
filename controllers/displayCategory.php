@@ -55,4 +55,3 @@ if(isset($_GET['sortType']))
 
 $results = $filter->getResults();
 $display->displayResults($results, 4, $brands, $sortChosen, $brandsChosen);
-?>

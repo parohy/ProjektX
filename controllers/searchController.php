@@ -21,12 +21,11 @@ if(isset($_GET['search'])) {
     $results = $search->getResults();
 
     if($search->foundResults($results)) { // if results were found send them trough session variable
-        $_SESSION['results'] = $search->productIdArray($results);
+        $_SESSION['results'] = $results;
+        header('Location:../?page=mainCategory&catid=1&name='.$searchTerm);
     }
     else { // else send message results not found
         $_SESSION['noresults'] = "Results not found";
     }
-
-    header('Location:../?page=searchResults'); // redirect to search results page
     exit();
 }

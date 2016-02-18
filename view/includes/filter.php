@@ -15,7 +15,6 @@
     var minPriceChosen = "<?php echo $minPriceChosen;?>";
     var maxPriceChosen = "<?php echo $maxPriceChosen;?>";
 
-    //also change in searchResults.php
     noUiSlider.create(Slider, {
         start: [ minPriceChosen, maxPriceChosen ],
         range: {
