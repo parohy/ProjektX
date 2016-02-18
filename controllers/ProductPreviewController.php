@@ -47,7 +47,9 @@ class ProductPreviewController {
         $this->handlerDB->endTransaction();
         $products=array();
         foreach($results as $result){
-            $products[]=$result['productid'];
+            if($result['productid']!=$productid){
+                $products[]=$result['productid'];
+            }           
         }
         return $products;
     }
