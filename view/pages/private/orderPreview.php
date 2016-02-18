@@ -9,9 +9,9 @@
 $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= 'ProjektX/';
 
-include_once($path.'API/Orders.php');
-include_once($path.'API/Orderdetails.php');
-include_once($path.'API/Product.php');
+include_once($path . 'API/Orders.php');
+include_once($path . 'API/Orderdetails.php');
+include_once($path . 'API/Product.php');
 
 $order = null;
 if(isset($_GET['orderid'])){

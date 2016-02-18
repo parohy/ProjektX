@@ -41,6 +41,9 @@ else{
         if($_GET['profile']=='orders'){
             $profile = 'view/pages/private/orders.php';
         }
+        else if($_GET['profile']=='orderPreview'){
+            $profile = 'view/pages/private/orderPreview.php';
+        }
 	}
 	else{
 		$profile = 'view/pages/private/editUser/userPreview.php';
