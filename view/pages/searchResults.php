@@ -25,10 +25,12 @@ include_once ($path . 'controllers/displayCategory.php');
 <script type="text/javascript">
     var Slider = document.getElementById('noUiSlider');
     var ceiling = "<?php echo $ceilingPrice;?>";
+    var minPriceChosen = "<?php echo $minPriceChosen;?>";
+    var maxPriceChosen = "<?php echo $maxPriceChosen;?>";
 
     //also change in mainCategory.php
     noUiSlider.create(Slider, {
-        start: [0, parseInt(ceiling) ],
+        start: [ minPriceChosen, maxPriceChosen ],
         range: {
                 'min': [  0 ],
                 'max': [ parseInt(ceiling) ]

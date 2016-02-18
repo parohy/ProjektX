@@ -19,7 +19,7 @@ include_once ($path.'API/Product.php');
 
 class ProductDisplay
 {
-    public function displayResults($searchResult, $maxInRow, $brands) { // Display results on page
+    public function displayResults($searchResult, $maxInRow, $brands, $sortChosen, $brandsChosen) { // Display results on page
         echo "
             <div class=\"filters\">
                 <div class=\"pricefilter\">Price:
@@ -29,19 +29,11 @@ class ProductDisplay
                         <div id=\"pricehand2\">0</div>
                     </div>
                 </div>
-                <div class=\"sortby\">Sort by: </div>
-                <div class=\"styled-select\">
-                    <select id=\"sorting\">
-                        <option value=\"0\">Most popular</option>
-                        <option value=\"4\">Price: High to Low</option>
-                        <option value=\"3\">Price: Low to High</option>   
-                        <option value=\"5\">A-Z</option>
-                        <option value=\"6\">Z-A</option>                                           
-                    </select>
-                </div>
-                <div class=\"brands\">Brands: </div>
+                <div class=\"sortby\">Sort by: </div>";
+            $this->printSortSelect($sortChosen);
+        echo    "<div class=\"brands\">Brands: </div>
             ";
-            $this->productBrands($brands);             
+            $this->productBrands($brands, $brandsChosen);             
         echo "</div>";
         
         echo "<div class=\"search-content\">";
@@ -53,10 +45,6 @@ class ProductDisplay
         $timeStamp = $date->getTimestamp();
 
         foreach($searchResult as $res) {
-
-            
-
-
 
             $product = new Product($res);
             if($product->deleted === false){
@@ -128,13 +116,21 @@ class ProductDisplay
     	return $out;
     }
 
-    private function productBrands($brands){
+    private function productBrands($brands, $brandsChosen){
         $brandAmount = count($brands, 0);
+        $brandsChosenAmount = ($brandsChosen === null) ? 0 : count($brandsChosen, 0);
+        $brandsChosenCounter = 0;
 
         if($brandAmount <= 3){
             echo "<div class=\"BrandChoices\">";
             for($i = 0; $i < $brandAmount; $i++){
-                $this->printBrandSelect($brands[$i]['brandid'], $brands[$i]['name']);
+                $isChecked = false;
+                for($j = $brandsChosenCounter; $j < $brandsChosenAmount; $j++){
+                    if($brands[$i]['brandid'] === $brandsChosen[$j]){
+                        $isChecked = true;
+                    }
+                }
+                $this->printBrandSelect($brands[$i]['brandid'], $brands[$i]['name'], $isChecked);
             }             
             echo "
                 </div>
@@ -144,7 +140,13 @@ class ProductDisplay
         else {
             echo "<div class=\"BrandChoices\">";
             for($i = 0; $i < 3; $i++){
-                $this->printBrandSelect($brands[$i]['brandid'], $brands[$i]['name']);
+                $isChecked = false;
+                for($j = $brandsChosenCounter; $j < $brandsChosenAmount; $j++){
+                    if($brands[$i]['brandid'] === $brandsChosen[$j]){
+                        $isChecked = true;
+                    }
+                }
+                $this->printBrandSelect($brands[$i]['brandid'], $brands[$i]['name'], $isChecked);
             }             
             echo "
                     <div class=\"MoreBrands\">
@@ -160,7 +162,13 @@ class ProductDisplay
                     </div>
                     <div class=\"AddBrandsWindowBody\">";
                         for($i = 3; $i < $brandAmount; $i++){
-                            $this->printBrandSelect($brands[$i]['brandid'], $brands[$i]['name']);
+                            $isChecked = false;
+                            for($j = $brandsChosenCounter; $j < $brandsChosenAmount; $j++){
+                                if($brands[$i]['brandid'] === $brandsChosen[$j]){
+                                    $isChecked = true;
+                                }
+                            }
+                            $this->printBrandSelect($brands[$i]['brandid'], $brands[$i]['name'], $isChecked);
                         }       
             echo "
                     </div>
@@ -169,10 +177,32 @@ class ProductDisplay
         }
     }
 
-    private function printBrandSelect($brandId, $brandName){
+    private function printSortSelect($sortChosen){
+        echo"
+            <div class=\"styled-select\">
+                <select id=\"sorting\">
+                    <option value=\"0\"".$this->echoSelected(0, $sortChosen).">Most popular</option>
+                    <option value=\"4\"".$this->echoSelected(4, $sortChosen).">Price: High to Low</option>
+                    <option value=\"3\"".$this->echoSelected(3, $sortChosen).">Price: Low to High</option>   
+                    <option value=\"5\"".$this->echoSelected(5, $sortChosen).">A-Z</option>
+                    <option value=\"6\"".$this->echoSelected(6, $sortChosen).">Z-A</option>                                           
+                </select>
+            </div>
+            ";
+    }
+
+    private function echoSelected($currentSort, $sortChosen){
+        if($currentSort == $sortChosen) {
+            return "selected=\"selected\"";
+        } else {
+            return "";
+        }
+    }
+
+    private function printBrandSelect($brandId, $brandName, $isChecked){
         echo "
                 <div class=\"BrandSelect\">
-                    <input type=\"checkbox\" name=\"brand\" value=\"".$brandId."\">
+                    <input type=\"checkbox\" name=\"brand\" value=\"".$brandId."\"".($isChecked ? " checked" : "").">
                     <div class=\"BrandName\">".$brandName."</div>
                 </div>
                 ";
