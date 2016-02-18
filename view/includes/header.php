@@ -25,14 +25,6 @@
         echo '<div class="headerErrorMessage"><span class="error">'.$_SESSION['loginErr'].'</span></div>';
         unset($_SESSION['loginErr']);
     }
-    if(isset($_SESSION['registerMsg'])){
-        echo '<div class="headerErrorMessage"><span class="message">'.$_SESSION['registerMsg'].'</span></div>';
-        unset($_SESSION['registerMsg']);
-    }
-    if(isset($_SESSION['registerErr']) && !isset($_SESSION['loginErr']) && !isset($_GET['page'])){
-        echo '<div class="headerErrorMessage"><span class="error">'.$_SESSION['registerErr'].'</span></div>';
-        unset($_SESSION['registerErr']);
-    }
     ?>
 </div>
 <div class="group top">
