@@ -11,6 +11,10 @@ $(function() {
     $(".top-rated").css("visibility","visible").hide();
     $(".new-arrivals").css("visibility","visible").hide();
 
+    setTimeout(function() {
+        $(".headerErrorMessage").fadeOut();
+    },3000);
+
     /*
      * LOGIN FORM
     */

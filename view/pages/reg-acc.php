@@ -30,7 +30,6 @@ if(isset($_SESSION['registerErr'])){
 <div class="title-page">
     <span>REGISTRATION</span>
 </div>
-<div class="headerErrorMessage"><span class="headerMessage"><?php echo $regMsg;?></span></div>
 
 <form class="form" id="regForm" action='API/Relog.php?register=registration' method="POST">
     <ul class="registrationForm">
@@ -60,6 +59,7 @@ if(isset($_SESSION['registerErr'])){
         <li>
             <div class="g-recaptcha" data-sitekey="6LcphBUTAAAAAHX2M6Wj4gtZlaLXTjL16dGF18tu"></div>
         </li>
+        <li><span id="reg-err" class="error"><?php echo $regMsg; ?></span></li>
         <li><input type="submit" class="submit-button" value="REGISTER"></li>
     </ul>
 </form>

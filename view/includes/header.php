@@ -13,19 +13,20 @@
 		$email = $_GET['logmail'];
 	}
 
-    $logMsg = "";
-    if(isset($_SESSION['loginErr'])){
-        $logMsg = $_SESSION['loginErr'];
-    }
-
-    if(isset($_SESSION['registerErr']) && !isset($_SESSION['loginErr']) && !isset($_GET['page'])){
-        $logMsg = $_SESSION['registerErr'];
-        unset($_SESSION['registerErr']);
-    }
-    unset($_SESSION['loginErr']);
-
 ?>
-<div class="greenBar"></div>
+<div class="greenBar">
+    <?php
+
+    if(isset($_SESSION['loginMsg'])){
+        echo '<div class="headerErrorMessage"><span class="message">'.$_SESSION['loginMsg'].'</span></div>';
+        unset($_SESSION['loginMsg']);
+    }
+    if(isset($_SESSION['loginErr'])){
+        echo '<div class="headerErrorMessage"><span class="error">'.$_SESSION['loginErr'].'</span></div>';
+        unset($_SESSION['loginErr']);
+    }
+    ?>
+</div>
 <div class="group top">
     <div class="welcome">
         <?php
@@ -37,14 +38,12 @@
                 else {
                     echo '<span class="welcome-label"><img src="libraries/img/icons/user icon.png"><strong class="welcome-buttons"><a href="?page=accountSettings">ACCOUNT SETTINGS</a></strong> / <strong class="welcome-buttons"><a href="?login=false">LOG OUT</a></strong></span>';
                 }
-                echo '<div class="headerErrorMessage"><span class="headerMessage">'.$logMsg.'</span></div>';
             } else {
                 echo '<span class="welcome-label"><img src="libraries/img/icons/user icon.png">WELCOME USER, YOU CAN <strong class="welcome-buttons"><a href="#" id="login">LOGIN</a></strong> OR <strong class="welcome-buttons"><a href="?page=reg-acc">REGISTER</a></strong></span>';
             }
         }
         else {
             echo '<span class="welcome-label"><img src="libraries/img/icons/user icon.png">WELCOME USER, YOU CAN <strong class="welcome-buttons"><a href="#" id="login">LOGIN</a></strong> OR <strong class="welcome-buttons"><a href="?page=reg-acc">REGISTER</a></strong></span>';
-            echo '<div class="headerErrorMessage"><span class="headerMessage">'.$logMsg.'</span></div>';
         }
         ?>
         <!--<div class="headerErrorMessage">
@@ -54,7 +53,7 @@
             <form action="API/Relog.php?register=login" method="POST">
                 <ul>
                     <li><input type="email" name="usermail" placeholder="email@email.com" required></li>
-                    <li><input type="password" name="password" placeholder="password" required></li>                    
+                    <li><input type="password" name="password" placeholder="password" required></li>
                     <li><input type="submit" value="Login"></li>
                     <li class="forgotpass"><a href="?page=private/editUser/passRecover&password=recover">Forgot password?</a></li>
                 </ul>

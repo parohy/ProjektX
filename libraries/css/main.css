@@ -142,11 +142,19 @@ body {
     text-decoration: none;
 }
 .headerErrorMessage {
-    margin-top: 13px;
+    margin: 0 0 0 350px;
 }
-.headerMessage {
+.message {
+    padding-left: 30px;
+    color: green;
+    line-height: 40px;
+    vertical-align: middle;
+}
+.error {
     padding-left: 30px;
     color: red;
+    line-height: 40px;
+    vertical-align: middle;
 }
 .login-frame {
     visibility: hidden;

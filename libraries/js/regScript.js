@@ -1,7 +1,10 @@
 /**
- * @author Tomas Paronai
+ * @author Matus Kacmar
  */
 $(function(){
+    $("li .error").hide();
+    $("#reg-err").show();
+
     $("#regForm").submit(function(e) {
         var inputFields = $(".input");
         var isEmpty = false;
@@ -11,6 +14,7 @@ $(function(){
 
             if(input == null || input == "" || input == " ") {
                 $("#form-err").html("You left some fields empty...");
+                $("#form-err").slideDown("slow");
                 isEmpty = true;
                 return false;
             }
@@ -21,11 +25,11 @@ $(function(){
             var pass2 = document.getElementById('pass2');
 
             if(pass1.value == pass2.value){
-                alert("ales good");
                 return true;
             }
             else {
                 $("#pass-err").html("Passwords does not match!");
+                $("#pass-err").slideDown("slow");
             }
         }
 

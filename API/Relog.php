@@ -69,7 +69,7 @@ if($_GET['register'] == 'registration'){
 	}
 	
 	if($_SESSION['registerErr']==true){
-		$_SESSION['registerErr'] = "User registered.";
+		$_SESSION['registerMsg'] = "User registered.";
 		
 		/*login after registration
 		$_SESSION['loggedin'] = true;
@@ -114,16 +114,23 @@ else if($_GET['register'] == 'login'){
 		/*handle for checking user login information with the database*/
 		$login = new Login(); 
 		
-		if($login->checkLogin($loginEmail, $loginPassword)){
+		if($login->checkLogin($loginEmail, $loginPassword) === 1){
 			echo "login OK"; //LOGIN PASSED
 			$_SESSION['loggedin'] = true;
-			$_SESSION['loginErr'] = "Login successful";
+			$_SESSION['loginMsg'] = "Login successful";
 			$_SESSION['username'] = $login->getName();
 			$_SESSION['userid'] = $login->getUserId();
 			header('Location:  ../index.php');
 			exit();
 		}
-		else{
+        else if($login->checkLogin($loginEmail, $loginPassword) === 2){
+            echo "login bad"; //LOGIN NOT PASSED
+            $_SESSION['loggedin'] = false;
+            $_SESSION['loginErr'] = "Activate your account";
+            header('Location: ../index.php');
+            exit();
+        }
+		else if($login->checkLogin($loginEmail, $loginPassword) === 3){
 			echo "login bad"; //LOGIN NOT PASSED
 			$_SESSION['loggedin'] = false;
 			$_SESSION['loginErr'] = "Wrong email or password.";
