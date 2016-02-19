@@ -20,7 +20,7 @@ if($_SESSION['username'] != "admin") {
         <li><a href="?page=private/pageSettings&settings=sliderSettings">Slider settings</a></li>
 		<li><a href="?page=private/pageSettings&settings=statistics">Statistics</a></li>
 
-        <form  class="orders" action="" method="POST">
+        <form  class="orders" action="controllers/admin/SearchSettings.php?settings=<?php echo $_GET['settings'];?>" method="POST">
                 <ul>
                     <li>
                         <label class=""> Name: </label>
@@ -33,8 +33,8 @@ if($_SESSION['username'] != "admin") {
                     </li>
 
                     <li>
-                        <label class="">ID: </label>
-                        <input class="" type="email" name="email" value="" placeholder="ID">
+                        <label class="">Email: </label>
+                        <input class="" type="email" name="email" value="" placeholder="EMAIL">
                     </li>
 
                     <li>

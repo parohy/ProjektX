@@ -15,7 +15,7 @@ class SearchModel
     private $handlerDB;
     private $prepare;
 
-    function __construct($searchTerm) {
+    function __construct($searchTerm=null) {
         $this->searchTerm = $searchTerm;
         $this->handlerDB = new DBHandler();
         $this->prepare = new Recheck();
@@ -41,6 +41,46 @@ class SearchModel
         }
     }
 
+    public function getSpecificResults($table, $term){
+        $query = 'SELECT * FROM '.$table.' WHERE ';
+
+        $next = false;
+        $i=0;
+        $namesIndex = array();
+        if(isset($term['name'])){
+            $query .= "name LIKE %".$term['name']."%";
+            $next = true;
+            $namesIndex[$i++] = 'name';
+        }
+        if(isset($term['surname'])){
+            if($next){
+                $query .= ' and ';
+            }
+            $query .= 'surname LIKE '.$term['surname'];
+            $next = true;
+            $namesIndex[$i++] = 'surname';
+        }
+        if(isset($term['email'])){
+            if($next){
+                $query .= ' and ';
+            }
+            $query .= 'email=:email';
+            $namesIndex[$i++] = 'email';
+        }
+
+        echo $query . '<br>';
+        $this->handlerDB->query($query);
+        $max = count($namesIndex);
+        /*for($i = 0; $i < $max; $i++){
+            $this->handlerDB->bind(':'.$namesIndex[$i],$term[$namesIndex[$i]]);
+        }*/
+        if(isset($term['email'])){
+            $this->handlerDB->bind(':email',$term['email']);
+        }
+
+
+        return $this->handlerDB->resultSet();
+    }
     /*
     public function productIdArray($results) { // change result array to productId array
         $size = sizeof($results);

@@ -16,6 +16,11 @@ $products = $productEditor->getProducts();
 $pagination = 1;
 $display = 5;
 
+if(isset($_SESSION['searchRes'])){
+	$products = $_SESSION['searchRes'];
+	unset($_SESSION['searchRes']);
+}
+
 if(isset($_GET['display'])){
 	$display = $_GET['display'];
 }
