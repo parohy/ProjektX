@@ -43,9 +43,10 @@ if(isset($_GET['settings'])){
     else {
         echo 'No results, select page.';
     }
-    $exitTo .= '&settings='.$_GET['settings'];
+    $exitTo .= '&settings='.$_GET['settings'].'&display=20&pagination=1';
 }
 $_SESSION['searchRes'] = $result;
-echo $exitTo;
-header('Location: '.$exitTo);
+//echo $exitTo;
+echo var_dump($result);
 
+//header('Location: '.$exitTo);

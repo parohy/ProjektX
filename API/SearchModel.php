@@ -48,7 +48,7 @@ class SearchModel
         $i=0;
         $namesIndex = array();
         if(isset($term['name'])){
-            $query .= "name LIKE %".$term['name']."%";
+            $query .= "name LIKE '%".$term['name']."%'";
             $next = true;
             $namesIndex[$i++] = 'name';
         }
@@ -56,7 +56,7 @@ class SearchModel
             if($next){
                 $query .= ' and ';
             }
-            $query .= 'surname LIKE '.$term['surname'];
+            $query .= "surname LIKE '%".$term['surname']."%'";
             $next = true;
             $namesIndex[$i++] = 'surname';
         }
