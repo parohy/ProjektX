@@ -93,7 +93,9 @@ $(function() {
         currentTab = tab;
         load = tabsLoad[currentTab];
         $(".messages").html("");
-        enableLoad();
+        if(tabsLoad[tab] == 0){
+            enableLoad();
+        }        
     }
        
 });
