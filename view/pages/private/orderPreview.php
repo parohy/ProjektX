@@ -18,7 +18,7 @@ if(isset($_GET['orderid'])){
     $order = new Order($_GET['orderid']);
 }
 
-echo '<ul>';
+echo '<ul class="itemsorderofuser">';
     echo '<li><div>orderID:</div><div>'.$order->id.'</div></li>';
     echo '<li><div>Name:</div><div>'.$order->name.'</div></li>';
     echo '<li><div>Surname:</div><div>'.$order->surname.'</div></li>';

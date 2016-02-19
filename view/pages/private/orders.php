@@ -23,18 +23,18 @@ else{
 $array = $DBHandler->resultSet();
 
 
-echo '<ol>';
+echo '<ol class="items">';
 for($i = 0; $i < count($array); $i++){
     echo '<li>';
-    echo '<span>'.$array[$i]['address'].' '.$array[$i]['city'].' '.$array[$i]['postcode'].'</span>';
-    echo '<span> '.$array[$i]['orderprice'].' eur</span>';
+    echo '<span class="orderinfo"><div style="width: 220px; display: inline-block">'.$array[$i]['address'].'</div><div style="width: 150px; display: inline-block">'.$array[$i]['city'].'</div><div style="width: 150px; display: inline-block">'.$array[$i]['postcode'].'</div></span>';
+    echo '<span class="orderinfoprice"> '.$array[$i]['orderprice'].' eur</span>';
         if($array[$i]['shipped'] != '0'){
-            echo '<span> shipped </span>';
+            echo '<span class="orderinfoship"> shipped </span>';
         }
         else{
-            echo '<span> queued </span>';
+            echo '<span class="orderinfoship"> queued </span>';
         }
-    echo '<a href="?page=accountSettings&profile=orderPreview&orderid='.$array[$i]['orderid'].'">Detail </a>';
+    echo '<a class="page-link" href="?page=accountSettings&profile=orderPreview&orderid='.$array[$i]['orderid'].'"><i class="fa fa-pencil-square-o fa-2x"></i></a>';
     echo '</li>';
 }
 echo '</ol>';

@@ -143,10 +143,11 @@ body {
 }
 .headerErrorMessage {
     margin: 0 0 0 350px;
+    
 }
 .message {
     padding-left: 30px;
-    color: green;
+    color: white;
     line-height: 40px;
     vertical-align: middle;
 }
