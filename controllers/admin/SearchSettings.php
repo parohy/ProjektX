@@ -1,4 +1,5 @@
 <?php
+session_start();
 /**
  * Created by PhpStorm.
  * User: tomas
@@ -8,7 +9,7 @@
 
 $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= 'ProjektX/';
-$exitTo = '?page=pageSettings';
+
 
 include_once($path.'API/SearchModel.php');
 include_once($path.'API/InputRecheck.php');
@@ -18,35 +19,38 @@ $prepare = new Recheck();
 
 $term = array();
 $i = 0;
+$set = false;
 
 if(isset($_POST['name']) && strlen($_POST['name']) > 0){
     $term['name'] = $prepare->dumpSpecialChars($_POST['name']);
+    $set = true;
 }
 if(isset($_POST['surname']) && strlen($_POST['surname']) > 0){
     $term['surname'] =  $prepare->dumpSpecialChars($_POST['surname']);
+    $set = true;
 }
 if(isset($_POST['email']) && strlen($_POST['email']) > 0 && $_GET['settings'] != 'products'){
     $term['email'] = $prepare->dumpSpecialChars($_POST['email']);
+    $set = true;
 }
 $result = null;
 
 if(isset($_GET['settings'])){
-    if($_GET['settings'] == 'orders'){
+    if($_GET['settings'] == 'orders' && $set){
         $result = $search->getSpecificResults('orders',$term);
     }
-    else if($_GET['settings'] == 'users'){
+    else if($_GET['settings'] == 'users' && $set){
         $result = $search->getSpecificResults('users',$term);
     }
-    else if($_GET['settings'] == 'products'){
+    else if($_GET['settings'] == 'products' && $set){
         $result = $search->getSpecificResults('products',$term);
     }
     else {
         echo 'No results, select page.';
     }
-    $exitTo .= '&settings='.$_GET['settings'].'&display=20&pagination=1';
 }
-$_SESSION['searchRes'] = $result;
-//echo $exitTo;
-echo var_dump($result);
 
-//header('Location: '.$exitTo);
+
+$_SESSION['searchRes'] = $result;
+header('Location: ' . $_SERVER['HTTP_REFERER']);
+

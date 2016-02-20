@@ -20,7 +20,7 @@ if($_SESSION['username'] != "admin") {
         <li><a href="?page=private/pageSettings&settings=sliderSettings">Slider settings</a></li>
 		<li><a href="?page=private/pageSettings&settings=statistics">Statistics</a></li>
 
-        <form  class="orders" action="controllers/admin/SearchSettings.php?settings=<?php echo $_GET['settings'];?>" method="POST">
+        <form  class="orders" action="controllers/admin/SearchSettings.php<?php if(isset($_GET['settings'])) echo '?settings='.$_GET['settings'];?>" method="POST">
                 <ul>
                     <li>
                         <label class=""> Name: </label>

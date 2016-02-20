@@ -42,19 +42,22 @@ class SearchModel
     }
 
     public function getSpecificResults($table, $term){
-        $query = 'SELECT * FROM '.$table.' WHERE ';
+        $query = 'SELECT * FROM '.$table;
 
         $next = false;
         $i=0;
         $namesIndex = array();
         if(isset($term['name'])){
-            $query .= "name LIKE '%".$term['name']."%'";
+            $query .= " WHERE name LIKE '%".$term['name']."%'";
             $next = true;
             $namesIndex[$i++] = 'name';
         }
         if(isset($term['surname'])){
             if($next){
                 $query .= ' and ';
+            }
+            else{
+                $query .= ' WHERE ';
             }
             $query .= "surname LIKE '%".$term['surname']."%'";
             $next = true;
@@ -63,6 +66,9 @@ class SearchModel
         if(isset($term['email'])){
             if($next){
                 $query .= ' and ';
+            }
+            else{
+                $query .= ' WHERE ';
             }
             $query .= 'email=:email';
             $namesIndex[$i++] = 'email';

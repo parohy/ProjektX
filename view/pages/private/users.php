@@ -12,7 +12,14 @@ include ($path . 'controllers/admin/UserEditorController.php');
 
 $userEditor = new UserEditorController();
 
-$users = $userEditor->getUsers();
+if(isset($_SESSION['searchRes'])){
+	$users = $_SESSION['searchRes'];
+    unset($_SESSION['searchRes']);
+}
+else{
+	$users = $userEditor->getUsers();
+}
+
 $pagination = 1;
 $display = 5;
 
