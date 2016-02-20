@@ -45,12 +45,9 @@ class SearchModel
         $query = 'SELECT * FROM '.$table;
 
         $next = false;
-        $i=0;
-        $namesIndex = array();
         if(isset($term['name'])){
             $query .= " WHERE name LIKE '%".$term['name']."%'";
             $next = true;
-            $namesIndex[$i++] = 'name';
         }
         if(isset($term['surname'])){
             if($next){
@@ -61,7 +58,6 @@ class SearchModel
             }
             $query .= "surname LIKE '%".$term['surname']."%'";
             $next = true;
-            $namesIndex[$i++] = 'surname';
         }
         if(isset($term['email'])){
             if($next){
@@ -71,15 +67,10 @@ class SearchModel
                 $query .= ' WHERE ';
             }
             $query .= 'email=:email';
-            $namesIndex[$i++] = 'email';
         }
 
         echo $query . '<br>';
         $this->handlerDB->query($query);
-        $max = count($namesIndex);
-        /*for($i = 0; $i < $max; $i++){
-            $this->handlerDB->bind(':'.$namesIndex[$i],$term[$namesIndex[$i]]);
-        }*/
         if(isset($term['email'])){
             $this->handlerDB->bind(':email',$term['email']);
         }
@@ -87,16 +78,4 @@ class SearchModel
 
         return $this->handlerDB->resultSet();
     }
-    /*
-    public function productIdArray($results) { // change result array to productId array
-        $size = sizeof($results);
-
-        $array = array();
-        for($i = 0; $i < $size; $i++)
-        {
-            array_push($array,$results[$i]['productid']);
-        }
-        
-        return $array;
-    }*/
 }

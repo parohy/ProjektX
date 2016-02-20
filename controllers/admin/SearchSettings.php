@@ -45,9 +45,6 @@ if(isset($_GET['settings'])){
     else if($_GET['settings'] == 'products' && $set){
         $result = $search->getSpecificResults('products',$term);
     }
-    else {
-        echo 'No results, select page.';
-    }
 }
 
 
