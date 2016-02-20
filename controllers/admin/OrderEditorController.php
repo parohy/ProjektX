@@ -62,10 +62,17 @@ class OrderEditorController{
 			else{
 				echo '<span class="orderinfoship"> queued </span>';
 			}
-			echo '<a class="page-link" href="?page=private/pageSettings&settings=orderPreview&orderid='.$orders[$i]['orderid'].'"><i class="fa fa-search-plus fa-2x"></i></a>';
+
 			//echo '<a class="page-link" href="?page=private/pageSettings&settings=orderPreview&orderid='.$orders[$i]['orderid'].'"><i class="fa fa-pencil-square-o fa-2x"></i></a>';
-			echo '<a class="page-link" href="?page=private/pageSettings&settings=editOrder/editOrder&orderid='.$orders[$i]['orderid'].'&edit=ship"><i class="fa fa-plane fa-2x"></i></a>';
-			echo '<a class="page-link" href="?page=private/pageSettings&settings=editOrder/editOrder&orderid='.$orders[$i]['orderid'].'&edit=delete"><i class="fa fa-times fa-2x"></i></a>';
+			if($_SESSION['userrole'] != 1){
+				echo '<a class="page-link" href="?page=private/pageSettings&settings=orderPreview&orderid='.$orders[$i]['orderid'].'"><i class="fa fa-search-plus fa-2x"></i></a>';
+				echo '<a class="page-link" href="?page=private/pageSettings&settings=editOrder/editOrder&orderid='.$orders[$i]['orderid'].'&edit=ship"><i class="fa fa-plane fa-2x"></i></a>';
+				echo '<a class="page-link" href="?page=private/pageSettings&settings=editOrder/editOrder&orderid='.$orders[$i]['orderid'].'&edit=delete"><i class="fa fa-times fa-2x"></i></a>';
+			}
+			else{
+				echo '<a class="page-link" href="?page=accountSettings&profile=orderPreview&orderid='.$orders[$i]['orderid'].'"><i class="fa fa-search-plus fa-2x"></i></a>';
+			}
+
 			echo '</li>';
 		}
 		echo '</ol>';
@@ -74,14 +81,22 @@ class OrderEditorController{
 	
 
 		//echo '<a class="page-link" class="user-controls" href="?page=private/pageSettings&settings=addProduct"><i class="fa fa-plus-circle fa-2x"></i></a>';
-	
+
 		echo '<div class="paging">';
 		echo '<div class="displayAmount">';
-        echo '<a class="page" href="?page=private/pageSettings&settings=orders&display=10&pagination=1">10</a>';
-        echo '<a class="page" href="?page=private/pageSettings&settings=orders&display=20&pagination=1">20</a>';
-        echo '<a class="page" href="?page=private/pageSettings&settings=orders&display=50&pagination=1">50</a>';
-        echo '<a class="page" href="?page=private/pageSettings&settings=orders&display=100&pagination=1">100</a>';
-        echo '</div>';
+		if($_SESSION['userrole'] != 1){
+			echo '<a class="page" href="?page=private/pageSettings&settings=orders&display=10&pagination=1">10</a>';
+			echo '<a class="page" href="?page=private/pageSettings&settings=orders&display=20&pagination=1">20</a>';
+			echo '<a class="page" href="?page=private/pageSettings&settings=orders&display=50&pagination=1">50</a>';
+			echo '<a class="page" href="?page=private/pageSettings&settings=orders&display=100&pagination=1">100</a>';
+		}
+		else{
+			echo '<a class="page" href="?page=accountSettings&profile=orders&display=10&pagination=1">10</a>';
+			echo '<a class="page" href="?page=accountSettings&profile=orders&display=20&pagination=1">20</a>';
+			echo '<a class="page" href="?page=accountSettings&profile=orders&display=50&pagination=1">50</a>';
+			echo '<a class="page" href="?page=accountSettings&profile=orders&display=100&pagination=1">100</a>';
+		}
+		echo '</div>';
 
 		
 		$pages = count($orders) / $display;
@@ -92,7 +107,13 @@ class OrderEditorController{
 
 		for($i=1; $i<=$pages; $i++)
 		{
-			echo '<a class="page" href="?page=private/pageSettings&settings=orders&display='.$display.'&pagination='.$i.'">'.$i.'</a>';
+			if($_SESSION['userrole'] != 1){
+				echo '<a class="page" href="?page=private/pageSettings&settings=orders&display='.$display.'&pagination='.$i.'">'.$i.'</a>';
+			}
+			else{
+				echo '<a class="page" href="?page=accountSettings&profile=orders&display='.$display.'&pagination='.$i.'">'.$i.'</a>';
+			}
+
 		}
 		echo '</div>';
 	}	

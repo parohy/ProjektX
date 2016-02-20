@@ -51,7 +51,7 @@ function generateSub($id,$categories){
                     }
                     echo '>'.$array[$i]['name'] . '</option>';
                 }
-                echo '<option value="+" '.'>New...</option>';
+                //echo '<option value="+" '.'>New...</option>';
                 echo '</sel'.'ect>';
             }
         }
@@ -104,10 +104,10 @@ function generateSub($id,$categories){
                 select.appendChild(option);
             }
 
-            var last = document.createElement('option');
+            /*var last = document.createElement('option');
             last.setAttribute('value','+');
             last.innerHTML = 'New...';
-            select.appendChild(last);
+            select.appendChild(last);*/
 
             select.setAttribute('onchange','generateNextSub('+(indexing++)+')');
             parent.appendChild(select);
@@ -141,10 +141,10 @@ function generateSub($id,$categories){
                 select.appendChild(option);
             }
 
-            var last = document.createElement('option');
+            /*var last = document.createElement('option');
             last.setAttribute('value','+');
             last.innerHTML = 'New...';
-            select.appendChild(last);
+            select.appendChild(last);*/
 
             select.setAttribute('onchange','generateNextSub('+(indexing++)+')');
             parent.appendChild(select);
@@ -190,8 +190,9 @@ function generateSub($id,$categories){
                             }
                             echo '>'.$currentCat['category'].'</option>';
                         }
+                        //echo '<option value="0">New...</option>';
                         ?>
-                    	<option value="0">New...</option>
+
                     </select>
 
         </li>
@@ -239,8 +240,9 @@ function generateSub($id,$categories){
                         }
                         echo '>'.$brands[$i]['name'].'</option>';
                     }
+                    //echo '<option value="+">New...</option>';
                 ?>
-                <option value="+">New...</option>
+
             </select>
         </li>
 

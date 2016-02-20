@@ -43,7 +43,7 @@ foreach($cartContent as $item)
 $order->orderprice=$totalprice;
 
 $order->save();
-echo $id=$order->id;
+$id=$order->id;
 
 foreach($cartContent as $item)
 {
@@ -62,6 +62,8 @@ $pdfBill = new pdfFile($id);
 $pdfBill->buildPDF();
 $pdfPath = $pdfBill->getPath();
 $_SESSION['filepath'] = $pdfPath;
+$_SESSION['orderid'] = $id;
+
 
 $mail = new Mail();
 $mail->addRecipient($order->email);

@@ -22,6 +22,7 @@ if(isset($_GET['userid'])){
 		echo '<li class="view"><div class="inputName">Name:</div><div class="edit-input">'.$user->getData('name').'</div></li>';
 		echo '<li class="view"><div class="inputName">Surname:</div><div class="edit-input">'.$user->getData('surname').'</div></li>';
 		echo '<li class="view"><div class="inputName">Email:</div><div class="edit-input">'.$user->getData('email').'</div></li>';
+		echo '<li class="view"><div class="inputName">Phone:</div><div class="edit-input">'.$user->getData('phone').'</div></li>';
 		echo '<li class="view"><div class="inputName">Street:</div><div class="edit-input">'.$user->getData('address').'</div></li>';
 		echo '<li class="view"><div class="inputName">City:</div><div class="edit-input">'.$user->getData('city').'</div></li>';
 		echo '<li class="view"><div class="inputName">Postcode:</div><div class="edit-input">'.$user->getData('postcode').'</div></li>';
@@ -44,6 +45,7 @@ else if(isset($_SESSION['userid'])){
 		echo '<li class="view"><div class="inputName">Name:</div><div class="edit-input">'.$user->getData('name').'</div></li>';
 		echo '<li class="view"><div class="inputName">Surname:</div><div class="edit-input">'.$user->getData('surname').'</div></li>';
 		echo '<li class="view"><div class="inputName">Email:</div><div class="edit-input">'.$user->getData('email').'</div></li>';
+		echo '<li class="view"><div class="inputName">Phone:</div><div class="edit-input">'.$user->getData('phone').'</div></li>';
 		echo '<li class="view"><div class="inputName">Street:</div><div class="edit-input">'.$user->getData('address').'</div></li>';
 		echo '<li class="view"><div class="inputName">City:</div><div class="edit-input">'.$user->getData('city').'</div></li>';
 		echo '<li class="view"><div class="inputName">Postcode:</div><div class="edit-input">'.$user->getData('postcode').'</div></li>';
