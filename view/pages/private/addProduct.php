@@ -31,15 +31,16 @@ if(isset($_GET['productid'])){
 
 function generateSub($id,$categories){
     if($GLOBALS['pIndex'] >= 0){
-        if(!$GLOBALS['sub']){
-            echo '<label for="name" id="sublabel" class="inputName" style="margin-left: -125px">Subcategory</label>';
-            $GLOBALS['sub'] = true;
-        }
         $merge = false;
+
         if($GLOBALS['categoryPath'][$GLOBALS['pIndex']+1] != NULL){
             $pointer = $GLOBALS['categoryPath'][$GLOBALS['pIndex']+1];
             $array = $categories[$pointer];
             if(count($array) > 0){
+                if($GLOBALS['sub'] === false){
+                    echo '<label for="name" id="sublabel" class="inputName" style="margin-left: -125px">Subcategory</label>';
+                    $GLOBALS['sub'] = true;
+                }
                 echo '<select id="subcategory' . $GLOBALS['index'] . '" name="subcategory" onchange="generateNextSub('.$GLOBALS['index']++.')">';
                 echo '<option value="0" '.'>None</option>';
                 for($i=0;$i<count($array);$i++){
@@ -198,9 +199,9 @@ function generateSub($id,$categories){
         </li>
 				<li id="sub-title">
                     <?php
-                    if($pIndex > 0){
+                    /*if($pIndex > 0){
                         echo '<label id="sublabel"'.' class="inputName"'.' for="name">'.'Subcategory</'.'label>';
-                    }
+                    }*/
                     ?>
                     <!--<label class="inputName" for="name">Subcategory</label>-->
                             <div id="subcategory">
