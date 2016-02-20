@@ -78,11 +78,11 @@
 .order-button{
     background: white;
     width: 100px;
-    height: 25px;
+    height: 30px;
     font-size: 16px;
     font-weight: bold;
-    margin-left: 30px;
-    margin-top: 5px;
+    margin-left: 50px;
+    margin-top: 20px;
     background: #34A994;
     border-style: none;
     color: white;
@@ -366,4 +366,22 @@
 
 .itemsorderofuser div:nth-child(2){
     margin-left: 70px;
+}
+
+.contentoforder{
+    float: left;
+    margin-left: 310px;
+    width: 100px;
+    text-align: right;
+}
+
+.ordercontentlist{
+    list-style-type: none;
+    float: left;
+    display: inline-block;
+    margin-left: 70px;
+}
+
+.ordercontentlist li{
+    text-align: left;
 }

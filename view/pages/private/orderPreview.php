@@ -36,8 +36,8 @@ echo '<ul class="itemsorderofuser">';
     }
 echo '</ul>';
 
-echo '<div>Content</div>';
-echo '<ol>';
+echo '<div class="contentoforder">Content:</div>';
+echo '<ol class="ordercontentlist">';
     foreach($order->alldetails as $currentItem){
         echo '<li>';
         $detail = new Orderdetail($currentItem);
