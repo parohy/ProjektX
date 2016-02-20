@@ -15,6 +15,7 @@ include_once ($path . 'API/Product.php');
 
 $catHandler = new Category();
 $categories = $catHandler->getCategories();
+$sub = false;
 $product = NULL;
 $id = NULL;
 $pIndex = 0;
@@ -30,6 +31,10 @@ if(isset($_GET['productid'])){
 
 function generateSub($id,$categories){
     if($GLOBALS['pIndex'] >= 0){
+        if(!$GLOBALS['sub']){
+            echo '<label for="name" id="sublabel" class="inputName">Subcategory</label>';
+            $GLOBALS['sub'] = true;
+        }
         $merge = false;
         if($GLOBALS['categoryPath'][$GLOBALS['pIndex']+1] != NULL){
             $pointer = $GLOBALS['categoryPath'][$GLOBALS['pIndex']+1];
