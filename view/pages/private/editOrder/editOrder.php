@@ -26,7 +26,7 @@ if(isset($_GET['edit'])){
         }
         $order->save();
     }
-    else if($_GET['delete']){
+    else if($_GET['edit'] == 'delete'){
         $order->delete();
     }
 }
