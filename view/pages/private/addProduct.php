@@ -32,7 +32,7 @@ if(isset($_GET['productid'])){
 function generateSub($id,$categories){
     if($GLOBALS['pIndex'] >= 0){
         if(!$GLOBALS['sub']){
-            echo '<label for="name" id="sublabel" class="inputName">Subcategory</label>';
+            echo '<label for="name" id="sublabel" class="inputName" style="margin-left: -125px">Subcategory</label>';
             $GLOBALS['sub'] = true;
         }
         $merge = false;
@@ -252,7 +252,7 @@ function generateSub($id,$categories){
 
 
         <li >
-            <input type="submit" class="submit-button" value="Add"></button>
+            <input type="submit" class="submit-button" value="Add" style="height: 58px"></button>
 
         </li>
     </ul>

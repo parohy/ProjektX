@@ -192,7 +192,7 @@
     width: 500px;
 }
 .addProductForm ul li label{
-    text-align: right;
+    
 }
 .addProductForm ul li input,textarea,select{
     width: 50%;
@@ -202,6 +202,7 @@
 
 .addProductForm ul li select{
     height: 35px;
+    line-height: 35px;
 }
 .addProductForm ul li textarea{
     width: 50%;
@@ -244,9 +245,16 @@
     width: 250px;
 }
 #subcategory select{
-    width: 250px;
+    
     display: block;
     margin-top: 5px;
+    
+    width: 400px;
+    height: 27px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size:18px;
+    padding-left: 10px;
+    padding-top: 0px;
 }
 /*.subcategory-choice{
     display: inline-block;
@@ -298,7 +306,7 @@
     font-family: 'Source Sans Pro', sans-serif;
     font-size:18px;
     padding-left: 10px;
-    padding-top: 8px;
+    padding-top: 0px;
 }
 
 /* order view*/
