@@ -115,7 +115,8 @@ class Order{
         
         public function delete() {
             if($this->id!=null){
-                $this->handlerDB->query("DELETE FROM orders WHERE orderid LIKE '%".$this->id."%'");
+                $this->handlerDB->query("DELETE FROM orders WHERE orderid=:orderid");
+                $this->handlerDB->bind(':orderid',$this->id);
             }
             $this->handlerDB->execute();   
         }

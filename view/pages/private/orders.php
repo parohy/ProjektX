@@ -8,51 +8,31 @@
 $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= 'ProjektX/';
 
-include_once($path . 'API/Orders.php');
-include_once($path . 'API/Database.php');
+include ($path . 'controllers/admin/OrderEditorController.php');
 
 
-$DBHandler = new DBHandler();
-if($_SESSION['userrole'] != 1){
-    $DBHandler->query('SELECT * FROM orders');
-}
-else{
-    $DBHandler->query('SELECT * FROM orders WHERE userid=:userid');
-    $DBHandler->bind(':userid',$_SESSION['userid']);
-}
+$orderEditor = new OrderEditorController();
+
 
 if(isset($_SESSION['searchRes'])){
-    $array = $_SESSION['searchRes'];
+    $orders  = $_SESSION['searchRes'];
     unset($_SESSION['searchRes']);
 }
 else{
-    $array = $DBHandler->resultSet();
+    $orders = $orderEditor->getOrders();
 }
 
+$pagination = 1;
+$display = 5;
 
-
-echo '<ol class="items">';
-for($i = 0; $i < count($array); $i++){
-    echo '<li>';
-    if($_SESSION['userrole'] != 1){
-        echo '<span class="orderinfo"><div style="width: 220px; display: inline-block">'.$array[$i]['name'].' '.$array[$i]['surname'].' '.$array[$i]['address'].'</div><div style="width: 150px; display: inline-block">'.$array[$i]['city'].'</div><div style="width: 150px; display: inline-block">'.$array[$i]['postcode'].'</div></span>';
-    }
-    else{
-        echo '<span class="orderinfo"><div style="width: 220px; display: inline-block">'.$array[$i]['address'].'</div><div style="width: 150px; display: inline-block">'.$array[$i]['city'].'</div><div style="width: 150px; display: inline-block">'.$array[$i]['postcode'].'</div></span>';
-
-    }
-    echo '<span class="orderinfoprice"> '.$array[$i]['orderprice'].' eur</span>';
-        if($array[$i]['shipped'] != '0'){
-            echo '<span class="orderinfoship"> shipped </span>';
-        }
-        else{
-            echo '<span class="orderinfoship"> queued </span>';
-        }
-    echo '<a class="page-link" href="?page=private/pageSettings&settings=orderPreview&orderid='.$array[$i]['orderid'].'"><i class="fa fa-search-plus fa-2x"></i></a>';
-    //echo '<a class="page-link" href="?page=private/pageSettings&settings=orderPreview&orderid='.$array[$i]['orderid'].'"><i class="fa fa-pencil-square-o fa-2x"></i></a>';
-    echo '<a class="page-link" href="?page=private/pageSettings&settings=editOrder/editOrder&orderid='.$array[$i]['orderid'].'&edit=ship"><i class="fa fa-plane fa-2x"></i></a>';
-    echo '</li>';
+if(isset($_GET['display'])){
+    $display = $_GET['display'];
 }
-echo '</ol>';
-?>
+
+if(isset($_GET['pagination'])){
+    $pagination = $_GET['pagination'];
+}
+
+$orderEditor->displayOrders($orders,$pagination,$display);
+
 
