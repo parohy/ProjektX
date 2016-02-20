@@ -84,7 +84,7 @@ class Order{
             }
             else {
                 $this->handlerDB->query("UPDATE orders SET userid=:userid, surname=:surname, name=:name, email=:email, phone=:phone, address=:address, city=:city, postcode=:postcode, datecreated=:datecreated, shipped=:shipped ,orderprice=:orderprice".
-                       "WHERE orderid=:orderid");
+                       " WHERE orderid=:orderid");               
                 $this->handlerDB->bind(':orderid', $this->id);
             }
             $this->handlerDB->bind(':userid', $this->userid);
@@ -100,7 +100,7 @@ class Order{
             $this->handlerDB->bind(':orderprice', $this->orderprice);
             $this->handlerDB->execute();
             if($this->id==null){
-                //$this->handlerDB = new DBHandler();
+                $this->handlerDB = new DBHandler();
                 $this->handlerDB->query("SELECT orderid FROM orders ORDER BY orderid DESC LIMIT 1 ");
                 $result = $this->handlerDB->resultSet();
                 $this->id=$result[0]['orderid'];       
