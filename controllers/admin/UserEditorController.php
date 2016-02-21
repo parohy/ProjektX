@@ -51,8 +51,13 @@ class UserEditorController
             echo '<span class="username">' . $users[$i]['name'] . ' ' . $users[$i]['surname'] . '</span>';
             echo '<span class="email">' . $users[$i]['email'] . '</span>';
             echo '<span class="user-controls"><a class="page-link" href="?page=private/pageSettings&settings=editUser/userPreview&userid=' . $users[$i]['userid'] . '"><i class="fa fa-search-plus fa-2x"></i></a>
-            	                              <a class="page-link" href="?page=private/pageSettings&settings=editUser/editUser&userid=' . $users[$i]['userid'] . '"><i class="fa fa-pencil-square-o fa-2x"></i></a>
-            				                  <a class="page-link" href="?page=private/pageSettings&settings=editUser/deleteUser&userid=' . $users[$i]['userid'] . '"><i class="fa fa-times fa-2x"></i></a></span>';
+            	                              <a class="page-link" href="?page=private/pageSettings&settings=editUser/editUser&userid=' . $users[$i]['userid'] . '"><i class="fa fa-pencil-square-o fa-2x"></i></a>';
+                                              if($users[$i]['deleted'] != 0){
+                                                  echo '<a class="page-link" href="?page=private/pageSettings&settings=editUser/deleteUser&userid=' . $users[$i]['userid'] . '"><i class="fa fa-refresh fa-2x"></i></a></span>';
+                                              }
+            				                  else{
+                                                  echo '<a class="page-link" href="?page=private/pageSettings&settings=editUser/deleteUser&userid=' . $users[$i]['userid'] . '"><i class="fa fa-times fa-2x"></i></a></span>';
+                                              }
             echo '</li>';
         }
 
