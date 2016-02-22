@@ -66,7 +66,13 @@ class OrderEditorController{
 			//echo '<a class="page-link" href="?page=private/pageSettings&settings=orderPreview&orderid='.$orders[$i]['orderid'].'"><i class="fa fa-pencil-square-o fa-2x"></i></a>';
 			if($_SESSION['userrole'] != 1){
 				echo '<a class="page-link" href="?page=private/pageSettings&settings=orderPreview&orderid='.$orders[$i]['orderid'].'"><i class="fa fa-search-plus fa-2x"></i></a>';
-				echo '<a class="page-link" href="?page=private/pageSettings&settings=editOrder/editOrder&orderid='.$orders[$i]['orderid'].'&edit=ship"><i class="fa fa-plane fa-2x"></i></a>';
+				if($orders[$i]['shipped'] != 1){
+					echo '<a class="page-link" href="?page=private/pageSettings&settings=editOrder/editOrder&orderid='.$orders[$i]['orderid'].'&edit=ship"><i class="fa fa-square-o fa-2x"></i></a>';
+				}
+				else{
+					echo '<a class="page-link" href="?page=private/pageSettings&settings=editOrder/editOrder&orderid='.$orders[$i]['orderid'].'&edit=ship"><i class="fa fa-check-square-o fa-2x"></i></a>';
+				}
+
 				echo '<a class="page-link" href="?page=private/pageSettings&settings=editOrder/editOrder&orderid='.$orders[$i]['orderid'].'&edit=delete"><i class="fa fa-times fa-2x"></i></a>';
 			}
 			else{
