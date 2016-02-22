@@ -36,11 +36,11 @@
                 echo '<div class="product-name">
 				      <span class="namespan"><a href="?page=productPreview&product=' . $cart['id'] . '">' . $cart['name'] . '</a></span>
 			          </div>';
-                echo '<div class="product-price">
+                echo '<div class="product-price" data-price="'.$cart['price'].'">
 				        ' . $cart['price'] . ' <i class="fa fa-eur" style="font-size: 20px"></i>
 			          </div>';
                 echo '<div class="product-qty">
-				        <input class="input" type="number" name="qty" min="1" max="99" value="' . $cart['count'] . '">
+				        <input class="input" type="number" name="qty" min="1" max="99" value="' . $cart['count'] . '" data-id="'.$cart['id'].'">
 					  </div>
 					  <div class="kus"><a>kus</a></div>';
                 echo '<a href="?page=cart&number=' . array_search($cart,$cartContent) . '" class="removeItem"><img src="libraries/img/icons/recyclebin.png"></a>';
@@ -65,6 +65,5 @@
             echo '<a class="pro-button" href="?page=checkout&numOfItems='.$numOfItems.'&totalCost='.$totalCost.'">Proceed to checkout</a>';
         }
     ?>
-	
-	<script src="libraries/js/cart.js"></script>
+    <script src="libraries/js/cart.js"></script>
 </div>
