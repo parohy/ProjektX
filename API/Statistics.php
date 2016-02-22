@@ -44,7 +44,12 @@ class Statistics{
     function getBestSellingProduct() {
         $this->handlerDB->query(" SELECT productid, COUNT('productid') AS 'value_occurrence' FROM orderdetails GROUP BY 'productid' ORDER BY 'value_occurrence' DESC LIMIT 1 ");
         $result = $this->handlerDB->resultSet();
-        $id=$result[0]['productid'];
+        if(count($result)!=0){
+            $id=$result[0]['productid'];
+        }
+        else{
+            return "no products sold :(";
+        }
         $prod=new Product($id);
         return $prod->name;
         
