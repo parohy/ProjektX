@@ -8,6 +8,7 @@
  */
 
 include_once ('Database.php');
+include_once ('Product.php');
 
 class Statistics{
     private $handlerDB;
@@ -40,19 +41,13 @@ class Statistics{
         return $result[0]['COUNT(*)'];
     }
 
-    function getTotalRevenue() {
-        $this->handlerDB->query("SELECT ROUND(SUM(orderprice),2) as \"sum\" FROM orders");
-        $result = $this->handlerDB->resultSet();
-        return $result[0]['sum'];
-    }
-
     function getBestSellingProduct() {
-        $this->handlerDB->query(" SELECT productid, COUNT('productid`) AS `value_occurrence` FROM `orderdetails` GROUP BY `productid` ORDER BY `value_occurrence` DESC LIMIT 1 ");
+        $this->handlerDB->query(" SELECT productid, COUNT('productid') AS 'value_occurrence' FROM orderdetails GROUP BY 'productid' ORDER BY 'value_occurrence' DESC LIMIT 1 ");
         $result = $this->handlerDB->resultSet();
-        return $result[0]['productid'];
+        $id=$result[0]['productid'];
+        $prod=new Product($id);
+        return $prod->name;
+        
     }
 
 }
-
-$s=new Statistics;
-e
