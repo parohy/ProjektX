@@ -11,7 +11,6 @@
 
 .admin-nav {
     width: 90%;
-    height: 370px;
     margin-top: 30px;
     border: 1px solid #cacaca;
     background: #fff;
@@ -84,6 +83,7 @@
     font-weight: bold;
     margin-left: 50px;
     margin-top: 20px;
+    margin-bottom: 20px;
     background: #34A994;
     border-style: none;
     color: white;
