@@ -75,6 +75,12 @@ class ProductDisplay
 
         }
         echo "</div>";
+        echo "<script>
+                $(window).ready(function()
+                {
+                    adjustThumbnail();
+                }); 
+            </script>";
     }
     
     public function displayProduct($id){
