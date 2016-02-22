@@ -252,6 +252,7 @@ function generateSub($id,$categories){
         </li>
 
 
+
         <li >
             <input type="submit" class="submit-button" value="Add" style="height: 58px"></button>
 
