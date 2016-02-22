@@ -26,6 +26,7 @@ if(isset($_GET['search'])) {
     }
     else { // else send message results not found
         $_SESSION['noresults'] = "Results not found";
+        header('Location:../?page=main-page');
     }
     exit();
 }

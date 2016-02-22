@@ -25,6 +25,10 @@
         echo '<div class="headerErrorMessage"><span class="error">'.$_SESSION['loginErr'].'</span></div>';
         unset($_SESSION['loginErr']);
     }
+    if(isset($_SESSION['noresults'])){
+        echo '<div class="headerErrorMessage"><span class="error">'.$_SESSION['noresults'].'</span></div>';
+        unset($_SESSION['noresults']);
+    }
     ?>
 </div>
 <div class="group top">
