@@ -48,7 +48,13 @@ echo '<ol class="ordercontentlist">';
 echo '</ol>';
 
 if($_SESSION['userrole'] != 1){
-    echo '<a class="page-link" href="?page=private/pageSettings&settings=editOrder/editOrder&orderid='.$order->id.'&edit=ship"><i class="fa fa-plane fa-2x"></i></a>';
+    if($order->shipped != 1){
+        echo '<a class="page-link" href="?page=private/pageSettings&settings=editOrder/editOrder&orderid='.$order->id.'&edit=ship"><i class="fa fa-square-o fa-2x"></i></a>';
+    }
+    else{
+        echo '<a class="page-link" href="?page=private/pageSettings&settings=editOrder/editOrder&orderid='.$order->id.'&edit=ship"><i class="fa fa-check-square-o fa-2x"></i></a>';
+    }
+    //echo '<a class="page-link" href="?page=private/pageSettings&settings=editOrder/editOrder&orderid='.$order->id.'&edit=ship"><i class="fa fa-plane fa-2x"></i></a>';
     echo '<a class="page-link" href="?page=private/pageSettings&settings=editOrder/editOrder&orderid='.$order->id.'&edit=delete"><i class="fa fa-times fa-2x"></i></a>';
 }
 
