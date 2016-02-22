@@ -20,13 +20,8 @@ if(isset($_GET['search'])) {
     $search = new SearchModel($searchTerm);
     $results = $search->getResults();
 
-    if($search->foundResults($results)) { // if results were found send them trough session variable
-        $_SESSION['results'] = $results;
-        header('Location:../?page=mainCategory&catid=1&name='.$searchTerm);
-    }
-    else { // else send message results not found
-        $_SESSION['noresults'] = "Results not found";
-        header('Location:../?page=main-page');
-    }
+    $_SESSION['results'] = $results;
+    header('Location:../?page=mainCategory&catid=1&name='.$searchTerm);
+    
     exit();
 }

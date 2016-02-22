@@ -38,42 +38,50 @@ class ProductDisplay
         $date = new DateTime();
         $timeStamp = $date->getTimestamp();
 
-        foreach($searchResult as $res) {
+        if(count($searchResult) === 0){
 
-            $product = new Product($res);
-            if($product->deleted === false){
-                if($itemCount == 0) {
-                    echo "<div class=\"row\">";
+            echo '<div class="categoryMessage">No products matching criteria.</div>';
+
+        } else {
+
+            foreach($searchResult as $res) {
+
+                $product = new Product($res);
+                if($product->deleted === false){
+                    if($itemCount == 0) {
+                        echo "<div class=\"row\">";
+                    }
+                    $size = $scaling->productItemTumbnail($res); // get scaled size of image to fit tumbnail
+                    $margin = $scaling->productItemTumbnailMargin($size); // calculate margin after scale to center it in thumbnail
+
+                    echo "<div class=\"product-item\">";
+
+
+                    echo "
+                            <div class=\"product-photo\">
+                                <img class=\"loader\" src=\"libraries/img/loader.gif\" alt=\"loading...\">
+                                <a href=\"?page=productPreview&product=" . $res . "\"><img class=\"thumbnailImage notLoaded\" src=\"libraries/img/products/" . $res . "/" . $res . "a.jpg?".$timeStamp."\" alt=\"product photo\"></a>
+                            </div>
+                            <div class=\"product-description\">
+                                <hr class=\"product-line\">
+                                <h3 class=\"product-name\">" . substr($product->name,0,40) . "</h3>
+                                <span class=\"price\">".$product->price."<i class=\"fa fa-eur\"></i></span>";
+                    echo $this->productButtons($res,$product->name,$product->price);//<a href=\"controllers/addToCart.php?productid=".$res."&name=".$product->name."&price=".$product->price."\" class=\"addToCart\">Add to Cart</a>
+                    echo     "</div>
+                      </div>
+                     ";
+
+                    if($itemCount == $maxInRow - 1) {
+                        echo "</div>";
+                        $itemCount = -1;
+                    }
+
+                    $itemCount++;
                 }
-                $size = $scaling->productItemTumbnail($res); // get scaled size of image to fit tumbnail
-                $margin = $scaling->productItemTumbnailMargin($size); // calculate margin after scale to center it in thumbnail
 
-                echo "<div class=\"product-item\">";
-
-
-                echo "
-                        <div class=\"product-photo\">
-                            <img class=\"loader\" src=\"libraries/img/loader.gif\" alt=\"loading...\">
-                            <a href=\"?page=productPreview&product=" . $res . "\"><img class=\"thumbnailImage notLoaded\" src=\"libraries/img/products/" . $res . "/" . $res . "a.jpg?".$timeStamp."\" alt=\"product photo\"></a>
-                        </div>
-                        <div class=\"product-description\">
-                            <hr class=\"product-line\">
-                            <h3 class=\"product-name\">" . substr($product->name,0,40) . "</h3>
-                            <span class=\"price\">".$product->price."<i class=\"fa fa-eur\"></i></span>";
-                echo $this->productButtons($res,$product->name,$product->price);//<a href=\"controllers/addToCart.php?productid=".$res."&name=".$product->name."&price=".$product->price."\" class=\"addToCart\">Add to Cart</a>
-                echo     "</div>
-                  </div>
-                 ";
-
-                if($itemCount == $maxInRow - 1) {
-                    echo "</div>";
-                    $itemCount = -1;
-                }
-
-                $itemCount++;
             }
-
         }
+
         echo "</div>";
         echo "<script>
                 $(window).ready(function()

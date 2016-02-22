@@ -52,19 +52,10 @@ input[type="checkbox"] {
     background: #34A994;
     text-decoration: none;
 }
-
-/*@media screen and (max-width: 768px) {
-    .sorting-table {
-        width: 160px;
-        margin: 20px 0;
-        border: 1px solid #cacaca;
-        font-size: 2vw;
-    }
-    .sorting-table form {
-        padding-left: 5px;
-        padding-right: 5px;
-    }
-    .sorting-table form {
-        margin: 0px;
-    }
-}*/
+.categoryMessage {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Source Sans Pro', sans-serif;
+    text-align: center;
+    margin: 50px;
+}
