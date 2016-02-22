@@ -29,8 +29,14 @@ if(isset($_GET['userid'])){
 		echo '<li class="view"><div class="inputName">Registered since:</div><div class="edit-input">'.$user->getData('datejoined').'</div></li>';
 		echo '<li class="view"><div class="inputName">User role:</div><div class="edit-input">'.$role.'</div></li>';
 	echo '</ul>';
-	echo '<span class="view"><a class="view-controls" href="?page=private/pageSettings&settings=editUser/editUser&userid=' . $user->getId() . '"><i class="fa fa-pencil-square-o fa-2x"></i></a>
-			                          <a class="view-controls" href="?page=private/pageSettings&settings=editUser/deleteUser&userid=' . $user->getId() . '"><i class="fa fa-times fa-2x"></i></a></span>';
+	echo '<span class="view"><a class="view-controls" href="?page=private/pageSettings&settings=editUser/editUser&userid=' . $user->getId() . '"><i class="fa fa-pencil-square-o fa-2x"></i></a>';
+	if($user->getData('deleted') != 0){
+		echo '<a class="page-link" href="?page=private/pageSettings&settings=editUser/deleteUser&userid=' . $_GET['userid'] . '"><i class="fa fa-refresh fa-2x"></i></a></span>';
+	}
+	else{
+		echo '<a class="page-link" href="?page=private/pageSettings&settings=editUser/deleteUser&userid=' . $_GET['userid'] . '"><i class="fa fa-times fa-2x"></i></a></span>';
+	}
+
 }
 else if(isset($_SESSION['userid'])){
 	$user = User::editUser($_SESSION['userid']);

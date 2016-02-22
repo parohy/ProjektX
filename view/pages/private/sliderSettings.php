@@ -29,9 +29,10 @@
 
 <div class="addImage">
     <h4>Add new slides:</h4>
-
-    <div id="dragNdrop">
-        <h3>Drag and Drop images you want to upload here</h3>
-    </div>
+    <form action="">
+        <input type="file" name="pic" accept="image/*" value="select">
+        <input type="submit" value="upload">
+    </form>
 </div>
+
 <script src="libraries/js/sliderSettings.js"></script>

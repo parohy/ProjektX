@@ -14,7 +14,16 @@ if(isset($_SESSION['filepath'])){
 <link rel="stylesheet" type="text/css" href="libraries/css/endline.css">
 
 <h1 class="endlineMessage">Thank you for purchasing our products.</h1>
-<h3 class="links">Download order <a id="pdf-link" href="<?php echo $topdf;?>">pdf</a> or view order <a id="order-link" href="?page=accountSettings&profile=orderPreview&orderid=<?php echo $_SESSION['orderid'];?>">here</a>.</h3>
+<?php
+    if(isset($_SESSION['userid'])){
+        echo '<h3 class="links">Download order <a id="pdf-link" href="'.$topdf.'">pdf</a> or view order <a id="order-link" href="?page=accountSettings&profile=orderPreview&orderid='.$_SESSION['orderid'].'">here</a>.</h3>
+';
+    }
+    else{
+        echo '<h3 class="links">Download order <a id="pdf-link" href="'.$topdf.'">pdf</a>.</h3>
+';
+    }
+?>
 <a href="?page=main-page" class="backToHome">BACK TO HOME PAGE</a>
 
 <?php
