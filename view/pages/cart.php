@@ -19,7 +19,24 @@
                 unset($cartContent[$number]);
                 $_SESSION['cart'] = $cartContent;
             }
+            else if(isset($_GET['change']) && isset($_GET['value'])) {
+                $productId = $_GET['change'];
+                $value = (int) $_GET['value'];
 
+                foreach($cartContent as $cart) {
+                    if($cart['id'] == $productId) {
+                        $cart['count'] = $value;
+                        break;
+                    }
+                }
+
+                unset($_GET['change']);
+                unset($_GET['value']);
+
+                $_SESSION['cart'] = $cartContent;
+            }
+
+            var_dump($cartContent);
             $i = 0;
 
             foreach($cartContent as $cart) {
