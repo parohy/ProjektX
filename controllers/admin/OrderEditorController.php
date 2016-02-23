@@ -55,7 +55,7 @@ class OrderEditorController{
 				echo '<span class="orderinfo"><div style="width: 220px; display: inline-block">'.$orders[$i]['address'].'</div><div style="width: 150px; display: inline-block">'.$orders[$i]['city'].'</div><div style="width: 150px; display: inline-block">'.$orders[$i]['postcode'].'</div></span>';
 
 			}
-			echo '<span class="orderinfoprice"> '.$orders[$i]['orderprice'].' eur</span>';
+			echo '<span class="orderinfoprice"> '.$orders[$i]['orderprice'].' €</span>';
 			if($orders[$i]['shipped'] != '0'){
 				echo '<span class="orderinfoship"> shipped </span>';
 			}

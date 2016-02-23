@@ -118,6 +118,10 @@
     background: #d8f3ed;
 }
 
+.items li a {
+    margin-left: 10px;
+}
+
 .username {
     float: left;
 	width: 350px;
@@ -325,7 +329,7 @@
     float: left;
     display: inline-block;
     text-align: left;
-    width: 100px;
+    width: 90px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -335,7 +339,7 @@
     float: left;
     display: inline-block;
     text-align: left;
-    width: 100px;
+    width: 70px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
