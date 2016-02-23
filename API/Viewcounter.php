@@ -61,5 +61,16 @@ class Viewcounter{
         return $sum;
     }
     
+    public function chartDataProvider(){
+        $content="";
+        foreach($this->fileContent as $line){     //{"category": "2014-03-01","column-1": 8},
+            $content.="{\"category\": \"".$line['y']."-".$line['m']."-".$line['d']."\",\"column-1\": ".$line['count']."}";
+            if($line!=$this->fileContent[count($this->fileContent)-1]){
+                $content.=",";
+            }
+        } 
+        return $content;
+    }
+    
 }
 
