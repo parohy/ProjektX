@@ -11,6 +11,7 @@ session_start();
 $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= 'ProjektX/';
 include ($path."API/Database.php");
+include ($path."controllers/ViewcounterController.php");
 
 if(isset($_GET['product'])) {
     if(!isset($_COOKIE[$_GET['product']])) setcookie($_GET['product'],"false", 60 * 60 * 24 * 60 + time(),"/");
