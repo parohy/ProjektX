@@ -29,6 +29,11 @@ if($_SESSION['username'] != "admin") {
             echo '" method="POST">';
             echo '<ul>
                 <li>
+                    <label class=""> ID: </label>
+                    <input class="" type="text" name="id" value="" placeholder="ID">
+                </li>
+
+                <li>
                     <label class=""> Name: </label>
                     <input class="" type="text" name="name" value="" placeholder="NAME">
                 </li>
