@@ -14,7 +14,10 @@ $viewcounter=new Viewcounter;
 
 ?>
 <link rel="stylesheet" type="text/css" href="libraries/css/admin-panel.css">
-
+<?php 
+        include $path.'view/includes/chart.php';
+        
+?>
 <div class="statistics">
         <table>
             <tr>
@@ -41,4 +44,5 @@ $viewcounter=new Viewcounter;
                 <td>Page views:</td>  <td><?php echo $viewcounter->getTotalViews()?></td>
             </tr>
         </table>
+        
 </div>
