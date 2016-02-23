@@ -10,6 +10,7 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= 'ProjektX/';
 include_once ($path.'API/Statistics.php');
 $statistics=new Statistics;
+$viewcounter=new Viewcounter;
 
 ?>
 <link rel="stylesheet" type="text/css" href="libraries/css/admin-panel.css">
@@ -37,7 +38,7 @@ $statistics=new Statistics;
             </tr>
 
             <tr>
-                <td>Page views:</td>  <td>TO DO</td>
+                <td>Page views:</td>  <td><?php echo $viewcounter->getTotalViews()?></td>
             </tr>
         </table>
 </div>
