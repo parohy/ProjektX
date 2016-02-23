@@ -43,6 +43,15 @@ class SearchModel
 
     public function getSpecificResults($table, $term){
         $query = 'SELECT * FROM '.$table;
+        if($table == 'users'){
+            $idcol = 'userid';
+        }
+        else if($table == 'products'){
+            $idcol = 'productid';
+        }
+        else{
+            $idcol = 'orderid';
+        }
 
         $next = false;
         if(isset($term['name'])){
@@ -68,11 +77,23 @@ class SearchModel
             }
             $query .= 'email=:email';
         }
+        if(isset($term['id'])){
+            if($next){
+                $query .= ' and ';
+            }
+            else{
+                $query .= ' WHERE ';
+            }
+            $query .= $idcol.'=:val';
+        }
 
         echo $query . '<br>';
         $this->handlerDB->query($query);
         if(isset($term['email'])){
             $this->handlerDB->bind(':email',$term['email']);
+        }
+        if(isset($term['id'])){
+            $this->handlerDB->bind(':val',$term['id']);
         }
 
 
