@@ -52,5 +52,3 @@ $query = $query . $resultsToDelete[$size-1] . ")";
 $dbhandler->query($query);
 $dbhandler->execute();
 $dbhandler->endTransaction();
-
-echo $query;
