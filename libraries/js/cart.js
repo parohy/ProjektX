@@ -31,7 +31,6 @@ $(function () {
             return false;
         });
     });
-
     /*
     $('input[type="number"]').change(function(){
         var actual = parseInt($(this).val());
@@ -49,6 +48,5 @@ $(function () {
         });
 
         return false;
-    });
-    */
+    });*/
 });
