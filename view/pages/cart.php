@@ -35,8 +35,7 @@
 
                 $_SESSION['cart'] = $cartContent;
             }
-
-            var_dump($cartContent);
+            
             $i = 0;
 
             foreach($cartContent as $cart) {

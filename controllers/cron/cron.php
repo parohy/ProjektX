@@ -7,13 +7,7 @@
  */
 
 require_once('../../API/Database.php');
-/*
-abstract class Months {
-    const otherMonths = 31;
-    const february = 29;
-    const april = 30;
-}
-*/
+
 $dbhandler = new DBHandler();
 $dbhandler->beginTransaction();
 $dbhandler->query("SELECT userid,datejoined FROM users WHERE activated=0");
@@ -52,3 +46,5 @@ $query = $query . $resultsToDelete[$size-1] . ")";
 $dbhandler->query($query);
 $dbhandler->execute();
 $dbhandler->endTransaction();
+
+exit();
