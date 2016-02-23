@@ -10,7 +10,7 @@ session_start();
 $absolutePath = $_SERVER['DOCUMENT_ROOT'];
 $absolutePath .= "ProjektX/";
 
-$allowedExtensions = array("jpeg","jpg","JPG","png");
+$allowedExtensions = array("jpeg","jpg","JPG","png","PNG","gif","GIF");
 $isEmpty = empty($_FILES['files']['name'][0]);
 $maxWidth = 1500;
 $maxHeight = 500;
