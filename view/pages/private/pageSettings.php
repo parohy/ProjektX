@@ -20,28 +20,40 @@ if($_SESSION['username'] != "admin") {
         <li><a href="?page=private/pageSettings&settings=sliderSettings">Slider settings</a></li>
 		<li><a href="?page=private/pageSettings&settings=statistics">Statistics</a></li>
 
-        <form  class="orders" action="controllers/admin/SearchSettings.php<?php if(isset($_GET['settings'])) echo '?settings='.$_GET['settings'];?>" method="POST">
-                <ul>
-                    <li>
-                        <label class=""> Name: </label>
-                        <input class="" type="text" name="name" value="" placeholder="NAME">
-                    </li>
+        <?php
+        if(isset($_GET['settings']) && ($_GET['settings'] == 'users' || $_GET['settings'] == 'products' || $_GET['settings'] == 'orders')){
+            echo '<form  class="orders" action="controllers/admin/SearchSettings.php';
+            if(isset($_GET['settings'])){
+                echo '?settings='.$_GET['settings'];
+            }
+            echo '" method="POST">';
+            echo '<ul>
+                <li>
+                    <label class=""> ID: </label>
+                    <input class="" type="text" name="id" value="" placeholder="ID">
+                </li>
 
-                    <li>
-                        <label class="">Surname: </label>
-                        <input class="" type="text" name="surname" value="" placeholder="SURNAME">
-                    </li>
+                <li>
+                    <label class=""> Name: </label>
+                    <input class="" type="text" name="name" value="" placeholder="NAME">
+                </li>
 
-                    <li>
-                        <label class="">Email: </label>
-                        <input class="" type="email" name="email" value="" placeholder="EMAIL">
-                    </li>
+                <li>
+                    <label class="">Surname: </label>
+                    <input class="" type="text" name="surname" value="" placeholder="SURNAME">
+                </li>
 
-                    <li>
-                        <button class="order-button" type="submit" value="Search">Search</button>
-                    </li>
-                </ul>
-        </form>
+                <li>
+                    <label class="">Email: </label>
+                    <input class="" type="email" name="email" value="" placeholder="EMAIL">
+                </li>
+
+                <li>
+                    <button class="order-button" type="submit" value="Search">Search</button>
+                </li>
+            </ul></form>';
+        }
+        ?>
 
 	</ul>
 </nav>

@@ -11,7 +11,6 @@
 
 .admin-nav {
     width: 90%;
-    height: 370px;
     margin-top: 30px;
     border: 1px solid #cacaca;
     background: #fff;
@@ -84,6 +83,7 @@
     font-weight: bold;
     margin-left: 50px;
     margin-top: 20px;
+    margin-bottom: 20px;
     background: #34A994;
     border-style: none;
     color: white;
@@ -116,6 +116,10 @@
 
 .items li:nth-child(2n), .items li:nth-child(2n) .page-link>i {
     background: #d8f3ed;
+}
+
+.items li a {
+    margin-left: 10px;
 }
 
 .username {
@@ -325,7 +329,7 @@
     float: left;
     display: inline-block;
     text-align: left;
-    width: 100px;
+    width: 90px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -335,7 +339,7 @@
     float: left;
     display: inline-block;
     text-align: left;
-    width: 100px;
+    width: 70px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

@@ -55,6 +55,12 @@ if(isset($_GET['productid'])){
 	echo '<li class="view"><b>Discription:</b> '.$product->description.'</li>';
 	echo '<li class="view"><b>Stored since:</b> '.$product->datecreated.'</li>';
 	echo '</ul>';
-	echo '<div class="edit-view"><a class="view-controls" href="?page=private/pageSettings&settings=addProduct&productid=' . $product->id . '"><i class="fa fa-pencil-square-o fa-2x"></i></a>
-			                          <a class="view-controls" href="?page=private/pageSettings&settings=editProduct/deleteProduct&productid=' . $product->id . '"><i class="fa fa-times fa-2x"></i></a></div>';
+	echo '<div class="edit-view"><a class="view-controls" href="?page=private/pageSettings&settings=addProduct&productid=' . $product->id . '"><i class="fa fa-pencil-square-o fa-2x"></i></a>';
+	if($product->deleted != 1){
+		echo '<a class="view-controls" href="?page=private/pageSettings&settings=editProduct/deleteProduct&productid=' . $product->id . '"><i class="fa fa-times fa-2x"></i></a></div>';
+	}
+	else{
+		echo '<a class="view-controls" href="?page=private/pageSettings&settings=editProduct/deleteProduct&productid=' . $product->id . '"><i class="fa fa-refresh fa-2x"></i></a></div>';
+	}
+
 }
