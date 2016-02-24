@@ -54,7 +54,7 @@ $v=new Viewcounter;
 					"valueAxes": [
 						{
 							"id": "ValueAxis-1",
-							"title": "Axis title"
+							"title": ""
 						}
 					],
 					"allLabels": [],
@@ -62,8 +62,8 @@ $v=new Viewcounter;
 					"titles": [
 						{
 							"id": "Title-1",
-							"size": 15,
-							"text": "Chart Title"
+							"size": 12,
+							"text": "Page views"
 						}
 					],
 					"dataProvider": [
