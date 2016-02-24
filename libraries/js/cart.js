@@ -2,6 +2,7 @@
  * Created by Matus on 11. 1. 2016.
  */
 $(function () {
+
     $('body').on('click','.addToCart',function(e) {
         e.preventDefault();
 
@@ -39,6 +40,9 @@ $(function () {
         var link = "/ProjektX/?page=cart&change=" + productId + "&value=" + actual;
 
         window.location = link;
+        var totalPrice = $(".bold").innerHTML;
+        $(".amount").innerHTML = totalPrice;
         return false;
     });
+
 });
