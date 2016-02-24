@@ -2,7 +2,13 @@
  * Created by Matus on 11. 1. 2016.
  */
 $(function () {
+    /*UPDATE TOTAL PRICE IN HEADER*/
+    var totalPrice = $(".bold").html();
+    var index = totalPrice.indexOf(" ");
+    totalPrice = totalPrice.substring(0,index);
+    $(".amount").html(totalPrice);
 
+    /*ADD TO CART BUTTON FUNCTIONALITY*/
     $('body').on('click','.addToCart',function(e) {
         e.preventDefault();
 
@@ -33,6 +39,7 @@ $(function () {
         });
     });
 
+    /*NUMBER PICKER IN CART*/
     $('input[type="number"]').change(function(){
         var actual = parseInt($(this).val());
         var productId = parseInt($(this).attr("data-id"));
@@ -40,9 +47,6 @@ $(function () {
         var link = "/ProjektX/?page=cart&change=" + productId + "&value=" + actual;
 
         window.location = link;
-        var totalPrice = $(".bold").innerHTML;
-        $(".amount").innerHTML = totalPrice;
         return false;
     });
-
 });
