@@ -2,11 +2,6 @@
  * Created by Matus on 11. 1. 2016.
  */
 $(function () {
-    /*UPDATE TOTAL PRICE IN HEADER*/
-    var totalPrice = $(".bold").html();
-    var index = totalPrice.indexOf(" ");
-    totalPrice = totalPrice.substring(0,index);
-    $(".amount").html(totalPrice);
 
     /*ADD TO CART BUTTON FUNCTIONALITY*/
     $('body').on('click','.addToCart',function(e) {
@@ -49,4 +44,10 @@ $(function () {
         window.location = link;
         return false;
     });
+
+    /*UPDATE TOTAL PRICE IN HEADER*/
+    var totalPrice = $(".bold").html();
+    var index = totalPrice.indexOf(" ");
+    totalPrice = totalPrice.substring(0,index);
+    $(".amount").html(totalPrice);
 });
