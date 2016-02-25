@@ -30,7 +30,7 @@ if(isset($_SESSION['userid']))
 else
 {
         //echo $_SESSION['userid'];
-        $order->userid="";
+        $order->userid = rand(100,1000);
 }
 
 $cartContent = $_SESSION['cart'];
