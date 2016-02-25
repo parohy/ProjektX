@@ -10,6 +10,7 @@ $(function() {
     $(".login-frame").css("visibility","visible").hide();
     $(".top-rated").css("visibility","visible").hide();
     $(".new-arrivals").css("visibility","visible").hide();
+    $(".best-sellingButton").css({"color":"#34A994"});
 
     setTimeout(function() {
         $(".headerErrorMessage").fadeOut();
