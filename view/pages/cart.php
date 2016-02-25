@@ -23,19 +23,22 @@
                 $productId = $_GET['change'];
                 $value = (int) $_GET['value'];
 
-                foreach($cartContent as $cart) {
-                    if($cart['id'] == $productId) {
-                        $cart['count'] = $value;
+                $size = sizeof($cartContent);
+
+                for($i = 0; $i < $size; $i++) {
+                    if($cartContent[$i]['id'] == $productId) {
+                        $cartContent[$i]['count'] = $value;
                         break;
                     }
                 }
 
+                $_SESSION['cart'] = $cartContent;
                 unset($_GET['change']);
                 unset($_GET['value']);
-
-                $_SESSION['cart'] = $cartContent;
             }
-            
+
+           //print_r($cartContent);
+
             $i = 0;
 
             foreach($cartContent as $cart) {
