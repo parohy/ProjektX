@@ -42,6 +42,7 @@ class Login{
                 $this->userName = $this->user['name'];
                 $this->userId = $this->user['userid'];
                 $_SESSION['userrole'] = $this->user['role'];
+                //$_COOKIE['userrole'] = $this->user['role'];
 
                 return 1;
             }
