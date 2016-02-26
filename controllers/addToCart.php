@@ -5,8 +5,14 @@
  * Date: 7. 1. 2016
  * Time: 16:26
  */
-session_id("cartsession");
+if(isset($_COOKIE['sessionID'])){
+    session_id($_COOKIE['sessionID']);
+}
+else{
+    $_COOKIE['sessionID'] = session_id();
+}
 session_start();
+
 
 if(isset($_GET['productid']) && isset($_GET['name']) && isset($_GET['price'])) {
     if(isset($_SESSION['cart'])) {

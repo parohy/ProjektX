@@ -5,7 +5,12 @@
  * Date: 7. 12. 2015
  * Time: 14:23
  */
-
+if(isset($_COOKIE['sessionID'])){
+    session_id($_COOKIE['sessionID']);
+}
+else{
+    $_COOKIE['sessionID'] = session_id();
+}
 if(session_status() == PHP_SESSION_NONE) { // start session if it doesnt exist
     session_start();
 }

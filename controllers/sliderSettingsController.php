@@ -5,6 +5,12 @@
  * Date: 27. 1. 2016
  * Time: 18:36
  */
+if(isset($_COOKIE['sessionID'])){
+    session_id($_COOKIE['sessionID']);
+}
+else{
+    $_COOKIE['sessionID'] = session_id();
+}
 session_start();
 
 $absolutePath = $_SERVER['DOCUMENT_ROOT'];
