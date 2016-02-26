@@ -5,7 +5,10 @@
  * Date: 8. 12. 2015
  * Time: 17:08
  */
-if($_SESSION['username'] != "admin") {
+/*if($_SESSION['username'] != "admin") {
+    die();
+}*/
+if(!isset($_SESSION['userid']) || !isset($_SESSION['loggedin'])){
     die();
 }
 ?>

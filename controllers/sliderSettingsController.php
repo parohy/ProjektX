@@ -24,12 +24,12 @@ $maxHeight = 500;
 // DELETE FILE
 if(isset($_GET['path']) && isset($_GET['name'])) {
     $dirPath = $_GET['path'];
-    $dirPath = "../".$dirPath;
+    $dirPath = "/" . $dirPath;
     $name = $_GET['name'];
 
     chdir($dirPath);
 
-    $filePath = getcwd(). '\\' .$name;
+    $filePath = $absolutePath . $dirPath .$name;
 
     if(file_exists($filePath)) {
         unlink($filePath);

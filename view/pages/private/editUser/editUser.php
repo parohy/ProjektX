@@ -52,7 +52,7 @@ else if(isset($_SESSION['userrole']) && $_SESSION['userrole'] == 1 ){
 
             <li>
                 <div class="inputName">Address: </div>
-                <input class="input" type="text" name="address"value="<?php if($editUser != NULL) echo $editUser->getData('address');?>" placeholder="ADRESS">
+                <input class="input" type="text" name="address"value="<?php if($editUser != NULL) echo $editUser->getData('address');?>" placeholder="ADDRESS">
             </li>
 
             <li>
