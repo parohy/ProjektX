@@ -1,4 +1,10 @@
 <?php
+if(isset($_COOKIE['sessionID'])){
+        session_id($_COOKIE['sessionID']);
+}
+else{
+        $_COOKIE['sessionID'] = session_id();
+}
 session_start();
 /**
  * Created by
@@ -30,7 +36,7 @@ if(isset($_SESSION['userid']))
 else
 {
         //echo $_SESSION['userid'];
-        $order->userid="";
+        $order->userid = rand(100,1000);
 }
 
 $cartContent = $_SESSION['cart'];

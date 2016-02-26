@@ -1,4 +1,10 @@
 <?php
+if(isset($_COOKIE['sessionID'])){
+    session_id($_COOKIE['sessionID']);
+}
+else{
+    $_COOKIE['sessionID'] = session_id();
+}
 session_start();
 /**
  * Created by PhpStorm.
@@ -33,6 +39,10 @@ if(isset($_POST['email']) && strlen($_POST['email']) > 0 && $_GET['settings'] !=
     $term['email'] = $prepare->dumpSpecialChars($_POST['email']);
     $set = true;
 }
+if(isset($_POST['id']) && strlen($_POST['id']) > 0){
+    $term['id'] = $prepare->dumpSpecialChars($_POST['id']);
+    $set = true;
+}
 $result = null;
 
 if(isset($_GET['settings'])){
@@ -46,7 +56,6 @@ if(isset($_GET['settings'])){
         $result = $search->getSpecificResults('products',$term);
     }
 }
-
 
 $_SESSION['searchRes'] = $result;
 header('Location: ' . $_SERVER['HTTP_REFERER']);

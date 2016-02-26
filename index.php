@@ -5,12 +5,20 @@
  * Date: 7. 12. 2015
  * Time: 14:23
  */
-
+if(isset($_COOKIE['sessionID'])){
+    session_id($_COOKIE['sessionID']);
+}
+else{
+    $_COOKIE['sessionID'] = session_id();
+}
 session_start();
+
+
 
 $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= 'ProjektX/';
 include ($path."API/Database.php");
+include ($path."controllers/ViewcounterController.php");
 
 if(isset($_GET['product'])) {
     if(!isset($_COOKIE[$_GET['product']])) setcookie($_GET['product'],"false", 60 * 60 * 24 * 60 + time(),"/");

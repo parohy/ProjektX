@@ -10,6 +10,7 @@ $(function() {
     $(".login-frame").css("visibility","visible").hide();
     $(".top-rated").css("visibility","visible").hide();
     $(".new-arrivals").css("visibility","visible").hide();
+    $(".best-sellingButton").css({"color":"#34A994"});
 
     setTimeout(function() {
         $(".headerErrorMessage").fadeOut();
@@ -50,16 +51,24 @@ $(function() {
     var tabsLoad = [0,0,0];
 
     $(".best-sellingButton").click(function(e){
+        $(this).css({"color":"#34A994"});
+        $(".top-ratedButton").css({"color":"#484848"});
+        $(".new-arrivalsButton").css({"color":"#484848"});
+
         $(".activeTab").removeClass("activeTab");
         $(".top-rated").hide();
         $(".new-arrivals").hide();
         $(".best-selling").show();
         $(".best-selling").addClass("activeTab");    
-        $(".loadMore").show();        
+        $(".loadMore").show();
         tabSwitch(0);
     });
 
     $(".top-ratedButton").click(function(e){
+        $(this).css({"color":"#34A994"});
+        $(".best-sellingButton").css({"color":"#484848"});
+        $(".new-arrivalsButton").css({"color":"#484848"});
+
         $(".activeTab").removeClass("activeTab");
         $(".best-selling").hide();
         $(".new-arrivals").hide();
@@ -70,12 +79,16 @@ $(function() {
     });
 
     $(".new-arrivalsButton").click(function(e){
+        $(this).css({"color":"#34A994"});
+        $(".best-sellingButton").css({"color":"#484848"});
+        $(".top-ratedButton").css({"color":"#484848"});
+
         $(".activeTab").removeClass("activeTab");
         $(".best-selling").hide();
         $(".top-rated").hide();
         $(".new-arrivals").show();
         $(".new-arrivals").addClass("activeTab");     
-        $(".loadMore").show();   
+        $(".loadMore").show();
         tabSwitch(2);
     });
    

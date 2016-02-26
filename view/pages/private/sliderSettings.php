@@ -20,7 +20,7 @@
         } else {
             echo '<div class="slide">';
             echo '<div class="sliderImage"><img src="'. $slidesPath . $slide .'"/></div>';
-            echo '<div class="sliderImageControlls"><a href="'. $slidesPath . $slide .'" class="delete">X</a></div>';
+            echo '<div class="sliderImageControlls"><a href="controllers/sliderSettingsController.php?path='. $slidesPath .'&name='.$slide.'" class="delete">X</a></div>';
             echo '</div>';
         }
     }
@@ -29,10 +29,16 @@
 
 <div class="addImage">
     <h4>Add new slides:</h4>
-    <form action="">
-        <input type="file" name="pic" accept="image/*" value="select">
-        <input type="submit" value="upload">
+    <form action="controllers/sliderSettingsController.php" method="post" enctype="multipart/form-data">
+        <input type="file" name="files[]" value="select">
+        <input type="submit" name="submit" value="upload">
     </form>
+    <span class="error">
+        <?php
+            if(isset($_SESSION['uploadErr'])) {
+                echo $_SESSION['uploadErr'];
+                unset($_SESSION['uploadErr']);
+            }
+        ?>
+    </span>
 </div>
-
-<script src="libraries/js/sliderSettings.js"></script>
