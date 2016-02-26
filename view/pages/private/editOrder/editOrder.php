@@ -32,7 +32,7 @@ if(isset($_GET['edit'])){
 }
 
 if(headers_sent()){
-    die('Redirect failed. Please click on <a href="'.$_SERVER['HTTP_REFERER'].'">this</a> to try again.');
+    die('Request has been processed. Please click on <a href="'.$_SERVER['HTTP_REFERER'].'">this</a> to go back.');
 }
 else{
     exit(header('Location: ' . $_SERVER['HTTP_REFERER']));

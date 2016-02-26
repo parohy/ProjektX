@@ -26,7 +26,7 @@ if(isset($_GET['userid'])){
 	//exit();
 
 	if(headers_sent()){
-		die('Redirect failed. Please click on <a href=?page=private/pageSettings&settings=users&display=20&pagination=1">this</a> to try again.');
+		die('Request has been processed. Please click on <a href=?page=private/pageSettings&settings=users&display=20&pagination=1">this</a> to go back.');
 	}
 	else{
 		exit(header('Location: ?page=private/pageSettings&settings=users&display=20&pagination=1'));

@@ -54,7 +54,7 @@ else{
 
 if(headers_sent()){
     $url = '../index.php?page=private/pageSettings&settings=products&display=20&pagination=1';
-    //die('Redirect failed. Please click on <a href="'.$url.'">this</a> to try again.');
+    die('Request has been processed. Please click on <a href="'.$url.'">this</a> to go back.');
 }
 else{
     exit(header('Location: '. $url));
