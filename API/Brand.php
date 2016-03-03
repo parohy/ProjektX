@@ -19,6 +19,7 @@ class Brand{
 	/**
 	 * Creates an BrandHandler instance with optional $id parameter
 	 * @author Matus Kokoska
+         * @param int id
 	 */
         
         public function __construct($id=null){
@@ -28,7 +29,7 @@ class Brand{
 	}
 
 	/**
-	 * If $id is set, loads existing Brand. 
+	 * If $id is set, loads existing Brand from database. 
 	 * @author Matus Kokoska
 	 */
         
@@ -77,6 +78,12 @@ class Brand{
             }
             $this->handlerDB->execute();   
         }
+        
+        /**
+	 * Gets all brands from a database in an array
+	 * @author Matus Kokoska
+         * @return array of all brands
+	 */
         
         public function getAllBrands(){
         	$this->handlerDB->query("SELECT * FROM brands");

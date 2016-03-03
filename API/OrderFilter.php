@@ -20,11 +20,18 @@ class OrderFilter{
     
     /**
      * Creates orderfilter handler and sets default values
+     * @author Matus Kokoska
      */
     
     public function __construct(){
         $this->handlerDB = new DBHandler();
     }
+    
+    /**
+     * prepares a part of query for filtering orders by userID 
+     * @author Matus Kokoska
+     * @return string useridquery
+     */
     
     public function useridQuery() {
         $useridquery="";
@@ -54,6 +61,12 @@ class OrderFilter{
         return $useridquery;
     }
     
+    /**
+     * prepares a part of query for filtering orders by name 
+     * @author Matus Kokoska
+     * @return string namequery
+     */
+    
     public function nameQuery() {
         $namequery="";
         if(count($this->name)>0){
@@ -82,6 +95,11 @@ class OrderFilter{
         return $namequery;
     }
     
+    /**
+     * prepares a part of query for filtering orders whether they are shipped or not
+     * @author Matus Kokoska
+     * @return string shippedquery
+     */
     
     public function shippedQuery() {
         $shippedquery="";
@@ -101,6 +119,12 @@ class OrderFilter{
         }
         return $shippedquery;
     }
+    
+    /**
+     * prepares a part of query for filtering orders by surname 
+     * @author Matus Kokoska
+     * @return string surnamequery
+     */
     
     public function surnameQuery() {
         $surnamequery="";
@@ -131,9 +155,12 @@ class OrderFilter{
     }
     
     /**
-     * Gets results from a database as an array of orferids of orders from the table
+     * Gets results from a database as an array of orderids of orders from the table
      * results are filtered, sorted and ready to use
+     * @author Matus Kokoska
+     * @return array of integers
      */
+    
     public function getResults() {
         $useridQuery=$this->useridQuery();
         $nameQuery=$this->nameQuery();
