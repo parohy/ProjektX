@@ -19,7 +19,7 @@ class Category{
         public $alldescendants=array();
 
 	/**
-	 * Creates an CategoryHandler instance with optional $id parameter
+	 * Creates a CategoryHandler instance with optional $id parameter
 	 * @author Matus Kokoska
 	 */
         

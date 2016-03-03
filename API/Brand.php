@@ -17,7 +17,7 @@ class Brand{
         public $name;
 
 	/**
-	 * Creates an BrandHandler instance with optional $id parameter
+	 * Creates a BrandHandler instance with optional $id parameter
 	 * @author Matus Kokoska
 	 */
         
@@ -77,7 +77,10 @@ class Brand{
             }
             $this->handlerDB->execute();   
         }
-        
+
+    /**
+     * returns an array of all brands in the database
+     */
         public function getAllBrands(){
         	$this->handlerDB->query("SELECT * FROM brands");
         	$result = $this->handlerDB->resultSet();
