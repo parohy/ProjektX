@@ -19,6 +19,11 @@ class Viewcounter{
         $this->read();
     }
     
+    /**
+     * reads and saves data from textfile viewcount.txt
+     * @author Matus Kokoska
+     */
+    
     private function read(){
         $file = fopen($this->file,'r') or die("Unable to open file!");
         $line="";
@@ -31,6 +36,11 @@ class Viewcounter{
         fclose($file);
     }
     
+    /**
+     * writes data to textfile viewcount.txt
+     * @author Matus Kokoska
+     */
+    
     private function write(){
         $file = fopen($this->file, "w") or die("Unable to open file!");
         foreach($this->fileContent as $line){
@@ -38,6 +48,11 @@ class Viewcounter{
         }
         fclose($file);
     }
+    
+    /**
+     * increments the number of page views on a current date
+     * @author Matus Kokoska
+     */
     
     public function increment(){        
         if(($this->fileContent[count($this->fileContent)-1]['d']==date('d'))&&($this->fileContent[count($this->fileContent)-1]['m']==date('m'))&&($this->fileContent[count($this->fileContent)-1]['y']==date('Y'))){
@@ -53,6 +68,12 @@ class Viewcounter{
         $this->write();
     }
     
+    /**
+     * counts total view amount
+     * @author Matus Kokoska
+     * @return int sum
+     */
+    
     public function getTotalViews(){
        $sum=0;
         foreach($this->fileContent as $line){
@@ -60,6 +81,12 @@ class Viewcounter{
         } 
         return $sum;
     }
+    
+    /**
+     * provides data for JavaScript chart of page views
+     * @author Matus Kokoska
+     * @return string content
+     */
     
     public function chartDataProvider(){
         $content="";

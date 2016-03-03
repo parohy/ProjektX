@@ -10,7 +10,7 @@
 
 
     <ul class="footerInformationList">
-        <li ><a href="/ProjektX/">ViaTech</a></li>
+        <li ><a href="http://www.cassomedia.sk/index.php">ViaTech</a></li>
         <li ><a target="_blank" href="https://goo.gl/maps/dL9vTMNTK9w">Dneperska 1, Kosice, Slovakia</a></li>
         <li>+421 902 095 588</li>
 

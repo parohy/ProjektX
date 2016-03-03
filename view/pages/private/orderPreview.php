@@ -28,7 +28,7 @@ echo '<ul class="itemsorderofuser">';
     echo '<li><div>Postcode:</div><div>'.$order->postcode.'</div></li>';
     echo '<li><div>Price:</div><div>'.$order->orderprice.'</div></li>';
     echo '<li><div>Status:</div>';
-    if($order->shipped == '0'){
+    if($order->shipped != 0){
         echo '<div>shipped</div></li>';
     }
     else{

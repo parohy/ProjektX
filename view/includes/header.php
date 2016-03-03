@@ -34,7 +34,18 @@
 <div class="group top">
     <div class="welcome">
         <?php
-        if(isset($_SESSION['loggedin']) && isset($_SESSION['userrole'])) {
+        if(!isset($_SESSION['loggedin']) || !isset($_SESSION['userid'])){
+            echo '<span class="welcome-label"><img src="libraries/img/icons/user icon.png">WELCOME USER, YOU CAN <strong class="welcome-buttons"><a href="#" id="login">LOGIN</a></strong> OR <strong class="welcome-buttons"><a href="?page=reg-acc">REGISTER</a></strong></span>';
+        }
+        else{
+            if(isset($_SESSION['userrole']) && $_SESSION['userrole'] != 1){
+                echo '<span class="welcome-label"><img src="libraries/img/icons/user icon.png"><strong class="welcome-buttons"><a href="?page=private/pageSettings">PAGE SETTINGS</a></strong> / <strong class="welcome-buttons"><a href="?login=false">LOG OUT</a></strong></span>';
+            }
+            else{
+                echo '<span class="welcome-label"><img src="libraries/img/icons/user icon.png"><strong class="welcome-buttons"><a href="?page=accountSettings">ACCOUNT SETTINGS</a></strong> / <strong class="welcome-buttons"><a href="?login=false">LOG OUT</a></strong></span>';
+            }
+        }
+        /*if(isset($_SESSION['loggedin']) && isset($_SESSION['userrole'])) {
             if($_SESSION['loggedin'] == "true") {
                 if($_SESSION['userrole'] == "2") {
                     echo '<span class="welcome-label"><img src="libraries/img/icons/user icon.png"><strong class="welcome-buttons"><a href="?page=private/pageSettings">PAGE SETTINGS</a></strong> / <strong class="welcome-buttons"><a href="?login=false">LOG OUT</a></strong></span>';
@@ -48,7 +59,7 @@
         }
         else {
             echo '<span class="welcome-label"><img src="libraries/img/icons/user icon.png">WELCOME USER, YOU CAN <strong class="welcome-buttons"><a href="#" id="login">LOGIN</a></strong> OR <strong class="welcome-buttons"><a href="?page=reg-acc">REGISTER</a></strong></span>';
-        }
+        }*/
         ?>
         <!--<div class="headerErrorMessage">
             <span class="headerMessage"></span>
@@ -72,35 +83,38 @@
     <div class="search">
         
     	<?php
-    	if((isset($_SESSION['userrole']) && $_SESSION['userrole'] != "2") || !isset($_SESSION['username'])){
-    		echo '<img class="shopicon" src="libraries/img/icons/cart-icon.png">';
-    		echo '<div class="cart">
+        if(!isset($_SESSION['loggedin']) || !isset($_SESSION['userid']) || (isset($_SESSION['userrole']) && $_SESSION['userrole'] != "2")){
+            echo '<img class="shopicon" src="libraries/img/icons/cart-icon.png">';
+            echo '<div class="cart">
             <div class="cart-title" href="?page=cart">
                 <ul>
                     <li>
                         <a href="?page=cart" class="cartbutton">SHOPPING CART: </a><span class="amount">';
-                            
-                            if(isset($_SESSION['cart'])) {
-                                $cartContent = $_SESSION['cart'];
-                                $totalCost = 0;
 
-                                foreach($cartContent as $cart) {
-                                    $temp = floatval($cart['price']);
-                                    $temp *= $cart['count'];
-                                    $totalCost += $temp;
-                                }
+            if(isset($_SESSION['cart'])) {
+                $cartContent = $_SESSION['cart'];
+                $totalCost = 0;
 
-                                echo $totalCost;
-                            } else {
-                                echo "0";
-                            }
-                            
-             echo        ' </span><a class="euro">&#8364;</a>
+                foreach($cartContent as $cart) {
+                    $temp = floatval($cart['price']);
+                    $temp *= $cart['count'];
+                    $totalCost += $temp;
+                }
+
+                echo $totalCost;
+            } else {
+                echo "0";
+            }
+
+            echo        ' </span><a class="euro">&#8364;</a>
                     </li>
                 </ul>
             </div>
         </div>';
-    	}
+        }
+    	/*if((isset($_SESSION['userrole']) && $_SESSION['userrole'] != "2") || !isset($_SESSION['username'])){
+
+    	}*/
         else{
           echo '<p class="replace-header">';
         }
