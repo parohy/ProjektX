@@ -1,4 +1,10 @@
 <?php
+if(isset($_COOKIE['sessionID'])){
+    session_id($_COOKIE['sessionID']);
+}
+else{
+    $_COOKIE['sessionID'] = session_id();
+}
 session_start();
 /**
  * Created by PhpStorm.
@@ -26,7 +32,7 @@ if(isset($_POST['email'])) {
     $mail->addRecipient($_POST['email']);
     $mail->composeMail("Password recovery",'<p>You can change your password <a href="www.cassomedia.sk/?page=passwordRecovery&userid='.$result['userid'].'">here</a></p>',"You can change your password here");
     $mail->sendMail();
-    header("Location:?page=main-page");
+    header("Location:../?page=main-page");
     exit();
 }
 if(isset($_POST['new-password']) && isset($_POST['repeat-password'])) {
@@ -34,7 +40,7 @@ if(isset($_POST['new-password']) && isset($_POST['repeat-password'])) {
         $user = User::editUser($_GET['userid']);
         $password = password_hash($_POST['new-password'],PASSWORD_DEFAULT,['cost' => 12]);
         $user->saveData("password",$password);
-        header("Location:?page=main-page");
+        header("Location:../?page=main-page");
         exit();
     }
 }

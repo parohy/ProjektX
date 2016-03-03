@@ -21,6 +21,7 @@ class Category{
 	/**
 	 * Creates a CategoryHandler instance with optional $id parameter
 	 * @author Matus Kokoska
+         * @param int id
 	 */
         
         public function __construct($id=null){
@@ -34,7 +35,7 @@ class Category{
 	}
 
 	/**
-	 * If $id is set, loads existing Category. 
+	 * If $id is set, loads existing Category from database. 
 	 * @author Matus Kokoska
 	 */
         
@@ -86,7 +87,13 @@ class Category{
             $this->handlerDB->execute();   
         }
         
-        public function getDescendants($id) {
+        /**
+	 * saves all descentants of a category to the $this->alldescendants array
+	 * @author Matus Kokoska
+         * @param id
+	 */
+        
+        private function getDescendants($id) {
             $this->handlerDB->query("SELECT categoryid FROM categories WHERE parent=:id");
             $this->handlerDB->bind(":id", $id);
             $categories = $this->handlerDB->resultSet();

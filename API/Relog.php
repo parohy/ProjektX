@@ -1,5 +1,12 @@
 <?php
+if(isset($_COOKIE['sessionID'])){
+	session_id($_COOKIE['sessionID']);
+}
+else{
+	$_COOKIE['sessionID'] = session_id();
+}
 session_start();
+
 /**
  * Created by Eclipse
  * User: Tomas Paronai

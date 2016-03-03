@@ -24,12 +24,13 @@ class Filter{
     
     /**
      * Creates Filter handler and sets default values
+     * @author Matus Kokoska
      */
     public function __construct(){
         $this->handlerDB = new DBHandler();
         $this->maxprice=$this->getMaxPrice();
     }
-    
+       
     private function nameQuery() {
         if($this->name === "??"){
             $nameQuery = "name LIKE '%'";
@@ -46,6 +47,8 @@ class Filter{
      * change $this->criteria in order to change criteria
      * check for available criteria in line 14
      * This function is called in the function getResults();
+     * @author Matus Kokoska
+     * @return string sortQuery
      */
     private function sortQuery() {
         switch ($this->criteria) {
@@ -80,6 +83,8 @@ class Filter{
      * change $this->category in order to change target category
      * check for available categories in the categories table
      * This function is called in the function getResults();
+     * @author Matus Kokoska
+     * @return string categoryQuery
      */
     public function categoryQuery() {
         $cat=new Category($this->category);
@@ -108,6 +113,8 @@ class Filter{
      * add brands to $this->brand in order to filter by brands
      * check for available brands in the brands table
      * This function is called in the function getResults();
+     * @author Matus Kokoska
+     * @return string brandQuery
      */
     private function brandQuery() {
        $brandquery="";
@@ -134,6 +141,12 @@ class Filter{
              return $brandquery;
     }
     
+    /**
+     * Prepares part of query needed for sorting specified results if $this->productArray[] is set
+     * @author Matus Kokoska
+     * @return string selectedQuery
+     */
+    
     private function selectedProductsQuery() {
         $selectedquery="";
         if(count($this->productArray)>0){
@@ -153,7 +166,10 @@ class Filter{
      * Gets results from a database as an array of productids of products from the table
      * change $this->minprice and $this->max price in order to set the price range
      * results are filtered, sorted and ready to use
+     * @author Matus Kokoska
+     * @return array of integers
      */
+    
     public function getResults() {
         $nameQuery=$this->nameQuery();
         $catQuery=$this->categoryQuery();
@@ -172,6 +188,11 @@ class Filter{
         return $array;
     } 
     
+    /**
+     * Gets available brands for filtering
+     * @author Matus Kokoska
+     * @return array of integers
+     */
     
     public function getBrands(){
         $catQuery=$this->categoryQuery();
@@ -205,6 +226,11 @@ class Filter{
         }
     }    
     
+   /**
+     * Gets maxprice of available products
+     * @author Matus Kokoska
+     * @return int maxprice
+     */ 
     
     public function getMaxPrice(){
         $catQuery=$this->categoryQuery();

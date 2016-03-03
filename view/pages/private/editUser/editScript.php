@@ -107,7 +107,7 @@ function proceed($check,$editUser){
 
 function exitScript(){
 	if(headers_sent()){
-		die('Redirect failed. Please click on <a href="'.$GLOBALS['exitTo'].'">this</a> to try again.');
+		die('Request has been processed. Please click on <a href="'.$GLOBALS['exitTo'].'">this</a> to go back.');
 	}
 	else{
 		exit(header('Location: ' . $GLOBALS['exitTo']));

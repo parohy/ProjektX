@@ -57,7 +57,7 @@ else{
 //header($exitTo);
 //exit();
 if(headers_sent()){
-    die('Redirect failed. Please click on <a href="'.$exitTo.'">this</a> to try again.');
+    die('Request has been processed. Please click on <a href="'.$exitTo.'">this</a> to go back.');
 }
 else{
     exit(header('Location: ' . $exitTo));

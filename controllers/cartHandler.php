@@ -5,7 +5,12 @@
  * Date: 22. 2. 2016
  * Time: 11:56
  */
-session_id("cartsession");
+if(isset($_COOKIE['sessionID'])){
+    session_id($_COOKIE['sessionID']);
+}
+else{
+    $_COOKIE['sessionID'] = session_id();
+}
 session_start();
 if(isset($_SESSION['cart'])) {
     $cartContent = $_SESSION['cart'];
