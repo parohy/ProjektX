@@ -119,17 +119,29 @@ class Product{
             }
             $this->handlerDB->execute();   
         }
-        
+
+    /**
+     * get total number of products in database
+     * @return int
+     */
         public function getTotalProducts(){
         	$this->handlerDB->query("SELECT productid FROM products");
         	return count($this->handlerDB->resultSet());
         }
 
+    /**
+     * get total number of archived products in database
+     * @return int
+     */
         public function getTotalArchived(){
             $this->handlerDB->query("SELECT productid FROM products WHERE deleted != '0'");
             return count($this->handlerDB->resultSet());
         }
-        
+
+    /**
+     * get an array of all products ids in database
+     * @return mixed
+     */
         public function getProductsId(){
         	$this->handlerDB->query("SELECT productid FROM products");
         	return $this->handlerDB->resultSet();

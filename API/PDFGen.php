@@ -19,6 +19,10 @@ class pdfFile{
     private $pdfID = "c";
     private $absolutePath = "";
 
+    /**
+     * creates a pdfFile instance
+     * @param null $id
+     */
     public function __construct($id=null){
         if($id != null){
             $this->order = new Order($id);
@@ -27,6 +31,9 @@ class pdfFile{
         }
     }
 
+    /**
+     * Call steps to generate pdf file
+     */
     public function buildPDF(){
         $this->createStyle();
         $this->createHead();
@@ -37,15 +44,25 @@ class pdfFile{
         $this->finish();
     }
 
+    /**
+     * appends stylesheet to pdf file
+     */
     private function createStyle(){
         $stylesheet = file_get_contents('../libraries/css/bill.css');
         $this->pdfFile->WriteHTML($stylesheet,1);
     }
 
+    /**
+     * appends header to htmlOut
+     */
     private function createHead(){
         $this->htmlOut .= ' <h1>VIATECH s.r.o.</h1> ';
     }
 
+
+    /**
+     * appends addresses to htmlOut
+     */
     private function createAddress(){
         $this->htmlOut .= '<!-- -->
             <div class="invoice">INVOICE</div>
@@ -72,6 +89,9 @@ class pdfFile{
         ';
     }
 
+    /**
+     * appends details and price to htmlOut
+     */
     private function createSum(){
         $sumTotal = 0;
         $this->htmlOut .= '
@@ -104,16 +124,25 @@ class pdfFile{
         
     }
 
+    /**
+     * appends footer to htmlOut
+     */
     private function createFoot(){
         $this->htmlOut .= '<div align="bottom">ViaTech Dneperska 1, Kosice, Slovakia +421 902 095 588 viatech@gmail.com</div>';
     }
 
+    /**
+     * writes the htmlOut to pdf file, generates and saves it to the given absolutePath
+     */
     private function finish(){
         $this->pdfFile->WriteHTML($this->htmlOut);
         $this->pdfFile->Output('../libraries/pdf/'.$this->pdfID.'.pdf', 'F');
         $this->absolutePath .= 'libraries/pdf/'.$this->pdfID.'.pdf';
     }
 
+    /**
+     * @return string path to file
+     */
     public function getPath(){
         return $this->absolutePath;
     }
