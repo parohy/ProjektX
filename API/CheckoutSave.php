@@ -15,7 +15,7 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= 'ProjektX/';
 include_once ($path.'API/Orders.php');
 include_once ($path.'API/PDFGen.php');
-include_once ($path.'API/OrderDetails.php');
+include_once ($path.'API/Orderdetails.php');
 include_once ($path.'API/Mail.php');
 
 $order = new Order();
