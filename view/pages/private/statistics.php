@@ -7,16 +7,16 @@
  */
 
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/';
+$path .= '/';
 include_once ($path.'API/Statistics.php');
 $statistics=new Statistics;
 $viewcounter=new Viewcounter;
 
 ?>
 <link rel="stylesheet" type="text/css" href="libraries/css/admin-panel.css">
-<?php 
+<?php
         include $path.'view/includes/chart.php';
-        
+
 ?>
 <div class="statistics">
         <table>
@@ -44,5 +44,5 @@ $viewcounter=new Viewcounter;
                 <td>Page views:</td>  <td><?php echo $viewcounter->getTotalViews()?></td>
             </tr>
         </table>
-        
+
 </div>

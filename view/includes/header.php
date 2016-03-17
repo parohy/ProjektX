@@ -6,7 +6,7 @@
  * Time: 14:23
  */
     $path = $_SERVER['DOCUMENT_ROOT'];
-    $path .= 'ProjektX/';
+    $path .= '/';
 
 	$email = "";
 	if(isset($_GET['logmail'])){
@@ -79,9 +79,9 @@
     <a class="title" href="?page=main-page">
         <img class="viatechlogo" src="libraries/img/header/logo.png" width="360px" height="62px">
     </a>
-    
+
     <div class="search">
-        
+
     	<?php
         if(!isset($_SESSION['loggedin']) || !isset($_SESSION['userid']) || (isset($_SESSION['userrole']) && $_SESSION['userrole'] != "2")){
             echo '<img class="shopicon" src="libraries/img/icons/cart-icon.png">';
@@ -119,7 +119,7 @@
           echo '<p class="replace-header">';
         }
     	?>
-        
+
         <form action="controllers/searchController.php" method="GET" id="searchForm">
            <div class="group search-bar">
                <input type="search" name="search" placeholder="SEARCH" id="search" list="suggestions">

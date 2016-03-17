@@ -6,7 +6,7 @@
  * Time: 22:04
  */
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/';
+$path .= '/';
 include_once ($path.'API/UserHandler.php');
 
 if(isset($_GET['userid'])){
@@ -17,7 +17,7 @@ if(isset($_GET['userid'])){
 	else{
 		$role = "User";
 	}
-	
+
 	echo '<ul class="userView">';
 		echo '<li class="view"><div class="inputName">Name:</div><div class="edit-input">'.$user->getData('name').'</div></li>';
 		echo '<li class="view"><div class="inputName">Surname:</div><div class="edit-input">'.$user->getData('surname').'</div></li>';
@@ -46,7 +46,7 @@ else if(isset($_SESSION['userid'])){
 	else{
 		$role = "User";
 	}
-	
+
 	echo '<ul class="userView">';
 		echo '<li class="view"><div class="inputName">Name:</div><div class="edit-input">'.$user->getData('name').'</div></li>';
 		echo '<li class="view"><div class="inputName">Surname:</div><div class="edit-input">'.$user->getData('surname').'</div></li>';
@@ -59,4 +59,3 @@ else if(isset($_SESSION['userid'])){
 		echo '<li class="view"><div class="inputName">User role:</div><div class="edit-input">'.$role.'</div></li>';
 	echo '</ul>';
 }
-

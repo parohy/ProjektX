@@ -6,7 +6,7 @@
  * Time: 14:23
  */
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/';
+$path .= '/';
 include_once ($path.'controllers/NavigationController.php');
 $navController = new NavigationController();
 ?>
@@ -16,4 +16,3 @@ $navController = new NavigationController();
             $navController->displayNavigation();
         ?>
     </nav>
-

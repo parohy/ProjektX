@@ -7,7 +7,7 @@
  */
 
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/';
+$path .= '/';
 
 include_once($path.'API/Orders.php');
 

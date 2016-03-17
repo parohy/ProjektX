@@ -6,7 +6,7 @@
  * Time: 22:04
  */
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/';
+$path .= '/';
 include_once ($path.'API/UserHandler.php');
 
 

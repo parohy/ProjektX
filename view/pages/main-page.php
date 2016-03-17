@@ -6,7 +6,7 @@
  * Time: 14:23
  */
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/';
+$path .= '/';
 include_once ($path.'API/Product.php');
 include_once ($path.'controllers/ProductDisplay.php');
 include_once ($path.'API/ImageScaling.php');
@@ -18,7 +18,7 @@ $filter = new Filter();
 
 ?>
 <div class="slider-wrapper">
-    
+
             <script type="text/javascript" src="libraries/js/jssor.slider.mini.js"></script>
             <script>
                 jQuery(document).ready(function ($) {
@@ -130,7 +130,7 @@ $filter = new Filter();
                 <span data-u="arrowright" class="jssora12r" style="top:0px;right:0px;width:30px;height:46px;" data-autocenter="2"></span>
                 <a href="http://www.jssor.com" style="display:none">Bootstrap Carousel</a>
             </div>
-    
+
 </div>
 
 <div class="tabs">
@@ -142,7 +142,7 @@ $filter = new Filter();
             <li><a href="#" class="link new-arrivalsButton">NEW ARRIVALS </a></li>
     </div>
     <div class="tab-content">
-        
+
         <div class="bottom-tab-content">
             <div class="best-selling activeTab"></div>
             <div class="top-rated"></div>

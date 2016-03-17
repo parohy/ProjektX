@@ -1,6 +1,6 @@
 <?php
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/';
+$path .= '/';
 include_once ($path.'API/UserHandler.php');
 include_once ($path.'API/InputRecheck.php');
 
@@ -12,9 +12,9 @@ if(isset($_SESSION['editId'])){
 }
 
 if(isset($_SESSION['userrole']) && $_SESSION['userrole'] == 1){
-	$exitTo .= 'accountSettings';	
+	$exitTo .= 'accountSettings';
 	if(isset($_POST['password'])){
-		$value = $check->dumpSpecialChars($_POST['password']);		
+		$value = $check->dumpSpecialChars($_POST['password']);
 		if($check->checkInput($value, 50) && $editUser != null && password_verify($value,$editUser->getData('password'))){
             $_SESSION['profileMsg'] = 'Profile changed.';
 			proceed($check,$editUser);
@@ -41,7 +41,7 @@ function proceed($check,$editUser){
 			$editUser->saveData('name', ucfirst($value));
 		}
 	}
-	
+
 	//surname
 	if(isset($_POST['surname'])){
 		$value = $check->dumpSpecialChars($_POST['surname']);
@@ -49,7 +49,7 @@ function proceed($check,$editUser){
 			$editUser->saveData('surname', ucfirst($value));
 		}
 	}
-	
+
 	//email
 	if(isset($_POST['email'])){
 		$value = $check->dumpSpecialChars($_POST['email']);
@@ -59,7 +59,7 @@ function proceed($check,$editUser){
 		else{
 			$editUser->saveData('email', $value);
 		}
-	
+
 	}
 	//mobile
 	if(isset($_POST['phone'])){
@@ -68,7 +68,7 @@ function proceed($check,$editUser){
 			$editUser->saveData('phone', ucfirst($value));
 		}
 	}
-	
+
 	//address
 	if(isset($_POST['address'])){
 		$value = $check->dumpSpecialChars($_POST['address']);
@@ -76,7 +76,7 @@ function proceed($check,$editUser){
 			$editUser->saveData('address', ucfirst($value));
 		}
 	}
-	
+
 	//city
 	if(isset($_POST['city'])){
 		$value = $check->dumpSpecialChars($_POST['city']);
@@ -84,7 +84,7 @@ function proceed($check,$editUser){
 			$editUser->saveData('city', ucfirst($value));
 		}
 	}
-	
+
 	//postcode
 	if(isset($_POST['postcode'])){
 		$value = $check->dumpSpecialChars($_POST['postcode']);
@@ -92,7 +92,7 @@ function proceed($check,$editUser){
 			$editUser->saveData('postcode', $value);
 		}
 	}
-	
+
 	//password
 	if(isset($_POST['new-password'])){
 		$value = $check->dumpSpecialChars($_POST['new-password']);

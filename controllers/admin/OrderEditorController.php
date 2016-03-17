@@ -8,17 +8,17 @@
 
 
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/';
+$path .= '/';
 include_once ($path . 'API/Database.php');
 
 class OrderEditorController{
-	
+
 	private $handlerDB;
-	
+
 	public function __construct() {
 		$this->handlerDB = new DBHandler();
 	}
-	
+
 	public function getOrders() {
 		$this->handlerDB->beginTransaction();
 		if($_SESSION['userrole'] != 1){
@@ -30,12 +30,12 @@ class OrderEditorController{
 		}
 		$results = $this->handlerDB->resultSet();
 		$this->handlerDB->endTransaction();
-	
+
 		return $results;
 	}
-	
+
 	public function displayOrders($orders, $pagination, $display) {
-	
+
 		$max = count($orders);
 		if($pagination * $display > $max)
         {
@@ -84,7 +84,7 @@ class OrderEditorController{
 		echo '</ol>';
 
 		echo '<ul class="items">';
-	
+
 
 		//echo '<a class="page-link" class="user-controls" href="?page=private/pageSettings&settings=addProduct"><i class="fa fa-plus-circle fa-2x"></i></a>';
 
@@ -104,7 +104,7 @@ class OrderEditorController{
 		}
 		echo '</div>';
 
-		
+
 		$pages = count($orders) / $display;
         if(count($orders) % $display != 0)
         {
@@ -122,5 +122,5 @@ class OrderEditorController{
 
 		}
 		echo '</div>';
-	}	
+	}
 }

@@ -6,7 +6,7 @@
  * Time: 10:48
  */
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/';
+$path .= '/';
 include_once ($path.'API/UserHandler.php');
 
 if(isset($_GET['userid'])) {

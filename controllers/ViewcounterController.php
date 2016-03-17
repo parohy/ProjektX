@@ -8,7 +8,7 @@
  */
 
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/';
+$path .= '/';
 include_once 'API/Viewcounter.php';
 if(!isset($_SESSION["viewed"])){
     $v=new Viewcounter();

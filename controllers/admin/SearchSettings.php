@@ -14,7 +14,7 @@ session_start();
  */
 
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/';
+$path .= '/';
 
 
 include_once($path.'API/SearchModel.php');
@@ -59,4 +59,3 @@ if(isset($_GET['settings'])){
 
 $_SESSION['searchRes'] = $result;
 header('Location: ' . $_SERVER['HTTP_REFERER']);
-

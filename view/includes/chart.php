@@ -7,7 +7,7 @@
  */
 
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/';
+$path .= '/';
 include_once $path.'API/Viewcounter.php';
 $v=new Viewcounter;
 ?>
@@ -72,5 +72,5 @@ $v=new Viewcounter;
 				}
 			);
 		</script>
-                
+
 		<div id="chartdiv" style="width: 100%; height: 400px; background-color: #FFFFFF;" ></div>

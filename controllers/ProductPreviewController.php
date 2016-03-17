@@ -6,7 +6,7 @@
  * Time: 8:12
  */
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/';
+$path .= '/';
 include_once ($path.'API/Database.php');
 include_once ($path.'API/Product.php');
 
@@ -37,10 +37,10 @@ class ProductPreviewController {
 
         return $results;
     }
-    
+
     public function getSimilarProducts($productid) {
         $this->handlerDB->beginTransaction();
-        $product=new Product($productid);        
+        $product=new Product($productid);
         $this->handlerDB->query('SELECT productid FROM products WHERE categoryid=:categoryid');
         $this->handlerDB->bind(':categoryid',$product->categoryid);
         $results = $this->handlerDB->resultSet();
@@ -49,7 +49,7 @@ class ProductPreviewController {
         foreach($results as $result){
             if($result['productid']!=$productid){
                 $products[]=$result['productid'];
-            }           
+            }
         }
         return $products;
     }

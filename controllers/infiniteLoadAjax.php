@@ -7,7 +7,7 @@ else{
 }
 session_start();
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/';
+$path .= '/';
 include_once ($path.'API/Product.php');
 include_once ($path . 'API/Filter.php');
 include_once ($path.'controllers/ProductDisplay.php');

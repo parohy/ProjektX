@@ -6,7 +6,7 @@
  * Time: 10:24
  */
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/';
+$path .= '/';
 include_once ($path.'API/UserHandler.php');
 
 if($_SESSION['userid']){
@@ -22,7 +22,7 @@ else{
 <nav class="admin-nav">
     <ul>
     	<?php if(isset($_GET['profile']) && $_GET['profile']=='editUser') echo '<li><a href="?page=accountSettings&profile=userPreview">Profile</a></li>'; else echo '<li><a href="?page=accountSettings&profile=editUser">Change profile</a></li>'?>
-    	<li><a href="?page=accountSettings&profile=passRecover&password=new">Change password</a></li>        
+    	<li><a href="?page=accountSettings&profile=passRecover&password=new">Change password</a></li>
         <li><a href="?page=accountSettings&profile=orders">Orders</a></li>
         <li><a href="controllers/deleteUserController.php?user=<?php echo $_SESSION['userid']?>" id="deleteAccount">Delete account</a></li>
     </ul>

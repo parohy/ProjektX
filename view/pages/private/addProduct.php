@@ -7,7 +7,7 @@
  */
 
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/'; 
+$path .= '/'; 
 
 include_once ($path . 'API/Category.php');
 include_once ($path . 'API/Brand.php');
@@ -226,10 +226,10 @@ function generateSub($id,$categories){
         <li>
             <label class="inputName" for="price">Price</label>     <input  class="edit-input" type="text" name="price" id="price" value="<?php if($product != NULL) echo $product->price;?>" >
         </li>
-        
+
         <li>
             <label class="inputName" for="brandid">Brand</label>
-            <!--  <input type="text" name="brandid" id="brandid" >-->  
+            <!--  <input type="text" name="brandid" id="brandid" >-->
             <select class="edit-input" name="brand">
                 <?php
                     $brandHand = new Brand();
@@ -259,8 +259,3 @@ function generateSub($id,$categories){
         </li>
     </ul>
 </form>
-
-
-
-
-

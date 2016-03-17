@@ -8,7 +8,7 @@
  */
 
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/';
+$path .= '/';
 include_once ($path . 'API/Database.php');
 
 class UserEditorController
@@ -63,7 +63,7 @@ class UserEditorController
 
         echo '</ul>';
         echo '<a class="page-link" class="user-controls" href="?page=private/pageSettings&settings=editUser/editUser"><i class="fa fa-plus-circle fa-2x"></i></a>';
-        
+
         echo '<div class="paging">';
         echo '<div class="displayAmount">';
         echo '<a class="page" href="?page=private/pageSettings&settings=users&display=10&pagination=1">10</a>';
@@ -72,16 +72,16 @@ class UserEditorController
         echo '<a class="page" href="?page=private/pageSettings&settings=users&display=100&pagination=1">100</a>';
         echo '</div>';
 
-        
+
         $pages = count($users) / $display;
         if(count($users) % $display != 0)
         {
             $pages++;
         }
-        
+
         for($i=1; $i<=$pages; $i++)
         {
-            echo '<a class="page" href="?page=private/pageSettings&settings=users&display='.$display.'&pagination='.$i.'">'.$i.'</a>';     	
+            echo '<a class="page" href="?page=private/pageSettings&settings=users&display='.$display.'&pagination='.$i.'">'.$i.'</a>';
         }
         echo '</div>';
     }

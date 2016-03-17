@@ -5,7 +5,7 @@
 * Date: 17. 1. 2016
 */
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/';
+$path .= '/';
 
 include_once ($path . 'API/Filter.php');
 include_once ($path . 'controllers/ProductDisplay.php');

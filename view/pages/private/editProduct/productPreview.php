@@ -6,16 +6,16 @@
  * Time: 11:03
  */
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/';
+$path .= '/';
 include_once ($path.'API/Product.php');
 include_once ($path.'API/Category.php');
 include_once ($path.'API/Brand.php');
 
 if(isset($_GET['productid'])){
 	$product = new Product($_GET['productid']);
-	
-	
-	
+
+
+
 	$brandHan = new Brand();
 	$brands = $brandHan->getAllBrands();
 	$brand = "Uknown brand ID!";
@@ -25,9 +25,9 @@ if(isset($_GET['productid'])){
 			break;
 		}
 	}
-	
+
 	$catHan = new Category();
-	$categories = $catHan->getCategories();	
+	$categories = $catHan->getCategories();
 	$category = "Uknown category ID!";
 	for($i=0;$i<count($categories);$i++){
 		if($categories[$i]['id'] == $product->categoryid){
@@ -35,13 +35,13 @@ if(isset($_GET['productid'])){
 			///echo $category . '<br>';
 			break;
 		}
-		if(isset($categories[$i]['subcategory'])){		
+		if(isset($categories[$i]['subcategory'])){
 			for($j=0;$j<count($categories[$i]['subcategory']);$j++){
 				//echo $product->categoryid . ' '.$categories[$i]['subcategory'][$j]['id'].'<br>';
-				if($categories[$i]['subcategory'][$j]['id'] == $product->categoryid){					
+				if($categories[$i]['subcategory'][$j]['id'] == $product->categoryid){
 					$category = $categories[$i]['subcategory'][$j]['name'];
 					break;
-				}				
+				}
 			}
 		}
 	}

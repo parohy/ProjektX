@@ -6,7 +6,7 @@
  * Time: 11:21
  */
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/';
+$path .= '/';
 include_once ($path.'API/Product.php');
 
 

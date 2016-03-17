@@ -12,7 +12,7 @@ session_start();
  * Date: 5. 1. 2016
  */
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/';
+$path .= '/';
 include_once ($path.'API/Orders.php');
 include_once ($path.'API/PDFGen.php');
 include_once ($path.'API/Orderdetails.php');

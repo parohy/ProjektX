@@ -6,7 +6,7 @@
  * Time: 14:23
  */
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/';
+$path .= '/';
 include_once ($path . 'API/Database.php');
 include_once ($path . 'API/Category.php');
 

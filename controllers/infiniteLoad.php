@@ -4,11 +4,11 @@
  * Date: 17. 1. 2016
  */
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/';
+$path .= '/';
 include_once ($path.'API/Product.php');
 include_once ($path.'controllers/ProductDisplay.php');
 
-$tempProduct = new Product(); 
+$tempProduct = new Product();
 $total = $tempProduct->getTotalProducts() - $tempProduct->getTotalArchived() - 1;?>
 
 <script>
@@ -19,7 +19,7 @@ var max = "<?php echo $total;?>";
 $(window).ready(function()
 {
     enableLoad();
-}); 
+});
 
 function enableLoad()
 {
@@ -46,10 +46,10 @@ function loadProducts()
 		$.post("controllers/infiniteLoadAjax.php",{load:load, sort:currentTab},function(data){
 			$('.activeTab').append(data);
 			$(".thumbnailImage").one('load', function() {
-		        adjustOneThumbnail($(this));       
+		        adjustOneThumbnail($(this));
 		    });
 		});
-		load++;				
+		load++;
 	}
 }
 

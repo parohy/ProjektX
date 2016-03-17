@@ -16,7 +16,7 @@ session_start();
 
 
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/';
+$path .= '/';
 include ($path."API/Database.php");
 include ($path."controllers/ViewcounterController.php");
 
@@ -80,12 +80,12 @@ if(isset($_GET['login']) && $_GET['login'] == 'false') {
     <script src="libraries/js/jquery-1.11.3.min.js"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <!--<script src="libraries/js/cart.js"></script>-->
-   
+
 </head>
 <body>
 
 <div class="container">
-	
+
     <header id="page-header" class="group">
         <?php
             require_once ($path.'view/includes/header.php');

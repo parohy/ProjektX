@@ -6,7 +6,7 @@
  * Time: 11:21
  */
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/';
+$path .= '/';
 include_once ($path.'API/InputRecheck.php');
 include_once ($path.'API/UserHandler.php');
 include_once ($path.'API/Mail.php');
@@ -17,7 +17,7 @@ $newUser = null;
 $exitTo = '?page=private/pageSettings';
 
 if(isset($_POST['name'])){
-	$name = $check->dumpSpecialChars($_POST['name']); 
+	$name = $check->dumpSpecialChars($_POST['name']);
 }
 
 if(isset($_POST['surname'])){
@@ -63,4 +63,3 @@ else{
     exit(header('Location: ' . $exitTo));
 }
 ?>
-	

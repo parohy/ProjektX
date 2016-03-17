@@ -14,7 +14,7 @@ else{
 session_start();
 
 $absolutePath = $_SERVER['DOCUMENT_ROOT'];
-$absolutePath .= "ProjektX/";
+$absolutePath .= "/";
 
 $allowedExtensions = array("jpeg","jpg","JPG","png","PNG","gif","GIF");
 $isEmpty = empty($_FILES['files']['name'][0]);
@@ -87,4 +87,3 @@ else {
     header("Location:../?page=private/pageSettings&settings=sliderSettings");
     exit();
 }
-

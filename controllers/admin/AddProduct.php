@@ -8,7 +8,7 @@
  */
 
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/'; 
+$path .= '/'; 
 include_once ($path."API/Product.php");
 
 $exitTo = '?page=';
@@ -59,4 +59,3 @@ if(headers_sent()){
 else{
     exit(header('Location: '. $url));
 }
-

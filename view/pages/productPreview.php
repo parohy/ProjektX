@@ -7,7 +7,7 @@
  */
 
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/';
+$path .= '/';
 include_once ($path .'controllers/ProductPreviewController.php');
 include_once ($path .'API/ImageScaling.php');
 include_once ($path .'controllers/ProductDisplay.php');
@@ -58,13 +58,13 @@ $(document).ready(function()
 
 </script>
 
-<div id="product-prewiew">    
+<div id="product-prewiew">
     <!-- album of pictures
             @author Tomas Paronai-->
             <script src="libraries/js/albumScript.js"></script>
             <div class="pictable">
                 <table>
-                	
+
                 		<?php
                 			$alpha = range('a','z');
                 			$index = 0;
@@ -76,7 +76,7 @@ $(document).ready(function()
                 				$index++;
                 			}
                 		?>
-                	
+
                 </table>
             </div>
     <div class="product-slider">
@@ -90,24 +90,24 @@ $(document).ready(function()
                 else{
                 	$size = $scaling->productPreviewImage($product['productid']);
                 	echo '<a class="highslide" href="libraries/img/products/' . $product['productid'] . '/' . $product['productid'] . 'a.jpg" onclick="return hs.expand(this)"><img id="propic" src="libraries/img/products/' . $product['productid'] . '/' . $product['productid'] . 'a.jpg" width="' . $size[0] . '" height="' . $size[1] . '"></a>';
-                }            
+                }
             ?>
     </div>
     <div id="about-product" class="group">
-        
+
 		<div class="product-name">
             <p><?php echo strtoupper($product['name']);?></p>
         </div>
-        
+
         <div class="desc">
             <div class="description-title">
-                <p> DESCRIPTION</p>                
-            </div>            	
+                <p> DESCRIPTION</p>
+            </div>
             <div class="description-text">
                 <?php echo $product['description'];?>
-            </div>       
+            </div>
         </div>
-        
+
         <div class="product-ranking">
             <?php
                 if($product['numofratings'] > 0) {
@@ -153,19 +153,19 @@ $(document).ready(function()
                 }
             ?>
             </div>
-    
+
         <div class="aftername1">
-                  
+
             <!--<div class="product-brand">
                 <?php
                     $brand = $productController->getProductBrand($product['brandid']);
                     echo strtoupper($brand['name']);
                 ?>
             </div>-->
-                
-            
 
-                
+
+
+
 
                 <!--<span class="short-describtion">
                 <?php echo substr($product['description'],0,200);?>
@@ -188,9 +188,9 @@ $(document).ready(function()
                 </div>
             </form>
     	</div>
-    	
+
     </div>
-    
+
 </div>
 <div class="Similar">
     <h2>Similar Products</h2>
@@ -238,7 +238,7 @@ $(document).ready(function()
         else if(isset($_SESSION['username']) && $_SESSION['username'] == "admin"){
             $out = '<div class="admin-buttons"><a href="?page=private/pageSettings&settings=addProduct&productid='.$id.'"><i class="fa fa-pencil-square-o fa-2x"></i></a> <a href="?page=private/editProduct/deleteProduct&productid='.$id.'"><i class="fa fa-times fa-2x"></i></a></div>';
         }
-         
+
         return $out;
     }
     ?>

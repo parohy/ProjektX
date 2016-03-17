@@ -8,28 +8,28 @@
 
 
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/';
+$path .= '/';
 include_once ($path . 'API/Database.php');
 
 class ProductEditorController{
-	
+
 	private $handlerDB;
-	
+
 	public function __construct() {
 		$this->handlerDB = new DBHandler();
 	}
-	
+
 	public function getProducts() {
 		$this->handlerDB->beginTransaction();
 		$this->handlerDB->query('SELECT * FROM products');
 		$results = $this->handlerDB->resultSet();
 		$this->handlerDB->endTransaction();
-	
+
 		return $results;
 	}
-	
+
 	public function displayProducts($products, $pagination, $display) {
-	
+
 		$max = count($products);
 		if($pagination * $display > $max)
         {
@@ -39,9 +39,9 @@ class ProductEditorController{
         {
             $amount = $pagination * $display;
         }
-		 
+
 		echo '<ul class="items">';
-	
+
 		for($i = ($pagination - 1) * $display; $i < $amount; $i++) {
 			echo '<li>';
 			if($products[$i]['deleted'] != 0){
@@ -59,10 +59,10 @@ class ProductEditorController{
 											  }
 			echo '</li>';
 		}
-	
+
 		echo '</ul>';
 		echo '<a class="page-link" class="user-controls" href="?page=private/pageSettings&settings=addProduct"><i class="fa fa-plus-circle fa-2x"></i></a>';
-	
+
 		echo '<div class="paging">';
 		echo '<div class="displayAmount">';
         echo '<a class="page" href="?page=private/pageSettings&settings=products&display=10&pagination=1">10</a>';
@@ -71,7 +71,7 @@ class ProductEditorController{
         echo '<a class="page" href="?page=private/pageSettings&settings=products&display=100&pagination=1">100</a>';
         echo '</div>';
 
-		
+
 		$pages = count($products) / $display;
         if(count($products) % $display != 0)
         {
@@ -83,5 +83,5 @@ class ProductEditorController{
 			echo '<a class="page" href="?page=private/pageSettings&settings=products&display='.$display.'&pagination='.$i.'">'.$i.'</a>';
 		}
 		echo '</div>';
-	}	
+	}
 }

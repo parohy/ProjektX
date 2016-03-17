@@ -6,7 +6,7 @@
  * Time: 14:23
  */
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/';
+$path .= '/';
 ?>
 
 <link rel="stylesheet" type="text/css" href="libraries/css/categories.css">

@@ -16,7 +16,7 @@ if(session_status() == PHP_SESSION_NONE) { // start session if it doesnt exist
 }
 
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/';
+$path .= '/';
 include ($path .'API/SearchModel.php');
 
 if(isset($_GET['search'])) {
@@ -27,6 +27,6 @@ if(isset($_GET['search'])) {
 
     $_SESSION['results'] = $results;
     header('Location:../?page=mainCategory&catid=1&name='.$searchTerm);
-    
+
     exit();
 }

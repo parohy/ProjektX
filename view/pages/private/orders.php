@@ -6,7 +6,7 @@
  * Time: 9:13 PM
  */
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/';
+$path .= '/';
 
 include ($path . 'controllers/admin/OrderEditorController.php');
 
@@ -34,5 +34,3 @@ if(isset($_GET['pagination'])){
 }
 
 $orderEditor->displayOrders($orders,$pagination,$display);
-
-

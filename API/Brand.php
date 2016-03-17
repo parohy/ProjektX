@@ -21,7 +21,7 @@ class Brand{
 	 * @author Matus Kokoska
          * @param int id
 	 */
-        
+
         public function __construct($id=null){
             $this->handlerDB = new DBHandler();
             $this->id=$id;
@@ -29,10 +29,10 @@ class Brand{
 	}
 
 	/**
-	 * If $id is set, loads existing Brand from database. 
+	 * If $id is set, loads existing Brand from database.
 	 * @author Matus Kokoska
 	 */
-        
+
         public function load() {
             if($this->id != null){
                 $this->handlerDB->query("SELECT * FROM brands where brandid=:id");
@@ -49,12 +49,12 @@ class Brand{
                 $error="Id not set.";
             }
         }
-	
+
         /**
 	 * Saves edited properties of brand or creates a new brand if $id is not set
 	 * @author Matus Kokoska
 	 */
-        
+
         public function save(){
             if($this->id == null){
                 $this->handlerDB->query("INSERT INTO brands (name) VALUES (:name)");
@@ -66,25 +66,25 @@ class Brand{
             $this->handlerDB->bind(':name', $this->name);
             $this->handlerDB->execute();
         }
-	
+
         /**
 	 * Deletes existing brand
 	 * @author Matus Kokoska
 	 */
-        
+
         public function delete() {
             if($this->id!=null){
                 $this->handlerDB->query("DELETE FROM brands WHERE brandid LIKE '%".$this->id."%'");
             }
-            $this->handlerDB->execute();   
+            $this->handlerDB->execute();
         }
-        
+
         /**
 	 * Gets all brands from a database in an array
 	 * @author Matus Kokoska
          * @return array of all brands
 	 */
-        
+
         public function getAllBrands(){
         	$this->handlerDB->query("SELECT * FROM brands");
         	$result = $this->handlerDB->resultSet();

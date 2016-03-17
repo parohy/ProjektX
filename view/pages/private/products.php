@@ -7,7 +7,7 @@
 
 
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/';
+$path .= '/';
 include ($path . 'controllers/admin/ProductEditorController.php');
 
 $productEditor = new ProductEditorController();

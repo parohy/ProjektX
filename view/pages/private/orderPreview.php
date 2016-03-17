@@ -7,7 +7,7 @@
  */
 
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/';
+$path .= '/';
 
 include_once($path . 'API/Orders.php');
 include_once($path . 'API/Orderdetails.php');
@@ -57,5 +57,3 @@ if($_SESSION['userrole'] != 1){
     //echo '<a class="page-link" href="?page=private/pageSettings&settings=editOrder/editOrder&orderid='.$order->id.'&edit=ship"><i class="fa fa-plane fa-2x"></i></a>';
     echo '<a class="page-link" href="?page=private/pageSettings&settings=editOrder/editOrder&orderid='.$order->id.'&edit=delete"><i class="fa fa-times fa-2x"></i></a>';
 }
-
-

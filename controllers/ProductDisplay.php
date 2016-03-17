@@ -7,7 +7,7 @@
  * Time: 11:44
  */
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= 'ProjektX/';
+$path .= '/';
 include_once ($path . 'API/ImageScaling.php');
 include_once ($path.'API/Product.php');
 
@@ -27,9 +27,9 @@ class ProductDisplay
             $this->printSortSelect($sortChosen);
         echo    "<div class=\"brands\">Brands: </div>
             ";
-            $this->productBrands($brands, $brandsChosen);             
+            $this->productBrands($brands, $brandsChosen);
         echo "</div>";
-        
+
         echo "<div class=\"search-content\">";
 
         $scaling = new ImageScaling();
@@ -87,10 +87,10 @@ class ProductDisplay
                 $(window).ready(function()
                 {
                     adjustThumbnail();
-                }); 
+                });
             </script>";
     }
-    
+
     public function displayProduct($id){
         $date = new DateTime();
         $timeStamp = $date->getTimestamp();
@@ -111,7 +111,7 @@ class ProductDisplay
 
     	return $out;
     }
-    
+
     private function productButtons($id, $name, $price){
     	$out = "";
     	/*if((isset($_SESSION['userrole']) && $_SESSION['userrole'] != "2") || !isset($_SESSION['username'])){
@@ -128,7 +128,7 @@ class ProductDisplay
             $out = '<div class="admin-buttons"><a href="?page=private/pageSettings&settings=addProduct&productid='.$id.'"><i class="fa fa-pencil-square-o fa-2x"></i></a> <a href="?page=private/editProduct/deleteProduct&productid='.$id.'"><i class="fa fa-times fa-2x"></i></a></div>';
 
         }
-    	 
+
     	return $out;
     }
 
@@ -147,7 +147,7 @@ class ProductDisplay
                     }
                 }
                 $this->printBrandSelect($brands[$i]['brandid'], $brands[$i]['name'], $isChecked);
-            }             
+            }
             echo "
                 </div>
                 <div class=\"ApplyBrandChoice\" onclick=\"filterSearch()\">Filter</div>
@@ -163,11 +163,11 @@ class ProductDisplay
                     }
                 }
                 $this->printBrandSelect($brands[$i]['brandid'], $brands[$i]['name'], $isChecked);
-            }             
+            }
             echo "
                     <div class=\"MoreBrands\">
                         +More
-                    </div>  
+                    </div>
                 </div>
                 <div class=\"ApplyBrandChoice\" onclick=\"filterSearch()\">Filter</div>
                 ";
@@ -185,7 +185,7 @@ class ProductDisplay
                                 }
                             }
                             $this->printBrandSelect($brands[$i]['brandid'], $brands[$i]['name'], $isChecked);
-                        }       
+                        }
             echo "
                     </div>
                 </div>
@@ -199,9 +199,9 @@ class ProductDisplay
                 <select id=\"sorting\">
                     <option value=\"0\"".$this->echoSelected(0, $sortChosen).">Most popular</option>
                     <option value=\"4\"".$this->echoSelected(4, $sortChosen).">Price: High to Low</option>
-                    <option value=\"3\"".$this->echoSelected(3, $sortChosen).">Price: Low to High</option>   
+                    <option value=\"3\"".$this->echoSelected(3, $sortChosen).">Price: Low to High</option>
                     <option value=\"5\"".$this->echoSelected(5, $sortChosen).">A-Z</option>
-                    <option value=\"6\"".$this->echoSelected(6, $sortChosen).">Z-A</option>                                           
+                    <option value=\"6\"".$this->echoSelected(6, $sortChosen).">Z-A</option>
                 </select>
             </div>
             ";
@@ -224,4 +224,3 @@ class ProductDisplay
                 ";
     }
 }
-

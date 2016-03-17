@@ -13,7 +13,7 @@ $(function () {
             popup("ACTION CONFIRMATION",
                 "<h1 class=\"textinpopup\">Do you want to continue shopping?</h1>" +
                 "<button id='confirm'>Yes, please.</button><button id='decline'>No, thanks.</button>", 400, 180);
-            
+
             $("#confirm").click(function(){
                 $.get(destination, function (data, status) {
                     $(".amount").innerHTML = "";
@@ -25,7 +25,7 @@ $(function () {
 
             $("#decline").click(function () {
                 $.get(destination, function (data, status) {
-                    window.location = "/ProjektX/?page=cart";
+                    window.location = "/?page=cart";
                 });
                 return false;
             });
@@ -39,7 +39,7 @@ $(function () {
         var actual = parseInt($(this).val());
         var productId = parseInt($(this).attr("data-id"));
 
-        var link = "/ProjektX/?page=cart&change=" + productId + "&value=" + actual;
+        var link = "/?page=cart&change=" + productId + "&value=" + actual;
 
         window.location = link;
         return false;
