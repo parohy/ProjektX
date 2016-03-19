@@ -35,14 +35,13 @@ class ProductDisplay
         $scaling = new ImageScaling();
         $itemCount = 0;
 
-        $date = new DateTime();
-        $timeStamp = $date->getTimestamp();
-
         if(count($searchResult) === 0){
 
             echo '<div class="categoryMessage">No products matching criteria.</div>';
 
         } else {
+            $date = new DateTime();
+            $timeStamp = $date->getTimestamp();
 
             foreach($searchResult as $res) {
 
@@ -60,7 +59,7 @@ class ProductDisplay
                     echo "
                             <div class=\"product-photo\">
                                 <img class=\"loader\" src=\"libraries/img/loader.gif\" alt=\"loading...\">
-                                <a href=\"?page=productPreview&product=" . $res . "\"><img class=\"thumbnailImage notLoaded\" src=\"libraries/img/products/" . $res . "/" . $res . "a.jpg?".$timeStamp."\" alt=\"product photo\"></a>
+                                <a href=\"?page=productPreview&product=" . $res . "\"><img class=\"thumbnailImage notLoaded\" src=\"".$this->productImagePath($product->categoryid)."?".$timeStamp."\" alt=\"product photo\"></a>
                             </div>
                             <div class=\"product-description\">
                                 <hr class=\"product-line\">
@@ -99,7 +98,7 @@ class ProductDisplay
     	$product = new Product($id);
         if($product->deleted === false){
             $out .= '<div class="product-item">';
-            $out .= '<div class="product-photo"><img class="loader" src="libraries/img/loader.gif" alt="loading..."><a href="?page=productPreview&product='.$product->id.'"><img alt="product-photo" src="libraries/img/products/'.$product->id.'/'.$product->id.'a.jpg?'.$timeStamp.'" class="thumbnailImage notLoaded"></a></div>';
+            $out .= '<div class="product-photo"><img class="loader" src="libraries/img/loader.gif" alt="loading..."><a href="?page=productPreview&product='.$product->id.'"><img alt="product-photo" src="'.$this->productImagePath($product->categoryid).'?'.$timeStamp.'" class="thumbnailImage notLoaded"></a></div>';
             $out .= '<div class="product-description">';
             $out .= '<hr class="product-line">';
             $out .= '<h3 class="product-name">'.substr($product->name,0,40).'</h3>';
@@ -222,5 +221,51 @@ class ProductDisplay
                     <div class=\"BrandName\">".$brandName."</div>
                 </div>
                 ";
+    }
+
+    public function productImagePath($categoryid){
+        switch($categoryid){
+            case 2: {
+                $cat = 2;
+                break;
+            }
+            case 8:
+            case 9:
+            case 10:
+            case 11:
+            case 12: {
+                $cat = 3;
+                break;
+            }
+            case 13:
+            case 14:
+            case 15: {
+                $cat = 4;
+                break;
+            }
+            case 16:
+            case 17: {
+                $cat = 5;
+                break;
+            }
+            case 18:
+            case 19:
+            case 20: {
+                $cat = 6;
+                break;
+            }
+            case 21:
+            case 22:
+            case 23: {
+                $cat = 7;
+                break;
+            }
+            default: {
+                $cat = 7;
+                break;
+            }
+        }
+
+        return 'libraries/img/categories/'.$cat.'.png';
     }
 }

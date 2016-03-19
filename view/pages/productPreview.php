@@ -64,7 +64,7 @@ $(document).ready(function()
             <script src="libraries/js/albumScript.js"></script>
             <div class="pictable">
                 <table>
-
+                        <!-- <REAL CODE>
                 		<?php
                 			$alpha = range('a','z');
                 			$index = 0;
@@ -76,10 +76,24 @@ $(document).ready(function()
                 				$index++;
                 			}
                 		?>
+                        -->
 
+                        <!-- PLACEHOLDER ITEMS CODE -->
+                        <?php
+                            $productDisplay = new ProductDisplay();
+                            $index = 0;
+                            while(file_exists($productDisplay->productImagePath($product['categoryid'])) && $index < 3){
+                                $localPath = $productDisplay->productImagePath($product['categoryid']);
+                                $alt = $product['productid'] . '.png';
+                                //echo '<td><a href="?page=productPreview&product=' . $product['productid'] . '&index='. $alpha[$index] . '" onclick="changePic('.$alpha[$index].')"><img class="image-album" src="' . $localPath . '" alt="' . $alt . '" width="' . $width . '" height="' . $height . '"></a></td>';
+                                echo '<tr><img class="image-album" src="' . $localPath . '" alt="' . $alt . '" width="114" height="114"></tr>';
+                                $index++;
+                            }
+                        ?>
                 </table>
             </div>
     <div class="product-slider">
+            <!-- <REAL CODE>
             <?php
                 $scaling = new ImageScaling();
                 if(isset($_GET['index'])){
@@ -91,6 +105,13 @@ $(document).ready(function()
                 	$size = $scaling->productPreviewImage($product['productid']);
                 	echo '<a class="highslide" href="libraries/img/products/' . $product['productid'] . '/' . $product['productid'] . 'a.jpg" onclick="return hs.expand(this)"><img id="propic" src="libraries/img/products/' . $product['productid'] . '/' . $product['productid'] . 'a.jpg" width="' . $size[0] . '" height="' . $size[1] . '"></a>';
                 }
+            ?>
+            -->
+
+            <!-- PLACEHOLDER ITEMS CODE -->
+            <?php
+                $size = $scaling->productPreviewImage($product['productid']);
+                echo '<a class="highslide" href="'.$productDisplay->productImagePath($product['categoryid']).'" onclick="return hs.expand(this)"><img id="propic" src="'.$productDisplay->productImagePath($product['categoryid']).'" width="' . $size[0] . '" height="' . $size[1] . '"></a>';
             ?>
     </div>
     <div id="about-product" class="group">
@@ -213,7 +234,7 @@ $(document).ready(function()
                 echo "
                         <div class=\"product-photo\">
                             <img class=\"loader\" src=\"libraries/img/loader.gif\" alt=\"loading...\">
-                            <a href=\"?page=productPreview&product=" . $similar[$i] . "\"><img class=\"thumbnailImage notLoaded\" src=\"libraries/img/products/" . $similar[$i] . "/" . $similar[$i] . "a.jpg?".$timeStamp."\" alt=\"product photo\"></a>
+                            <a href=\"?page=productPreview&product=" . $similar[$i] . "\"><img class=\"thumbnailImage notLoaded\" src=\"".$productDisplay->productImagePath($product->categoryid)."?".$timeStamp."\" alt=\"product photo\"></a>
                         </div>
                         <div class=\"product-description\">
                             <hr class=\"product-line\">

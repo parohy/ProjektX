@@ -1,4 +1,10 @@
-<?php ?>
+<?php 
+
+$path = $_SERVER['DOCUMENT_ROOT'];
+$path .= '/';
+include_once ($path .'controllers/ProductDisplay.php');
+$productDisplay = new ProductDisplay();
+?>
 <link rel="stylesheet" type="text/css" href="libraries/css/cart.css">
 <div class="cartpage">
 	<div class="title-page">
@@ -50,7 +56,7 @@
 
                 echo '<div class="product-body">';
                 echo '<div class="product-img"><a href="?page=productPreview&product=' . $cart['id'] . '">
-				        <img src="libraries/img/products/' . $cart['id'] . '/' . $cart['id'] . 'a.jpg" alt="product blank icon" width="100" height="100"></a>
+				        <img src="libraries/img/icons/cart-icon gray.png" alt="product blank icon" width="100" height="100"></a>
 			          </div>';
                 echo '<div class="product-name">
 				      <span class="namespan"><a href="?page=productPreview&product=' . $cart['id'] . '">' . $cart['name'] . '</a></span>
